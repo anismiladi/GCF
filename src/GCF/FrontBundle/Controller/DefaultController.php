@@ -239,6 +239,7 @@ public function MapAction()
             //print_r($Gouv);
             if($maxNbProjets < $Gouv["nbProjets"]) {$maxNbProjets=$Gouv["nbProjets"];}
         }
+        $intervProjets = floor($maxNbProjets / 5)+1;
         //echo $maxNbProjets."<br>";
         $Gouvernorats = array(
             1 => array(
@@ -392,6 +393,7 @@ public function MapAction()
             'Gouvs' => $Gouvs,
             'Gouvernorats' => $Gouvernorats,
             'maxNbProjets' => $maxNbProjets,
+            'intervProjets' => $intervProjets,
         ));
     }
 }

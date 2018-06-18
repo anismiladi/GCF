@@ -33,10 +33,10 @@ class AppKernel extends Kernel
             // Then add SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
             
-            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            //new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
 
             // You need to add this dependency to make media functional
-            new JMS\SerializerBundle\JMSSerializerBundle(),
+            //new JMS\SerializerBundle\JMSSerializerBundle(),
             
             //new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
             
@@ -47,7 +47,7 @@ class AppKernel extends Kernel
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
             
-            new Oneup\FlysystemBundle\OneupFlysystemBundle(),
+            //new Oneup\FlysystemBundle\OneupFlysystemBundle(),
             //new MediaMonks\SonataMediaBundle\MediaMonksSonataMediaBundle(),
             
             new GCF\MainBundle\GCFMainBundle(),

@@ -1,34 +1,14 @@
 <svg viewBox=" 0 0 230 487.5"   version="1.1"   xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
 
     <g class="map" transform="scale(1.5)">
-        {% for i in 1..24 %}
-            <a xlink:title="{{ Gouvernorats[i]["name"] }}" id="{{ Gouvernorats[i]["name"] }}" class="HI-map" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                <path d="{{ Gouvernorats[i]["map"] }}" ></path><!--  -->
+        {% for Gouv in Gouvs  %}
+            <!-- class="HI-map" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"                   style="stroke:#fdb11e !important;fill:#dc991a!important;" -->
+            <a xlink:title="{{ Gouvernorats[Gouv.idmap]["name"]}} ({{ Gouv.nbProjets }})" id="{{ Gouvernorats[Gouv.idmap]["name"] }}" > 
+                <path d="{{ Gouvernorats[Gouv.idmap]["map"] }}" style="stroke:green; fill:green; opacity:{{ 0.2+((Gouv.nbProjets/intervProjets)/5) }}"></path><!-- stroke:#fdb11e;  -->
             </a>
         {% endfor %}
     </g>
-
-    <defs>
-        <filter id="f1" x="0" y="0">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
-        </filter>
-    </defs>
-    {% for Gouv in Gouvs  %}
-        <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ (Gouv.nbProjets/maxNbProjets)*35 }}" fill="green" fill-opacity="0.40"  />
-    {% endfor %}
     
-    <defs>
-     <filter height="200%" width="200%" y="-50%" x="-50%" id="flou_blur">
-      <feGaussianBlur stdDeviation="3" in="SourceGraphic"/>
-     </filter>
-    </defs>
-    {% for Gouv in Gouvs  %}
-        {% if Gouv.nbProjets %}
-        <circle filter="url(#flou_blur)" cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ (Gouv.nbProjets/maxNbProjets)*35 }}" fill="green" fill-opacity="0.40"  />
-        <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="2" fill="green" fill-opacity="1"  />
-        {% endif %}
-    {% endfor %}
-
 </svg>
 <div class="map-tooltip">
     Tooltip
@@ -52,8 +32,6 @@
         pointer-events:none;
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-
-
 </style>
 
 <script>
