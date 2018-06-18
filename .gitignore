@@ -28,6 +28,8 @@
 /vendor/
 
 # Assets and user uploads
+/bower_components/
+/components/
 /web/bundles/
 /web/uploads/
 
