@@ -178,7 +178,7 @@ fos_ck_editor:
             filebrowserBrowseRouteParameters: []
 
 fm_elfinder:
-    #assets_path: / # default is /assets, this is where css/js elfinder files are
+    assets_path: ./assets # default is /assets, this is where css/js elfinder files are
     instances:
         default:
             locale: %locale% # defaults to current request locale
