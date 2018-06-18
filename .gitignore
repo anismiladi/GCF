@@ -30,6 +30,7 @@
 # Assets and user uploads
 /bower_components/
 /components/
+/web/assets/
 /web/bundles/
 /web/uploads/
 
@@ -48,3 +49,4 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+assets
