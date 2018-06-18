@@ -1,0 +1,13 @@
+menu:
+  Home: Home
+  Actors: Actors
+  Projects: Projects
+  Publications: Publications
+  E-learning: E-learning
+  Search: Search
+  News: News
+  GreenBlogger: Green Blogger
+
+core:
+  Hello: Hello !
+

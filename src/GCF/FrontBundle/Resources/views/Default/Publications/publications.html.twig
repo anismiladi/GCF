@@ -1,0 +1,204 @@
+{% extends '@GCFFront/base.html.twig' %}
+
+{% block title %} GCF | {{ pageTitle }} {% endblock %}
+
+{% block stylesheets %}
+
+    <style>
+        .nav_our_and_green_blogger {
+            margin-bottom: 30px !important;
+        }
+
+        .nav_our_and_green_blogger li {
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .nav_our_and_green_blogger a {
+            color: #22AA86;
+        }
+
+        #catPub-0{
+            text-align: center;
+        }
+
+        #green_blogger_pub_tab_container {
+            display: none;
+        }
+        #catPub-1{
+            text-align: center;
+        }
+
+        #autres_pub_tab_container{
+            display:none;
+        }
+        #catPub-2{
+            text-align: center;
+        }
+        .nav_our_and_green_blogger li a h2{
+            font-weight: inherit ;
+            font-size: inherit;
+            line-height: inherit;
+            margin: inherit;
+        }
+
+        .post_title{color:#333 }
+
+        .post_title:hover{ text-decoration: none; color:#333 }
+
+    </style>
+
+
+{% endblock %}
+{% block body %}
+
+
+    <div>
+        <div class="col-md-12">
+            <ul class="nav nav-tabs nav_our_and_green_blogger">
+                {#<li class="active" id="our_pub_tab"><a><h2>Nos Publications</h2></a></li>#}
+                {#<li class="" id="green_blogger_pub_tab"><a><h2>Green bloggeur Publications</h2></a></li>#}
+                {#<li class="" id="autres_pub_tab"><a><h2>Autres</h2></a></li>#}
+                {% for key, catPub in catsPub %}
+                    <li id="catPub-{{ key }}"><a><h2>{{ catPub.nom }}</h2></a></li>
+                {% endfor %}
+                <div class="navbar-right">
+                    <a class="btn btn-default" onclick="showGBpopup()">+ Green Blogger</a>
+                </div>
+            </ul>
+        </div>
+
+        <div id="our_pub_tab_container">
+
+            {% for publication in nospublications %}
+
+                <div class="col-md-6 col-sm-6 col-xs-12"
+                     style="background: whitesmoke;border: solid white; padding-top: 10px; padding-bottom:10px ">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <a href="{{ path('gcf_front_single_publications_page',{'id': publication.id}) }}" title="{{ publication.titre }}">
+                                <img src="http://placehold.it/200x200" class="img-responsive" style="width: 100%;"  alt="{{ publication.titre }}" title="{{ publication.titre }}" />
+                            </a>
+                        </div>
+                        <div class="col-md-7">
+                            <h4><a href="{{ path('gcf_front_single_publications_page',{'id': publication.id}) }}" class="post_title" title="{{ publication.titre }}">{{ publication.titre }}</a></h4>
+                            <h6><strong>Date :</strong> 2009</h6>
+                            <p class="description" style="font-size: 13px;">{{ publication.contenu|slice(0, 62) }}...</p>
+                            <p style="width: 100%; text-align: right">
+                                <a href="{{ path('gcf_front_single_publications_page',{'id': publication.id}) }}" title="{{ publication.titre }}" class="button_see_more">Lire la suite. </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div id="green_blogger_pub_tab_container">
+
+            {% for gbpublication in gbpublications %}
+
+                <div class="col-md-6 col-sm-6 col-xs-12"
+                     style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px ">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <a href="{{ path('gcf_front_single_publications_page',{'id': gbpublication.id}) }}" title="{{ gbpublication.titre }}">
+                                <img src="http://placehold.it/200x200" class="img-responsive" alt="{{ gbpublication.titre }}" title="{{ gbpublication.titre }}"/>
+                            </a>
+                        </div>
+                        <div class="col-md-7">
+                            <h4>
+                                <a href="{{ path('gcf_front_single_publications_page',{'id': gbpublication.id}) }}" class="post_title" title="{{ gbpublication.titre }}">
+                                    {{ gbpublication.titre }}
+                                </a>
+                            </h4>
+                            <h6><strong>Date :</strong> 2009</h6>
+                            <p class="description" style="font-size: 13px;">
+                                {{ gbpublication.contenu|slice(0, 62) }}...
+                            </p>
+                            <p style="width: 100%; text-align: right">
+                                <a href="{{ path('gcf_front_single_publications_page',{'id': gbpublication.id}) }}" title="{{ gbpublication.titre }}" class="button_see_more">
+                                    Lire la suite. </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+
+        <div id="autres_pub_tab_container">
+            {% for autrespublication in autrespublications %}
+
+                <div class="col-md-6 col-sm-6 col-xs-12"
+                     style=" background: rgba(255,239,0,0.1);border: solid white; padding-top: 10px; padding-bottom:10px ">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <a href="{{ path('gcf_front_single_publications_page',{'id': autrespublication.id}) }}" title="{{ autrespublication.titre }}">
+                                <img src="http://placehold.it/200x200" class="img-responsive" alt="{{ autrespublication.titre }}" />
+                            </a>
+                        </div>
+                        <div class="col-md-7">
+                            <h4 class="post_title"><a href="{{ path('gcf_front_single_publications_page',{'id': autrespublication.id}) }}" title="{{ autrespublication.titre }}">{{ autrespublication.titre }}</a></h4>
+                            <h6 class="name"><strong>Date :</strong> 2009</h6>
+                            <p class="description" style="font-size: 13px;">
+                                {{ autrespublication.contenu|slice(0, 62) }}...
+                            </p>
+                            <p style="width: 100%; text-align: right">
+                                <a href="{{ path('gcf_front_single_publications_page',{'id': autrespublication.id}) }}" title="{{ autrespublication.titre }}" class="button_see_more" >
+                                    Lire la suite. </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    jQuery('#catPub-0').addClass('active');
+
+    jQuery('#catPub-0').click(function () {
+
+        jQuery('#our_pub_tab_container').css('display', 'block');
+        jQuery('#green_blogger_pub_tab_container').css('display', 'none');
+        jQuery('#autres_pub_tab_container').css('display', 'none');
+
+        jQuery('#catPub-0').addClass('active');
+        jQuery('#catPub-1').removeClass('active');
+        jQuery('#catPub-2').removeClass('active');
+
+    });
+
+    jQuery('#catPub-1').click(function () {
+
+        jQuery('#green_blogger_pub_tab_container').css('display', 'block');
+        jQuery('#our_pub_tab_container').css('display', 'none');
+        jQuery('#autres_pub_tab_container').css('display', 'none');
+
+        jQuery('#catPub-1').addClass('active');
+        jQuery('#catPub-0').removeClass('active');
+        jQuery('#catPub-2').removeClass('active');
+
+    });
+
+    jQuery('#catPub-2').click(function () {
+
+        jQuery('#autres_pub_tab_container').css('display', 'block');
+        jQuery('#green_blogger_pub_tab_container').css('display', 'none');
+        jQuery('#our_pub_tab_container').css('display', 'none');
+
+        jQuery('#catPub-2').addClass('active');
+        jQuery('#catPub-0').removeClass('active');
+        jQuery('#catPub-1').removeClass('active');
+
+    });
+
+</script>
+{% endblock %}
+

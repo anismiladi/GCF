@@ -1,0 +1,6 @@
+app.admin.secteuracteur:
+    class: GCF\MainBundle\Admin\SecteurActeurAdmin
+    tags:
+         - { name: sonata.admin, manager_type: orm, group: Acteur management, label: Secteur Acteur }
+    arguments: [~, GCF\MainBundle\Entity\SecteurActeur, SonataAdminBundle:CRUD]
+    public: true

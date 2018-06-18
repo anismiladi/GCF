@@ -1,0 +1,12 @@
+menu:
+  Home: الإستقبال
+  Actors: الممثلون
+  Projects: المشاريع
+  Publications: المنشورات
+  E-learning: التعلم الإلكتروني
+  Search: بحث
+  News: أخبار
+  GreenBlogger: المدون الأخضر
+
+core:
+  Hello: السلام عليكم !

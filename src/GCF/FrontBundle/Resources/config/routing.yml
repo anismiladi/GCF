@@ -1,0 +1,80 @@
+#routing.yml
+
+gcf_front_homepage:
+    path:     /
+    defaults: { _controller: GCFFrontBundle:Default:index}
+
+
+gcf_front_actorspage:
+    path:     /actors
+    defaults: { _controller: GCFFrontBundle:Actors:index}
+
+gcf_front_actorssectorpage:
+    path:     /actors/secteur/{id}
+    defaults: { _controller: GCFFrontBundle:Actors:ActorsSector }
+
+#gcf_front_getActorspage:
+#    path:     /actors/get-actors/{clicked}
+#    defaults: { _controller: GCFFrontBundle:Actors:gethierarchie }
+
+gcf_default:
+    resource: "@GCFFrontBundle/Resources/config/default.yml"
+    prefix:   /
+
+gcf_front_projectspage:
+    path:     /projects
+    defaults: { _controller: GCFFrontBundle:Projects:index }
+
+gcf_front_resultprojectspage:
+    path:     /projects/result/gouvernorat={gouvernorat}-organisme={organisme}-secteur={secteur}-focus={focus}
+    defaults: { _controller: GCFFrontBundle:Projects:resut  }
+
+gcf_front_projectsinglepage:
+    path: /get-projects-{id}
+    defaults: { _controller: GCFFrontBundle:Projects:singleProject}
+
+
+
+gcf_front_publicationspage:
+    path:     /publications
+    defaults: { _controller: GCFFrontBundle:Publications:index }
+
+gcf_front_single_publications_page:
+    path:     /publications/{id}
+    defaults: { _controller: GCFFrontBundle:Publications:singlePublication }
+
+
+gcf_front_elearningpage:
+    path:     /e-learning
+    defaults: { _controller: GCFFrontBundle:Elearning:index }
+
+
+gcf_front_searchpage:
+    path:     /result
+    defaults: { _controller: GCFFrontBundle:Search:search}
+
+
+
+gcf_front_actualitypage:
+    path:     /news
+    defaults: { _controller: GCFFrontBundle:Actuality:index}
+
+gcf_front_contactpage:
+    path:     /contact-us
+    defaults: { _controller: GCFFrontBundle:Contact:index}
+
+gcf_front_contact_validation_page:
+    path:     /validation-contact-us
+    defaults: { _controller: GCFFrontBundle:Contact:contactAjax}
+
+
+
+gcf_front_save_gb_post_page:
+    path:     /green-blogger/save-post
+    defaults: { _controller: GCFFrontBundle:Publications:saveGbPost }
+
+
+
+gcf_front_event_page:
+    path:     /events
+    defaults: { _controller: GCFFrontBundle:Event:eventIndex }

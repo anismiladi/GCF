@@ -1,0 +1,331 @@
+{% extends '@GCFFront/base.html.twig' %}
+
+{% block title %} GCF - {{ pageTitle }} {% endblock %}
+
+{% block stylesheets %}
+    {#<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">#}
+    <link rel="stylesheet" href="{{ asset('assets/DataTables/datatables.css') }}">
+    <style>
+        div.dataTables_wrapper div.dataTables_filter{
+            display: none;
+        }
+        #myfilter{ padding: 10px 0; border: solid 1px;  margin: 10px 0;}
+
+        .paginate_button.previous, .paginate_button.next{ display: none; }
+
+        .filter_container{margin: 10px 0; padding: 0; border-left: solid #22AA86;}
+        .filter_select_projects{padding-top: 5px;padding-bottom: 5px; width: 100%; max-width:100%; margin: 5px 0; padding: 5px 5px !important; margin: 5px 0; outline: none; font-weight: 600}
+        .filter_select_projects option{color:gray}
+        #myTable thead tr{background: #22AA86; color: white;}
+    </style>
+
+    <style>
+        .page_overlay{
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .popup_details_container{
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: white;
+            height: -moz-max-content;
+            height: -webkit-max-content;
+            height: max-content;
+            width: 500px;
+            border-radius: 2px;
+            border: solid 1px #7ac943;
+        }
+
+        .popup_details_container .close_popup{
+            position: absolute;
+            top: -6px;
+            right: -5px;
+            font-size: 20px;
+            color: red;
+            cursor: pointer;
+        }
+
+        .popup_details_container_inner{
+            padding: 20px;
+        }
+        .popup_details_container_inner table{
+            margin-bottom: 0;
+        }
+        .project_name_show{
+            color:#7ac943;
+            cursor: pointer;
+        }
+        .popup_details_container_inner .line_name{
+            font-weight: 600;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+
+
+
+    <div class="col-md-12 filter_container">
+        <div class="col-md-3">
+            <select class="filter_select_projects col-md-12" name="" id="byGouvernorate">
+                <option value="" >Tous les Gouvernorats</option>
+                {% for gouv in gouvernorates  %}
+                    <option value="{{ gouv.nom }}">{{ gouv.nom }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select class="filter_select_projects col-md-12" name="" id="byOrganisme" >
+                <option value="" > Tous les Organismes</option>
+                {% for organisme in organismes  %}
+                    <option value="{{ organisme.nom }}">{{ organisme.nom}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select class="filter_select_projects col-md-12" name="" id="bySecteur">
+                <option value="" >Tous les Secteurs</option>
+                {% for secteur in secteurs  %}
+                    <option value="{{ secteur.nom }}">{{ secteur.nom }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select class="filter_select_projects col-md-12" name="" id="byFocus">
+                <option value="" >Tous les Focus</option>
+                {% for focus in focuss  %}
+                    <option value="{{ focus.nom }}">{{ focus.nom }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+
+    <div class="col-md-12">
+        <table id="myTable" class="table table-bordered table-striped display" cellspacing="0">
+            <thead>
+
+                <tr>
+                    <th>Nom</th>
+
+                    <th>Gouvernorat</th>
+
+                    <th>Organisme</th>
+
+                    <th>Secteur</th>
+
+                    <th>Focus</th>
+
+                </tr>
+
+            </thead>
+            <tbody class="result-search">
+
+                {% for project in projects %}
+                    <tr>
+                        <td>
+                            <p class="project_name_show" onclick="showDetails( {{ project.id }} )">{{ project.nom }}</p>
+                        </td>
+
+                        <td>
+                            {% for gouvernorat in project.gouvernorat %}
+                                {{ gouvernorat.nom }}
+                            {% endfor %}
+                        </td>
+
+                        {#organisme---->#}
+                        <td>
+                            {% if project.acteur != null %}
+                                {% if project.acteur.secteurActeur != null %}
+                                    {% if (project.acteur.secteurActeur.secteurActeurParent == null) %}
+                                        {{ project.acteur.secteurActeur.nom }}
+                                    {% else %}
+                                        {{ project.acteur.secteurActeur.secteurActeurParent.nom }}
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+
+                        <td>{{ project.secteurProjet.nom }}</td>
+
+                        {% spaceless %}
+                        <td>
+                            <ul>
+                                {% for focus in project.focus %}
+                                    <li>{{ focus.nom}}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        {% endspaceless %}
+
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="page_overlay" onclick="closePop()">
+
+    </div>
+    <div class="popup_details_container">
+        <i class="fa fa-times-circle close_popup" aria-hidden="true" onclick="closePop()"></i>
+        <div class="popup_details_container_inner"></div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/DataTables/datatables.min.js') }}"></script>
+
+    <script src="{{ asset('assets/DataTables/Buttons-1.5.1/js/dataTables.buttons.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            var table = $('#myTable').DataTable( {
+
+                "paging":   true,
+
+                "lengthChange": false,
+                //"lengthMenu": [ 5, 10, 20 ],
+                "lengthMenu": [ 10, 20 ],
+
+                "ordering": true,
+
+                "info":     false,
+
+                "searching": true,
+
+                "searchInput": false
+
+                // dom: 'Bfrtip',
+
+                // buttons: [
+                //     'pdf'
+                // ]
+
+            } );
+
+        //=============================================
+            select =  $("#byGouvernorate")
+                .on('change', function () {
+                    table.column(1)
+                        .search( $(this).val() )
+                        .draw();
+                });
+        //=============================================
+            select = $('#byOrganisme')
+                .on('change', function () {
+                    table.column(2)
+                        .search( $(this).val() )
+                        .draw();
+                });
+        //=============================================
+            select = $('#bySecteur')
+                .on('change', function () {
+                    table.column(3)
+                        .search( $(this).val() )
+                        .draw();
+                });
+        //=============================================
+            select = $('#byFocus')
+                .on('change', function () {
+                    table.column(4)
+                        .search( ($(this).val()).replace(/<[^>]+>/g, '') )
+                        .draw();
+                });
+        } );
+    </script>
+
+
+    <script>
+        {#{{ path('gcf_front_projectsinglepage', {'id': project.id} ) }}#}
+        function showDetails(id){
+
+            $('.page_overlay').css('display', 'block');
+            url = '{{ path('gcf_front_projectsinglepage', {'id': 'id'} ) }}';
+            url = url.replace("id", id);
+            //console.log(url);
+            $.ajax({
+                url: url,
+                data: {'details-projet': 'test'},
+                type: 'POST',
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result);
+
+                    $('.popup_details_container').css('display', 'block');
+
+                    var toAppend = '';
+                    toAppend = '<table class="table table-striped table-bordered">';
+                    toAppend +=  '<thead></thead>';
+                    toAppend +=  '<tbody>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td colspan = "2" style="text-align:center; font-weight:600">'+result.nom+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td class="line_name">Description</td>';
+                    toAppend +=  '<td>'+result.description+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td class="line_name">Secteur</td>';
+                    toAppend +=  '<td>'+result.secteurProjet+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td class="line_name">Acteur</td>';
+                    toAppend +=  '<td>'+result.acteur+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td class="line_name">Focus</td>';
+                    toAppend +=  '<td>'+result.focus+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td class="line_name">Gouvernorat</td>';
+                    toAppend +=  '<td>'+result.gouvernorat+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '</tbody>';
+                    toAppend +=  '</table>';
+
+                    $('.popup_details_container_inner').append(toAppend);
+
+                },
+                error: function (error) {
+                    alert(error);
+                    console.log(error);
+                }
+            });
+
+
+        }
+
+        function closePop() {
+
+            $('.page_overlay').css('display', 'none');
+
+            $('.popup_details_container_inner').empty();
+
+            $('.popup_details_container').css('display', 'none');
+
+        }
+
+
+
+
+
+    </script>
+{% endblock %}

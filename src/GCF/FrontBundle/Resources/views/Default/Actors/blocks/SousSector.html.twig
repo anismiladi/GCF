@@ -1,0 +1,17 @@
+{%  if key == 0 %}
+    {% set classActive = 'in' %}
+{% else %}
+    {% set classActive = ' ' %}
+{% endif %}
+
+<div id="collapse{{ key }}" class="panel-collapse collapse {{ classActive }}">
+
+    <ul class="list-group">
+        {% for key, sectorFils in sectorsFils %}
+            {% if sectorFils.secteurActeurParent == sector.nom %}
+                <li class="list-group-item" onclick="getFils('{{ sectorFils.nom }}')" style="cursor: pointer;"><a style="text-decoration: none;">{{ sectorFils.nom }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+</div>

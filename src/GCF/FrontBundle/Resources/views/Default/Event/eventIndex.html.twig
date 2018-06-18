@@ -1,0 +1,162 @@
+{% extends '@GCFFront/base.html.twig' %}
+
+
+{% block title %} GCF - {{ pageTitle }} {% endblock %}
+
+
+{% block stylesheets %}
+    <style>
+        #content {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .timeline {
+            border-left: 4px solid #22aa86;
+            border-bottom-right-radius: 4px;
+            border-top-right-radius: 4px;
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.8);
+            font-family: "Source Sans Pro", sans-serif;
+            margin: 50px auto;
+            letter-spacing: 0.5px;
+            position: relative;
+            line-height: 1.4em;
+            font-size: 1.03em;
+            padding: 15px;
+            list-style: none;
+            text-align: left;
+            font-weight: 100;
+        }
+        .timeline .event {
+            margin-bottom: 50px;
+            position: relative;
+            color: #333;
+            background: white;
+            border-radius: 2px;
+        }
+        .timeline .event:last-of-type {
+            margin-bottom: 0;
+            border: none;
+        }
+        .timeline .event:before,
+        .timeline .event:after {
+            position: absolute;
+            display: block;
+            top: 0;
+        }
+
+        .timeline .event:after {
+            box-shadow: 0 0 0 4px #22aa86;
+            left: -23px;
+            background: #313534;
+            border-radius: 50%;
+            height: 11px;
+            width: 11px;
+            content: "";
+            top: 5px;
+        }
+
+        .container_timeline .content h3{
+            margin-bottom: 0 !important;
+            margin-top: 0 !important;
+            padding: 2px 10px;
+        }
+
+        .container_timeline .content h4 ,.container_timeline .content p  {
+            padding: 2px 10px;
+        }
+
+        .container_timeline .content h3 {
+            background: #22aa86;
+            color: white;
+
+        }
+
+        .container_timeline {
+            padding: 0 10px;
+            position: relative;
+            background-color: inherit;
+        }
+        .right::after {
+            left: -16px;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 10px;
+            width: 0;
+            z-index: 1;
+            left: 0;
+            border: medium solid whitesmoke;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent whitesmoke transparent transparent;
+        }
+
+        .container_timeline .content{
+            padding: 20px 20px;
+            background-color: whitesmoke;
+            position: relative;
+            border-radius: 2px;
+            display: flex;
+        }
+        .container_timeline_img{
+            width: 20%;
+
+        }
+        .container_timeline_info{
+            width: 80%;
+            padding-left: 20px;
+        }
+
+        .container_timeline_info .fa{
+            width: 25px;
+            padding: 5px;
+
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+
+            background: white;
+            color: #3a5998;
+            border-radius: 50%;
+        }
+        .container_timeline_info .fa:hover { background: #3a5998;  color: white; }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <div id="content">
+
+        <ul class="timeline">
+            {% for evenement in evenements %}
+            <li  class="event">
+                <div class="container_timeline right">
+
+                    <div class="content" >
+                        <div class="container_timeline_img">
+                            <img src="https://placeimg.com/200/200/tech" alt="" style="max-width: 100%">
+                        </div>
+                        <div class="container_timeline_info">
+                            <h3>{{ evenement.nom }}</h3>
+                            <h4>{{ "now"|date("d-m-Y")  }}</h4>
+                            <p>{{ evenement.description }}</p>
+                            <p>
+                            <a href="{{ evenement.lienFB }}" title="Facebook" target="_blank">
+                                <i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i>
+                            </a>
+                            </p>
+                        </div>
+                        </div>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+{% endblock %}

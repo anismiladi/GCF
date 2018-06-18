@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <style>
+        @font-face {
+            font-family: MyriadPro-Regular;
+            src: url({{ asset('assets/fonts/Myriad-pro-reg.ttf') }});
+        }
+        @font-face {
+            font-family: Cabo-Rounded;
+            src: url({{ asset('assets/fonts/Cabo-Rounded-Regular.otf') }});
+        }
+        @font-face {
+            font-family: Rounded_Elegance;
+            src: url({{ asset('assets/fonts/Rounded_Elegance.ttf') }});
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/font-awesome-4.7.0/css/font-awesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick-theme.css') }}">
+
+    {% block stylesheets %}{% endblock %}
+    {% block styleBloc %}{% endblock %}
+</head>
+
+<body>
+<header>
+    {% set youtube = '#youtube' %}
+    {% set twitter = '#twitter' %}
+    {% set instagram = '#instagram' %}
+    {% set linkedin = '#linkedin' %}
+    {% set facebook = '#facebook' %}
+    {% set phone_number = '#55887744' %}
+
+
+    <!-- header bar fixed top -->
+    <div class="bar_fixed_top">
+        <div class="container">
+
+            <div class="col-md-6 col-sm-6 col-xs-6 language_container" >
+                {#<a title="Changer la langue"><i class="fa fa-language" aria-hidden="true"></i></a>#}
+                {#<a ><i class="fa fa-language" aria-hidden="true" style="color:transparent;background: transparent"></i></a>#}
+                <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ar_TN'})) }}" title="العربية">Ar</a></button>
+                <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" title="English">En</a></button>
+                <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" title="Français">Fr</a></button>
+
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-6 social_media_container" >
+                <a href="{{ facebook }}" title="Facebook"><i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i></a>
+                <a href="{{ linkedin }}" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a href="{{ instagram }}" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="{{ twitter }}" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="{{ youtube }}" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                <a ><i style="color: transparent;background: transparent" class="fa fa-phone fa-2x" aria-hidden="true"></i></a>
+                <a href="{{ phone_number }}" title="Telephone"><i class="fa fa-phone fa-2x" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-xs-12 language_rs_container" >
+                <div class="language_btns_mobile">
+                    <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ar_TN'})) }}" title="العربية">Ar</a></button>
+                    <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" title="English">En</a></button>
+                    <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" title="Français">Fr</a></button>
+                </div>
+                <div class="rs_btns_containers" style="direction:rtl">
+                    <a href="{{ facebook }}" title="Facebook" target="_blank"><i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i></a>
+                    <a href="{{ linkedin }}" title="Linkedin" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="{{ instagram }}" title="Instagram" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="{{ twitter }}" title="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="{{ youtube }}" title="Youtube" target="_blank"><i class="fa fa-youtube-play " aria-hidden="true"></i></a>
+                    <a href="{{ phone_number }}" title="Telephone" target="_blank"><i class="fa fa-phone fa-2x" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- header navigation bar -->
+    <div class="custom_navigation"  data-spy="affix" data-offset-top="20">
+        <nav class="navbar navbar-default navbar-static-top" >
+            <div style="position: relative">
+                <div class="container">
+
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{ path('gcf_front_homepage') }}">
+                            <img src="{{ asset('assets/images/GCF-logo-final-green.png') }}" alt="GCF-Logo">
+                        </a>
+
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="{{ path('gcf_front_homepage') }}">{{ 'menu.Home'|trans }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('gcf_front_actorspage') }}">{{ 'menu.Actors'|trans }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('gcf_front_projectspage') }}">{{ 'menu.Projects'|trans }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('gcf_front_publicationspage') }}">{{ 'menu.Publications'|trans }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('gcf_front_elearningpage') }}">{{ 'menu.E-learning'|trans }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('gcf_front_actualitypage') }}">{{ 'menu.News'|trans }}</a>
+                            </li>
+                            <li>
+                                <a class="green_Blogger_btn" onclick="showGBpopup()" style="color: white !important;">{{ 'menu.GreenBlogger'|trans }}</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    {%  if ( path(app.request.get('_route'), app.request.get('_route_params')) == path('gcf_front_homepage') ) %}
+        <!-- Banner website -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 30px">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <div class="item active">
+                    <img src="{{ asset('assets/images/BACKGROUND.jpg') }}" alt="GCF">
+                    <div class="carousel-caption custom_carousel_caption" >
+
+                        <div class="container">
+
+                            <h2 class="slogan_banner_txt">Think green</h2>
+
+                            <form action="{{ path('gcf_front_searchpage') }}" class="col-md-10 col-md-offset-1 home_banner_search">
+
+                                <div class="form-group col-md-5" style="margin: 0;">
+                                    <input type="text" placeholder="Recherche" class="form-control" id="search">
+                                </div>
+                                <div class="form-group col-md-3 " style="margin: 0;">
+                                    <select class="form-control" id="sel1">
+                                        <option>Gouvernorat</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2" style="margin: 0">
+                                    <select class="form-control" id="sel1">
+                                        <option>Type</option>
+                                        <option>Projet</option>
+                                        <option>Publication</option>
+                                        <option>Vidéos</option>
+                                    </select>
+                                </div>
+                                <div class="form-froup col-md-2" style="margin: 0;">
+                                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                        Rechercher
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        {#=================================================#}
+                    {#projects number by sector#}
+        {#=================================================#}
+        {% block PBS %}
+        {% endblock %}
+
+    {% else %}
+        <style>
+            .under_header_navigation{
+
+                background-image: url("{{ asset('assets/images/BACKGROUND.jpg') }}");
+                position: relative;
+                width: 100%;
+                height: 200px;
+                background-size: cover;
+                object-fit: cover;
+                margin-bottom: 40px;
+            }
+            .under_header_navigation > div{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+            .custom_breadcrumb{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin-bottom: 20px;
+                list-style: none;
+                border-radius: 4px;
+            }
+            .custom_breadcrumb h1{margin:0; font-size: 24px; padding: 5px; font-weight: 600;}
+
+            .custom_breadcrumb .breadcrumb{text-align: right; background: transparent}
+
+            .custom_breadcrumb > div { border-radius: 4px; padding: 0;}
+
+            .custom_breadcrumb .col-md-6{padding:0}
+            
+            .custom_breadcrumb li a{
+                color: #22AA86;
+                text-decoration: none;
+            }
+            .custom_breadcrumb li a:hover   {
+                text-decoration: none;
+                color: #25caa2;
+            }
+        </style>
+
+        <div class="under_header_navigation">
+            <div class="container custom_breadcrumb">
+                <div class="col-md-12">
+                    <div>
+                        <div class=" col-md-6" >
+                            <h1>{{ pageTitle }}</h1>
+                        </div>
+                        <div class=" col-md-6">
+                            {#<ol class="breadcrumb" style="margin: 0; background: transparent">#}
+                                {#<li><a href="{{ path('gcf_front_homepage') }}">Accueil</a></li>#}
+                                {#<li><a href="#">Library</a></li>#}
+                                {#<li class="active"><a href="" class="actual_page" style="color: gray">Data</a></li>#}
+                            {#</ol>#}
+                            {{ wo_render_breadcrumbs() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+    {#<div class="banner" style="margin-top:-71px">#}
+    {#<img src="http://placehold.it/2400x500" style="max-width:100%" height="500px" alt="">#}
+    {#</div>#}
+
+</header>
+
+<div class="main-page-site">
+    <div class="container ">
+        <div class="col-md-9 col-sm-12" style="padding: 0; position:static;">
+
+            {% block body %}{% endblock %}
+
+        </div>
+        <div class="col-md-3 col-sm-12 side_bar_custom">
+
+            <div class="col-md-12">
+                {{ render( controller('GCFFrontBundle:Default:Cercles') ) }}
+            </div>
+            <div class="col-md-12" style="display: flex">
+                <img class="sidebar_patenaire_img" src="http://placehold.it/231x100" style="max-width: 100%;">
+            </div>
+
+        </div>
+
+    </div><!-- End container -->
+
+
+</div><!-- End main page site -->
+
+<div id="button_newsletter" class="button_newsletter" title="Newsletter">
+    <i class="fa fa-envelope"></i>
+</div><!-- End newsletter -->
+
+<div class="close_my_newsletter_modal">
+<!-- Modal -->
+</div>
+<div class="my_newsletter_modal">
+    <div class="my_newsletter_form">
+        <div class="close_newsletter">
+            <i class="fa fa-times-circle" aria-hidden="true"></i>
+        </div>
+        <div class="my_newsletter_form_header">
+
+        </div>
+        <div class="my_newsletter_form_inner">
+            <form action="#">
+                {#ajax function instead#}
+
+                <div class="form-group">
+                    <label for="name">Nom:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Nom" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Prenom:</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Prenom" name="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary form-control" style=" background: #7ac943; border-color: #7ac943;">Souscrire</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="button_go_top" class="button_go_top" onclick="topFunction()" >
+    <i class="fa fa-chevron-up" aria-hidden="true" ></i>
+</div><!-- End newsletter -->
+
+
+{#web site footer#}
+<div class="footer-basic">
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 footer_logo_description item" >
+                    <div class="footer_social_media_header">
+                        <img class="footer_logo_GCF" src="{{ asset('assets/images/GCF-logo-final-green.png') }}" alt="" style="">
+                        <div style="border: solid 0.5px white; height: 50px; margin: auto;"></div>
+                        <img class="footer_logo_RAJ" src="{{ asset('assets/images/RAJ-red-logo.png') }}" alt="" style="">
+                    </div>
+                    <div class="footer_description_GCF">
+                        GCF a pour objectif de fournir aux utilisateurs une base de données en ligne
+                        décrivant la situation et les politiques environnementales et climatiques en Tunisie tout en
+                        impliquant les différents acteurs à savoir les citoyens essentiellement les jeunes, la société
+                        civile, les structures publiques, les autorités locales, les structures privées et les médias, tout
+                        en assurant une évaluation et une lecture critique des politiques environnementales afin de les
+                        améliorer.
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 footer_social_media">
+
+                    <div class="footer_social_media_header">
+                        <h3>CONTACT</h3>
+                    </div>
+                    <div class="item footer_social_body">
+                        <div class="item_contact_footer" >
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <p> Rue 18 Janvier 1952, Imm n°15, 2éme Étage, 1001 Tunis </p>
+                        </div>
+                        <div class="item_contact_footer">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <p> Tél: (00216) 70318342 / (00216) 71247538 </p>
+                        </div>
+                        <div class="item_contact_footer">
+                            <i class="fa fa-fax" aria-hidden="true"></i>
+                            <p> Fax: (00216) 71 253 547 </p>
+                        </div>
+                        <div class="item_contact_footer">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <p> Email: contact@raj-tunisie.org</p>
+                        </div>
+                    </div>
+                    <div class="item social rs_btns_footer_container">
+                        <a href="{{ youtube }}" title="Youtube" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                        <a href="{{ twitter }}" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="{{ instagram }}" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="{{ linkedin }}" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <a href="{{ facebook }}" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                    </div>
+
+                </div>
+                <div class="col-md-4 col-sm-4 item footer_website_nav" >
+
+                    <div class="footer_website_nav_menu">
+                        <h3>MENU</h3>
+                    </div>
+                    <nav>
+                        <ul class="">
+                            <li style="list-style: none;"><a href="{{ path('gcf_front_event_page') }}" style="color:white;text-decoration: none">Evenement</a></li>
+                            <li style="list-style: none;"><a href="#bibliotheque" style="color:white;text-decoration: none">Bibliotheque</a></li>
+                            <li style="list-style: none;"><a href="#" style="color:white;text-decoration: none">Green Bloggeur</a></li>
+                            <li style="list-style: none;"><a href="http://raj-tunisie.org" target="_blank" style="color:white;text-decoration: none">RAJ Tunisie</a></li>
+                            <li style="list-style: none;"><a href="{{ path('gcf_front_contactpage') }}" style="color:white;text-decoration: none">Contactez Nous</a></li>
+                        </ul>
+                    </nav>
+
+
+                </div>
+            </div>
+
+        </div>
+        <p class="copyright">CGF Tunisie © 2018 Tous droits réservés <a href="http://www.carthage-solutions.com" target="_blank">CARTHAGE SOLUTIONS</a></p>
+    </footer>
+
+</div>
+
+
+{{ render( controller('GCFFrontBundle:Publications:popup' )) }}
+
+<script src="{{ asset('assets/jquery/dist/jquery.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ asset('assets/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ asset('assets/slick/slick.min.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ asset('assets/main.js') }}" type="text/javascript" charset="utf-8"></script>
+
+<script>
+
+    //====================================
+    // saving gb post
+    //====================================
+    $('#gb_posts_form').submit(function(e) {
+
+        e.preventDefault();
+        $.ajax({
+            url: '{{ path('gcf_front_save_gb_post_page') }}',
+            data: $(this).serialize(),
+            type: 'POST',
+            dataType: 'json',
+            success: function (result) {
+               console.log(result);
+                var responseToAppend = '';
+
+                responseToAppend =  '<div class="notif_pub_success">';
+                responseToAppend += '<p>';
+                responseToAppend += 'Votre article est pris en compte';
+                responseToAppend += '</p>';
+                responseToAppend += '</div>';
+
+                $('#notif_pub').empty();
+                $('#notif_pub').addClass('success');
+                $('#notif_pub').append(responseToAppend);
+
+                $('#gb_name').val('');
+                $('#gb_email').val('');
+                $('#gb_article_title').val('');
+                $('#gb_article_content').val('');
+                $('#gb_article_project').val('');
+
+                return false;
+            },
+            error: function (error) {
+                console.log(error);
+
+                var responseToAppend = '';
+                responseToAppend =  '<div class="notif_pub_error">';
+                responseToAppend += '<p>';
+                responseToAppend += ' S"il vous plaiz essayer plus tard et si l"erreur persist contactez-nous';
+                responseToAppend += '</p>';
+                responseToAppend += '</div>';
+
+                $('#notif_pub').empty();
+                $('#notif_pub').addClass('error');
+                $('#notif_pub').append(responseToAppend);
+
+                return false;
+            }
+        });
+        return false;
+
+    });
+</script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

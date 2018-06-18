@@ -1,0 +1,160 @@
+{% extends '@GCFFront/base.html.twig' %}
+
+{% block title %} GCF - {{ pageTitle }} {% endblock %}
+
+
+{% block stylesheets %}
+
+    <style>
+        .contact_card_container input, .contact_card_container textarea, .contact_card_container .btn-primary{
+            -webkit-border-radius: 2px !important;
+            -moz-border-radius: 2px !important;
+            border-radius: 2px !important;
+        }
+        .contact_card_container{
+            background: whitesmoke;
+            padding-top: 60px;
+            margin-top: 40px;
+            border-radius: 2px;
+        }
+        .contact_card_container .btn.btn-primary{
+            background-color: #7ac943 !important;
+            border-color: #7ac943;
+        }
+        .contact_card_container .btn.btn-primary:hover{
+            background-color: #8ce24a !important;
+            border-color: #8ce24a;
+        }
+        #sending_status{
+            margin: 10px 0;
+            padding: 10px;
+            color: black;
+
+        }
+    </style>
+
+{% endblock %}
+
+
+{% block body %}
+
+
+<section class="section">
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-10 col-md-offset-1 col-xs-12 contact_card_container">
+
+            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name" class="">Nom</label>
+                            <input type="text" id="name" name="name" class="form-control">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email" class="">Email</label>
+                            <input type="text" id="email" name="email" class="form-control">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="subject" class="">Sujet</label>
+                            <input type="text" id="subject" name="subject" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea type="text" id="message" name="message" rows="7" class="form-control" style="resize: vertical;"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+            </form>
+
+            <div class="center-on-small-only">
+                <input type="submit"  class="btn btn-primary" onclick="submitForm()" value="Envoyer" >
+            </div>
+
+            <div id="sending_status"></div>
+
+        </div>
+        <!--Grid column-->
+
+    </div>
+
+</section>
+<!--Section: Contact v.2-->
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        function submitForm() {
+
+            document.getElementById('sending_status').innerHTML = "Envoi ...";
+            formData = {
+                'name'     : $('input[name=name]').val(),
+                'email'    : $('input[name=email]').val(),
+                'subject'  : $('input[name=subject]').val(),
+                'message'  : $('textarea[name=message]').val()
+            };
+
+            $.ajax({
+                url : "{{ path('gcf_front_contact_validation_page') }}",
+                type: "POST",
+                data : formData,
+                success: function(data, textStatus, jqXHR)
+                {
+                    console.log(data);
+
+                    if (data.code){ //If mail was sent successfully, reset the form.
+                        $('#sending_status').text(data.message);
+                        $('#sending_status').css('background', 'green');
+                        $('#sending_status').css('color', 'white');
+                        $('#contact-form').closest('form').find("input[type=text], textarea").val("");
+                    }else{
+                        $('#sending_status').text(data.message);
+                        $('#sending_status').css('background', 'red');
+                        $('#sending_status').css('color', 'white');
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    console.log(jqXHR);
+                    $('#sending_status').text(jqXHR);
+                    $('#sending_status').css('background', 'red');
+                    $('#sending_status').css('color', 'white');
+                }
+            });
+        }
+    </script>
+{% endblock %}
+

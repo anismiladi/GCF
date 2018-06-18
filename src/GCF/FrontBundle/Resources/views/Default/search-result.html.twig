@@ -1,0 +1,135 @@
+{% extends '@GCFFront/base.html.twig' %}
+
+{% block title %} GCF - {{ pageTitle }} {% endblock %}
+
+{% block stylesheets %}
+<style>
+    .result_search_container{
+        padding: 0 !important;
+    }
+    .block_header h2{
+        background: #22AA86;
+        color: white;
+        font-size: 25px;
+        padding: 5px 15px;;
+    }
+    .block_body .item{
+        background: #e1e1e1;
+        border: solid white;
+    }
+    .read_more_container{
+        margin-top: 15px;
+    }
+    .block_body .col-md-12.item h3{
+        margin:0
+    }
+    .block_body .col-md-12.item{
+        padding: 10px;
+    }
+
+</style>
+{% endblock %}
+
+{% block body %}
+
+
+
+
+
+
+
+    <div class="col-md-12">
+
+        <div class="result_search_container col-md-12">
+            <div class="block_header">
+                <h2>
+                    Résultat Projet
+                </h2>
+            </div>
+            <div class="block_body">
+                {% for i in 1..4 %}
+                    <div class="col-md-6 item ">
+
+                        <h3 class="name">Projet {{ i }}</h3>
+                        <p><strong>Date: </strong>{{ "now"|date("d-m-Y") }}</p>
+                        <p><strong>Acteur: </strong>Acteur {{ i }}</p>
+                        <p class="description">
+                            Aenean tortor est, vulputate quis leo
+                            in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.
+                        </p>
+
+                    </div>
+                {% endfor %}
+
+                <div class="row read_more_container col-md-12">
+                    <center><button class="button_see_more_lg">Voir Plus de resultats</button></center>
+                </div>
+            </div>
+        </div>
+
+        <div class="result_search_container col-md-12">
+            <div class="block_header">
+                <h2>
+                    Résultat Publications
+                </h2>
+            </div>
+            <div class="block_body">
+                {% for i in 1..3 %}
+
+                    <div class="col-md-12 item ">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="#">
+                                    <img class="img-fluid" src="https://placeimg.com/200/200/nature/any/blur" />
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <h3 class="name">Publication {{ i }}</h3>
+                                <p class="description">Aenean tortor est, vulputate quis leo
+                                    in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+                <div class="row read_more_container col-md-12">
+                    <center><button class="button_see_more_lg">Voir Plus de resultats</button></center>
+                </div>
+            </div>
+        </div>
+
+        <div class="result_search_container col-md-12">
+            <div class="block_header">
+                <h2>
+                    Résultat Videos
+                </h2>
+            </div>
+            <div class="block_body">
+                {% for i in 1..3 %}
+
+                    <div class="col-md-6 item ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="#">
+                                    <iframe style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="https://www.youtube.com/embed/NBRLeyI9Dfk?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="name">Video {{ i }}</h3>
+                                <p class="description">Aenean tortor est, vulputate quis leo
+                                    in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+                <div class="row read_more_container col-md-12">
+                    <center><button class="button_see_more_lg">Voir Plus de resultats</button></center>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

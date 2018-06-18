@@ -1,0 +1,93 @@
+<svg viewBox=" 0 0 230 487.5"   version="1.1"   xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
+
+    <g class="map" transform="scale(1.5)">
+        {% for i in 1..24 %}
+            <a xlink:title="{{ Gouvernorats[i]["name"] }}" id="{{ Gouvernorats[i]["name"] }}" class="HI-map" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                <path d="{{ Gouvernorats[i]["map"] }}" ></path><!--  -->
+            </a>
+        {% endfor %}
+    </g>
+
+    <defs>
+        <filter id="f1" x="0" y="0">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+        </filter>
+    </defs>
+    {% for Gouv in Gouvs  %}
+        <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ (Gouv.nbProjets/maxNbProjets)*35 }}" fill="green" fill-opacity="0.40"  />
+    {% endfor %}
+    
+    <defs>
+     <filter height="200%" width="200%" y="-50%" x="-50%" id="flou_blur">
+      <feGaussianBlur stdDeviation="3" in="SourceGraphic"/>
+     </filter>
+    </defs>
+    {% for Gouv in Gouvs  %}
+        {% if Gouv.nbProjets %}
+        <circle filter="url(#flou_blur)" cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ (Gouv.nbProjets/maxNbProjets)*35 }}" fill="green" fill-opacity="0.40"  />
+        <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="2" fill="green" fill-opacity="1"  />
+        {% endif %}
+    {% endfor %}
+
+</svg>
+<div class="map-tooltip">
+    Tooltip
+</div>
+
+<style>
+    .map-tooltip {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100px;
+        display: none;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border:#d3d3d3 solid 1px;
+        background: #fff;
+        color: black;
+        font-size: smaller;
+        padding: 8px;
+        pointer-events:none;
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+
+</style>
+
+<script>
+
+    var tooltip = document.querySelector('.map-tooltip');
+
+    // iterate throw all `path` tags
+    [].forEach.call(document.querySelectorAll('a.HI-map'), function(item) {
+        // attach click event, you can read the URL from a attribute for example.
+        item.addEventListener('click', function(){
+            window.open('http://google.com')
+        });
+
+        // attach mouseenter event
+        item.addEventListener('mouseenter', function() {
+            var sel = this,
+            // get the borders of the path - see this question: http://stackoverflow.com/q/10643426/863110
+            pos = sel.getBoundingClientRect();
+
+            tooltip.style.display = 'block';
+            tooltip.style.top = pos.top + 'px';
+            tooltip.style.left = pos.left + 'px';
+
+            tooltip.innerHTML = sel.getAttribute("id");
+        });
+
+        // when mouse leave hide the tooltip
+        item.addEventListener('mouseleave', function(){
+            tooltip.style.display = 'none';
+        });
+    });
+
+
+
+
+</script>
+

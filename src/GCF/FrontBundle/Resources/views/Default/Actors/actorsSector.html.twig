@@ -1,0 +1,17 @@
+{% extends '@GCFFront/Default/Actors/actors.html.twig' %}
+
+
+
+{% block actorsSector %}
+
+    <h1>{{ sector.nom }}</h1>
+    <ul>
+        {% for actor in actors %}
+            {{ render( controller('GCFFrontBundle:Actors:sousActors', { 'id': actor.id } )) }}
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+
+

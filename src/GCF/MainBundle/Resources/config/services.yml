@@ -1,0 +1,89 @@
+services:
+#    gcf_main.example:
+#        class: GCF\MainBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    admin.Acteur:
+        class: GCF\MainBundle\Admin\ActeurAdmin
+        arguments: [~, GCF\MainBundle\Entity\Acteur, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Acteurs, label: Gestion les Acteurs }
+        public: true
+    admin.SecteurActeur:
+        class: GCF\MainBundle\Admin\SecteurActeurAdmin
+        arguments: [~, GCF\MainBundle\Entity\SecteurActeur, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Acteurs, label: Secteurs }
+        public: true
+        
+    admin.Projet:
+        class: GCF\MainBundle\Admin\ProjetAdmin
+        arguments: [~, GCF\MainBundle\Entity\Projet, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Projets, label: Gestion les Projets }
+        public: true
+        
+    admin.SecteurProjet:
+        class: GCF\MainBundle\Admin\SecteurProjetAdmin
+        arguments: [~, GCF\MainBundle\Entity\SecteurProjet, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Projets, label: Secteurs }
+        public: true
+
+    admin.Focus:
+        class: GCF\MainBundle\Admin\FocusAdmin
+        arguments: [~, GCF\MainBundle\Entity\Focus, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Projets, label: Focus }
+        public: true
+
+    admin.Publication:
+        class: GCF\MainBundle\Admin\PublicationAdmin
+        arguments: [~, GCF\MainBundle\Entity\Publication, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Publications, label: Gestion les Publications }
+        public: true
+        
+    #admin.PublicationGreen:
+    #    class: GCF\MainBundle\Admin\PublicationGreenAdmin
+    #    arguments: [~, GCF\MainBundle\Entity\Publication, ~]
+    #    tags:
+    #        - { name: sonata.admin, manager_type: orm, group: Publications, label: Publications des GreenBloggers}
+    #    public: true
+    
+    #cateogries publication MARWEN#
+    admin.CatPublication:
+        class: GCF\MainBundle\Admin\CatPublicationAdmin
+        arguments: [~, GCF\MainBundle\Entity\CatPublication, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Publications, label: Categories }
+        public: false
+    #END cateogries publication MARWEN#
+
+    admin.Elearning:
+        class: GCF\MainBundle\Admin\ElearningAdmin
+        arguments: [~, GCF\MainBundle\Entity\Elearning, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Elearning, label: Gestion elearning }
+        public: true
+        
+    admin.CatLearning:
+        class: GCF\MainBundle\Admin\CatLearningAdmin
+        arguments: [~, GCF\MainBundle\Entity\CatLearning, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Elearning, label: Categories Elearning }
+        public: true
+
+    admin.Events:
+        class: GCF\MainBundle\Admin\EventAdmin
+        arguments: [~, GCF\MainBundle\Entity\Event, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Evénements, label: Gestion des Evénements }
+        public: true
+        
+    admin.gouvernorats:
+        class: GCF\MainBundle\Admin\GouvernoratAdmin
+        arguments: [~, GCF\MainBundle\Entity\Gouvernorat, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Autres, label: Gouvernorats } 
+        public: false

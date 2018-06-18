@@ -1,0 +1,23 @@
+{% extends '@GCFFront/base.html.twig' %}
+
+{% block title %} GCF | {{ pageTitle }} {% endblock %}
+
+{% block body %}
+
+{#{{ dump(publication) }}#}
+<div class="col-md-12">
+
+    <h2>{{ publication.titre }}</h2>
+
+    {% if publication.categorie.id == 2  %}
+        {{ publication.emailBloggeur }}
+    {% endif %}
+    {% if publication.projet %}
+        {{ publication.projet.nom }}
+    {% endif %}
+
+    <p>{{ publication.contenu }}</p>
+
+</div>
+{% endblock %}
+
