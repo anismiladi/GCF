@@ -46,6 +46,7 @@
             height: -webkit-max-content;
             height: max-content;
             width: 500px;
+            max-width:100%;
             border-radius: 2px;
             border: solid 1px #7ac943;
         }
@@ -115,67 +116,69 @@
 
 
     <div class="col-md-12">
-        <table id="myTable" class="table table-bordered table-striped display" cellspacing="0">
-            <thead>
+        <div class="table-responsive">
+            <table id="myTable" class="table table-bordered table-striped display" cellspacing="0">
+                <thead>
 
-                <tr>
-                    <th>Nom</th>
-
-                    <th>Gouvernorat</th>
-
-                    <th>Organisme</th>
-
-                    <th>Secteur</th>
-
-                    <th>Focus</th>
-
-                </tr>
-
-            </thead>
-            <tbody class="result-search">
-
-                {% for project in projects %}
                     <tr>
-                        <td>
-                            <p class="project_name_show" onclick="showDetails( {{ project.id }} )">{{ project.nom }}</p>
-                        </td>
+                        <th>Nom</th>
 
-                        <td>
-                            {% for gouvernorat in project.gouvernorat %}
-                                {{ gouvernorat.nom }}
-                            {% endfor %}
-                        </td>
+                        <th>Gouvernorat</th>
 
-                        {#organisme---->#}
-                        <td>
-                            {% if project.acteur != null %}
-                                {% if project.acteur.secteurActeur != null %}
-                                    {% if (project.acteur.secteurActeur.secteurActeurParent == null) %}
-                                        {{ project.acteur.secteurActeur.nom }}
-                                    {% else %}
-                                        {{ project.acteur.secteurActeur.secteurActeurParent.nom }}
-                                    {% endif %}
-                                {% endif %}
-                            {% endif %}
-                        </td>
+                        <th>Organisme</th>
 
-                        <td>{{ project.secteurProjet.nom }}</td>
+                        <th>Secteur</th>
 
-                        {% spaceless %}
-                        <td>
-                            <ul>
-                                {% for focus in project.focus %}
-                                    <li>{{ focus.nom}}</li>
-                                {% endfor %}
-                            </ul>
-                        </td>
-                        {% endspaceless %}
+                        <th>Focus</th>
 
                     </tr>
-                {% endfor %}
 
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="result-search">
+
+                    {% for project in projects %}
+                        <tr>
+                            <td>
+                                <p class="project_name_show" onclick="showDetails( {{ project.id }} )">{{ project.nom }}</p>
+                            </td>
+
+                            <td>
+                                {% for gouvernorat in project.gouvernorat %}
+                                    {{ gouvernorat.nom }}
+                                {% endfor %}
+                            </td>
+
+                            {#organisme---->#}
+                            <td>
+                                {% if project.acteur != null %}
+                                    {% if project.acteur.secteurActeur != null %}
+                                        {% if (project.acteur.secteurActeur.secteurActeurParent == null) %}
+                                            {{ project.acteur.secteurActeur.nom }}
+                                        {% else %}
+                                            {{ project.acteur.secteurActeur.secteurActeurParent.nom }}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            </td>
+
+                            <td>{{ project.secteurProjet.nom }}</td>
+
+                            {% spaceless %}
+                            <td>
+                                <ul>
+                                    {% for focus in project.focus %}
+                                        <li>{{ focus.nom}}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            {% endspaceless %}
+
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
     </div>
 
 

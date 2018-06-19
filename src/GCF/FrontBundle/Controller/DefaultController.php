@@ -35,7 +35,7 @@ class DefaultController extends Controller
             }
 
             if( $i>0 )
-            $nbrProj[$sector->getNom()] = $i;
+            $nbrProj[$sector->getNom()] = array('nbr' => $i, 'url' => $sector->getLogo() );
 
         }
         arsort($nbrProj); //trier selon le grand nbre de projet//
@@ -51,7 +51,7 @@ class DefaultController extends Controller
 
         return $this->render('@GCFFront/Default/index.html.twig',array(
             'pageTitle' => $pageTitle,
-            'nbr_by_project' => $nbrProj,
+            'ProjectsBySector' => $nbrProj,
 
             'nospublications' => $nospublications,
             'gbpublications' => $gbpublications,

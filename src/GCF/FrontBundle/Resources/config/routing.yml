@@ -40,7 +40,7 @@ gcf_front_publicationspage:
     defaults: { _controller: GCFFrontBundle:Publications:index }
 
 gcf_front_single_publications_page:
-    path:     /publications/{id}
+    path:     /publications/{slug}
     defaults: { _controller: GCFFrontBundle:Publications:singlePublication }
 
 

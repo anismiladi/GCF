@@ -48,11 +48,18 @@ class PublicationsController extends Controller
         ));
     }
 
-    public function singlePublicationAction($id)
+    public function singlePublicationAction($slug)
     {
+        $name = str_replace('-',' ',$slug);
+
         $em = $this->getDoctrine()->getManager();
 
-        $publication = $em->getRepository('GCFMainBundle:Publication')->find($id);
+
+        $publication = $em->getRepository('GCFMainBundle:Publication')->findBy(array(
+            'titre' => $name
+        ));
+
+        $publication = $publication[0];
 
         $pageTitle = $publication->getTitre();
 
@@ -65,7 +72,7 @@ class PublicationsController extends Controller
         if( strlen($publication->getTitre()) > 50 ){
             $publication_title = substr($publication->getTitre(), 0, 50);
         }
-        $breadcrumbs->addItem($publication->getTitre(), $this->get("router")->generate("gcf_front_single_publications_page", array('id' => $publication->getId() ) ));
+        $breadcrumbs->addItem($publication->getTitre(), $this->get("router")->generate("gcf_front_single_publications_page", array('slug' => $slug ) ));
 
 
         return $this->render('@GCFFront/Default/Publications/single-publication.html.twig', array(

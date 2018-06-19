@@ -4,10 +4,6 @@
 {% block stylesheets %}
 
     <style>
-        *{
-            -webkit-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-        }
 
         .project_number_by_sectors .project_container{padding: 15px 8px; margin: auto;}
         .project_number_by_sectors .project_icon{  max-width: 70px; margin-bottom:  5px; border: solid 2px transparent; border-radius: 50%; padding: 5px; cursor: pointer;}
@@ -99,22 +95,28 @@
 
 
  {% block PBS %}
+    {#{{ dump(ProjectsBySector) }}#}
      <div class="project_number_by_sectors" style="margin-bottom: 40px;">
          <div class="container">
              <div class="col-md-12 slider slider_projects" >
 
 
-                 {% for key, nb_by_proj in nbr_by_project %}
+                 {% for key, ProjectBySector in ProjectsBySector %}
+                     {% set key1 =  '' %}
+                     {% if key|length > 15 %}
+                         {% set key1 =  key|slice(0, 13) ~ '...' %}
+                     {% else %}
+                         {% set key1 =  key %}
+                     {% endif %}
                  <div class="col-md-2 col-sm-2 col-sm-offset-1 col-md-offset-1 project_container">
-                     <center><img class="project_icon" src="http://via.placeholder.com/70x70" alt="{{ key }}"> <br>
+                     <center>
+                         <img class="project_icon" src="{{ ProjectBySector|last }}" alt="{{ key1 }}"> <br>
                          <a class="project_name" href="#" title="{{ key }}">
-                             {% if key|length > 15 %}
-                                 Projets {{ key|slice(0, 13) }}...
-                             {% else %}
-                                 Projets {{ key}}
-                             {% endif %}
+
+                                 Projets {{ key1 }}
                          </a>
-                         <span class="badge project_number">{{ nb_by_proj  }}</span></center>
+                         <span class="badge project_number">{{ ProjectBySector|first }}</span>
+                     </center>
                  </div>
                  {% endfor %}
              </div>
@@ -368,12 +370,12 @@
                     <div class="col-sm-6 item filter_display ours" style="background: #f7f7f7;border: solid 2px white;">
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
-                                <a href="{{ path('gcf_front_single_publications_page',{'id': nospublication.id }) }}">
+                                <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">
                                     <img class="img-fluid" src="https://placeimg.com/200/200/nature/any/blur" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                 </a>
                             </div>
                             <div class="col">
-                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'id': nospublication.id }) }}">{{ nospublication.titre }}</a></h2>
+                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">{{ nospublication.titre }}</a></h2>
                                 <p class="description">Aenean tortor est, vulputate quis leo
                                     in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
                             </div>
@@ -385,12 +387,12 @@
                     <div class="col-sm-6 item filter_display gb" style="background: #f7f7f7;border: solid 2px white;">
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
-                                <a href="{{ path('gcf_front_single_publications_page',{'id': gbpublication.id }) }}">
+                                <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">
                                     <img class="img-fluid" src="https://placeimg.com/200/200/arch/any/blur" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                 </a>
                             </div>
                             <div class="col">
-                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'id': gbpublication.id }) }}">{{ gbpublication.titre }}</a></h2>
+                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">{{ gbpublication.titre }}</a></h2>
                                 <p class="description">Aenean tortor est, vulputate quis leo
                                     in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
                             </div>
@@ -402,12 +404,12 @@
                     <div class="col-sm-6 item filter_display others" style="background: #f7f7f7;border: solid 2px white;">
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
-                                <a href="{{ path('gcf_front_single_publications_page',{'id': autrespublication.id }) }}">
+                                <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">
                                     <img class="img-fluid" src="https://placeimg.com/200/200/tech/any/blur" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                 </a>
                             </div>
                             <div class="col">
-                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'id': autrespublication.id }) }}">{{ autrespublication.titre }}</a></h2>
+                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">{{ autrespublication.titre }}</a></h2>
                                 <p class="description">Aenean tortor est, vulputate quis leo
                                     in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
                             </div>

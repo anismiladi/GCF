@@ -38,10 +38,11 @@ class ContactController extends Controller
 
     public function contactAjaxAction(Request $request){
 
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
-        $subject = $_POST['subject'];
+        
+        $name = $request->get('name');
+        $email = $request->get('email') ;
+        $message = $request->get('message') ;
+        $subject = $request->get('subject') ;
         header('Content-Type: application/json');
 
         if ($name === ''){
