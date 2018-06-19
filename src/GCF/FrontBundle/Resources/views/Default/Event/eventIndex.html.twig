@@ -6,157 +6,217 @@
 
 {% block stylesheets %}
     <style>
-        #content {
-            margin-top: 50px;
-            text-align: center;
+        .event__banner__container{
+            margin-bottom: 20px;
         }
-        .timeline {
-            border-left: 4px solid #22aa86;
-            border-bottom-right-radius: 4px;
-            border-top-right-radius: 4px;
-            background: rgba(255, 255, 255, 0.03);
-            color: rgba(255, 255, 255, 0.8);
-            font-family: "Source Sans Pro", sans-serif;
-            margin: 50px auto;
-            letter-spacing: 0.5px;
-            position: relative;
-            line-height: 1.4em;
-            font-size: 1.03em;
-            padding: 15px;
-            list-style: none;
-            text-align: left;
-            font-weight: 100;
-        }
-        .timeline .event {
-            margin-bottom: 50px;
-            position: relative;
-            color: #333;
-            background: white;
-            border-radius: 2px;
-        }
-        .timeline .event:last-of-type {
-            margin-bottom: 0;
-            border: none;
-        }
-        .timeline .event:before,
-        .timeline .event:after {
-            position: absolute;
-            display: block;
-            top: 0;
-        }
-
-        .timeline .event:after {
-            box-shadow: 0 0 0 4px #22aa86;
-            left: -23px;
-            background: #313534;
-            border-radius: 50%;
-            height: 11px;
-            width: 11px;
-            content: "";
-            top: 5px;
-        }
-
-        .container_timeline .content h3{
-            margin-bottom: 0 !important;
-            margin-top: 0 !important;
-            padding: 2px 10px;
-        }
-
-        .container_timeline .content h4 ,.container_timeline .content p  {
-            padding: 2px 10px;
-        }
-
-        .container_timeline .content h3 {
-            background: #22aa86;
-            color: white;
+        .event__banner{
+            max-height: 100%;
+            height: 100px;
+            background-size:cover;
+            background-repeat: no-repeat;
+            border-bottom: solid 2px white;
 
         }
-
-        .container_timeline {
-            padding: 0 10px;
-            position: relative;
-            background-color: inherit;
+        .event__img__info{
+            background: #ccc;
+            min-height:  100px;
+            padding-bottom: 1px;
         }
-        .right::after {
-            left: -16px;
+        .event__img img{
+            margin-top: -20px;
+            max-height: 100px;
+            border: solid 2px white;
         }
-
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 10px;
-            width: 0;
-            z-index: 1;
-            left: 0;
-            border: medium solid whitesmoke;
-            border-width: 10px 10px 10px 0;
-            border-color: transparent whitesmoke transparent transparent;
+        .event__info h3{
+            margin-top: 10px;
         }
-
-        .container_timeline .content{
-            padding: 20px 20px;
-            background-color: whitesmoke;
-            position: relative;
-            border-radius: 2px;
-            display: flex;
+        .event__info h4{
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
-        .container_timeline_img{
-            width: 20%;
-
+        .event__info p{
+            text-align: right;
         }
-        .container_timeline_info{
-            width: 80%;
-            padding-left: 20px;
-        }
-
-        .container_timeline_info .fa{
+        .event__info i{
             width: 25px;
             padding: 5px;
-
             font-size: 15px;
             text-align: center;
             text-decoration: none;
-
             background: white;
-            color: #3a5998;
+            color: #22AA86;
             border-radius: 50%;
         }
-        .container_timeline_info .fa:hover { background: #3a5998;  color: white; }
 
+        /*
+        ==================
+              POPUP
+        ==================
+        */
+        .popup__container{
+            display:none;
+            position: absolute;
+            z-index: 999;
+            top: 200px;
+            margin: auto;
+            left: 0;
+            right: 0;
+            width: 600px;
+            max-width: 100%;
+            min-height: 400px;
+            background-color: white;
+            border: solid #22aa86 2px;
+        }
+        .popup__container.active{
+            display:block;
+
+        }
+        .popup__overlay{
+            position: fixed;
+            z-index: 998;
+            display: none;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .popup__header{
+            min-height: 200px;
+            max-height: 200px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            border-bottom: solid 2px #22aa86;
+            background-color: grey;
+        }
+
+        .popup__body__photo{
+            margin-top: -20px;
+            max-height: 100px;
+            width: auto;
+            border: solid 2px #22aa86;
+            background-color: grey;
+        }
     </style>
 {% endblock %}
 
 {% block body %}
 
-    <div id="content">
+    {#<div id="content">#}
 
-        <ul class="timeline">
-            {% for evenement in evenements %}
-            <li  class="event">
-                <div class="container_timeline right">
+        {#<ul class="timeline">#}
+            {#{% for evenement in evenements %}#}
+            {#<li  class="event">#}
+                {#<div class="container_timeline right">#}
 
-                    <div class="content" >
-                        <div class="container_timeline_img">
-                            <img src="https://placeimg.com/200/200/tech" alt="" style="max-width: 100%">
-                        </div>
-                        <div class="container_timeline_info">
-                            <h3>{{ evenement.nom }}</h3>
-                            <h4>{{ "now"|date("d-m-Y")  }}</h4>
-                            <p>{{ evenement.description }}</p>
-                            <p>
-                            <a href="{{ evenement.lienFB }}" title="Facebook" target="_blank">
-                                <i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i>
-                            </a>
-                            </p>
-                        </div>
-                        </div>
+                    {#<div class="content" >#}
+                        {#<div class="container_timeline_img">#}
+                            {#<img src="https://placeimg.com/200/200/tech" alt="" style="max-width: 100%">#}
+                        {#</div>#}
+                        {#<div class="container_timeline_info">#}
+                            {#<h3>{{ evenement.nom }}</h3>#}
+                            {#<h4>{{ "now"|date("d-m-Y")  }}</h4>#}
+                            {#<p>{{ evenement.description }}</p>#}
+                            {#<p>#}
+                            {#<a href="{{ evenement.lienFB }}" title="Facebook" target="_blank">#}
+                                {#<i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i>#}
+                            {#</a>#}
+                            {#</p>#}
+                        {#</div>#}
+                        {#</div>#}
+                {#</div>#}
+            {#</li>#}
+            {#{% endfor %}#}
+
+        {#</ul>#}
+
+    {#</div>#}
+
+
+    <div class="col-md-12">
+        {% for evenement in evenements %}
+            <div class="col-md-6 event__banner__container">
+
+                <div class="event__banner" style="background-image: url('https://placeimg.com/400/200/any');">
                 </div>
-            </li>
-            {% endfor %}
 
-        </ul>
+                <div class="event__img__info">
 
+                    <div class="event__img col-md-4 col-sm-4 col-xs-4">
+                        <img src="https://placeimg.com/200/200/tech" alt="" style="max-width: 100%">
+                    </div>
+
+                    <div class="event__info col-md-8 col-sm-8 col-xs-8">
+                        <h3 onclick="toggle_popup({{ evenement.id }})">{{ evenement.nom }}</h3>
+                        <h4>{{ "now"|date("d-m-Y")  }}</h4>
+                        <p><a href="{{ evenement.lienFB }}" title="Facebook" target="_blank">
+                            <i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i>
+                        </a></p>
+                    </div>
+
+                </div>
+
+            </div>
+        {% endfor %}
     </div>
 
+
+    <div class="popup__container">
+        <div class="popup__header"></div>
+        <div class="popup__body">
+            <div class="popup__body__head col-xs-12">
+                <img class="popup__body__photo col-xs-4" src="" >
+                <div class="popup__body__title col-xs-8"><h2></h2></div>
+            </div>
+            <div class="popup__body__content col-xs-12">
+                <h3></h3>
+                <p></p>
+            </div>
+
+        </div>
+    </div>
+    <div class="popup__overlay" onclick="closePopup()"></div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        function toggle_popup(id) {
+
+            $('.popup__overlay').css('display', 'block');
+
+            url = '{{ path('gcf_front_single_event', {'id': 'id'} ) }}';
+            url = url.replace("id", id);
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: { 'id' : id },
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (result) {
+                    $('.popup__container').addClass('active');
+                    console.log(result);
+                    $('.popup__header').css('background-image', 'url("'+result.banner+'")' );
+                    $('.popup__body__photo').attr('src', ''+result.logo+'' );
+                    $('.popup__body__photo').attr('alt', ''+result.name+'' );
+                    $('.popup__body__title h2').html( result.name );
+                    $('.popup__body__content h3').html( result.date.date );
+                    $('.popup__body__content p').html( result.description );
+
+
+
+                },
+                error: function(xhr, ajaxOptions, thrownError){
+                    console.log(xhr);
+                    console.log(ajaxOptions);
+                    console.log(thrownError);
+                }
+            });
+        }
+        function closePopup(){
+            $('.popup__container').removeClass('active');
+            $('.popup__overlay').css('display', 'none');
+        }
+    </script>
 {% endblock %}

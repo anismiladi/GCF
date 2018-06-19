@@ -3,24 +3,35 @@
     <g class="map" transform="scale(1.5)">
         {% for Gouv in Gouvs  %}
             <!-- class="HI-map" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"                   style="stroke:#fdb11e !important;fill:#dc991a!important;" -->
-            <a xlink:title="{{ Gouvernorats[Gouv.idmap]["name"]}} ({{ Gouv.nbProjets }})" id="{{ Gouvernorats[Gouv.idmap]["name"] }}" > 
-                <path d="{{ Gouvernorats[Gouv.idmap]["map"] }}" style="stroke:green; fill:green; opacity:{{ 0.2+((Gouv.nbProjets/intervProjets)/5) }}"></path><!-- stroke:#fdb11e;  -->
+            <a xlink:title="{{ Gouvernorats[Gouv.idmap]["name"]}} ({{ Gouv.nbProjets }})" data-tooltip="{{ Gouvernorats[Gouv.idmap]["name"]}} ({{ Gouv.nbProjets }})" id="{{ Gouvernorats[Gouv.idmap]["name"] }}" class="enabled" >
+                <path d="{{ Gouvernorats[Gouv.idmap]["map"] }}" style="stroke:green; fill:green; opacity:{{ 0.2+((Gouv.nbProjets/intervProjets)/5) }}">a</path><!-- stroke:#fdb11e;  -->
             </a>
         {% endfor %}
-    </g>
-    
-</svg>
-<div class="map-tooltip">
-    Tooltip
-</div>
 
+    </g>
+
+</svg>
+
+<div class="map_tooltip">aaaaaaaaaaaaa
+</div>
 <style>
-    .map-tooltip {
+
+    /*.map_tooltip:after{*/
+        /*content: '';*/
+        /*position: absolute;*/
+        /*left: 50%;*/
+        /*top: 100%;*/
+        /*width: 0;*/
+        /*height: 0;*/
+        /*margin-left: -10px;*/
+        /*border-left: 5px solid transparent;*/
+        /*border-right: 5px solid transparent;*/
+        /*border-top: 5px solid white;*/
+    /*}*/
+
+    .map_tooltip {
         position: fixed;
-        top: 0;
-        right: 0;
-        width: 100px;
-        display: none;
+        z-index: 999999999999;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
@@ -28,34 +39,35 @@
         background: #fff;
         color: black;
         font-size: smaller;
-        padding: 8px;
+        padding: 5px;
         pointer-events:none;
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: block;
     }
 </style>
-
+<script src="{{ asset('assets/jquery/dist/jquery.js') }}" type="text/javascript" charset="utf-8"></script>
 <script>
 
-    var tooltip = document.querySelector('.map-tooltip');
+    var tooltip = document.querySelector('.map_tooltip');
 
     // iterate throw all `path` tags
-    [].forEach.call(document.querySelectorAll('a.HI-map'), function(item) {
+    [].forEach.call(document.querySelectorAll('a.enabled'), function(item) {
         // attach click event, you can read the URL from a attribute for example.
         item.addEventListener('click', function(){
             window.open('http://google.com')
         });
 
         // attach mouseenter event
-        item.addEventListener('mouseenter', function() {
+        item.addEventListener('mousemove', function() {
             var sel = this,
-            // get the borders of the path - see this question: http://stackoverflow.com/q/10643426/863110
-            pos = sel.getBoundingClientRect();
+                // get the borders of the path - see this question: http://stackoverflow.com/q/10643426/863110
+                pos = sel.getBoundingClientRect();
 
             tooltip.style.display = 'block';
             tooltip.style.top = pos.top + 'px';
             tooltip.style.left = pos.left + 'px';
 
-            tooltip.innerHTML = sel.getAttribute("id");
+            tooltip.innerHTML = sel.getAttribute("data-tooltip");
         });
 
         // when mouse leave hide the tooltip
@@ -63,8 +75,6 @@
             tooltip.style.display = 'none';
         });
     });
-
-
 
 
 </script>

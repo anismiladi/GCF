@@ -38,7 +38,7 @@ class ContactController extends Controller
 
     public function contactAjaxAction(Request $request){
 
-        
+
         $name = $request->get('name');
         $email = $request->get('email') ;
         $message = $request->get('message') ;

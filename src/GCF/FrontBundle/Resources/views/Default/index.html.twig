@@ -110,12 +110,12 @@
                      {% endif %}
                  <div class="col-md-2 col-sm-2 col-sm-offset-1 col-md-offset-1 project_container">
                      <center>
-                         <img class="project_icon" src="{{ ProjectBySector|last }}" alt="{{ key1 }}"> <br>
+                         <img class="project_icon" src="{{ ProjectBySector["url"] }}" alt="{{ key1 }}"> <br>
                          <a class="project_name" href="#" title="{{ key }}">
 
                                  Projets {{ key1 }}
                          </a>
-                         <span class="badge project_number">{{ ProjectBySector|first }}</span>
+                         <span class="badge project_number">{{ ProjectBySector["nbr"] }}</span>
                      </center>
                  </div>
                  {% endfor %}

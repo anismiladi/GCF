@@ -78,3 +78,7 @@ gcf_front_save_gb_post_page:
 gcf_front_event_page:
     path:     /events
     defaults: { _controller: GCFFrontBundle:Event:eventIndex }
+
+gcf_front_single_event:
+    path:     /get-single-event-details-{id}
+    defaults: { _controller: GCFFrontBundle:Event:eventsingle }
