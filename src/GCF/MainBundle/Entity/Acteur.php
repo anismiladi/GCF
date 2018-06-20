@@ -7,6 +7,8 @@ use Sonata\TranslationBundle\Model\Gedmo\TranslatableInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use JsonSerializable;
+
 /**
  * Acteur
  *
@@ -26,20 +28,9 @@ class Acteur extends AbstractPersonalTranslatable implements TranslatableInterfa
     private $id;
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @var string
      *
      * @ORM\Column(name="logo", type="text", length=255, nullable=true)
-=======
-=======
->>>>>>> parent of e35ba16... correction sonatamedia
-=======
->>>>>>> parent of e35ba16... correction sonatamedia
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist", "remove"} )
-     * @ORM\JoinColumn(name="logo", referencedColumnName="id", nullable=true)
->>>>>>> parent of e35ba16... correction sonatamedia
      */
     private $logo;
 
@@ -743,5 +734,31 @@ class Acteur extends AbstractPersonalTranslatable implements TranslatableInterfa
     public function getEmail()
     {
         return $this->email;
+    }
+    
+    public function jsonSerialize()
+    {
+        
+        return array(
+            'id' => $this->id,
+            'logo' => $this->logo,
+            'nom' => $this->nom,
+            'nomcomplet' => $this->nomcomplet,
+            'description' => $this->description,
+            'hierarchie' => $this->hierarchie,
+            'mission' => $this->mission,
+            'responsable' => $this->responsable,
+            'emailresponsable' => $this->emailresponsable,
+            'telresponsable' => $this->telresponsable,
+            'contact' => $this->contact,
+            'adresse' => $this->adresse,
+            'email' => $this->email,
+            'tel' => $this->tel,
+            'fax' => $this->fax,
+            'siteweb' => $this->siteweb,
+            'acteurFils' => $this->acteurFils,
+            'projet' => $this->projet,
+            'acteurParent' => $this->acteurParent,
+        );
     }
 }

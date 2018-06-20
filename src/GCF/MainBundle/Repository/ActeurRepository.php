@@ -10,4 +10,21 @@ namespace GCF\MainBundle\Repository;
  */
 class ActeurRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function topBySector($SecteurActeur)
+    {
+        $Acteurs = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('a')
+            ->from('GCFMainBundle:Acteur', 'a')
+            ->leftJoin('a.secteurActeur', 'sa')
+            ->Where('sa.id = :secteur')
+            
+            ->setParameter('secteur', $SecteurActeur->getId())          //      )       //  
+            //->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+            //->getSingleScalarResult();
+        
+        return $Acteurs;
+    }
 }

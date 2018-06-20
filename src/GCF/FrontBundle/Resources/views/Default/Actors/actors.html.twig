@@ -138,8 +138,20 @@
             <div class="col-md-8">
                 <div class="hierarchie_result_lvl">
 
-                    {% block actorsSector %}
-                    {% endblock %}
+{% block actorsSector %}
+    {% set i = 0 %}
+    {% for sector in sectors %}
+        {% set i = i + 1 %}
+        <h1>{{ sector.nom }}</h1>
+        <ul>
+            {% for actor in mainactors[sector.id].actors %}
+                <li>
+                    <span onclick="seeDetails( {{ actor.id }} )">{{ actor.nom }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}
                 </div>
             </div>
 
@@ -160,29 +172,71 @@
 {% block javascripts %}
     <script type="text/javascript" charset="utf-8">
         function seeDetails(actor_id){
-
-            $('.page_overlay').css('display', 'block');
+            url = '{{ path('gcf_front_single_actor', {'id': 'id'} ) }}';
+            url = url.replace("id", actor_id);
+            var toAppend = '';
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: { 'id' : actor_id },
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (result) {
+                    $('.page_overlay').css('display', 'block');
 
             $('.popup_details_container').css('display', 'block');
 
-            var toAppend = '';
-            toAppend = '<table class="table table-striped table-bordered">';
-            toAppend +=  '<thead></thead>';
-            toAppend +=  '<tbody>';
-            toAppend +=  ' <tr>';
-            toAppend +=  '<td>ID</td>';
-            toAppend +=  '<td>'+actor_id+'</td>';
-            toAppend +=  '</tr>';
-            toAppend +=  '<tr>';
-            toAppend +=  '<td>Nom</td>';
-            toAppend +=  '<td></td>';
-            toAppend +=  '</tr>';
-            toAppend +=  '<tr>';
-            toAppend +=  '<td>...</td>';
-            toAppend +=  '<td></td>';
-            toAppend +=  '</tr>';
-            toAppend +=  '</tbody>';
-            toAppend +=  '</table>';
+
+                    var toAppend = '';
+                    toAppend = '<table class="table table-striped table-bordered">';
+                    toAppend +=  '<thead></thead>';
+                    toAppend +=  '<tbody>';
+                    toAppend +=  ' <tr>';
+                    toAppend +=  '<td>ID</td>';
+                    toAppend +=  '<td>'+actor_id+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td>Logo : </td>';
+                    toAppend +=  '<td><img src="'+result.logo+'" alt="" style=""></td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td>Nom : </td>';
+                    toAppend +=  '<td>'+result.nom+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td>Nom Complet : </td>';
+                    toAppend +=  '<td>'+result.nomcomplet+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td>Description : </td>';
+                    toAppend +=  '<td>'+result.description+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td>Hiérarchie : </td>';
+                    toAppend +=  '<td>'+result.hierarchie+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td>Mission</td>';
+                    toAppend +=  '<td>'+result.mission+'</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td>...</td>';
+                    toAppend +=  '<td></td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '</tbody>';
+                    toAppend +=  '</table>';
+            $('.popup_details_container_inner').append(toAppend);
+                },
+                error: function(xhr, ajaxOptions, thrownError){
+                    console.log(xhr);
+                    console.log(ajaxOptions);
+                    console.log(thrownError);
+                }
+            });
+            
+            $('.page_overlay').css('display', 'block');
+
+            $('.popup_details_container').css('display', 'block');
 
             $('.popup_details_container_inner').append(toAppend);
         }

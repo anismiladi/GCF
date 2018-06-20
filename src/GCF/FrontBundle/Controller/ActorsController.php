@@ -5,6 +5,12 @@ namespace GCF\FrontBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
+
 class ActorsController extends Controller
 {
     public function indexAction()
@@ -18,7 +24,6 @@ class ActorsController extends Controller
         // Simple example
         $breadcrumbs->addItem("Acteurs", $this->get("router")->generate("gcf_front_actorspage"));
 
-
         $em = $this->getDoctrine()->getManager();
 
         $sectors = $em->getRepository('GCFMainBundle:SecteurActeur')->findBy(
@@ -26,7 +31,13 @@ class ActorsController extends Controller
                 'secteurActeurParent' => null
             )
         );
-
+        $mainactors=[];
+        foreach($sectors as $sector){
+            //  echo $sector->getNom()."<br>";
+            //  $mainactors[]['sector'] = $sector;
+            $mainactors[$sector->getId()]['actors'] = $em->getRepository('GCFMainBundle:Acteur')->topBySector($sector);
+        }
+        
         $actors = $em->getRepository('GCFMainBundle:Acteur')->findBy(
             array(
                 'acteurParent' => null
@@ -37,6 +48,7 @@ class ActorsController extends Controller
         return $this->render('@GCFFront/Default/Actors/actors.html.twig',array(
             'pageTitle' => $pageTitle,
             'sectors' => $sectors,
+            'mainactors' => $mainactors,
             'actors' => $actors
 
         ));
@@ -125,6 +137,25 @@ class ActorsController extends Controller
         ));
     }
 
+    public function singleActorAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $singleActor = array();
+        //$id = $request->get('id');
+        $actor = $em->getRepository('GCFMainBundle:Acteur')->findOneBy( array( 'id' => $id ) );
+        
+        //$data =  $this->get('serializer')->serialize($actor, 'json');
+        //$response = new Response($data);
+        //$response->headers->set('Content-Type', 'application/json');
+        //return $response;
+        
+        //$jsonContent = new serialize($actor);
+        // $jsonContent contains {"name":"foo","age":99,"sportsperson":false,"createdAt":null}
+        //return $jsonContent; // or return it in a Response
 
+        return new JsonResponse($actor->jsonSerialize());
+        
+        //return json_encode($actor);
+        //return new JsonResponse(json_encode($actor));
+    }
 
 }

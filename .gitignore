@@ -51,3 +51,4 @@
 /.web-server-pid
 assets
 /*.zip
+/nbproject/private/
