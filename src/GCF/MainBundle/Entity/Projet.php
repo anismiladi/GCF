@@ -42,20 +42,9 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     private $description;
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @var string
      *
      * @ORM\Column(name="youtube", type="text", length=255, nullable=true)
-=======
-=======
->>>>>>> parent of e35ba16... correction sonatamedia
-=======
->>>>>>> parent of e35ba16... correction sonatamedia
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist", "remove"} )
-     * @ORM\JoinColumn(name="fichier", nullable=true)
->>>>>>> parent of e35ba16... correction sonatamedia
      */
     private $fichier;
     

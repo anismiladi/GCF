@@ -201,7 +201,7 @@ fm_elfinder:
                         upload_max_size: 2M # also file upload sizes restricted in php.ini
                         #attributes: example of setting attributes permission
                         #    - { pattern: '/(.*?)/', read: true, write: false, locked: true }
-        form:
+        form_photo:
             locale: %locale% # defaults to current request locale
             editor: form # other choices are tinymce or simple, and form
             #show_hidden: false # defaults to false
@@ -212,8 +212,39 @@ fm_elfinder:
                 roots:       # at least one root must be defined
                     uploads:
                         driver: LocalFileSystem
-                        path: uploads
+                        path: uploads/photos
                         upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
                         upload_deny: ['all']
-                        upload_max_size: 2M
+                        upload_max_size: 10M
+        form_image:
+            locale: %locale% # defaults to current request locale
+            editor: form # other choices are tinymce or simple, and form
+            #show_hidden: false # defaults to false
+            fullscreen: true # defaults true, applies to simple and ckeditor editors
+            include_assets: true # disable if you want to handle loading of the javascript and css assets yourself
+            connector:
+                debug: true # defaults to false
+                roots:       # at least one root must be defined
+                    uploads:
+                        driver: LocalFileSystem
+                        path: uploads/images
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 10M
+                        
+        form_pdf:
+            locale: %locale% # defaults to current request locale
+            editor: form # other choices are tinymce or simple, and form
+            #show_hidden: false # defaults to false
+            fullscreen: true # defaults true, applies to simple and ckeditor editors
+            include_assets: true # disable if you want to handle loading of the javascript and css assets yourself
+            connector:
+                debug: true # defaults to false
+                roots:       # at least one root must be defined
+                    uploads:
+                        driver: LocalFileSystem
+                        path: uploads/pdf
+                        upload_allow: ['application/pdf']
+                        upload_deny: ['all']
+                        upload_max_size: 20M
  
