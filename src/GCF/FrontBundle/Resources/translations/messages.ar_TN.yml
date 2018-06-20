@@ -10,3 +10,10 @@ menu:
 
 core:
   Hello: السلام عليكم !
+
+mailchampNewsletter:
+  Subscribe to our newsletter: Inscrivez vous à notre newsletter
+  indicates required: يشير إلى المطلوب
+  First Name: الأسم الأول
+  Last Name: اسم العائلة
+  Subscribe: الاشتراك

@@ -367,6 +367,7 @@
                 </div>
                 <br/>
                 {% for nospublication in nospublications %}
+                    {% if nospublication.titre != "" %}
                     <div class="col-sm-6 item filter_display ours" style="background: #f7f7f7;border: solid 2px white;">
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
@@ -381,9 +382,11 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 {% endfor %}
 
                 {% for gbpublication in gbpublications %}
+                    {% if gbpublication.titre != "" %}
                     <div class="col-sm-6 item filter_display gb" style="background: #f7f7f7;border: solid 2px white;">
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
@@ -399,9 +402,12 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 {% endfor %}
 
                 {% for autrespublication in autrespublications %}
+                    {% if autrespublication.titre != "" %}
+
                     <div class="col-sm-6 item filter_display others" style="background: #f7f7f7;border: solid 2px white;">
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
@@ -416,6 +422,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 {% endfor %}
             </div>
             <div class="row read_more_container col-sm-12">

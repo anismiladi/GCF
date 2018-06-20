@@ -71,6 +71,14 @@ class EventController extends Controller
         if ($event->getPhotoAffiche() != null)
         $singleEvent['logo'] = $event->getPhotoAffiche();
 
+        $singleEvent['linkFB']= "";
+        if ($event->getLienFB() != null)
+        $singleEvent['linkFB'] = $event->getLienFB();
+
+        $singleEvent['linkOthers']= "";
+        if ($event->getLienAutre() != null)
+        $singleEvent['linkOthers'] = $event->getLienAutre();
+
 
         return new JsonResponse($singleEvent);
     }
