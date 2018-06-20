@@ -110,7 +110,7 @@
                      {% endif %}
                  <div class="col-md-2 col-sm-2 col-sm-offset-1 col-md-offset-1 project_container">
                      <center>
-                         <img class="project_icon" src="{{ ProjectBySector["url"] }}" alt="{{ key1 }}"> <br>
+                         <img class="project_icon" src="{{ ProjectBySector["url"]|replace({'app_dev.php': ''}) }}" alt="{{ key1 }}"> <br>
                          <a class="project_name" href="#" title="{{ key }}">
 
                                  Projets {{ key1 }}
@@ -377,8 +377,7 @@
                             </div>
                             <div class="col">
                                 <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">{{ nospublication.titre }}</a></h2>
-                                <p class="description">Aenean tortor est, vulputate quis leo
-                                    in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
+                                <p class="description">{{ nospublication.contenu|slice(0, 180)|striptags  }}</p>
                             </div>
                         </div>
                     </div>
@@ -397,8 +396,7 @@
                             <div class="col">
                             
                                 <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">{{ gbpublication.titre }}</a></h2>
-                                <p class="description">Aenean tortor est, vulputate quis leo
-                                    in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
+                                <p class="description">{{ gbpublication.contenu|slice(0, 180)|striptags  }}.</p>
                             </div>
                         </div>
                     </div>
@@ -417,8 +415,7 @@
                             </div>
                             <div class="col">
                                 <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">{{ autrespublication.titre }}</a></h2>
-                                <p class="description">Aenean tortor est, vulputate quis leo
-                                    in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
+                                <p class="description">{{ autrespublication.contenu|slice(0, 180)|striptags  }}</p>
                             </div>
                         </div>
                     </div>

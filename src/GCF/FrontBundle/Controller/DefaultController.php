@@ -41,12 +41,12 @@ class DefaultController extends Controller
         arsort($nbrProj); //trier selon le grand nbre de projet//
 
 
+        //Block Evenement
+//        $events = $em->getRepository('GCFMainBundle:Event')->find();
+
         //Block article & publication
         $nospublications = $em->getRepository('GCFMainBundle:Publication')->findlast2_Nospublication();
-
-
         $gbpublications = $em->getRepository('GCFMainBundle:Publication')->findLastGbPublication();
-
         $autrespublications = $em->getRepository('GCFMainBundle:Publication')->findLastAutresPublication();
 
 

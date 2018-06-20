@@ -10,4 +10,18 @@ namespace GCF\MainBundle\Repository;
  */
 class EventRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findlast2_Nospublication(){
+
+        $nosPub = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('p')
+            ->from('GCFMainBundle:Publication', 'p')
+            ->where('p.categorie = 1' )
+            ->setMaxResults(2)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        return $nosPub;
+    }
 }
