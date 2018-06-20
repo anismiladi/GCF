@@ -24,8 +24,8 @@ class ElearningAdmin extends AbstractAdmin
         $formMapper
             ->add('nom')
             ->add('description')
-            ->add('youtube','text', array('required' => false))
-            ->add('fichier', ElFinderType::class, ['instance' => 'form', 'enable' => true,'required' => false])        //
+            ->add('youtube', 'text', array('required' => false))
+            ->add('fichier', ElFinderType::class, ['instance' => 'form_pdf', 'enable' => true,'required' => false])        //
             ->add('catLearning')    /*, 'sonata_type_model', array(
                 'required' => false,
                 'multiple' => false, 

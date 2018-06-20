@@ -241,7 +241,7 @@ class Elearning extends AbstractPersonalTranslatable implements TranslatableInte
      */
     public function setYoutube($youtube)
     {
-        $this->fichier = $youtube;
+        $this->youtube = $youtube;
 
         return $this;
     }

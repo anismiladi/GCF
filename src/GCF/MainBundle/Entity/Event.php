@@ -50,50 +50,16 @@ class Event extends AbstractPersonalTranslatable implements TranslatableInterfac
     private $lienFB;
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @var string
      *
      * @ORM\Column(name="photo_couverture", type="text", length=255, nullable=true)
-=======
-=======
->>>>>>> parent of e35ba16... correction sonatamedia
-=======
->>>>>>> parent of e35ba16... correction sonatamedia
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist", "remove"} )
-     * @ORM\Column(name="photoCouverture", nullable=true)
->>>>>>> parent of e35ba16... correction sonatamedia
-=======
-     * @var string
-     *
-     * @ORM\Column(name="photoCouverture", nullable=true)
->>>>>>> parent of 2431aab... Merge branch 'master' of https://github.com/anismiladi/greenclimate
      */
     private $photoCouverture;
     
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @var string
      *
      * @ORM\Column(name="photo_affiche", type="text", length=255, nullable=true)
-=======
-=======
->>>>>>> parent of e35ba16... correction sonatamedia
-=======
->>>>>>> parent of e35ba16... correction sonatamedia
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist", "remove"} )
-     * @ORM\Column(name="photoAffiche", nullable=true)
->>>>>>> parent of e35ba16... correction sonatamedia
-=======
-     * @var string
-     *
-     * @ORM\Column(name="photoAffiche", nullable=true)
->>>>>>> parent of 2431aab... Merge branch 'master' of https://github.com/anismiladi/greenclimate
      */
     private $photoAffiche;
     
