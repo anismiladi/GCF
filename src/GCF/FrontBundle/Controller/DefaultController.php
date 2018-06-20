@@ -44,6 +44,7 @@ class DefaultController extends Controller
         //Block article & publication
         $nospublications = $em->getRepository('GCFMainBundle:Publication')->findlast2_Nospublication();
 
+
         $gbpublications = $em->getRepository('GCFMainBundle:Publication')->findLastGbPublication();
 
         $autrespublications = $em->getRepository('GCFMainBundle:Publication')->findLastAutresPublication();

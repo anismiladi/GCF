@@ -11,3 +11,9 @@ menu:
 core:
   Hello: Hello !
 
+mailchampNewsletter:
+  Subscribe to our newsletter: Subscribe to our newsletter
+  indicates required: indicates required
+  First Name: First Name
+  Last Name: Last Name
+  Subscribe: Subscribe

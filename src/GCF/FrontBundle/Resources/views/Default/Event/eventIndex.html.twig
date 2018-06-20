@@ -11,7 +11,7 @@
         }
         .event__banner{
             max-height: 100%;
-            height: 100px;
+            height: 140px;
             background-size:cover;
             background-repeat: no-repeat;
             border-bottom: solid 2px white;
@@ -19,8 +19,9 @@
         }
         .event__img__info{
             background: #ccc;
-            min-height:  100px;
+            min-height:  110px;
             padding-bottom: 1px;
+
         }
         .event__img img{
             margin-top: -20px;
@@ -29,6 +30,11 @@
         }
         .event__info h3{
             margin-top: 10px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .event__info h3:hover{
+            color: #22aa86;
         }
         .event__info h4{
             margin-top: 5px;
@@ -54,18 +60,20 @@
         ==================
         */
         .popup__container{
-            display:none;
-            position: absolute;
-            z-index: 999;
-            top: 200px;
+            display: none;
+            position: fixed;
+            z-index: 9999;
             margin: auto;
             left: 0;
             right: 0;
+            top: 0;
+            bottom: 0;
             width: 600px;
             max-width: 100%;
-            min-height: 400px;
+            min-height: 350px;
+            height: max-content;
             background-color: white;
-            border: solid #22aa86 2px;
+            box-shadow: 0px 0px  5px 5px rgba(255, 255, 255, 0.15);
         }
         .popup__container.active{
             display:block;
@@ -73,7 +81,7 @@
         }
         .popup__overlay{
             position: fixed;
-            z-index: 998;
+            z-index: 9998;
             display: none;
             top: 0;
             bottom: 0;
@@ -92,65 +100,42 @@
             background-color: grey;
         }
 
-        .popup__body__photo{
-            margin-top: -20px;
-            max-height: 100px;
-            width: auto;
-            border: solid 2px #22aa86;
-            background-color: grey;
+        .popup__body__title h2{
+            font-size: 20px;
+            font-weight: 600;
         }
+        .popup__footer__facebook{
+            float: right;
+            text-decoration: none;
+        }
+        .popup__footer__facebook i{
+            border-radius: 50%;
+            border: solid 1px;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 24px;
+        }
+
+        .popup__footer__others{text-align: left}
+        .popup__footer__others:hover ,.popup__footer__others:focus, .popup__footer__others:active{text-decoration:none}
+
     </style>
 {% endblock %}
 
 {% block body %}
 
-    {#<div id="content">#}
-
-        {#<ul class="timeline">#}
-            {#{% for evenement in evenements %}#}
-            {#<li  class="event">#}
-                {#<div class="container_timeline right">#}
-
-                    {#<div class="content" >#}
-                        {#<div class="container_timeline_img">#}
-                            {#<img src="https://placeimg.com/200/200/tech" alt="" style="max-width: 100%">#}
-                        {#</div>#}
-                        {#<div class="container_timeline_info">#}
-                            {#<h3>{{ evenement.nom }}</h3>#}
-                            {#<h4>{{ "now"|date("d-m-Y")  }}</h4>#}
-                            {#<p>{{ evenement.description }}</p>#}
-                            {#<p>#}
-                            {#<a href="{{ evenement.lienFB }}" title="Facebook" target="_blank">#}
-                                {#<i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i>#}
-                            {#</a>#}
-                            {#</p>#}
-                        {#</div>#}
-                        {#</div>#}
-                {#</div>#}
-            {#</li>#}
-            {#{% endfor %}#}
-
-        {#</ul>#}
-
-    {#</div>#}
-
-
     <div class="col-md-12">
         {% for evenement in evenements %}
             <div class="col-md-6 event__banner__container">
 
-                <div class="event__banner" style="background-image: url('https://placeimg.com/400/200/any');">
+                <div class="event__banner" style="background-image: url('{{ evenement.photoCouverture|replace({'app_dev.php': ''})  }}');">
                 </div>
 
                 <div class="event__img__info">
-
-                    <div class="event__img col-md-4 col-sm-4 col-xs-4">
-                        <img src="https://placeimg.com/200/200/tech" alt="" style="max-width: 100%">
-                    </div>
-
-                    <div class="event__info col-md-8 col-sm-8 col-xs-8">
+                    <div class="event__info col-md-12 col-sm-12 col-xs-12">
                         <h3 onclick="toggle_popup({{ evenement.id }})">{{ evenement.nom }}</h3>
-                        <h4>{{ "now"|date("d-m-Y")  }}</h4>
+                        <h4>{{ evenement.debut|date("d-m-Y") }}</h4>
                         <p><a href="{{ evenement.lienFB }}" title="Facebook" target="_blank">
                             <i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i>
                         </a></p>
@@ -167,12 +152,22 @@
         <div class="popup__header"></div>
         <div class="popup__body">
             <div class="popup__body__head col-xs-12">
-                <img class="popup__body__photo col-xs-4" src="" >
-                <div class="popup__body__title col-xs-8"><h2></h2></div>
+                <div class="popup__body__title"><h2></h2></div>
             </div>
             <div class="popup__body__content col-xs-12">
                 <h3></h3>
                 <p></p>
+            </div>
+            <div class="popup__footer col-xs-12">
+                <p>
+                    <a class="popup__footer__others" href="" title="Event" target="_blank">
+                        Event Link
+                    </a>
+
+                    <a class="popup__footer__facebook" href="" title="Facebook" target="_blank">
+                        <i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i>
+                    </a>
+                </p>
             </div>
 
         </div>
@@ -181,36 +176,43 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script>
-        function toggle_popup(id) {
+    <script  type="text/javascript" charset="utf-8">
+        function toggle_popup(event_id) {
 
             $('.popup__overlay').css('display', 'block');
 
             url = '{{ path('gcf_front_single_event', {'id': 'id'} ) }}';
-            url = url.replace("id", id);
+            url = url.replace("id", event_id);
+
             $.ajax({
                 url: url,
                 type: 'POST',
-                data: { 'id' : id },
+                data: { 'id' : event_id },
                 dataType: 'json',
                 contentType: 'application/json',
                 success: function (result) {
                     $('.popup__container').addClass('active');
+
                     console.log(result);
-                    $('.popup__header').css('background-image', 'url("'+result.banner+'")' );
-                    $('.popup__body__photo').attr('src', ''+result.logo+'' );
-                    $('.popup__body__photo').attr('alt', ''+result.name+'' );
+
+                    $('.popup__header').css('background-image', 'url("'+result.banner.replace('app_dev.php/', '')+'")' );
+
                     $('.popup__body__title h2').html( result.name );
-                    $('.popup__body__content h3').html( result.date.date );
+
+                    var date = result.date.date.substr(0, 10);
+                    var time = result.date.date.substr(11, 5);
+
+                    $('.popup__body__content h3').html( 'Le '+date+' à partir de '+time );
+
                     $('.popup__body__content p').html( result.description );
 
+                    $('.popup__footer a.popup__footer__facebook').attr('href', result.linkFB);
 
+                    $('.popup__footer a.popup__footer__others').attr('href', result.linkOthers);
 
                 },
-                error: function(xhr, ajaxOptions, thrownError){
-                    console.log(xhr);
-                    console.log(ajaxOptions);
-                    console.log(thrownError);
+                error: function(error){
+                    console.log(error);
                 }
             });
         }
