@@ -89,6 +89,16 @@ class Gouvernorat extends AbstractPersonalTranslatable implements TranslatableIn
     }
 
     /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getIdmap()
+    {
+        return $this->idmap;
+    }
+    
+    /**
      * Set idmap
      *
      * @param int $idmap
