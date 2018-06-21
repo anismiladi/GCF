@@ -36,6 +36,13 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
     /**
      * @var string
      *
+     * @ORM\Column(name="featuredImage", type="string", length=255, nullable=true)
+     */
+    private $featuredImage;
+    
+    /**
+     * @var string
+     *
      * @Gedmo\Translatable
      * @ORM\Column(name="contenu", type="text")
      */
@@ -205,5 +212,41 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
     public function getEmailBloggeur()
     {
         return $this->emailBloggeur;
+    }
+
+    /**
+     * Remove translation.
+     *
+     * @param \GCF\MainBundle\Entity\PublicationTranslation $translation
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTranslation(\GCF\MainBundle\Entity\PublicationTranslation $translation)
+    {
+        return $this->translations->removeElement($translation);
+    }
+
+    /**
+     * Set featuredImage.
+     *
+     * @param string|null $featuredImage
+     *
+     * @return Publication
+     */
+    public function setFeaturedImage($featuredImage = null)
+    {
+        $this->featuredImage = $featuredImage;
+
+        return $this;
+    }
+
+    /**
+     * Get featuredImage.
+     *
+     * @return string|null
+     */
+    public function getFeaturedImage()
+    {
+        return $this->featuredImage;
     }
 }

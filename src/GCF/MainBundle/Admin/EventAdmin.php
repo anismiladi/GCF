@@ -12,7 +12,6 @@ use Sonata\TranslationBundle\Filter\TranslationFieldFilter;
 use Sonata\AdminBundle\Form\Type\ModelType;
 
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-
 use FM\ElfinderBundle\Form\Type\ElFinderType;
 
 class EventAdmin extends AbstractAdmin

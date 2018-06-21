@@ -16,7 +16,7 @@
         {{ publication.projet.nom }}
     {% endif %}
 
-    <p>{{ publication.contenu }}</p>
+    <p>{{ publication.contenu|raw }}</p>
 
 </div>
 {% endblock %}

@@ -95,13 +95,13 @@
                     <div class="row">
                         <div class="col-md-5">
                             <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}) }) }}" title="{{ publication.titre }}">
-                                <img src="http://placehold.it/200x200" class="img-responsive" style="width: 100%;"  alt="{{ publication.titre }}" title="{{ publication.titre }}" />
+                                <img src="{{ publication.featuredImage }}" class="img-responsive" style="width: 100%;"  alt="{{ publication.titre }}" title="{{ publication.titre }}" />
                             </a>
                         </div>
                         <div class="col-md-7">
                             <h4><a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}) }) }}" class="post_title" title="{{ publication.titre }}">{{ publication.titre }}</a></h4>
                             <h6><strong>Date :</strong> 2009</h6>
-                            <p class="description" style="font-size: 13px;">{{ publication.contenu|slice(0, 62) }}...</p>
+                            <p class="description" style="font-size: 13px;">{{ publication.contenu|raw|slice(0, 62) }}...</p>
                             <p style="width: 100%; text-align: right">
                                 <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}) }) }}" title="{{ publication.titre }}" class="button_see_more">Lire la suite. </a>
                             </p>
@@ -122,7 +122,7 @@
                     <div class="row">
                         <div class="col-md-5">
                             <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}" title="{{ gbpublication.titre }}">
-                                <img src="http://placehold.it/200x200" class="img-responsive" alt="{{ gbpublication.titre }}" title="{{ gbpublication.titre }}"/>
+                                <img src="{{ gbpublication.featuredImage }}" class="img-responsive" alt="{{ gbpublication.titre }}" title="{{ gbpublication.titre }}"/>
                             </a>
                         </div>
                         <div class="col-md-7">
@@ -133,7 +133,7 @@
                             </h4>
                             <h6><strong>Date :</strong> 2009</h6>
                             <p class="description" style="font-size: 13px;">
-                                {{ gbpublication.contenu|slice(0, 62) }}...
+                                {{ gbpublication.contenu|raw|slice(0, 62) }}...
                             </p>
                             <p style="width: 100%; text-align: right">
                                 <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}" title="{{ gbpublication.titre }}" class="button_see_more">
@@ -154,14 +154,14 @@
                     <div class="row">
                         <div class="col-md-5">
                             <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}" title="{{ autrespublication.titre }}">
-                                <img src="http://placehold.it/200x200" class="img-responsive" alt="{{ autrespublication.titre }}" />
+                                <img src="{{ autrespublication.featuredImage }}" class="img-responsive" alt="{{ autrespublication.titre }}" />
                             </a>
                         </div>
                         <div class="col-md-7">
                             <h4 class="post_title"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}" title="{{ autrespublication.titre }}">{{ autrespublication.titre }}</a></h4>
                             <h6 class="name"><strong>Date :</strong> 2009</h6>
                             <p class="description" style="font-size: 13px;">
-                                {{ autrespublication.contenu|slice(0, 62) }}...
+                                {{ autrespublication.contenu|raw|slice(0, 62) }}...
                             </p>
                             <p style="width: 100%; text-align: right">
                                 <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}" title="{{ autrespublication.titre }}" class="button_see_more" >

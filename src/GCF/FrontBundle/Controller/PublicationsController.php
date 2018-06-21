@@ -36,6 +36,10 @@ class PublicationsController extends Controller
             array('categorie' => '3'),
             array('id' => 'desc')
         );
+        
+        foreach($nospublications as $notrepublication){
+            $notrepublication->setFeaturedImage(preg_replace("/app_dev.php\//", "", $notrepublication->getFeaturedImage()));       //$notrepublication->setsetFeaturedImage
+        }
 
         $catsPub = $em ->getRepository('GCFMainBundle:CatPublication')->findAll();
 

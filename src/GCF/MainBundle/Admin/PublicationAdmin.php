@@ -14,6 +14,7 @@ use Sonata\AdminBundle\Form\Type\AdminType;
 use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
 
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use FM\ElfinderBundle\Form\Type\ElFinderType;
 
 class PublicationAdmin extends AbstractAdmin
 {
@@ -21,6 +22,7 @@ class PublicationAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('titre')
+            ->add('featuredImage', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true,'required' => false])
             ->add('contenu', CKEditorType::class, array(
                     'config' => array(
                         'filebrowserBrowseRoute' => 'elfinder',
