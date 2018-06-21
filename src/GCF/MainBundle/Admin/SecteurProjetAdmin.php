@@ -20,7 +20,7 @@ class SecteurProjetAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('nom')
-            ->add('logo', ElFinderType::class, ['instance' => 'form', 'enable' => true])        //
+            ->add('logo', ElFinderType::class, ['instance' => 'form_image', 'enable' => true])        //
             ->add('secteurProjetParent','sonata_type_model',        //_autocomplete',
                 array(
                     'required' => false,

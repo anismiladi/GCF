@@ -20,7 +20,7 @@ class ActeurAdmin extends AbstractAdmin
     {
         $formMapper
             ->with('Gestion les Acteurs', ['class' => 'col-md-8'])
-                ->add('logo', ElFinderType::class, ['instance' => 'form', 'enable' => true,'required' => false])
+                ->add('logo', ElFinderType::class, ['instance' => 'form_image', 'enable' => true,'required' => false])
                 ->add('nom')
                 ->add('nomcomplet')
                 ->add('description', CKEditorType::class, array(
