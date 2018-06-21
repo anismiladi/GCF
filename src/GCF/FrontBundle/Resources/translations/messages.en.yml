@@ -7,6 +7,9 @@ menu:
   Search: Search
   News: News
   GreenBlogger: Green Blogger
+  Contact-us: Contactez-nous
+  Events: Events
+  News: News
 
 core:
   Hello: Hello !
