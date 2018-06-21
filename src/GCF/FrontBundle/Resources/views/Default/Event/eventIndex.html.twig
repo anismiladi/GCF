@@ -89,6 +89,16 @@
             left: 0;
             background-color: rgba(0,0,0,0.4);
         }
+        .popup__overlay button{
+            float: right;
+            margin: 20px;
+            font-size: 30px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: 700;
+            outline:none;
+        }
 
         .popup__header{
             min-height: 200px;
@@ -103,6 +113,9 @@
         .popup__body__title h2{
             font-size: 20px;
             font-weight: 600;
+        }
+        .popup__body__content h3 {
+            margin-top: 0;
         }
         .popup__footer__facebook{
             float: right;
@@ -172,14 +185,16 @@
 
         </div>
     </div>
-    <div class="popup__overlay" onclick="closePopup()"></div>
+    <div class="popup__overlay" onclick="closePopup()">
+        <button>&times;</button>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
     <script  type="text/javascript" charset="utf-8">
         function toggle_popup(event_id) {
 
-            $('.popup__overlay').css('display', 'block');
+
 
             url = '{{ path('gcf_front_single_event', {'id': 'id'} ) }}';
             url = url.replace("id", event_id);
@@ -191,6 +206,7 @@
                 dataType: 'json',
                 contentType: 'application/json',
                 success: function (result) {
+                    $('.popup__overlay').css('display', 'block');
                     $('.popup__container').addClass('active');
 
                     console.log(result);

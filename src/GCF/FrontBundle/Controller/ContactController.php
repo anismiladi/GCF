@@ -52,11 +52,6 @@ class ContactController extends Controller
         if ($email === ''){
             return new JsonResponse(array('message' => "L'Email ne peut pas être vide", 'code' => 0));
             exit();
-        } else {
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                return new JsonResponse(array('message' => "Le format de l'Email est invalide.", 'code' => 0));
-                exit();
-            }
         }
         if ($subject === ''){
             return new JsonResponse(array('message' => 'Le Subject ne peut pas être vide', 'code' => 0));
@@ -70,6 +65,7 @@ class ContactController extends Controller
         $recipient = "younes.maroine@gmail.com";
         $mailheader = "From: $email \r\n";
         mail($recipient, $subject, $content, $mailheader) or die("Error!");
+
         return new JsonResponse(array('message' => 'Votre message est envoyé avec succès', 'code' => 1));
 
 

@@ -289,6 +289,7 @@
 </div><!-- End newsletter -->
 
 <div class="close_my_newsletter_modal">
+    <button>&times;</button>
 <!-- Modal -->
 </div>
 <div class="my_newsletter_modal">
@@ -396,7 +397,7 @@
                         <ul class="">
                             <li style="list-style: none;"><a href="{{ path('gcf_front_event_page') }}" style="color:white;text-decoration: none">Evenement</a></li>
                             <li style="list-style: none;"><a href="#bibliotheque" style="color:white;text-decoration: none">Bibliotheque</a></li>
-                            <li style="list-style: none;"><a href="#" style="color:white;text-decoration: none">Green Bloggeur</a></li>
+                            <li style="list-style: none;"><a href="{{ path('gcf_front_publicationspage') }}" style="color:white;text-decoration: none">Green Bloggeur</a></li>
                             <li style="list-style: none;"><a href="http://raj-tunisie.org" target="_blank" style="color:white;text-decoration: none">RAJ Tunisie</a></li>
                             <li style="list-style: none;"><a href="{{ path('gcf_front_contactpage') }}" style="color:white;text-decoration: none">Contactez Nous</a></li>
                         </ul>
@@ -419,7 +420,27 @@
 <script src="{{ asset('assets/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/slick/slick.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/main.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
+{#<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>#}
+<script>
+    CKEDITOR.replace( 'gb_article_content',{
+        extraPlugins: 'language',
+        language_list: [ 'fr:French',  'en:Fnglish', 'ar:Arabic:rtl' ],
+        toolbarGroups: [
+            {"name":"basicstyles","groups":["basicstyles"]},
+            {"name":"paragraph","groups":["align"]},
+            {"name":"paragraph","groups":["list"]},
+            {"name":"styles","groups":["styles"]},
+            {"name":"links","groups":["links"]},
+            //  {"name":"paragraph","groups":["bidi"]}, // language
 
+            // { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+
+        ],
+        // Remove the redundant buttons from toolbar groups defined above.
+        removeButtons: 'About, Source'
+    });
+</script>
 <script>
 
     //====================================
@@ -450,7 +471,7 @@
                 $('#gb_name').val('');
                 $('#gb_email').val('');
                 $('#gb_article_title').val('');
-                $('#gb_article_content').val('');
+                $('#cke_gb_article_content').val('');
                 $('#gb_article_project').val('');
 
                 return false;

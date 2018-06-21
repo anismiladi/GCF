@@ -31,6 +31,16 @@
             margin: auto;
             background: rgba(0, 0, 0, 0.4);
         }
+        .page_overlay button{
+            float: right;
+            margin: 20px;
+            font-size: 30px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: 700;
+            outline:none;
+        }
 
         .popup_details_container{
             display: none;
@@ -49,15 +59,6 @@
             max-width:100%;
             border-radius: 2px;
             border: solid 1px #7ac943;
-        }
-
-        .popup_details_container .close_popup{
-            position: absolute;
-            top: -6px;
-            right: -5px;
-            font-size: 20px;
-            color: red;
-            cursor: pointer;
         }
 
         .popup_details_container_inner{
@@ -183,10 +184,10 @@
 
 
     <div class="page_overlay" onclick="closePop()">
+        <button>&times;</button>
 
     </div>
     <div class="popup_details_container">
-        <i class="fa fa-times-circle close_popup" aria-hidden="true" onclick="closePop()"></i>
         <div class="popup_details_container_inner"></div>
     </div>
 
@@ -260,7 +261,7 @@
         {#{{ path('gcf_front_projectsinglepage', {'id': project.id} ) }}#}
         function showDetails(id){
 
-            $('.page_overlay').css('display', 'block');
+
             url = '{{ path('gcf_front_projectsinglepage', {'id': 'id'} ) }}';
             url = url.replace("id", id);
             //console.log(url);
@@ -271,7 +272,7 @@
                 dataType: 'json',
                 success: function (result) {
                     console.log(result);
-
+                    $('.page_overlay').css('display', 'block');
                     $('.popup_details_container').css('display', 'block');
 
                     var toAppend = '';
@@ -325,10 +326,5 @@
             $('.popup_details_container').css('display', 'none');
 
         }
-
-
-
-
-
     </script>
 {% endblock %}
