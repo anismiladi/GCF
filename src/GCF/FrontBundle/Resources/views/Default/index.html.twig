@@ -205,7 +205,7 @@
                             <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
                                 <h2 class="name">{{ event.Nom }}</h2>
                                 <p class="theme"><strong>Date:</strong> 11-12-2000</p>
-                                <p class="description">{{ event.Description|raw|slice(0, 62) }}</p>
+                                <p class="description">{{ event.Description|slice(0, 62)|striptags }}</p>
                             </div>
                         </div>
                     </div>
@@ -236,7 +236,7 @@
                             <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
                                 <h2 class="name">{{ Legislative.Nom }}</h2>
                                 <!--   <p class="theme"><strong>Sector:</strong>Energie</p> -->
-                                <p class="description">{{ Legislative.Description|raw|slice(0, 62) }}</p>
+                                <p class="description">{{ Legislative.Description|slice(0, 62)|striptags }}</p>
                             </div>
                         </div>
                     </div>
@@ -262,7 +262,7 @@
                             </div>
                             <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
                                 <h2 class="name">{{ Technique.Nom }}</h2>
-                                <p class="description">{{ Technique.Description|raw|slice(0, 62) }}</p>
+                                <p class="description">{{ Technique.Description|slice(0, 62)|striptags }}</p>
                             </div>
                         </div>
                     </div>

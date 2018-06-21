@@ -51,6 +51,9 @@ class DefaultController extends Controller
         //$TypeLegislative = $em->getRepository('GCFMainBundle:CatLearning')->findOneById(2);
 
         $Legislatives = $em->getRepository('GCFMainBundle:Elearning')->findlast(3, 2);       //Legislatives 
+        foreach ($Legislatives as $Legislative){
+            $Legislative->setFichier(preg_replace("/app_dev.php\//", "", $Legislative->getFichier()));
+        }
         $Techniques = $em->getRepository('GCFMainBundle:Elearning')->findlast(3, 1);       //Techniques 
         foreach ($Techniques as $Technique){
             $Technique->setYoutube(preg_replace("/com\/(.*)v=/", "com/embed/", $Technique->getYoutube()));
