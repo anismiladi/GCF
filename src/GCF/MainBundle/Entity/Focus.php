@@ -10,11 +10,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Focu
  *
- * @ORM\Table(name="focu")
- * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\FocuRepository")
- * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\FocuTranslation")
+ * @ORM\Table(name="focus")
+ * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\FocusRepository")
+ * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\FocusTranslation")
  */
-class Focu extends AbstractPersonalTranslatable implements TranslatableInterface
+class Focus extends AbstractPersonalTranslatable implements TranslatableInterface
 {
     /**
      * @var int
@@ -34,10 +34,10 @@ class Focu extends AbstractPersonalTranslatable implements TranslatableInterface
     private $nom;
 
     /**
-     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="focu", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="focus", cascade={"persist", "remove"})
      * @ORM\JoinTable(
-     *     name="focuprojet",
-     *     joinColumns={@ORM\JoinColumn(name="focu", referencedColumnName="id", nullable=false)},
+     *     name="focusprojet",
+     *     joinColumns={@ORM\JoinColumn(name="focus", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="projet", referencedColumnName="id", nullable=false)}
      * )
      */
@@ -47,7 +47,7 @@ class Focu extends AbstractPersonalTranslatable implements TranslatableInterface
      * @var ArrayCollection
      *
      * @ORM\OneToMany(
-     *     targetEntity="GCF\MainBundle\Entity\FocuTranslation",
+     *     targetEntity="GCF\MainBundle\Entity\FocusTranslation",
      *     mappedBy="object",
      *     cascade={"persist", "remove"}
      * )

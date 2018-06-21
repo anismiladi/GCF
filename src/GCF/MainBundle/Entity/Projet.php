@@ -93,9 +93,9 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     private $keyword;
     
     /**
-     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Focu", mappedBy="projet")
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Focus", mappedBy="projet")
      */
-    private $focu;
+    private $focus;
 
     /**
      * @return mixed
@@ -384,14 +384,14 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     /**
      * Add focu.
      *
-     * @param \GCF\MainBundle\Entity\Focu $focu
+     * @param \GCF\MainBundle\Entity\Focus $focus
      *
      * @return Projet
      */
-    public function addFocu(\GCF\MainBundle\Entity\Focu $focu)
+    public function addFocus(\GCF\MainBundle\Entity\Focus $focus)
     {
         $focu->addProjet($this);
-        $this->focu[] = $focu;
+        $this->focus[] = $focus;
 
         return $this;
     }
@@ -399,23 +399,25 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     /**
      * Remove focu.
      *
-     * @param \GCF\MainBundle\Entity\Focu $focu
+     * @param \GCF\MainBundle\Entity\Focus $focus
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeFocu(\GCF\MainBundle\Entity\Focu $focu)
+    public function removeFocus(\GCF\MainBundle\Entity\Focus $focus)
     {
-        $focu->removeProjet($this);
-        return $this->focu->removeElement($focu);
+        $focus->removeProjet($this);
+        return $this->focu->removeElement($focus);
     }
 
     /**
-     * Get focu.
+     * Get focus
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFocu()
+    public function getFocus()
     {
-        return $this->focu;
+        return $this->focus;
     }
+
+
 }

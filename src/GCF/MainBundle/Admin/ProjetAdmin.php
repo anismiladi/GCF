@@ -36,7 +36,7 @@ class ProjetAdmin extends AbstractAdmin
                     },
                 )
             )*/
-            ->add('focu', ModelAutocompleteType::class,    //  )        //_autocomplete
+            ->add('focus', ModelAutocompleteType::class,    //  )        //_autocomplete
                 array(
                     'label' => "Focus",
                     'required' => false,

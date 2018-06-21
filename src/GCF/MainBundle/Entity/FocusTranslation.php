@@ -7,16 +7,16 @@ use Sonata\TranslationBundle\Model\Gedmo\AbstractPersonalTranslation;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="focu_translation",
- *     uniqueConstraints={@ORM\UniqueConstraint(name="lookup_unique_focu_translation_idx", columns={
+ * @ORM\Table(name="focus_translation",
+ *     uniqueConstraints={@ORM\UniqueConstraint(name="lookup_unique_focus_translation_idx", columns={
  *         "locale", "object_id", "field"
  *     })}
  * )
  */
-class FocuTranslation extends AbstractPersonalTranslation
+class FocusTranslation extends AbstractPersonalTranslation
 {
     /**
-     * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\Focu", inversedBy="translations")
+     * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\Focus", inversedBy="translations")
      * @ORM\JoinColumn(name="object_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $object;

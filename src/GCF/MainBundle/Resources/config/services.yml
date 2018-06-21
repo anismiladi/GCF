@@ -31,9 +31,9 @@ services:
             - { name: sonata.admin, manager_type: orm, group: Projets, label: Secteurs }
         public: true
 
-    admin.Focu:
-        class: GCF\MainBundle\Admin\FocuAdmin
-        arguments: [~, GCF\MainBundle\Entity\Focu, ~]
+    admin.Focus:
+        class: GCF\MainBundle\Admin\FocusAdmin
+        arguments: [~, GCF\MainBundle\Entity\Focus, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Projets, label: Focus }
         public: true
