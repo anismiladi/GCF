@@ -6,7 +6,17 @@
     <style>
 
         .project_number_by_sectors .project_container{padding: 15px 8px; margin: auto;}
-        .project_number_by_sectors .project_icon{  max-width: 70px; margin-bottom:  5px; border: solid 2px transparent; border-radius: 50%; padding: 5px; cursor: pointer;}
+        .project_number_by_sectors .project_icon{
+            max-width: 70px;
+            width: 70px;
+            margin-bottom: 5px;
+            object-fit: cover;
+            height: 70px;
+            border: solid 2px transparent;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+        }
         .project_number_by_sectors .project_icon:hover{ border: solid 2px #aaaaaa; }
         .project_number_by_sectors .project_name{ text-decoration: none; font-size: 13px; font-weight: 600;}
         .project_number_by_sectors .project_number{}
@@ -131,6 +141,7 @@
     <div class="col-md-12 col-sm-12" style="margin-bottom: 50px;    padding: 0;">
 
         <div class="projects_news">
+            <div class="row" style="max-width: 100%;">
             {#Block Actualités#}
             <div class="col-md-6 col-sm-6 single_item "
                 style="background: #f7f7f7;border: solid 2px white; padding: 10px">
@@ -218,7 +229,8 @@
                 </div>
                 
             </div>
-
+            </div>
+            <div class="row" style="max-width: 100%;">
             {#Block Documents#}
             <div class="col-md-6 col-sm-6 single_item "
                  style="background: #f7f7f7;border: solid 2px white; padding: 10px">
@@ -273,14 +285,14 @@
                     </a>
                 </div>
             </div>
-
+            </div>
         </div>
     </div><br>
 
 
     <div class="col-md-12 col-sm-12" style="margin-bottom: 50px; padding: 0; min-height: 440px;">
         <div class="projects-horizontal">
-            <div class="intro">
+            <div class="intro" style="    width: 96%;">
                 <h1 class="section_title">Publications</h1>
             </div>
             <div class="projects">
@@ -291,6 +303,7 @@
                     <button class="btn btn-default filter-button" data-filter="others">Autres</button>
                 </div>
                 <br/>
+                <div class="row" style="max-width: 100%;">
                 {% for nospublication in nospublications %}
                     {% if nospublication.titre != "" %}
                     <div class="col-sm-6 item filter_display ours" style="background: #f7f7f7;border: solid 2px white;">
@@ -308,7 +321,8 @@
                     </div>
                     {% endif %}
                 {% endfor %}
-
+                </div>
+                <div class="row" style="max-width: 100%;">
                 {% for gbpublication in gbpublications %}
                     {% if gbpublication.titre != "" %}
                     <div class="col-sm-6 item filter_display gb" style="background: #f7f7f7;border: solid 2px white;">
@@ -346,6 +360,7 @@
                     </div>
                     {% endif %}
                 {% endfor %}
+                </div>
             </div>
             <div class="row read_more_container col-sm-12">
                 <a href="{{ path('gcf_front_publicationspage') }}">
