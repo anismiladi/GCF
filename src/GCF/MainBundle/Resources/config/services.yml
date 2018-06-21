@@ -9,6 +9,7 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Acteurs, label: Gestion les Acteurs }
         public: true
+    
     admin.SecteurActeur:
         class: GCF\MainBundle\Admin\SecteurActeurAdmin
         arguments: [~, GCF\MainBundle\Entity\SecteurActeur, ~]
@@ -30,12 +31,19 @@ services:
             - { name: sonata.admin, manager_type: orm, group: Projets, label: Secteurs }
         public: true
 
-    admin.Focus:
-        class: GCF\MainBundle\Admin\FocusAdmin
-        arguments: [~, GCF\MainBundle\Entity\Focus, ~]
+    admin.Focu:
+        class: GCF\MainBundle\Admin\FocuAdmin
+        arguments: [~, GCF\MainBundle\Entity\Focu, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Projets, label: Focus }
         public: true
+    
+    #admin.Focus:
+    #    class: GCF\MainBundle\Admin\FocusAdmin
+    #    arguments: [~, GCF\MainBundle\Entity\Focus, ~]
+    #    tags:
+    #        - { name: sonata.admin, manager_type: orm, group: Projets, label: Focus }
+    #    public: true
 
     admin.Publication:
         class: GCF\MainBundle\Admin\PublicationAdmin
@@ -81,9 +89,16 @@ services:
             - { name: sonata.admin, manager_type: orm, group: Evénements, label: Gestion des Evénements }
         public: true
         
-    admin.gouvernorats:
+    admin.Gouvernorats:
         class: GCF\MainBundle\Admin\GouvernoratAdmin
         arguments: [~, GCF\MainBundle\Entity\Gouvernorat, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Autres, label: Gouvernorats } 
+        public: false
+    
+    admin.Keywords:
+        class: GCF\MainBundle\Admin\KeywordAdmin
+        arguments: [~, GCF\MainBundle\Entity\Keyword, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Autres, label: Mots clés } 
         public: false

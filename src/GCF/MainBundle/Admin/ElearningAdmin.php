@@ -24,6 +24,19 @@ class ElearningAdmin extends AbstractAdmin
         $formMapper
             ->add('nom')
             ->add('description')
+            ->add('keyword', ModelAutocompleteType::class,        //_autocomplete
+                array(
+                    'label' => "Mots clés",
+                    'required' => false,
+                    //'expanded' => true,
+                    'multiple' => true,
+                    'minimum_input_length' => 1,
+                    'property' => 'label',
+                    'to_string_callback' => function($enitity, $property) {
+                        return $enitity->getLabel();
+                    },
+                )
+            )
             ->add('youtube', 'text', array('required' => false))
             ->add('fichier', ElFinderType::class, ['instance' => 'form_pdf', 'enable' => true,'required' => false])        //
             ->add('catLearning')    /*, 'sonata_type_model', array(

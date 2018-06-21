@@ -49,6 +49,11 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
     private $contenu;
 
     /**
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Keyword", mappedBy="publication")
+     */
+    private $keyword;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="emailBloggeur", type="string", length=255, nullable=true)
@@ -248,5 +253,43 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
     public function getFeaturedImage()
     {
         return $this->featuredImage;
+    }
+
+    /**
+     * Add keyword.
+     *
+     * @param \GCF\MainBundle\Entity\Keyword $keyword
+     *
+     * @return Publication
+     */
+    public function addKeyword(\GCF\MainBundle\Entity\Keyword $keyword)
+    {
+        $keyword->addPublication($this);
+        $this->keyword[] = $keyword;
+
+        return $this;
+    }
+
+    /**
+     * Remove keyword.
+     *
+     * @param \GCF\MainBundle\Entity\Keyword $keyword
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeKeyword(\GCF\MainBundle\Entity\Keyword $keyword)
+    {
+        $keyword->removePublication($this);
+        return $this->keyword->removeElement($keyword);
+    }
+
+    /**
+     * Get keyword.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getKeyword()
+    {
+        return $this->keyword;
     }
 }

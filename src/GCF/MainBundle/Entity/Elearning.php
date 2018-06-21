@@ -41,7 +41,11 @@ class Elearning extends AbstractPersonalTranslatable implements TranslatableInte
      */
     private $description;
 
-
+    /**
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Keyword", mappedBy="elearning")
+     */
+    private $keyword;
+    
     /**
      * @var string
      *
@@ -254,5 +258,43 @@ class Elearning extends AbstractPersonalTranslatable implements TranslatableInte
     public function getYoutube()
     {
         return $this->youtube;
+    }
+
+    /**
+     * Add keyword.
+     *
+     * @param \GCF\MainBundle\Entity\Keyword $keyword
+     *
+     * @return Elearning
+     */
+    public function addKeyword(\GCF\MainBundle\Entity\Keyword $keyword)
+    {
+        $keyword->addElearning($this);
+        $this->keyword[] = $keyword;
+
+        return $this;
+    }
+
+    /**
+     * Remove keyword.
+     *
+     * @param \GCF\MainBundle\Entity\Keyword $keyword
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeKeyword(\GCF\MainBundle\Entity\Keyword $keyword)
+    {
+        $keyword->removeElearning($this);
+        return $this->keyword->removeElement($keyword);
+    }
+
+    /**
+     * Get keyword.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getKeyword()
+    {
+        return $this->keyword;
     }
 }

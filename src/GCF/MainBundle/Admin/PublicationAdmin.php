@@ -33,6 +33,19 @@ class PublicationAdmin extends AbstractAdmin
                     ),
                 )
             )
+            ->add('keyword', ModelAutocompleteType::class,        //_autocomplete
+                array(
+                    'label' => "Mots clés",
+                    'required' => false,
+                    //'expanded' => true,
+                    'multiple' => true,
+                    'minimum_input_length' => 1,
+                    'property' => 'label',
+                    'to_string_callback' => function($enitity, $property) {
+                        return $enitity->getLabel();
+                    },
+                )
+            )
             ->add('projet')
             /*
             ->add('projet','sonata_type_model_autocomplete',

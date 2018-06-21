@@ -8,13 +8,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Focus
+ * Focu
  *
- * @ORM\Table(name="focus")
- * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\FocusRepository")
- * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\FocusTranslation")
+ * @ORM\Table(name="focu")
+ * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\FocuRepository")
+ * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\FocuTranslation")
  */
-class Focus extends AbstractPersonalTranslatable implements TranslatableInterface
+class Focu extends AbstractPersonalTranslatable implements TranslatableInterface
 {
     /**
      * @var int
@@ -26,48 +26,33 @@ class Focus extends AbstractPersonalTranslatable implements TranslatableInterfac
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @var string
      *
      * @Gedmo\Translatable
+     * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
 
     /**
-     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="focus")
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="focu", cascade={"persist", "remove"})
      * @ORM\JoinTable(
-     *     name="focusprojet",
-     *     joinColumns={@ORM\JoinColumn(name="focus", referencedColumnName="id", nullable=false)},
+     *     name="focuprojet",
+     *     joinColumns={@ORM\JoinColumn(name="focu", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="projet", referencedColumnName="id", nullable=false)}
      * )
      */
-    private $projet;    
+    private $projet;
     
     /**
      * @var ArrayCollection
      *
      * @ORM\OneToMany(
-     *     targetEntity="GCF\MainBundle\Entity\FocusTranslation",
+     *     targetEntity="GCF\MainBundle\Entity\FocuTranslation",
      *     mappedBy="object",
      *     cascade={"persist", "remove"}
      * )
      */
     protected $translations;
-    
-    /**
-     * @return mixed
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * @param mixed $Nom
-     */
-    public function setNom($Nom)
-    {
-        $this->nom = $Nom;
-    }
 
     /**
      * @return mixed
@@ -94,7 +79,7 @@ class Focus extends AbstractPersonalTranslatable implements TranslatableInterfac
     {
         return $this->id;
     }
-    
+
     /**
      * Constructor
      */
@@ -108,11 +93,10 @@ class Focus extends AbstractPersonalTranslatable implements TranslatableInterfac
      *
      * @param \GCF\MainBundle\Entity\Projet $projet
      *
-     * @return Focus
+     * @return Gouvernorat
      */
     public function addProjet(\GCF\MainBundle\Entity\Projet $projet)
     {
-        //$projet->addFocus($this);
         $this->projet[] = $projet;
 
         return $this;
@@ -127,6 +111,18 @@ class Focus extends AbstractPersonalTranslatable implements TranslatableInterfac
     {
         $this->projet->removeElement($projet);
     }
+
+    /**
+     * Remove translation.
+     *
+     * @param \GCF\MainBundle\Entity\KeywordTranslation $translation
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTranslation(\GCF\MainBundle\Entity\KeywordTranslation $translation)
+    {
+        return $this->translations->removeElement($translation);
+    }
     
     public function __toString() {
         if ($this->getNom())
@@ -135,5 +131,29 @@ class Focus extends AbstractPersonalTranslatable implements TranslatableInterfac
         }
         else
             return "";
+    }
+
+    /**
+     * Set nom.
+     *
+     * @param string $nom
+     *
+     * @return Focu
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom.
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
     }
 }

@@ -88,9 +88,14 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     private $gouvernorat;
 
     /**
-     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Focus", mappedBy="projet")
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Keyword", mappedBy="projet")
      */
-    private $focus;
+    private $keyword;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Focu", mappedBy="projet")
+     */
+    private $focu;
 
     /**
      * @return mixed
@@ -173,22 +178,6 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     }
 
     /**
-     * @return mixed
-     */
-    public function getFocus()
-    {
-        return $this->focus;
-    }
-
-    /**
-     * @param mixed $focus
-     */
-    public function setFocus($focus)
-    {
-        $this->focus = $focus;
-    }
-
-    /**
      * Get id
      *
      * @return int
@@ -228,6 +217,7 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     {
         $this->publication = new \Doctrine\Common\Collections\ArrayCollection();
         $this->gouvernorat = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->keyword = new \Doctrine\Common\Collections\ArrayCollection();
         $this->focus = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -281,34 +271,6 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
         //echo "removeGouvernorat";
         $gouvernorat->removeProjet($this);
         $this->gouvernorat->removeElement($gouvernorat);
-    }
-
-    /**
-     * Add focus
-     *
-     * @param \GCF\MainBundle\Entity\Focus $focus
-     *
-     * @return Projet
-     */
-    public function addFocus(\GCF\MainBundle\Entity\Focus $focus)
-    {
-        //echo "addFocus";
-        $focus->addProjet($this);
-        $this->focus[] = $focus;
-
-        return $this;
-    }
-
-    /**
-     * Remove focus
-     *
-     * @param \GCF\MainBundle\Entity\Focus $focus
-     */
-    public function removeFocus(\GCF\MainBundle\Entity\Focus $focus)
-    {
-        //echo "removeFocus";
-        $focus->removeProjet($this);
-        $this->focus->removeElement($focus);
     }
 
     /**
@@ -379,5 +341,81 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     public function getFichier()
     {
         return $this->fichier;
+    }
+
+    /**
+     * Add keyword.
+     *
+     * @param \GCF\MainBundle\Entity\Keyword $keyword
+     *
+     * @return Projet
+     */
+    public function addKeyword(\GCF\MainBundle\Entity\Keyword $keyword)
+    {
+        $keyword->addProjet($this);
+        $this->keyword[] = $keyword;
+
+        return $this;
+    }
+
+    /**
+     * Remove keyword.
+     *
+     * @param \GCF\MainBundle\Entity\Keyword $keyword
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeKeyword(\GCF\MainBundle\Entity\Keyword $keyword)
+    {
+        $keyword->removeProjet($this);
+        return $this->keyword->removeElement($keyword);
+    }
+
+    /**
+     * Get keyword.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getKeyword()
+    {
+        return $this->keyword;
+    }
+
+    /**
+     * Add focu.
+     *
+     * @param \GCF\MainBundle\Entity\Focu $focu
+     *
+     * @return Projet
+     */
+    public function addFocu(\GCF\MainBundle\Entity\Focu $focu)
+    {
+        $focu->addProjet($this);
+        $this->focu[] = $focu;
+
+        return $this;
+    }
+
+    /**
+     * Remove focu.
+     *
+     * @param \GCF\MainBundle\Entity\Focu $focu
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeFocu(\GCF\MainBundle\Entity\Focu $focu)
+    {
+        $focu->removeProjet($this);
+        return $this->focu->removeElement($focu);
+    }
+
+    /**
+     * Get focu.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFocu()
+    {
+        return $this->focu;
     }
 }

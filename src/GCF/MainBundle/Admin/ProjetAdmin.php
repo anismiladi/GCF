@@ -23,20 +23,50 @@ class ProjetAdmin extends AbstractAdmin
         $formMapper
             ->add('nom')
             ->add('description')
-            ->add('focus')/*, ModelAutocompleteType::class,        //_autocomplete
+            /*->add('focus', ModelAutocompleteType::class,    //  )        //_autocomplete
                 array(
                     'required' => false,
                     //'expanded' => true,
                     'multiple' => true,
                     'by_reference' => false,
-                    //'minimum_input_length' => 1,
+                    'minimum_input_length' => 1,
                     'property' => 'nom',
-                    /*'to_string_callback' => function($enitity, $property) {
+                    'to_string_callback' => function($enitity, $property) {
                         return $enitity->getNom();
                     },
                 )
             )*/
-            ->add('fichier', ElFinderType::class, ['instance' => 'form', 'enable' => true, 'required' => false,])
+            ->add('focu', ModelAutocompleteType::class,    //  )        //_autocomplete
+                array(
+                    'label' => "Focus",
+                    'required' => false,
+                    //'expanded' => true,
+                    'multiple' => true,
+                    'by_reference' => false,
+                    'minimum_input_length' => 1,
+                    'property' => 'nom',
+                    'to_string_callback' => function($enitity, $property) {
+                        return $enitity->getNom();
+                    },
+                )
+            )
+            
+            /**/
+            ->add('keyword', ModelAutocompleteType::class,        //_autocomplete
+                array(
+                    'label' => "Mots clés",
+                    'required' => false,
+                    //'expanded' => true,
+                    'multiple' => true,
+                    'minimum_input_length' => 1,
+                    'property' => 'label',
+                    'to_string_callback' => function($enitity, $property) {
+                        return $enitity->getLabel();
+                    },
+                )
+            )
+            
+            ->add('fichier', ElFinderType::class, ['instance' => 'form_pdf', 'enable' => true, 'required' => false,])
             ->add('secteurProjet')
             /*
             ->add('secteurProjet', ModelType::class,        //_autocomplete
