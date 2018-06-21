@@ -30,10 +30,10 @@ class EventAdmin extends AbstractAdmin
                     ),
                 )
             )
-            ->add('lienFB')
-            ->add('lienAutre')
+            ->add('lienFB', 'text', ['required' => false])
+            ->add('lienAutre', 'text', ['required' => false])
 
-            ->add('photoCouverture', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true,'required' => false])
+            ->add('photoCouverture', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true, 'required' => false])
             ->add('photoAffiche', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true,'required' => false])
             ->add('debut')
             ->add('fin')

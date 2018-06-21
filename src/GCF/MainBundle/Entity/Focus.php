@@ -93,7 +93,7 @@ class Focus extends AbstractPersonalTranslatable implements TranslatableInterfac
      *
      * @param \GCF\MainBundle\Entity\Projet $projet
      *
-     * @return Gouvernorat
+     * @return Focus
      */
     public function addProjet(\GCF\MainBundle\Entity\Projet $projet)
     {

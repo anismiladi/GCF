@@ -42,8 +42,20 @@ class DefaultController extends Controller
 
 
         //Block Evenement
-//        $events = $em->getRepository('GCFMainBundle:Event')->find();
+        $events = $em->getRepository('GCFMainBundle:Event')->findlast(3);
+        foreach($events as $event){
+            $event->setphotoCouverture(preg_replace("/app_dev.php\//", "", $event->getphotoCouverture()));       //$notrepublication->setsetFeaturedImage
+        }
+        
+        //$TypeTechnique = $em->getRepository('GCFMainBundle:CatLearning')->findOneById(1);
+        //$TypeLegislative = $em->getRepository('GCFMainBundle:CatLearning')->findOneById(2);
 
+        $Legislatives = $em->getRepository('GCFMainBundle:Elearning')->findlast(3, 2);       //Legislatives 
+        $Techniques = $em->getRepository('GCFMainBundle:Elearning')->findlast(3, 1);       //Techniques 
+        foreach ($Techniques as $Technique){
+            $Technique->setYoutube(preg_replace("/com\/(.*)v=/", "com/embed/", $Technique->getYoutube()));
+        }
+        
         //Block article & publication
         $nospublications = $em->getRepository('GCFMainBundle:Publication')->findlast2_Nospublication();
         $gbpublications = $em->getRepository('GCFMainBundle:Publication')->findLastGbPublication();
@@ -54,6 +66,11 @@ class DefaultController extends Controller
             'pageTitle' => $pageTitle,
             'ProjectsBySector' => $nbrProj,
 
+            'events' => $events,
+            
+            'Techniques' => $Techniques,
+            'Legislatives' => $Legislatives,
+                
             'nospublications' => $nospublications,
             'gbpublications' => $gbpublications,
             'autrespublications' => $autrespublications

@@ -36,7 +36,7 @@ class ProjetAdmin extends AbstractAdmin
                     },
                 )
             )*/
-            ->add('focus', ModelAutocompleteType::class,    //  )        //_autocomplete
+            /*->add('focus', ModelAutocompleteType::class,    //  )        //_autocomplete
                 array(
                     'label' => "Focus",
                     'required' => false,
@@ -49,7 +49,7 @@ class ProjetAdmin extends AbstractAdmin
                         return $enitity->getNom();
                     },
                 )
-            )
+            )*/
             
             /**/
             ->add('keyword', ModelAutocompleteType::class,        //_autocomplete

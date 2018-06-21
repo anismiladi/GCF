@@ -382,7 +382,7 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     }
 
     /**
-     * Add focu.
+     * Add focus.
      *
      * @param \GCF\MainBundle\Entity\Focus $focus
      *
@@ -390,14 +390,14 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
      */
     public function addFocus(\GCF\MainBundle\Entity\Focus $focus)
     {
-        $focu->addProjet($this);
+        $focus->addProjet($this);
         $this->focus[] = $focus;
 
         return $this;
     }
 
     /**
-     * Remove focu.
+     * Remove focus.
      *
      * @param \GCF\MainBundle\Entity\Focus $focus
      *
@@ -406,11 +406,11 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     public function removeFocus(\GCF\MainBundle\Entity\Focus $focus)
     {
         $focus->removeProjet($this);
-        return $this->focu->removeElement($focus);
+        return $this->focus->removeElement($focus);
     }
 
     /**
-     * Get focus
+     * Get focus.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -418,6 +418,5 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     {
         return $this->focus;
     }
-
-
+    
 }

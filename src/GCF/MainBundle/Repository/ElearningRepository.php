@@ -10,4 +10,19 @@ namespace GCF\MainBundle\Repository;
  */
 class ElearningRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findlast($nb, $catid){
+
+        $nosEvent = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('e')
+            ->from('GCFMainBundle:Elearning', 'e')
+            ->where('e.catLearning = :cat')
+            ->setParameter('cat', $catid)
+            ->setMaxResults($nb)
+            ->orderBy('e.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        return $nosEvent;
+    }
 }

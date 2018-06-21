@@ -133,7 +133,7 @@
         <div class="projects_news">
             {#Block Actualités#}
             <div class="col-md-6 col-sm-6 single_item "
-                 style="background: #f7f7f7;border: solid 2px white; padding: 10px">
+                style="background: #f7f7f7;border: solid 2px white; padding: 10px">
                 <div class="intro">
                     <h1 class="section_title">Actualités</h1>
                 </div>
@@ -190,54 +190,33 @@
                 <div class="intro">
                     <h1 class="section_title">Evénements</h1>
                 </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/tech/any/blur" />
-                            </a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
-                            <h2 class="name">Evénement 1</h2>
-                            <p class="theme"><strong>Date:</strong> 11-12-2000</p>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Pr...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/people/any/blur" />
-                            </a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
-                            <h2 class="name">Evénement 2</h2>
-                            <p class="theme"><strong>Date:</strong> 11-12-2000</p>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Pra...</p>
+                {% for event in events %}
+                    <div class="col-sm-12 item single_element">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
+                                <a href="#">
+                                    {% if event.photoCouverture != "" %}
+                                        <img class="img-fluid" src="{{ event.photoCouverture }}" />
+                                    {% else %}
+                                        <img class="img-fluid" src="https://png.icons8.com/windows/1600/event-accepted.png" />
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
+                                <h2 class="name">{{ event.Nom }}</h2>
+                                <p class="theme"><strong>Date:</strong> 11-12-2000</p>
+                                <p class="description">{{ event.Description|raw|slice(0, 62) }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/animals/any/blur" />
-                            </a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
-                            <h2 class="name">Evénement 3</h2>
-                            <p class="theme"><strong>Date:</strong> 11-12-2000</p>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Pra...</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+                
                 <div class="col-md-12 item" style="text-align: right;">
-                    <button class=" button_see_more">Voir Plus</button>
+                    <a href="{{ path('gcf_front_event_page') }}">
+                        <button class=" button_see_more">Voir Plus</button>
+                    </a>
                 </div>
+                
             </div>
 
             {#Block Documents#}
@@ -246,53 +225,26 @@
                 <div class="intro">
                     <h1 class="section_title">Documents</h1>
                 </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/arch/any/blur" />
-                            </a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
-                            <h2 class="name">Document 1</h2>
-                            <p class="theme"><strong>Sector:</strong> Energie</p>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Prae...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container"  >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/tech/any/blur" />
-                            </a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
-                            <h2 class="name">Document 2</h2>
-                            <p class="theme"><strong>Sector:</strong> Energie</p>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Prae...</p>
+                {% for Legislative in Legislatives %}
+                    <div class="col-sm-12 item single_element">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
+                                <a target="_blank" href="{{ Legislative.Fichier }}">
+                                    <img src="{{ asset('assets/images/PDF_file.png') }}" title="Lire le document">
+                                </a>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
+                                <h2 class="name">{{ Legislative.Nom }}</h2>
+                                <!--   <p class="theme"><strong>Sector:</strong>Energie</p> -->
+                                <p class="description">{{ Legislative.Description|raw|slice(0, 62) }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/nature/any/blur" />
-                            </a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
-                            <h2 class="name">Document 3</h2>
-                            <p class="theme"><strong>Sector:</strong> Energie</p>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Praes...</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
                 <div class="col-md-12 item " style="text-align: right;">
-                    <button class=" button_see_more">Voir Plus</button>
+                    <a href="{{ path('gcf_front_elearningpage') }}">
+                        <button class=" button_see_more">Voir Plus</button>
+                    </a>
                 </div>
             </div>
 
@@ -302,50 +254,23 @@
                 <div class="intro">
                     <h1 class="section_title">Vidéos</h1>
                 </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/nature/any/blur" />
-                            </a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
-                            <h2 class="name">Vidéos 1</h2>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Praesent aliquam in tellus eu gravi...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/nature/any/blur" />
-                            </a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
-                            <h2 class="name">Vidéos 2</h2>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Praesent aliquam in tellus eu gravi...</p>
+                {% for Technique in Techniques %}
+                    <div class="col-sm-12 item single_element">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
+                                <iframe   style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
+                                <h2 class="name">{{ Technique.Nom }}</h2>
+                                <p class="description">{{ Technique.Description|raw|slice(0, 62) }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/nature/any/blur"/>
-                            </a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
-                            <h2 class="name">Vidéos 3</h2>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Praesent aliquam in tellus eu gravi...</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
                 <div class="col-md-12 item" style="text-align: right;">
-                    <button class=" button_see_more">Voir Plus</button>
+                    <a href="{{ path('gcf_front_elearningpage') }}">
+                        <button class=" button_see_more">Voir Plus</button>
+                    </a>
                 </div>
             </div>
 
