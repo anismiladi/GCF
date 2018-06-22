@@ -30,7 +30,6 @@
 # Assets and user uploads
 /bower_components/
 /components/
-/web/assets/
 /web/bundles/
 /web/uploads/
 
