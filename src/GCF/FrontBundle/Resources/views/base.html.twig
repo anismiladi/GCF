@@ -14,7 +14,7 @@
             src: url({{ asset('assets/fonts/Cabo-Rounded-Regular.otf') }});
         }
         @font-face {
-            font-family: Rounded_Elegance;
+            font-family: Rounded-Elegance;
             src: url({{ asset('assets/fonts/Rounded_Elegance.ttf') }});
         }
     </style>
@@ -43,7 +43,7 @@
     <div class="bar_fixed_top">
         <div class="container">
 
-            <div class="col-md-6 col-sm-6 col-xs-6 language_container" >
+            <div class="col-md-6 col-sm-6 col-xs-12 language_container" >
                 {#<a title="Changer la langue"><i class="fa fa-language" aria-hidden="true"></i></a>#}
                 {#<a ><i class="fa fa-language" aria-hidden="true" style="color:transparent;background: transparent"></i></a>#}
                 <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ar_TN'})) }}" title="العربية">Ar</a></button>
@@ -52,29 +52,10 @@
 
             </div>
 
-            <div class="col-md-6 col-sm-6 col-xs-6 social_media_container" >
-                <a href="{{ facebook }}" title="Facebook"><i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i></a>
-                <a href="{{ linkedin }}" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                <a href="{{ instagram }}" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="{{ twitter }}" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <a href="{{ youtube }}" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-                <a ><i style="color: transparent;background: transparent" class="fa fa-phone fa-2x" aria-hidden="true"></i></a>
-                <a href="{{ phone_number }}" title="Telephone"><i class="fa fa-phone fa-2x" aria-hidden="true"></i></a>
-            </div>
-            <div class="col-xs-12 language_rs_container" >
-                <div class="language_btns_mobile">
-                    <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ar_TN'})) }}" title="العربية">Ar</a></button>
-                    <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" title="English">En</a></button>
-                    <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" title="Français">Fr</a></button>
-                </div>
-                <div class="rs_btns_containers" style="direction:rtl">
-                    <a href="{{ facebook }}" title="Facebook" target="_blank"><i class="fa fa-facebook " aria-hidden="true" style="border-radius: 50%"></i></a>
-                    <a href="{{ linkedin }}" title="Linkedin" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="{{ instagram }}" title="Instagram" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    <a href="{{ twitter }}" title="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="{{ youtube }}" title="Youtube" target="_blank"><i class="fa fa-youtube-play " aria-hidden="true"></i></a>
-                    <a href="{{ phone_number }}" title="Telephone" target="_blank"><i class="fa fa-phone fa-2x" aria-hidden="true"></i></a>
-                </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 menu_top_bar_container" >
+                <a href="{{ path('gcf_front_event_page') }}">{{ 'menu.Events'|trans }}</a>
+                <a href="#">{{ 'menu.Library'|trans }}</a>
+                <a href="{{ path('gcf_front_contactpage') }}">{{ 'menu.Contact-us'|trans }}</a>
             </div>
 
         </div>
@@ -284,15 +265,21 @@
 
 </div><!-- End main page site -->
 
+<div id="button_go_top" class="button_go_top" onclick="topFunction()" >
+    <i class="fa fa-chevron-up" aria-hidden="true" ></i>
+</div>
+<!-- End go top button -->
+
 <div id="button_newsletter" class="button_newsletter" title="Newsletter">
     <i class="fa fa-envelope"></i>
 </div><!-- End newsletter -->
 
 <div class="close_my_newsletter_modal">
-    <button>&times;</button>
+
 <!-- Modal -->
 </div>
 <div class="my_newsletter_modal">
+    <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true"></i>
     <!-- Begin MailChimp Signup Form -->
     <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
     <style type="text/css">
@@ -331,12 +318,14 @@
     <!--End mc_embed_signup-->
 </div>
 
-<div id="button_go_top" class="button_go_top" onclick="topFunction()" >
-    <i class="fa fa-chevron-up" aria-hidden="true" ></i>
-</div><!-- End newsletter -->
 
 
-{#web site footer#}
+
+{#
+==================================
+           web site footer
+==================================
+#}
 <div class="footer-basic">
     <footer>
         <div class="container">
@@ -408,10 +397,43 @@
             </div>
 
         </div>
-        <p class="copyright">GCF Tunisie © 2018 Tous droits réservés. Développé  par <a href="http://www.carthage-solutions.com" target="_blank" >Carthage Solutions</a></p>
+        <div class="copyright container-fluid">
+            <p class="col-xs-6">GCF Tunisie © 2018 Tous droits réservés. Développé  par <a href="http://www.carthage-solutions.com" target="_blank" >Carthage Solutions</a></p>
+            <p class="col-xs-6" style="text-align: right">GCF Tunisie © 2018 Tous droits réservés. Développé  par <a href="http://www.carthage-solutions.com" target="_blank" >Carthage Solutions</a></p>
+        </div>
     </footer>
 
 </div>
+
+{#
+==================================
+    social media fixed right
+==================================
+#}
+
+<div class="social_media_fixed_container">
+
+    <div>
+        <a href="{{ youtube }}" class="fa fa-youtube-play" title="Youtube"></a>
+    </div>
+    <div>
+        <a href="{{ twitter }}" class="fa fa-twitter" title="Twitter"></a>
+    </div>
+    <div>
+        <a href="{{ instagram }}" class="fa fa-instagram" title="Instagram"></a>
+    </div>
+    <div>
+        <a href="{{ linkedin }}" class="fa fa-linkedin" title="Linkedin"></a>
+    </div>
+    <div>
+        <a href="{{ facebook }}" class="fa fa-facebook" title="Facebook"></a>
+    </div>
+    <div>
+        <a href="{{ phone_number }}" class="fa fa-phone" title="Telephone"></a>
+    </div>
+
+</div>
+
 
 
 {{ render( controller('GCFFrontBundle:Publications:popup' )) }}
