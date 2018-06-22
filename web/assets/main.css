@@ -38,7 +38,7 @@
     -o-transition: translate  3s ease-in-out ;
     transition: translate  3s ease-in-out ;
 }
-* {
+*{
     -webkit-transition: transform 3s ease-in-out;
     -moz-transition: transform 3s ease-in-out;
     -o-transition: transform 3s ease-in-out;
@@ -56,7 +56,7 @@ html,body{
 h1{
     font-family: Cabo-Rounded !important;
 }
-h2 {
+h2{
     font-family: Rounded_Elegance !important;
 }
 
@@ -315,15 +315,20 @@ header and top bar
     width: 100%;
     z-index: 1000;
 }
-.affix{ top:0 !important; background: #b0b0b0; }
+.custom_navigation nav {
+    background: rgba(0, 0, 0, 0.30) !important;
+    padding: 10px 0 !important;
+    border-color: transparent !important;
+}
+.custom_navigation.affix{ top:0 !important; background: #b0b0b0; }
 
-.affix nav{ margin: 0; padding: 0 !important; }
+.custom_navigation.affix nav{ margin: 0; padding: 0 !important; }
 
-.affix .navbar-brand img{
+.custom_navigation.affix .navbar-brand img{
     padding: 5px 0;
     max-width: 110px  ;
 }
-.affix  .navbar-nav>li>a{ font-size: 14px !important; }
+.custom_navigation.affix  .navbar-nav>li>a{ font-size: 14px !important; }
 
 
 .custom_carousel_caption{
