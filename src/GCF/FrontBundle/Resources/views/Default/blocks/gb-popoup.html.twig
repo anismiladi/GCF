@@ -11,15 +11,16 @@
         margin: auto;
         background: rgba(0, 0, 0, 0.4);
     }
-    .gb_page_overlay button{
-        float: right;
-        margin: 20px;
-        font-size: 30px;
-        background: transparent;
-        border: none;
-        color: white;
-        font-weight: 700;
-        outline:none;
+    .gb_popup_details_container .close_popup{
+        position: absolute;
+        top: -10px;
+        right: -12px;
+        color: red;
+        cursor: pointer;
+        line-height: 24px;
+        font-weight: 600;
+        background: white;
+        border-radius: 50%;
     }
 
     .gb_popup_details_container{
@@ -67,10 +68,10 @@
 </style>
 
 <div class="gb_page_overlay" onclick="closeGBPopup()">
-    <button>&times;</button>
 </div>
-<div class="gb_popup_details_container">
 
+<div class="gb_popup_details_container">
+    <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closeGBPopup()"></i>
     <div class="gb_popup_details_container_inner">
 
         <div >

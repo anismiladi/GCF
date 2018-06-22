@@ -86,11 +86,14 @@
 
         .popup_details_container .close_popup{
             position: absolute;
-            top: -6px;
-            right: -5px;
-            font-size: 20px;
+            top: -10px;
+            right: -12px;
             color: red;
             cursor: pointer;
+            line-height: 24px;
+            font-weight: 600;
+            background: white;
+            border-radius: 50%;
         }
 
         .popup_details_container_inner{
@@ -160,10 +163,9 @@
     </div>
 
     <div class="page_overlay" onclick="closePop()">
-
     </div>
     <div class="popup_details_container">
-        <i class="fa fa-times-circle close_popup" aria-hidden="true" onclick="closePop()"></i>
+        <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closePop()"></i>
         <div class="popup_details_container_inner"></div>
     </div>
 {% endblock %}

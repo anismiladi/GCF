@@ -75,6 +75,18 @@
             background-color: white;
             box-shadow: 0px 0px  5px 5px rgba(255, 255, 255, 0.15);
         }
+        .popup__container .close_popup{
+            position: absolute;
+            top: -10px;
+            right: -12px;
+            color: red;
+            cursor: pointer;
+            line-height: 24px;
+            font-weight: 600;
+            background: white;
+            border-radius: 50%;
+        }
+
         .popup__container.active{
             display:block;
 
@@ -162,6 +174,7 @@
 
 
     <div class="popup__container">
+        <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closePopup()"></i>
         <div class="popup__header"></div>
         <div class="popup__body">
             <div class="popup__body__head col-xs-12">
@@ -186,7 +199,6 @@
         </div>
     </div>
     <div class="popup__overlay" onclick="closePopup()">
-        <button>&times;</button>
     </div>
 {% endblock %}
 
