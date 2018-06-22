@@ -3,9 +3,7 @@
 {% block title %} GCF - {{ 'menu.Home'|trans  }} {% endblock %}
 
 {% block stylesheets %}
-
     <style>
-
         .project_number_by_sectors .project_container{padding: 15px 8px; margin: auto;}
         .project_number_by_sectors .project_icon{
             max-width: 70px;
@@ -101,16 +99,13 @@
         .btn-default.filter-button:hover, .btn-default.filter-button:focus, .btn-default.filter-button:active ,.btn-default.filter-button:active:focus{ border-color: transparent; background: white;box-shadow: none;outline: none}
 
     </style>
-
 {% endblock %}
 
-
- {% block PBS %}
+{% block PBS %}
     {#{{ dump(ProjectsBySector) }}#}
      <div class="project_number_by_sectors" style="margin-bottom: 40px;">
          <div class="container">
              <div class="col-md-12 slider slider_projects" >
-
 
                  {% for key, ProjectBySector in ProjectsBySector %}
                      {% set key1 =  '' %}
@@ -135,11 +130,7 @@
  {% endblock %}
 
 {% block body %}
-
-
-
     <div class="col-md-12 col-sm-12" style="margin-bottom: 50px;    padding: 0;">
-
         <div class="projects_news">
             <div class="row" style="max-width: 100%;">
             {#Block Actualités#}

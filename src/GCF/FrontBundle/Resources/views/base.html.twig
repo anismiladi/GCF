@@ -110,7 +110,6 @@
         </nav>
     </div>
 
-
     {%  if ( path(app.request.get('_route'), app.request.get('_route_params')) == path('gcf_front_homepage') ) %}
         <!-- Banner website -->
         <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 30px">
@@ -126,7 +125,6 @@
                             <h2 class="slogan_banner_txt">Think green</h2>
 
                             <form action="{{ path('gcf_front_searchpage') }}" class="col-md-10 col-md-offset-1 home_banner_search">
-
                                 <div class="form-group col-md-5" style="margin: 0;">
                                     <input type="text" placeholder="Recherche" class="form-control" id="search">
                                 </div>
@@ -154,9 +152,7 @@
                                     </button>
                                 </div>
                             </form>
-
                         </div>
-
                     </div>
                 </div>
             </div>
