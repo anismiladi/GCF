@@ -151,7 +151,7 @@
 
 
 
-    <div class="col-md-12 col-sm-12" style="margin-bottom: 50px;    padding: 0;">
+    <div class="col-md-12 col-sm-12" style="margin-bottom: 20px;    padding: 0;">
         <div class="projects_news">
             <div class="row" style="max-width: 100%;">
             {#Block Actualités#}
@@ -162,12 +162,12 @@
                 </div>
                 <div class="col-sm-12 item single_element">
                     <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container">
+                        <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
                             <a href="#">
                                 <img class="img-fluid" src="https://placeimg.com/100/100/nature/any/blur" />
                             </a>
                         </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
+                        <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
                             <h2 class="name">Project Name</h2>
                             <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
                                 Praesent aliquam in tellus eu gravi...</p>
@@ -176,12 +176,12 @@
                 </div>
                 <div class="col-sm-12 item single_element">
                     <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
+                        <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
                             <a href="#">
                                 <img class="img-fluid" src="https://placeimg.com/640/480/nature/grayscale" />
                             </a>
                         </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
+                        <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
                             <h2 class="name">Project Name</h2>
                             <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
                                 Praesent aliquam in tellus eu gravi...</p>
@@ -190,12 +190,12 @@
                 </div>
                 <div class="col-sm-12 item single_element">
                     <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
+                        <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
                             <a href="#">
                                 <img class="img-fluid" src="https://placeimg.com/100/100/nature/any/blur" />
                             </a>
                         </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
+                        <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
                             <h2 class="name">Project Name</h2>
                             <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
                                 Praesent aliquam in tellus eu gravi...</p>
@@ -216,7 +216,7 @@
                 {% for event in events %}
                     <div class="col-sm-12 item single_element">
                         <div class="row">
-                            <div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >
+                            <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
                                 <a href="#">
                                     {% if event.photoCouverture != "" %}
                                         <img class="img-fluid" src="{{ event.photoCouverture }}" />
@@ -225,7 +225,7 @@
                                     {% endif %}
                                 </a>
                             </div>
-                            <div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">
+                            <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
                                 <h2 class="name">{{ event.Nom }}</h2>
                                 <p class="theme"><strong>Date:</strong> 11-12-2000</p>
                                 <p class="description">{{ event.Description|slice(0, 62)|striptags }}</p>
@@ -245,7 +245,7 @@
 
 
             {#elearning#}
-            <div class="row " style="width: 100%;">
+            <div class="row " style="width: 100%;padding-bottom: 10px; background: #f7f7f7;">
             <div class="">
                 <div class="projects-horizontal">
                     <div class="intro" >
@@ -262,10 +262,10 @@
 
                         {% for Technique in Techniques %}
                             <div class="col-md-6 col-xs-12"
-                                 style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px ">
+                                 style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
                                 <div class="row">
                                     <div class="col-md-5" style="padding: 0 ">
-                                        <iframe   style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                        <iframe style="max-width: 100%;max-height: 100%;width: 100%; height:150px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                     </div>
 
                                     <div class="col-md-7">
@@ -284,7 +284,7 @@
 
                         {% for Legislative in Legislatives %}
 
-                            <div class="col-md-6 col-sm-6 col-xs-12" style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px ">
+                            <div class="col-md-6 col-sm-6 col-xs-12" style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
                                 <div class="listing">
                                     <h4>{{ Legislative.Nom }}</h4>
                                     <div class="type">
@@ -325,9 +325,9 @@
         </div>
     </div><br>
 
-    <div class="col-md-12 col-sm-12" style="margin-bottom: 50px; padding: 0; min-height: 440px;">
+    <div class="col-md-12 col-sm-12" style="margin-bottom: 50px; padding: 0; min-height: 313px;">
         <div class="projects-horizontal">
-            <div class="row" style="width: 100%;">
+            <div class="row" style="width: 100%;background:  #f7f7f7;padding-bottom: 10px;">
             <div class="intro">
                 <h1 class="section_title">Publications</h1>
             </div>
@@ -342,7 +342,7 @@
                 <div class="" style="max-width: 100%;">
                 {% for nospublication in nospublications %}
                     {% if nospublication.titre != "" %}
-                    <div class="col-sm-6 item filter_display ours" style="background: #f7f7f7;border: solid 2px white;">
+                    <div class="col-sm-6 item filter_display ours" style="background: white;border: solid 2px #f7f7f7;">
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
                                 <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">
@@ -361,7 +361,7 @@
                 <div class="" style="max-width: 100%;">
                 {% for gbpublication in gbpublications %}
                     {% if gbpublication.titre != "" %}
-                    <div class="col-sm-6 item filter_display gb" style="background: #f7f7f7;border: solid 2px white;">
+                    <div class="col-sm-6 item filter_display gb" style="background: white;border: solid 2px #f7f7f7;">
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
                                 <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">
@@ -369,7 +369,7 @@
                                 </a>
                             </div>
                             <div class="col">
-                            
+
                                 <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">{{ gbpublication.titre }}</a></h2>
                                 <p class="description">{{ gbpublication.contenu|slice(0, 180)|striptags  }}.</p>
                             </div>
@@ -381,7 +381,7 @@
                 {% for autrespublication in autrespublications %}
                     {% if autrespublication.titre != "" %}
 
-                    <div class="col-sm-6 item filter_display others" style="background: #f7f7f7;border: solid 2px white;">
+                    <div class="col-sm-6 item filter_display others" style="background: white;border: solid 2px #f7f7f7;">
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
                                 <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">
