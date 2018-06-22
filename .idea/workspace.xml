@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fae6a69-e6b4-4729-9683-1fa9489b2b2c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,35 +32,29 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/assets/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            <state relative-caret-position="585">
+              <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.ar_TN.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+            <state relative-caret-position="-107">
+              <caret line="293" column="10" selection-start-line="293" selection-start-column="10" selection-end-line="293" selection-end-column="10" />
+              <folding>
+                <element signature="e#11555#11635#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.en.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/assets/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messages.fr.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="26" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="26" />
+            <state relative-caret-position="298">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -70,7 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>slice</find>
       <find>intro</find>
       <find>notif_pub</find>
       <find>style</find>
@@ -100,6 +92,7 @@
       <find>footer</find>
       <find>newsle</find>
       <find>asse</find>
+      <find>videos</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -126,12 +119,13 @@
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/blocks/gb-popoup.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actors/actors.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/eventIndex.html.twig" />
-        <option value="$PROJECT_DIR$/web/assets/main.js" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" />
+        <option value="$PROJECT_DIR$/web/assets/main.js" />
         <option value="$PROJECT_DIR$/web/assets/main.css" />
       </list>
     </option>
@@ -242,7 +236,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -319,6 +312,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,12 +361,12 @@
       <workItem from="1529510674762" duration="3619000" />
       <workItem from="1529578082058" duration="16240000" />
       <workItem from="1529652706715" duration="14664000" />
-      <workItem from="1529674818027" duration="221000" />
+      <workItem from="1529674818027" duration="1148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88249000" />
+    <option name="totallyTimeSpent" value="89397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -703,20 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="125" column="29" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -747,15 +727,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
+        <state relative-caret-position="447">
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-107">
+          <caret line="293" column="10" selection-start-line="293" selection-start-column="10" selection-end-line="293" selection-end-column="10" />
+          <folding>
+            <element signature="e#11555#11635#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/assets/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="585">
+          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
         </state>
       </provider>
     </entry>

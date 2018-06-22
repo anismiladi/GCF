@@ -221,7 +221,7 @@
                 
             </div>
             </div>
-            <div class="row" style="max-width: 100%;">
+
             {#Block Documents#}
             <div class="col-md-6 col-sm-6 single_item "
                  style="background: #f7f7f7;border: solid 2px white; padding: 10px">
@@ -276,10 +276,92 @@
                     </a>
                 </div>
             </div>
-            </div>
+
         </div>
     </div><br>
 
+{#E-learning#}
+    <div class="col-md-12 col-sm-12" style="margin-bottom: 50px; padding: 0; min-height: 440px;">
+        <div class="projects-horizontal">
+            <div class="intro" style="    width: 96%;">
+                <h1 class="section_title">Publications</h1>
+            </div>
+            <div class="projects">
+                <div align="center">
+                    <button class="btn btn-default filter-button" data-filter="all">All</button>
+                    <button class="btn btn-default filter-button" data-filter="ours">Nos Publications</button>
+                    <button class="btn btn-default filter-button" data-filter="gb">Green Blogger Publications</button>
+                    <button class="btn btn-default filter-button" data-filter="others">Autres</button>
+                </div>
+                <br/>
+                <div class="row" style="max-width: 100%;">
+                    {% for nospublication in nospublications %}
+                        {% if nospublication.titre != "" %}
+                            <div class="col-sm-6 item filter_display ours" style="background: #f7f7f7;border: solid 2px white;">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-5 col-xs-5">
+                                        <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">
+                                            <img class="img-fluid" src="https://placeimg.com/200/200/nature/any/blur" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">{{ nospublication.titre }}</a></h2>
+                                        <p class="description">{{ nospublication.contenu|slice(0, 180)|striptags  }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="row" style="max-width: 100%;">
+                    {% for gbpublication in gbpublications %}
+                        {% if gbpublication.titre != "" %}
+                            <div class="col-sm-6 item filter_display gb" style="background: #f7f7f7;border: solid 2px white;">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-5 col-xs-5">
+                                        <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">
+                                            <img class="img-fluid" src="https://placeimg.com/200/200/arch/any/blur" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+
+                                        <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">{{ gbpublication.titre }}</a></h2>
+                                        <p class="description">{{ gbpublication.contenu|slice(0, 180)|striptags  }}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for autrespublication in autrespublications %}
+                        {% if autrespublication.titre != "" %}
+
+                            <div class="col-sm-6 item filter_display others" style="background: #f7f7f7;border: solid 2px white;">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-5 col-xs-5">
+                                        <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">
+                                            <img class="img-fluid" src="https://placeimg.com/200/200/tech/any/blur" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">{{ autrespublication.titre }}</a></h2>
+                                        <p class="description">{{ autrespublication.contenu|slice(0, 180)|striptags  }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row read_more_container col-sm-12">
+                <a href="{{ path('gcf_front_publicationspage') }}">
+                    <button class="button_see_more_lg">
+                        Voir Plus
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="col-md-12 col-sm-12" style="margin-bottom: 50px; padding: 0; min-height: 440px;">
         <div class="projects-horizontal">

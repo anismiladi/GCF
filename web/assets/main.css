@@ -25,6 +25,25 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+*{
+    -webkit-transition:  0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+*{
+    -webkit-transition: translate  3s ease-in-out;
+    -moz-transition: translate  3s ease-in-out ;
+    -o-transition: translate  3s ease-in-out ;
+    transition: translate  3s ease-in-out ;
+}
+* {
+    -webkit-transition: transform 3s ease-in-out;
+    -moz-transition: transform 3s ease-in-out;
+    -o-transition: transform 3s ease-in-out;
+    transition: transform 3s ease-in-out;
+}
 
 *{
     -webkit-transition-duration: 0.2s;
@@ -102,7 +121,11 @@ header and top bar
 
 .navbar-header .navbar-brand img{max-width: 130px;}
 
+
+.navbar-nav>li>a { font-family: Rounded-Elegance ; font-size: 16px !important; font-weight: 600;line-height: 42px !important; color: white !important;padding-bottom: 10px !important; padding-top: 10px !important; }
+
 .navbar-nav>li>a {font-family: Rounded_Elegance ; font-size: 16px !important; font-weight: 600;line-height: 42px !important; color: white !important;padding-bottom: 10px !important; padding-top: 10px !important; }
+
 
 .navbar-nav>li>a:hover { color: #cccccc !important; }
 
@@ -118,6 +141,12 @@ header and top bar
 @media screen and (max-width: 767px){
 
     .bar_fixed_top > div{ padding: 0; }
+
+
+    .bar_fixed_top .menu_top_bar_container{
+        margin-top: 10px;
+        text-align: center;
+    }
 
     .social_media_container{ display: none; }
 
@@ -143,6 +172,7 @@ header and top bar
     }
     .language_rs_container .fa:hover { background: #22AA86;  color: white; }
 
+
     .rs_btns_containers .fa-phone{ width: 25px; padding: 5px; font-size: 15px; text-align: center; background: #22AA86; color: white; border-radius: 50%;}
 
     .rs_btns_containers .fa-phone:hover{ background: white ; color: #22AA86; }
@@ -161,13 +191,24 @@ header and top bar
 
     .side_bar_custom{position: relative;}
 
+
+    .language_container { text-align: center; }
+
     .language_container, .social_media_container { text-align: center; }
+
 
     .slogan_banner_img{  max-width: 250px !important; }
 
     .custom_navigation nav { padding: 10px 0; }
 
     .affix .navbar-brand img{ max-width: 80px !important; }
+
+}
+
+
+.language_container{ direction: ltr; padding: 0!important; }
+
+.language_container .fa{
 
 }
 .language_rs_container{display:none; }
@@ -194,6 +235,7 @@ header and top bar
 .language_container{ direction: ltr; padding: 0!important; }
 
 .language_container .fa, .social_media_container .fa-phone{
+
     width: 25px;
     padding: 5px;
 
@@ -210,6 +252,7 @@ header and top bar
     background: white ;
     color: #22AA86;
 }
+
 .language_switch_btn{
     width: 25px;
     height: 25px;
@@ -233,9 +276,30 @@ header and top bar
     color: white;
     text-decoration: none;
 }
+
+
+.menu_top_bar_container {
+    text-align: right;
+    padding: 0 !important;
+}
+.menu_top_bar_container a{
+    text-decoration: none;
+    color: white;
+    padding: 0 0 0 20px;
+    cursor: pointer;
+
+}
+.menu_top_bar_container a:hover, .menu_top_bar_container a:focus, .menu_top_bar_container a:active{
+    text-decoration: none;
+    outline: 0;
+    color: #ccc;
+
+}
+
 @media (max-width: 767px){
 
 }
+
 
 
 .green_Blogger_btn{ cursor:pointer; padding: 5px 10px !important; border-radius: 0; margin: 0px auto;background: rgba(122, 201, 67, 1);}
@@ -243,7 +307,11 @@ header and top bar
 
 .green_Blogger_btn:hover{ background: #8ce24a !important; }
 .custom_carousel_caption{width: 100% }
+
+.carousel-inner .item > img{width:100%; max-height: 400px; min-height: 475px}
+
 .carousel-inner .item > img{width:100%; max-height: 400px; min-height: 350px}
+
 .slogan_banner_img{  max-width: 400px; }
 .slogan_banner_txt{font-size: 50px;font-weight:700; color: #5f5f5f;margin-bottom: 60px;margin-top: 40px;}
 .custom_navigation nav {
@@ -310,6 +378,70 @@ Block side bar
 @media screen and (max-width: 992px){
     .side_bar_custom{position: relative; padding-top: 0;}
 }
+/*
+=================================
+    social meadia fixed right
+=================================
+*/
+.social_media_fixed_container{
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin: auto;
+    bottom: 0;
+    max-height: 240px;
+}
+.social_media_fixed_container .fa {
+    padding: 10px;
+    font-size: 20px;
+    width: 40px;
+    text-align: center;
+    text-decoration: none;
+    float: right;
+}
+.social_media_fixed_container .fa:hover {
+    width: 50px;
+}
+
+.social_media_fixed_container .fa:hover {
+    opacity: 0.7;
+}
+
+.social_media_fixed_container .fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.social_media_fixed_container .fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.social_media_fixed_container .fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.social_media_fixed_container .fa-youtube-play {
+    background: #bb0000;
+    color: white;
+}
+
+.social_media_fixed_container .fa-phone {
+    background: grey;
+    color: white;
+}
+
+.social_media_fixed_container .fa-instagram {
+    color: white;
+    background: #405de6;
+    background: -webkit-linear-gradient(left top, #405de6, #833ab4, #fd1d1d, #f56040, #fcaf45);
+    background: -o-linear-gradient(bottom right, #405de6, #833ab4, #fd1d1d, #f56040, #fcaf45);
+    background: -moz-linear-gradient(bottom right, #405de6, #833ab4, #fd1d1d, #f56040, #fcaf45);
+    background: linear-gradient(to bottom right, #405de6, #833ab4, #fd1d1d, #f56040, #fcaf45);
+}
+
 
 
 /*
@@ -327,11 +459,28 @@ Newsletter and goTop buttons
     left: 0;
     background: rgba(0,0,0,0.4);
 }
+
+.my_newsletter_modal .close_popup{
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    color: red;
+    cursor: pointer;
+    line-height: 24px;
+    font-weight: 600;
+    background: white;
+    border-radius: 50%;
+}
+
 .my_newsletter_modal{
     display: none;
     position: fixed;
     z-index: 1003;
     width: 320px;
+
+    max-height: 365px;
+    padding: 20px;
+
     height: 400px;
     margin: auto;
     top: 0;
@@ -389,6 +538,14 @@ Block footer copyright
 ======================
 */
 .footer-basic{margin-top: 50px; background: #333;}
+
+.footer-basic footer { padding-top: 10px; }
+
+.footer-basic .copyright {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: solid 1px #e7e7e7;
+}
 .footer-basic footer { padding-top: 10px; }
 
 .footer-basic .copyright {
@@ -396,10 +553,18 @@ Block footer copyright
     border-top: solid 1px #e7e7e7;
     text-align: center;
     margin: 0;
+
     font-weight: 600;
     color: white;
     background: #22aa86;
 }
+
+.footer-basic .copyright p {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: white;
+}
+
 .footer-basic .copyright a{
     color: white;
     text-decoration: none;
@@ -427,6 +592,28 @@ Block footer copyright
 }
 
 .footer_logo_GCF{
+    margin: auto;
+    max-height: 70px;
+    width: 135px;
+}
+.footer_logo_GCF img{
+    margin: auto;
+    max-height: 70px;
+    width: 129px;
+}
+.footer_logo_RAJ{
+    margin: auto;
+    max-height: 70px;
+}
+.footer_logo_RAJ img{
+    margin: auto;
+    max-height: 70px;
+}
+.footer_social_media_separate_logos{
+    border: solid 0.5px white;
+    height: 65px;
+    margin: auto;
+
     max-width: 84px;
     margin:auto;
     max-height:60px;
@@ -435,6 +622,7 @@ Block footer copyright
     max-width: 120px;
     margin:auto;
     max-height:60px;
+
 }
 .footer_description_GCF{  color: white; text-align: justify }
 .footer-basic .item.social { margin: 15px auto; display: table; text-align: justify;}

@@ -19,6 +19,11 @@ $('.close_newsletter').click(function () {
     $('.close_my_newsletter_modal').css('display', 'none' );
 });
 
+$('.my_newsletter_modal .close_popup').click(function () {
+    $('.my_newsletter_modal').css('display', 'none' );
+    $('.close_my_newsletter_modal').css('display', 'none' );
+});
+
 
 //===================================================================================
 // When the user scrolls down 20px from the top of the document, show the button
