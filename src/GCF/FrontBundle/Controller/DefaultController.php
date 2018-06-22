@@ -417,4 +417,14 @@ public function MapAction()
             'intervProjets' => $intervProjets,
         ));
     }
+
+
+
+    public function banniereAction(){
+
+
+        return $this->render('@GCFFront/Default/blocks/banniere.html.twig',array(
+        ));
+    }
+
 }

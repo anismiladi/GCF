@@ -1,0 +1,62 @@
+<style>
+    .custom_carousel_caption{width: 100% }
+
+    .carousel-inner .item > img{width:100%; max-height: 400px; min-height: 450px}
+
+    /*.carousel-inner .item > img{width:100%; max-height: 400px; min-height: 350px}*/
+
+    .slogan_banner_img{  max-width: 400px; }
+    .slogan_banner_txt{font-size: 50px;font-weight:700; color: #5f5f5f;margin-bottom: 60px;margin-top: 40px;}
+    .custom_navigation nav {
+        background: rgba(0, 0, 0, 0.30) !important;
+        padding: 10px 0 !important;
+        border-color: transparent !important;
+    }
+</style>
+<!-- Banner website -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 30px">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+        <div class="item active">
+            <img src="{{ asset('assets/images/BACKGROUND.jpg') }}" alt="GCF">
+            <div class="carousel-caption custom_carousel_caption" >
+
+                <div class="container">
+
+                    <h2 class="slogan_banner_txt">Think green</h2>
+
+                    <form action="{{ path('gcf_front_searchpage') }}" class="col-md-10 col-md-offset-1 home_banner_search">
+                        <div class="form-group col-md-5" style="margin: 0;">
+                            <input type="text" placeholder="Recherche" class="form-control" id="search">
+                        </div>
+                        <div class="form-group col-md-3 " style="margin: 0;">
+                            <select class="form-control" id="sel1">
+                                <option>Gouvernorat</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2" style="margin: 0">
+                            <select class="form-control" id="sel1">
+                                <option>Type</option>
+                                <option>Projet</option>
+                                <option>Publication</option>
+                                <option>Vidéos</option>
+                            </select>
+                        </div>
+                        <div class="form-froup col-md-2" style="margin: 0;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                Rechercher
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

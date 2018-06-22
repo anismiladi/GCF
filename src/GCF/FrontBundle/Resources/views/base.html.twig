@@ -111,53 +111,9 @@
     </div>
 
     {%  if ( path(app.request.get('_route'), app.request.get('_route_params')) == path('gcf_front_homepage') ) %}
-        <!-- Banner website -->
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 30px">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
 
-                <div class="item active">
-                    <img src="{{ asset('assets/images/BACKGROUND.jpg') }}" alt="GCF">
-                    <div class="carousel-caption custom_carousel_caption" >
 
-                        <div class="container">
-
-                            <h2 class="slogan_banner_txt">Think green</h2>
-
-                            <form action="{{ path('gcf_front_searchpage') }}" class="col-md-10 col-md-offset-1 home_banner_search">
-                                <div class="form-group col-md-5" style="margin: 0;">
-                                    <input type="text" placeholder="Recherche" class="form-control" id="search">
-                                </div>
-                                <div class="form-group col-md-3 " style="margin: 0;">
-                                    <select class="form-control" id="sel1">
-                                        <option>Gouvernorat</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-2" style="margin: 0">
-                                    <select class="form-control" id="sel1">
-                                        <option>Type</option>
-                                        <option>Projet</option>
-                                        <option>Publication</option>
-                                        <option>Vidéos</option>
-                                    </select>
-                                </div>
-                                <div class="form-froup col-md-2" style="margin: 0;">
-                                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                        Rechercher
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        {{ render( controller('GCFFrontBundle:Default:banniere') ) }}
 
 
         {#=================================================#}
