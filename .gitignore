@@ -51,3 +51,4 @@
 /*.zip
 /nbproject/private/
 src/GCF/FrontBundle/Controller/SearchController.php
+src/GCF/FrontBundle/Resources/views/Default/search-result.html.twig
