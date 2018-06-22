@@ -27,4 +27,30 @@ class ActeurRepository extends \Doctrine\ORM\EntityRepository
         
         return $Acteurs;
     }
+    public function search($keyword, $nb = 50){
+        $Acteurs = $this->getEntityManager()
+            ->createQueryBuilder()
+                ->select('a')
+                ->from('GCFMainBundle:Acteur', 'a')
+                ->where('a.nom LIKE :key')
+                ->orWhere('a.nomcomplet LIKE :key')
+                ->orWhere('a.description LIKE :key')
+                ->orWhere('a.mission LIKE :key')
+                ->orWhere('a.responsable LIKE :key')//$adresse
+                ->orWhere('a.emailresponsable LIKE :key')
+                ->orWhere('a.telresponsable LIKE :key')
+                ->orWhere('a.contact LIKE :key')
+                ->orWhere('a.adresse LIKE :key')
+                ->orWhere('a.email LIKE :key')
+                ->orWhere('a.tel LIKE :key')
+                ->orWhere('a.fax LIKE :key')
+                ->orWhere('a.siteweb LIKE :key')
+
+                ->setParameter('key' , '%'.$keyword.'%')
+                ->setMaxResults($nb)
+                ->orderBy('a.id', 'DESC')
+                ->getQuery()
+                ->getResult();
+        return $Acteurs;
+    }
 }

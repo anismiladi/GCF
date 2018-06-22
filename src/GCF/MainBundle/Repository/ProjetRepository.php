@@ -56,4 +56,19 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
 
         return $projets;
     }
+    public function search($keyword, $nb = 50){
+        $Projets = $this->getEntityManager()
+            ->createQueryBuilder()
+                ->select('a')
+                ->from('GCFMainBundle:Projet', 'a')
+                ->where('a.nom LIKE :key')
+                ->orWhere('a.description LIKE :key')
+
+                ->setParameter('key' , '%'.$keyword.'%')
+                ->setMaxResults($nb)
+                ->orderBy('a.id', 'DESC')
+                ->getQuery()
+                ->getResult();
+        return $Projets;
+    }
 }

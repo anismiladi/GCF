@@ -18,11 +18,19 @@ class SearchController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         
-        $Events = $em->getRepository('GCFMainBundle:Event')->search($keyword);
-        foreach($Events as $key => $Event){
-            $Event->setphotoCouverture(preg_replace("/app_dev.php\//", "", $Event->getphotoCouverture()));       //$notrepublication->setsetFeaturedImage
-            if($Event->getNom() == ""){
-                unset($Events[$key]);
+        $Acteurs = $em->getRepository('GCFMainBundle:Acteur')->search($keyword);
+        foreach($Acteurs as $key => $Acteur){
+            $Acteur->setLogo(preg_replace("/app_dev.php\//", "", $Acteur->getLogo()));       //$notrepublication->setsetFeaturedImage
+            if($Acteur->getNom() == ""){
+                unset($Acteurs[$key]);
+            }
+        }
+
+        $Projets = $em->getRepository('GCFMainBundle:Projet')->search($keyword);
+        foreach($Projets as $key => $Projet){
+            $Projet->setFichier(preg_replace("/app_dev.php\//", "", $Projet->getFichier()));       //$notrepublication->setsetFeaturedImage
+            if($Projet->getNom() == ""){
+                unset($Projets[$key]);
             }
         }
 
@@ -44,16 +52,28 @@ class SearchController extends Controller
             }
         }
         
+        $Events = $em->getRepository('GCFMainBundle:Event')->search($keyword);
+        foreach($Events as $key => $Event){
+            $Event->setphotoCouverture(preg_replace("/app_dev.php\//", "", $Event->getphotoCouverture()));       //$notrepublication->setsetFeaturedImage
+            if($Event->getNom() == ""){
+                unset($Events[$key]);
+            }
+        }
+        
         return $this->render('@GCFFront/Default/search-result.html.twig',array (
             'pageTitle' => $pageTitle,
             //'ProjectsBySector' => $nbrProj,
 
-            'events' => $Events,
+            'Projets' => $Projets,
+            //'Acteurs' => $Acteurs,
+            
+            'Publications' => $Publications,
             
             'Techniques' => $Techniques,
             'Legislatives' => $Legislatives,
-                
-            'Publications' => $Publications,
+            
+            'Events' => $Events,
+            
         ));
     }
 }
