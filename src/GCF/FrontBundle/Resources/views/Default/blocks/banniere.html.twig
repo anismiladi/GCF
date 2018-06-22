@@ -28,23 +28,29 @@
 
                     <form action="{{ path('gcf_front_searchpage') }}" class="col-md-10 col-md-offset-1 home_banner_search">
                         <div class="form-group col-md-5" style="margin: 0;">
-                            <input type="text" placeholder="Recherche" class="form-control" id="search">
+                            <input name="key" type="text" placeholder="Recherche" class="form-control" id="search">
                         </div>
                         <div class="form-group col-md-3 " style="margin: 0;">
-                            <select class="form-control" id="sel1">
+                            <select  name="gouvr" class="form-control" id="gouvernorat">
                                 <option>Gouvernorat</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                                {% for Gouvernorat in Gouvernorats  %}
+                                    <option value="{{ Gouvernorat.Id }}">{{ Gouvernorat.Nom }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="form-group col-md-2" style="margin: 0">
-                            <select class="form-control" id="sel1">
+                            <select  name="type" class="form-control" id="type">
                                 <option>Type</option>
-                                <option>Projet</option>
-                                <option>Publication</option>
-                                <option>Vidéos</option>
+                                <option value="Actors">{{ 'search.Actors'|trans }}</option>
+                                <option value="Projects">{{ 'search.Projects'|trans }}</option>
+                                <option value="Publications">{{ 'search.Publications'|trans }}</option>
+                                <option value="E-learning">{{ 'search.E-learning'|trans }}</option>
+                                <option value="Events">{{ 'search.Events'|trans }}</option>
+                                <!-- 
+                                <option value="News">{{ 'search.News'|trans }}</option>
+                                <option value="Library">{{ 'search.Library'|trans }}</option>
+                                -->
+
                             </select>
                         </div>
                         <div class="form-froup col-md-2" style="margin: 0;">

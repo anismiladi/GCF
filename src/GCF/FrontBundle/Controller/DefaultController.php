@@ -422,8 +422,11 @@ public function MapAction()
 
     public function banniereAction(){
 
-
+        $em = $this->getDoctrine()->getManager();
+        $Gouvernorats = $em->getRepository('GCFMainBundle:Gouvernorat')->findAll();
+        
         return $this->render('@GCFFront/Default/blocks/banniere.html.twig',array(
+            'Gouvernorats' => $Gouvernorats,
         ));
     }
 

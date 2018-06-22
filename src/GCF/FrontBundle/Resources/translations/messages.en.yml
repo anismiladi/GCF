@@ -11,6 +11,16 @@ menu:
   Events: Events
   Library: Bibliotèque
 
+search:
+  Actors: Actors
+  Projects: Projects
+  Publications: Publications
+  E-learning: E-learning
+  News: News
+  Events: Events
+  Library: Bibliotèque
+  Search: Search
+  
 core:
   Hello: Hello !
 

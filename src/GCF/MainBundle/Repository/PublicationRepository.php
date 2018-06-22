@@ -52,4 +52,20 @@ class PublicationRepository extends \Doctrine\ORM\EntityRepository
 
         return $nosPub;
     }
+    
+    public function search($keyword, $nb = 50){
+        $nosPub = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('e')
+            ->from('GCFMainBundle:Publication', 'e')
+            ->where('e.titre LIKE :key')
+            ->orWhere('e.contenu LIKE :key')
+            
+            ->setParameter('key' , '%'.$keyword.'%')
+            ->setMaxResults($nb)
+            ->orderBy('e.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+        return $nosPub;
+    }
 }

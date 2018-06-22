@@ -68,6 +68,7 @@
             </div>
         </div>
 
+       {% if Publications|length > 0 %}
         <div class="result_search_container col-md-12">
             <div class="block_header">
                 <h2>
@@ -75,30 +76,27 @@
                 </h2>
             </div>
             <div class="block_body">
-                {% for i in 1..3 %}
-
+                {% for Publication in Publications %}
                     <div class="col-md-12 item ">
                         <div class="row">
                             <div class="col-md-4">
                                 <a href="#">
-                                    <img class="img-fluid" src="https://placeimg.com/200/200/nature/any/blur" />
+                                    <img class="img-fluid" src="{{ Publication.featuredImage }}" />
                                 </a>
                             </div>
                             <div class="col-md-8">
-                                <h3 class="name">Publication {{ i }}</h3>
-                                <p class="description">Aenean tortor est, vulputate quis leo
-                                    in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
+                                <h3 class="name">{{ Publication.Titre }}</h3>
+                                <p class="description">{{ Publication.Contenu|slice(0, 180)|striptags }}</p>
                             </div>
                         </div>
                     </div>
-
                 {% endfor %}
                 <div class="row read_more_container col-md-12">
                     <center><button class="button_see_more_lg">Voir Plus de resultats</button></center>
                 </div>
             </div>
         </div>
-
+        {% endif %}
         <div class="result_search_container col-md-12">
             <div class="block_header">
                 <h2>

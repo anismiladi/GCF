@@ -1,6 +1,6 @@
 menu:
   Home: الإستقبال
-  Actors: الممثلون
+  Actors: المتدخلون
   Projects: المشاريع
   Publications: المنشورات
   E-learning: التعلم الإلكتروني
@@ -10,6 +10,16 @@ menu:
   Contact-us: اتصل بنا
   Events: الاحداث
   Library: المكتبة
+
+search:
+  Actors: المتدخلون
+  Projects: المشاريع
+  Publications: المنشورات
+  E-learning: التعلم الإلكتروني
+  News: أخبار
+  Events: الاحداث
+  Library: المكتبة
+  Search: بحث
 
 core:
   Hello: السلام عليكم !

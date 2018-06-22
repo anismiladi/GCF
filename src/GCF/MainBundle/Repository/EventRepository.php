@@ -24,4 +24,19 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
 
         return $nosEvent;
     }
+    
+    public function search($keyword, $nb = 50){
+        $nosEvent = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('e')
+            ->from('GCFMainBundle:Event', 'e')
+            ->where('e.nom LIKE :key')
+            ->orWhere('e.description LIKE :key')
+            ->setParameter('key' , '%'.$keyword.'%')
+            ->setMaxResults($nb)
+            ->orderBy('e.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+        return $nosEvent;
+    }
 }
