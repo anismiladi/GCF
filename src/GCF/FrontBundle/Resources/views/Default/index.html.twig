@@ -98,6 +98,22 @@
         .btn-default.filter-button{ border-color: transparent; outline: none ;    margin-bottom: 10px;}
         .btn-default.filter-button:hover, .btn-default.filter-button:focus, .btn-default.filter-button:active ,.btn-default.filter-button:active:focus{ border-color: transparent; background: white;box-shadow: none;outline: none}
 
+
+        /*
+        ==========
+        elearning Block
+        ==========
+        */
+        #technique_tab, #legislatives_tab{
+            padding:0;
+            cursor:pointer;
+        }
+        #legislatives_tab_container{
+            display: none;
+        }
+        .navigation_elearning a{
+            color: #22AA86;
+        }
     </style>
 {% endblock %}
 
@@ -227,140 +243,75 @@
             </div>
             </div>
 
-            {#Block Documents#}
-            {#<div class="col-md-6 col-sm-6 single_item "#}
-                 {#style="background: #f7f7f7;border: solid 2px white; padding: 10px">#}
-                {#<div class="intro">#}
-                    {#<h1 class="section_title">Documents</h1>#}
-                {#</div>#}
-                {#{% for Legislative in Legislatives %}#}
-                    {#<div class="col-sm-12 item single_element">#}
-                        {#<div class="row">#}
-                            {#<div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >#}
-                                {#<a target="_blank" href="{{ Legislative.Fichier }}">#}
-                                    {#<img src="{{ asset('assets/images/PDF_file.png') }}" title="Lire le document">#}
-                                {#</a>#}
-                            {#</div>#}
-                            {#<div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">#}
-                                {#<h2 class="name">{{ Legislative.Nom }}</h2>#}
-                                {#<!--   <p class="theme"><strong>Sector:</strong>Energie</p> -->#}
-                                {#<p class="description">{{ Legislative.Description|slice(0, 62)|striptags }}</p>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#{% endfor %}#}
-                {#<div class="col-md-12 item " style="text-align: right;">#}
-                    {#<a href="{{ path('gcf_front_elearningpage') }}">#}
-                        {#<button class=" button_see_more">Voir Plus</button>#}
-                    {#</a>#}
-                {#</div>#}
-            {#</div>#}
-
-            {#Block Videos#}
-            {#<div class="col-md-6 col-sm-6 single_item "#}
-                 {#style="background: #f7f7f7;border: solid 2px white; padding: 10px">#}
-                {#<div class="intro">#}
-                    {#<h1 class="section_title">Vidéos</h1>#}
-                {#</div>#}
-                {#{% for Technique in Techniques %}#}
-                    {#<div class="col-sm-12 item single_element">#}
-                        {#<div class="row">#}
-                            {#<div class="col-md-3 col-sm-3 col-xs-3 single_element_image_container" >#}
-                                {#<iframe   style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>#}
-                            {#</div>#}
-                            {#<div class="col-md-9 col-sm-9 col-xs-9 single_element_desc_container">#}
-                                {#<h2 class="name">{{ Technique.Nom }}</h2>#}
-                                {#<p class="description">{{ Technique.Description|slice(0, 62)|striptags }}</p>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#{% endfor %}#}
-                {#<div class="col-md-12 item" style="text-align: right;">#}
-                    {#<a href="{{ path('gcf_front_elearningpage') }}">#}
-                        {#<button class=" button_see_more">Voir Plus</button>#}
-                    {#</a>#}
-                {#</div>#}
-            {#</div>#}
-
-
-
-
 
             {#elearning#}
-            <div class="col-md-12 col-sm-12" style="margin-bottom: 50px; padding: 0; min-height: 440px;">
+            <div class="row " style="width: 100%;">
+            <div class="">
                 <div class="projects-horizontal">
-                    <div class="intro" style="    width: 96%;">
+                    <div class="intro" >
                         <h1 class="section_title">Publications</h1>
                     </div>
-                    <div class="projects">
-                        <div align="center">
-                            <button class="btn btn-default filter-button" data-filter="all">All</button>
-                            <button class="btn btn-default filter-button" data-filter="ours">Nos Publications</button>
-                            <button class="btn btn-default filter-button" data-filter="gb">Green Blogger Publications</button>
-                            <button class="btn btn-default filter-button" data-filter="others">Autres</button>
-                        </div>
-                        <br/>
-                        <div class="row" style="max-width: 100%;">
-                            {% for nospublication in nospublications %}
-                                {% if nospublication.titre != "" %}
-                                    <div class="col-sm-6 item filter_display ours" style="background: #f7f7f7;border: solid 2px white;">
-                                        <div class="row">
-                                            <div class="col-md-12 col-lg-5 col-xs-5">
-                                                <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">
-                                                    <img class="img-fluid" src="https://placeimg.com/200/200/nature/any/blur" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%"/>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">{{ nospublication.titre }}</a></h2>
-                                                <p class="description">{{ nospublication.contenu|slice(0, 180)|striptags  }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        <div class="row" style="max-width: 100%;">
-                            {% for gbpublication in gbpublications %}
-                                {% if gbpublication.titre != "" %}
-                                    <div class="col-sm-6 item filter_display gb" style="background: #f7f7f7;border: solid 2px white;">
-                                        <div class="row">
-                                            <div class="col-md-12 col-lg-5 col-xs-5">
-                                                <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">
-                                                    <img class="img-fluid" src="https://placeimg.com/200/200/arch/any/blur" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-
-                                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">{{ gbpublication.titre }}</a></h2>
-                                                <p class="description">{{ gbpublication.contenu|slice(0, 180)|striptags  }}.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-
-                            {% for autrespublication in autrespublications %}
-                                {% if autrespublication.titre != "" %}
-
-                                    <div class="col-sm-6 item filter_display others" style="background: #f7f7f7;border: solid 2px white;">
-                                        <div class="row">
-                                            <div class="col-md-12 col-lg-5 col-xs-5">
-                                                <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">
-                                                    <img class="img-fluid" src="https://placeimg.com/200/200/tech/any/blur" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%"/>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">{{ autrespublication.titre }}</a></h2>
-                                                <p class="description">{{ autrespublication.contenu|slice(0, 180)|striptags  }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs navigation_elearning">
+                            <li class="active" id="technique_tab"><a >Technique</a></li>
+                            <li class="" id="legislatives_tab"><a >Législatives</a></li>
+                        </ul>
                     </div>
+
+                    <div id="technique_tab_container">
+
+                        {% for Technique in Techniques %}
+                            <div class="col-md-6 col-xs-12"
+                                 style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px ">
+                                <div class="row">
+                                    <div class="col-md-5" style="padding: 0 ">
+                                        <iframe   style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    </div>
+
+                                    <div class="col-md-7">
+                                        <h4 class="name">{{ Technique.Nom }}</h4>
+                                        <h6 class="name"><strong>Date :</strong> 2009</h6>
+                                        <p class="description" style="font-size: 13px;">{{ Technique.Description|raw|slice(0, 62) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <div id="legislatives_tab_container">
+
+                        {% for Legislative in Legislatives %}
+
+                            <div class="col-md-6 col-sm-6 col-xs-12" style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px ">
+                                <div class="listing">
+                                    <h4>{{ Legislative.Nom }}</h4>
+                                    <div class="type">
+                                        <a target="_blank" href="{{ Legislative.Fichier }}">
+                                            <img src="{{ asset('assets/images/PDF_file.png') }}" title="Lire le document">
+                                        </a>
+                                    </div>
+                                    <p>Date de publication : 2018</p>
+                                    <div class="details">
+                                        <p><strong>Description : </strong>{{ Legislative.Description|raw|slice(0, 62) }}</p>
+                                        <!--
+                                        <p><strong>Adresse :</strong> Lorem ipsum</p>
+                                        <p><strong>Type :</strong> Lorem ipsum dolor </p>
+                                        <p><strong>Focus :</strong>Lorem</p>
+                                        <p><strong>Secteur :</strong>ipsum</p>
+                                        <p><strong>Mots clés :</strong>Lorem ipsum, Lorem ipsum dolor sit amet, Lorem dolor, ipsum, Lorem, amet</p>
+                                        -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
                     <div class="row read_more_container col-sm-12">
-                        <a href="{{ path('gcf_front_publicationspage') }}">
+                        <a href="{{ path('gcf_front_elearningpage') }}">
                             <button class="button_see_more_lg">
                                 Voir Plus
                             </button>
@@ -368,7 +319,7 @@
                     </div>
                 </div>
             </div>
-
+            </div>
 
 
         </div>
@@ -376,18 +327,19 @@
 
     <div class="col-md-12 col-sm-12" style="margin-bottom: 50px; padding: 0; min-height: 440px;">
         <div class="projects-horizontal">
-            <div class="intro" style="    width: 96%;">
+            <div class="row" style="width: 100%;">
+            <div class="intro">
                 <h1 class="section_title">Publications</h1>
             </div>
             <div class="projects">
-                <div align="center">
-                    <button class="btn btn-default filter-button" data-filter="all">All</button>
+                <div align="center" class="nav nav-tabs">
+                    <button class="btn btn-default filter-button" data-filter="all">Toutes</button>
                     <button class="btn btn-default filter-button" data-filter="ours">Nos Publications</button>
                     <button class="btn btn-default filter-button" data-filter="gb">Green Blogger Publications</button>
                     <button class="btn btn-default filter-button" data-filter="others">Autres</button>
                 </div>
                 <br/>
-                <div class="row" style="max-width: 100%;">
+                <div class="" style="max-width: 100%;">
                 {% for nospublication in nospublications %}
                     {% if nospublication.titre != "" %}
                     <div class="col-sm-6 item filter_display ours" style="background: #f7f7f7;border: solid 2px white;">
@@ -406,7 +358,7 @@
                     {% endif %}
                 {% endfor %}
                 </div>
-                <div class="row" style="max-width: 100%;">
+                <div class="" style="max-width: 100%;">
                 {% for gbpublication in gbpublications %}
                     {% if gbpublication.titre != "" %}
                     <div class="col-sm-6 item filter_display gb" style="background: #f7f7f7;border: solid 2px white;">
@@ -453,6 +405,7 @@
                     </button>
                 </a>
             </div>
+        </div>
         </div>
     </div>
 
@@ -512,6 +465,27 @@
                 $(this).removeClass("active");
             }
             $(this).addClass("active");
+
+        });
+    </script>
+
+
+    <script>
+        jQuery('#technique_tab').click(function () {
+
+            jQuery('#technique_tab_container').css('display', 'block');
+            jQuery('#legislatives_tab_container').css('display', 'none');
+            jQuery('#technique_tab').addClass('active');
+            jQuery('#legislatives_tab').removeClass('active');
+
+        });
+
+        jQuery('#legislatives_tab').click(function () {
+
+            jQuery('#legislatives_tab_container').css('display', 'block');
+            jQuery('#technique_tab_container').css('display', 'none');
+            jQuery('#legislatives_tab').addClass('active');
+            jQuery('#technique_tab').removeClass('active');
 
         });
     </script>
