@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fae6a69-e6b4-4729-9683-1fa9489b2b2c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/main.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,38 +26,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/assets/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            <state relative-caret-position="252">
+              <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.ar_TN.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messages.en.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messages.fr.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="26" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="26" />
+            <state relative-caret-position="-107">
+              <caret line="293" column="10" selection-start-line="293" selection-start-column="10" selection-end-line="293" selection-end-column="10" />
+              <folding>
+                <element signature="e#11555#11635#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,12 +108,13 @@
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actors/actors.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/eventIndex.html.twig" />
         <option value="$PROJECT_DIR$/web/assets/main.js" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/web/assets/main.css" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" />
       </list>
     </option>
   </component>
@@ -303,17 +285,6 @@
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Default" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gcf" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gcf" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -367,12 +338,12 @@
       <workItem from="1529510674762" duration="3619000" />
       <workItem from="1529578082058" duration="16240000" />
       <workItem from="1529652706715" duration="14664000" />
-      <workItem from="1529674818027" duration="221000" />
+      <workItem from="1529674818027" duration="812000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88525000" />
+    <option name="totallyTimeSpent" value="89061000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -710,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="125" column="29" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -747,15 +711,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
+        <state relative-caret-position="447">
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/assets/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="252">
+          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-107">
+          <caret line="293" column="10" selection-start-line="293" selection-start-column="10" selection-end-line="293" selection-end-column="10" />
+          <folding>
+            <element signature="e#11555#11635#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
