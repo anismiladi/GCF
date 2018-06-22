@@ -8,16 +8,15 @@ menu:
   News: أخبار
   GreenBlogger: المدون الأخضر
   Contact-us: اتصل بنا
-  Events: أحداث
-  News: أخبار
+  Events: الاحداث
   Library: المكتبة
 
 core:
   Hello: السلام عليكم !
 
 mailchampNewsletter:
-  Subscribe to our newsletter: Inscrivez vous à notre newsletter
-  indicates required: يشير إلى المطلوب
+  SubscribeToOurNewsletter: اشترك في نشرتنا الإخبارية
+  indicates required: يشير إلى إجباري
   First Name: الأسم الأول
   Last Name: اسم العائلة
   Subscribe: الاشتراك
