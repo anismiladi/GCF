@@ -9,14 +9,13 @@ menu:
   GreenBlogger: Green Blogger
   Contact-us: Contactez-nous
   Events: Events
-  News: News
   Library: Bibliotèque
 
 core:
   Hello: Hello !
 
 mailchampNewsletter:
-  Subscribe to our newsletter: Subscribe to our newsletter
+  SubscribeToOurNewsletter: Subscribe to our newsletter
   indicates required: indicates required
   First Name: First Name
   Last Name: Last Name
