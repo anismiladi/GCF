@@ -19,7 +19,7 @@ class SearchController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         
-        $Acteurs = $em->getRepository('GCFMainBundle:Acteur')->search($keyword);
+        $Acteurs = $em->getRepository('GCFMainBundle:Acteur')->search($keyword, 4);
         foreach($Acteurs as $key => $Acteur){
             $Acteur->setLogo(preg_replace("/app_dev.php\//", "", $Acteur->getLogo()));       //$notrepublication->setsetFeaturedImage
             if($Acteur->getNom() == ""){
@@ -82,7 +82,7 @@ class SearchController extends Controller
             }
         }
         
-        $Events = $em->getRepository('GCFMainBundle:Event')->search($keyword);
+        $Events = $em->getRepository('GCFMainBundle:Event')->search($keyword, 3);
         foreach($Events as $key => $Event){
             $Event->setphotoCouverture(preg_replace("/app_dev.php\//", "", $Event->getphotoCouverture()));       //$notrepublication->setsetFeaturedImage
             $em->persist($Event);
@@ -96,8 +96,8 @@ class SearchController extends Controller
             'pageTitle' => $pageTitle,
             //'ProjectsBySector' => $nbrProj,
 
+            'Acteurs' => $Acteurs,
             'Projets' => $Projets,
-            //'Acteurs' => $Acteurs,
             
             'Publications' => $Publications,
             
