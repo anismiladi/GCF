@@ -40,6 +40,22 @@ class EventController extends Controller
         ));
     }
 
+    public function singleEventAction($slug){
+
+
+        $name = str_replace('-',' ',$slug);
+        $em = $this->getDoctrine()->getManager();
+
+        $evenement = $em->getRepository('GCFMainBundle:Event')->findBy(array(
+            'nom' => $name
+        ));
+
+        return $this->render('@GCFFront/Default/Event/singleEvent.html.twig',array(
+            'evenement' => $evenement[0]
+
+        ));
+    }
+
     public function eventSingleAction($id, Request $request){
 
         $em = $this->getDoctrine()->getManager();

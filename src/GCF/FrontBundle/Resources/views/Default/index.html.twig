@@ -125,8 +125,8 @@
 
                  {% for key, ProjectBySector in ProjectsBySector %}
                      {% set key1 =  '' %}
-                     {% if key|length > 15 %}
-                         {% set key1 =  key|slice(0, 13) ~ '...' %}
+                     {% if key|length > 20 %}
+                         {% set key1 =  key|slice(0, 17) ~ '...' %}
                      {% else %}
                          {% set key1 =  key %}
                      {% endif %}

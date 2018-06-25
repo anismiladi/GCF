@@ -87,3 +87,8 @@ gcf_front_event_page:
 gcf_front_single_event:
     path:     /get-single-event-details-{id}
     defaults: { _controller: GCFFrontBundle:Event:eventsingle }
+
+gcf_front_single_event_page:
+    path:     /event/{slug}
+    defaults: { _controller: GCFFrontBundle:Event:singleEvent }
+

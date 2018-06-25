@@ -122,7 +122,7 @@
 
                         <div class="container">
 
-                            <h2 class="slogan_banner_txt">Think green</h2>
+                            <h2 class="slogan_banner_txt">{{ 'search.Slogan'|trans }}</h2>
                             {{ render( controller('GCFFrontBundle:Default:banniere') ) }}
 
                         </div>
@@ -183,12 +183,13 @@
             }
         </style>
 
+
         <div class="under_header_navigation">
             <div class="container custom_breadcrumb">
                 <div class="col-md-12">
                     <div>
                         <div class=" col-md-6" >
-                            <h1>{{ pageTitle }}</h1>
+                            <h1></h1>
                         </div>
                         <div class=" col-md-6">
                             {#<ol class="breadcrumb" style="margin: 0; background: transparent">#}
@@ -350,15 +351,15 @@
                     <div class="footer_website_nav_menu">
                         <h3>MENU</h3>
                     </div>
-                    <nav>
-                        <ul class="">
-                            <li style="list-style: none;"><a href="{{ path('gcf_front_event_page') }}" style="color:white;text-decoration: none">Evenement</a></li>
-                            <li style="list-style: none;"><a href="#bibliotheque" style="color:white;text-decoration: none">Bibliotheque</a></li>
-                            <li style="list-style: none;"><a href="{{ path('gcf_front_publicationspage') }}" style="color:white;text-decoration: none">Green Bloggeur</a></li>
-                            <li style="list-style: none;"><a href="http://raj-tunisie.org" target="_blank" style="color:white;text-decoration: none">RAJ Tunisie</a></li>
-                            <li style="list-style: none;"><a href="{{ path('gcf_front_contactpage') }}" style="color:white;text-decoration: none">Contactez Nous</a></li>
-                        </ul>
-                    </nav>
+                    {#<nav>#}
+                        {#<ul class="">#}
+                            {#<li style="list-style: none;"><a href="{{ path('gcf_front_event_page') }}" style="color:white;text-decoration: none">Evenement</a></li>#}
+                            {#<li style="list-style: none;"><a href="#bibliotheque" style="color:white;text-decoration: none">Bibliotheque</a></li>#}
+                            {#<li style="list-style: none;"><a href="{{ path('gcf_front_publicationspage') }}" style="color:white;text-decoration: none">Green Bloggeur</a></li>#}
+                            {#<li style="list-style: none;"><a href="http://raj-tunisie.org" target="_blank" style="color:white;text-decoration: none">RAJ Tunisie</a></li>#}
+                            {#<li style="list-style: none;"><a href="{{ path('gcf_front_contactpage') }}" style="color:white;text-decoration: none">Contactez Nous</a></li>#}
+                        {#</ul>#}
+                    {#</nav>#}
 
 
                 </div>
