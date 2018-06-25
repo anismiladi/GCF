@@ -22,9 +22,7 @@ class DefaultController extends Controller
         $nbrProj= array();
 
         foreach ($sectors as $sector){
-
             $i=0;
-
             foreach ($projects as $project){
 
                 if( $project->getSecteurProjet()->getNom() ==  $sector->getNom() ) {
@@ -45,6 +43,8 @@ class DefaultController extends Controller
         $events = $em->getRepository('GCFMainBundle:Event')->findlast(3);
         foreach($events as $event){
             $event->setphotoCouverture(preg_replace("/app_dev.php\//", "", $event->getphotoCouverture()));       //$notrepublication->setsetFeaturedImage
+            
+            
         }
         
         //$TypeTechnique = $em->getRepository('GCFMainBundle:CatLearning')->findOneById(1);
