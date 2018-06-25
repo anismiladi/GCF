@@ -25,4 +25,22 @@ class ElearningRepository extends \Doctrine\ORM\EntityRepository
 
         return $nosEvent;
     }
+    
+    public function search($keyword, $nb = 50){ //,$catid
+        $Projets = $this->getEntityManager()
+            ->createQueryBuilder()
+                ->select('a')
+                ->from('GCFMainBundle:Elearning', 'a')
+                ->where('a.nom LIKE :key')
+                ->orWhere('a.description LIKE :key')
+                //  ->andWhere('a.catLearning = :cat')
+                
+                //  ->setParameter('cat', $catid)
+                ->setParameter('key' , '%'.$keyword.'%')
+                ->setMaxResults($nb)
+                ->orderBy('a.id', 'DESC')
+                ->getQuery()
+                ->getResult();
+        return $Projets;
+    }
 }

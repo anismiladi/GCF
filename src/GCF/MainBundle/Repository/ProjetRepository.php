@@ -56,6 +56,7 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
 
         return $projets;
     }
+    
     public function search($keyword, $nb = 50){
         $Projets = $this->getEntityManager()
             ->createQueryBuilder()

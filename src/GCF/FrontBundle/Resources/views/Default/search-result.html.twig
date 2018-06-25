@@ -46,7 +46,31 @@
         <div class="result_search_container col-md-12">
             <div class="block_header">
                 <h2>
-                    Résultat Projet
+                    Résultat {{ 'search.Actors'|trans }}
+                </h2>
+            </div>
+            <div class="block_body">
+                {% for Projet in Projets %}
+                    <div class="col-md-6 item ">
+                        <h3 class="name">{{ Projet.Nom }}</h3>
+                        <p><strong>Date: </strong>{{ "now"|date("d-m-Y") }}</p>
+                        <p><strong>Acteur: {{ Projet.Acteur }}</p>
+                        <p class="description">{{ Projet.Description }}</p>
+                    </div>
+                {% endfor %}
+                <div class="row read_more_container col-md-12">
+                    <center>
+                        <button class="button_see_more_lg">Voir Plus de resultats</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% if Projets|length > 0 %}
+        <div class="result_search_container col-md-12">
+            <div class="block_header">
+                <h2>
+                    Résultat {{ 'search.Projects'|trans }}
                 </h2>
             </div>
             <div class="block_body">
@@ -71,7 +95,7 @@
         <div class="result_search_container col-md-12">
             <div class="block_header">
                 <h2>
-                    Résultat Publications
+                    Résultat {{ 'search.Publications'|trans }}
                 </h2>
             </div>
             <div class="block_body">
@@ -98,28 +122,26 @@
             </div>
         </div>
     {% endif %}
+    {% if Elearnings|length > 0 %}
     <div class="result_search_container col-md-12">
         <div class="block_header">
             <h2>
-                Résultat Videos
+                Résultat {{ 'search.E-learning'|trans }}
             </h2>
         </div>
         <div class="block_body">
-            {% for i in 1..3 %}
-
-                <div class="col-md-6 item ">
+            {% for Elearning in Elearnings %}
+                <div class="col-md-12 item ">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <a href="#">
-                                <iframe style="max-width: 100%;max-height: 100%;width: 100%; height:200px;"
-                                        src="https://www.youtube.com/embed/NBRLeyI9Dfk?rel=0" frameborder="0"
-                                        allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+                                <img class="img-fluid" src="{{ Elearning.Image }}"/>
                             </a>
                         </div>
-                        <div class="col-md-6">
-                            <h3 class="name">Video {{ i }}</h3>
-                            <p class="description">Aenean tortor est, vulputate quis leo
-                                in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
+                        
+                        <div class="col-md-8">
+                            <h3 class="name">{{ Elearning.Nom }}</h3>
+                            <p class="description">{{ Elearning.Description }}</p>
                         </div>
                     </div>
                 </div>
@@ -132,5 +154,40 @@
             </div>
         </div>
     </div>
+    {% endif %}
+    {% if Events|length > 0 %}
+    <div class="result_search_container col-md-12">
+        <div class="block_header">
+            <h2>
+                Résultat {{ 'search.Events'|trans }}
+            </h2>
+        </div>
+        <div class="block_body">
+            {% for Event in Events %}
+                <div class="col-md-12 item ">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="#">
+                                <img class="img-fluid" src="{{ Event.photoCouverture }}"/>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <h3 class="name">{{ Event.Nom }}</h3>
+                            <p class="description">{{ Event.Description }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+            <div class="row read_more_container col-md-12">
+                <center>
+                    <button class="button_see_more_lg">Voir Plus de resultats</button>
+                </center>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
 </div>
 {% endblock %}

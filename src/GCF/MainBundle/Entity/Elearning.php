@@ -61,6 +61,13 @@ class Elearning extends AbstractPersonalTranslatable implements TranslatableInte
     private $fichier;
     
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="text", length=255, nullable=true)
+     */
+    private $image;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\CatLearning", inversedBy="elearning")
      * @ORM\JoinColumn(name="categorie", referencedColumnName="id")
      */
@@ -296,5 +303,29 @@ class Elearning extends AbstractPersonalTranslatable implements TranslatableInte
     public function getKeyword()
     {
         return $this->keyword;
+    }
+
+    /**
+     * Set image.
+     *
+     * @param string|null $image
+     *
+     * @return Elearning
+     */
+    public function setImage($image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image.
+     *
+     * @return string|null
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

@@ -1,5 +1,9 @@
 #routing.yml
-
+    
+gcf_default:
+    resource: "@GCFFrontBundle/Resources/config/default.yml"
+    prefix:   /
+    
 gcf_front_homepage:
     path:     /
     defaults: { _controller: GCFFrontBundle:Default:index}
@@ -20,10 +24,6 @@ gcf_front_actorssectorpage:
 gcf_front_single_actor:
     path:     /get-single-actor-details-{id}
     defaults: { _controller: GCFFrontBundle:Actors:singleActor }
-    
-gcf_default:
-    resource: "@GCFFrontBundle/Resources/config/default.yml"
-    prefix:   /
 
 gcf_front_projectspage:
     path:     /projects
@@ -36,8 +36,6 @@ gcf_front_resultprojectspage:
 gcf_front_projectsinglepage:
     path: /get-projects-{id}
     defaults: { _controller: GCFFrontBundle:Projects:singleProject}
-
-
 
 gcf_front_publicationspage:
     path:     /publications
