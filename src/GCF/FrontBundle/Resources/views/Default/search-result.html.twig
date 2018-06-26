@@ -39,14 +39,14 @@
 {% endblock %}
 {% block body %}
 <div class="col-md-12">
-    {{ render( controller('GCFFrontBundle:Default:banniere') ) }}
+    {{ render( controller('GCFFrontBundle:Default:banniere', { 'keyword': keyword, 'type': type, 'gouvr': gouvr }) ) }}
 </div>
 <div class="col-md-12">
     {% if Acteurs|length > 0 %}
         <div class="result_search_container col-md-12">
             <div class="block_header">
                 <h2>
-                    Résultat {{ 'search.Actors'|trans }}
+                    {{ 'search.Result'|trans }} {{ 'search.Actors'|trans }}
                 </h2>
             </div>
             <div class="block_body">
@@ -68,19 +68,22 @@
                         
                     </div>
                 {% endfor %}
+                {% if type=="Type" %}
                 <div class="row read_more_container col-md-12">
                     <center>
-                        <button class="button_see_more_lg">Voir Plus de resultats</button>
+                        <a href="{{ path('gcf_front_searchpage') }}?key={{keyword}}&gouvr={{gouvr}}&type=Actors"><button class="button_see_more_lg">{{ 'search.Seemore'|trans }}</button></a>
                     </center>
                 </div>
+                {% endif %}
             </div>
         </div>
     {% endif %}
+    
     {% if Projets|length > 0 %}
         <div class="result_search_container col-md-12">
             <div class="block_header">
                 <h2>
-                    Résultat {{ 'search.Projects'|trans }}
+                    {{ 'search.Result'|trans }} {{ 'search.Projects'|trans }}
                 </h2>
             </div>
             <div class="block_body">
@@ -92,11 +95,13 @@
                         <p class="description">{{ Projet.Description }}</p>
                     </div>
                 {% endfor %}
+                {% if type=="Type" %}
                 <div class="row read_more_container col-md-12">
                     <center>
-                        <button class="button_see_more_lg">Voir Plus de resultats</button>
+                        <a href="{{ path('gcf_front_searchpage') }}?key={{keyword}}&gouvr={{gouvr}}&type=Projects"><button class="button_see_more_lg">{{ 'search.Seemore'|trans }}</button></a>
                     </center>
                 </div>
+                {% endif %}
             </div>
         </div>
     {% endif %}
@@ -105,7 +110,7 @@
         <div class="result_search_container col-md-12">
             <div class="block_header">
                 <h2>
-                    Résultat {{ 'search.Publications'|trans }}
+                    {{ 'search.Result'|trans }} {{ 'search.Publications'|trans }}
                 </h2>
             </div>
             <div class="block_body">
@@ -124,52 +129,22 @@
                         </div>
                     </div>
                 {% endfor %}
+                {% if type=="Type" %}
                 <div class="row read_more_container col-md-12">
                     <center>
-                        <button class="button_see_more_lg">Voir Plus de resultats</button>
+                        <a href="{{ path('gcf_front_searchpage') }}?key={{keyword}}&gouvr={{gouvr}}&type=Publications"><button class="button_see_more_lg">{{ 'search.Seemore'|trans }}</button></a>
                     </center>
                 </div>
+                {% endif %}
             </div>
         </div>
     {% endif %}
-    {% if Elearnings|length > 0 %}
-    <div class="result_search_container col-md-12">
-        <div class="block_header">
-            <h2>
-                Résultat {{ 'search.E-learning'|trans }}
-            </h2>
-        </div>
-        <div class="block_body">
-            {% for Elearning in Elearnings %}
-                <div class="col-md-12 item ">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <a href="#">
-                                <img class="img-fluid" src="{{ Elearning.Image }}"/>
-                            </a>
-                        </div>
-                        
-                        <div class="col-md-8">
-                            <h3 class="name">{{ Elearning.Nom }}</h3>
-                            <p class="description">{{ Elearning.Description }}</p>
-                        </div>
-                    </div>
-                </div>
-
-            {% endfor %}
-            <div class="row read_more_container col-md-12">
-                <center>
-                    <button class="button_see_more_lg">Voir Plus de resultats</button>
-                </center>
-            </div>
-        </div>
-    </div>
-    {% endif %}
+    
     {% if Events|length > 0 %}
     <div class="result_search_container col-md-12">
         <div class="block_header">
             <h2>
-                Résultat {{ 'search.Events'|trans }}
+                {{ 'search.Result'|trans }} {{ 'search.Events'|trans }}
             </h2>
         </div>
         <div class="block_body">
@@ -190,11 +165,49 @@
                 </div>
 
             {% endfor %}
+            {% if type=="Type" %}
             <div class="row read_more_container col-md-12">
                 <center>
-                    <button class="button_see_more_lg">Voir Plus de resultats</button>
+                    <a href="{{ path('gcf_front_searchpage') }}?key={{keyword}}&gouvr={{gouvr}}&type=Events"><button class="button_see_more_lg">{{ 'search.Seemore'|trans }}</button></a>
                 </center>
             </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if Elearnings|length > 0 %}
+    <div class="result_search_container col-md-12">
+        <div class="block_header">
+            <h2>
+                {{ 'search.Result'|trans }} {{ 'search.E-learning'|trans }}
+            </h2>
+        </div>
+        <div class="block_body">
+            {% for Elearning in Elearnings %}
+                <div class="col-md-12 item ">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="#">
+                                <img class="img-fluid" src="{{ Elearning.Image }}"/>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <h3 class="name">{{ Elearning.Nom }}</h3>
+                            <p class="description">{{ Elearning.Description }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+            {% if type=="Type" %}
+            <div class="row read_more_container col-md-12">
+                <center>
+                    <a href="{{ path('gcf_front_searchpage') }}?key={{keyword}}&gouvr={{gouvr}}&type=E-learning"><button class="button_see_more_lg">{{ 'search.Seemore'|trans }}</button></a>
+                </center>
+            </div>
+            {% endif %}
         </div>
     </div>
     {% endif %}

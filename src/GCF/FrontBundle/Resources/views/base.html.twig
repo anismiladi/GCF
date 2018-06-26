@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('assets/main.css') }}">
     {% block stylesheets %}{% endblock %}
     {% block styleBloc %}{% endblock %}
+    {% block headjs %}{% endblock %}
 </head>
 
 <body>
@@ -222,6 +223,7 @@
         <div class="col-md-3 col-sm-12 side_bar_custom">
 
             <div class="col-md-12">
+<<<<<<< HEAD
                 {% if  path(app.request.attributes.get('_route')) == path('gcf_front_event_page') %}
                     <link rel="stylesheet" href="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.min.css') }}">
                     <link media="print" rel="stylesheet" href="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.print.css') }}">
@@ -258,6 +260,9 @@
                 {% else %}
                     {{ render( controller('GCFFrontBundle:Default:Map') ) }}
                 {% endif %}
+=======
+                {{ render( controller('GCFFrontBundle:Default:Cercles') ) }}
+>>>>>>> 04fd0ad66a0ae5ee868f5df39d25ea9caf6b5a86
             </div>
             <div class="col-md-12" style="display: flex; margin: 0 auto">
                 <img class="sidebar_patenaire_img" src="http://placehold.it/231x100" style="max-width: 100%;">
@@ -463,9 +468,14 @@
 <script src="{{ asset('assets/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/slick/slick.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/main.js') }}" type="text/javascript" charset="utf-8"></script>
+<<<<<<< HEAD
 <script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
 
 {#<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>#}
+=======
+{#<script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
+<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>#}
+>>>>>>> 04fd0ad66a0ae5ee868f5df39d25ea9caf6b5a86
 <script>
     //====================================
     // basic editor for green blogger

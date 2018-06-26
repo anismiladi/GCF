@@ -21,8 +21,12 @@ search:
   Events: Evénements
   Library: Bibliotèque
   Search: Rechercher
-  Slogan: Ensemble,nous défendons une véritable action climatique
-
+  Slogan: Ensemble, nous défendons une véritable action climatique
+  Result: Résultat
+  Governorate: Gouvernorat
+  Type: Type
+  Seemore: Voir plus de résultats
+      
 core:
   Hello: Bonjour !
 
