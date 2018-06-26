@@ -17,7 +17,7 @@ use Symfony\Component\Serializer\Encoder\JsonEncode;
 
 class EventController extends Controller
 {
-    public function eventIndexAction(){
+    public function eventIndexAction(Request $request){
 
         $pageTitle = 'Evenement';
         $breadcrumbs = $this->get("white_october_breadcrumbs");
@@ -33,9 +33,20 @@ class EventController extends Controller
             array('debut'=> 'desc')
         );
 
+
+
+
+        $eventByDate = $em->getRepository('GCFMainBundle:Event')->findByDate(2017, 2018, 2016);
+        if($request->isXmlHttpRequest()) {
+            // Do something...
+            return new JsonResponse( $eventByDate );
+        }
+
         return $this->render('@GCFFront/Default/Event/eventIndex.html.twig',array(
             'pageTitle' => $pageTitle,
-            'evenements' => $evenements
+            'evenements' => $evenements,
+
+            'eventByDate' => $eventByDate
 
         ));
     }
@@ -49,6 +60,7 @@ class EventController extends Controller
         $evenement = $em->getRepository('GCFMainBundle:Event')->findBy(array(
             'nom' => $name
         ));
+
 
         return $this->render('@GCFFront/Default/Event/singleEvent.html.twig',array(
             'evenement' => $evenement[0]

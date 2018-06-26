@@ -18,7 +18,7 @@
             src: url({{ asset('assets/fonts/Rounded_Elegance.ttf') }});
         }
     </style>
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo-page-header.png') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/GCF-THUMBNAIL.png') }}" />
     <link rel="stylesheet" href="{{ asset('assets/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/font-awesome-4.7.0/css/font-awesome.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick.css') }}">
@@ -73,7 +73,8 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="{{ path('gcf_front_homepage') }}">
-                            <img src="{{ asset('assets/images/GCF-logo-final-green.png') }}" alt="GCF-Logo">
+                            <img class="logo__non__affix" src="{{ asset('assets/images/GCF-Logo-V1.png') }}" alt="GCF - logo">
+                            <img class="logo__affix" src="{{ asset('assets/images/GCF-logo-fix.png') }}" alt="GCF - logo">
                         </a>
 
                     </div>
@@ -101,7 +102,6 @@
                             <li>
                                 <a class="green_Blogger_btn" onclick="showGBpopup()" style="color: white !important;">{{ 'menu.GreenBlogger'|trans }}</a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
@@ -139,6 +139,7 @@
         {% endblock %}
 
     {% else %}
+
         <style>
             .under_header_navigation{
 
@@ -221,9 +222,44 @@
         <div class="col-md-3 col-sm-12 side_bar_custom">
 
             <div class="col-md-12">
-                {{ render( controller('GCFFrontBundle:Default:Map') ) }}
+                {% if  path(app.request.attributes.get('_route')) == path('gcf_front_event_page') %}
+                    <link rel="stylesheet" href="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.min.css') }}">
+                    <link media="print" rel="stylesheet" href="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.print.css') }}">
+                    <div id="calendar_test" ></div>
+                    <style>
+                        #calendar_test {
+                            font-size: 10px;
+                            margin-bottom: 20px;
+                        }
+
+                        .fc-button-content {
+                            padding: 0;
+                        }
+                        .fc-toolbar h2{
+                            font-size: 19px;
+                        }
+                        .fc-head-container table thead {
+                            background: #22aa86;
+                        }
+                        .fc-head-container table thead th{
+                            color: white;
+                        }
+                        .side_bar_custom> div {
+                            padding: 0;
+                        }
+                        .fc-scroller.fc-day-grid-container{
+                            height: auto !important;
+                        }
+                        .fc-event, .fc-event-dot{
+                            background: #7ac943;
+                            border-color: #7ac943;
+                        }
+                    </style>
+                {% else %}
+                    {{ render( controller('GCFFrontBundle:Default:Map') ) }}
+                {% endif %}
             </div>
-            <div class="col-md-12" style="display: flex">
+            <div class="col-md-12" style="display: flex; margin: 0 auto">
                 <img class="sidebar_patenaire_img" src="http://placehold.it/231x100" style="max-width: 100%;">
             </div>
 
@@ -349,7 +385,15 @@
                 <div class="col-md-4 col-sm-4 item footer_website_nav" >
 
                     <div class="footer_website_nav_menu">
-                        <h3>MENU</h3>
+                        <h3>{{ 'menu.Partners'|trans }}</h3>
+                    </div>
+                    <div class="row">
+                        <div class="single__partner col-md-6">
+                            <img src="https://placeimg.com/200/200/any" alt="">
+                        </div>
+                        <div class="single__partner col-md-6">
+                            <img src="https://placeimg.com/200/200/any" alt="">
+                        </div>
                     </div>
                     {#<nav>#}
                         {#<ul class="">#}
@@ -367,8 +411,16 @@
 
         </div>
         <div class="copyright container-fluid">
-            <p class="col-xs-6">GCF Tunisie © 2018 Tous droits réservés. Développé  par <a href="http://www.carthage-solutions.com" target="_blank" >Carthage Solutions</a></p>
-            <p class="col-xs-6" style="text-align: right">GCF Tunisie © 2018 Tous droits réservés. Développé  par <a href="http://www.carthage-solutions.com" target="_blank" >Carthage Solutions</a></p>
+            <p class="col-xs-6" style="line-height: 31px;">GCF Tunisie © 2018 Tous droits réservés. Développé  par <a href="http://www.carthage-solutions.com" target="_blank" >Carthage Solutions</a></p>
+            <p class="col-xs-6" style="text-align: right">
+                 This work is licensed under a
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+                    Creative Commons Attribution-NonCommercial 4.0 International License
+                </a>.
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+                    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png">
+                </a>
+            </p>
         </div>
     </footer>
 
@@ -406,14 +458,18 @@
 
 
 {{ render( controller('GCFFrontBundle:Publications:popup' )) }}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 <script src="{{ asset('assets/jquery/dist/jquery.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/slick/slick.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/main.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
+
 {#<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>#}
 <script>
+    //====================================
+    // basic editor for green blogger
+    //====================================
     CKEDITOR.replace( 'gb_article_content',{
         extraPlugins: 'language',
         language_list: [ 'fr:French',  'en:Fnglish', 'ar:Arabic:rtl' ],
@@ -488,6 +544,89 @@
 
     });
 </script>
+
+
+
+{% if  path(app.request.attributes.get('_route')) == path('gcf_front_event_page') %}
+<script src="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.js') }}"></script>
+<script>
+    //====================================
+    // Fullcalender scripts
+    //====================================
+    var data =
+        [
+            {
+                title: 'Long Event',
+                start: '2018-06-06',
+                end: '2018-06-06'
+            },
+        ];
+    $.ajax({
+        url: 'http://localhost/symfony/gcf/web/app_dev.php/fr/events',
+        type: 'POST',
+        data: { 'test' : 'OK' },
+        dataType: 'json',
+        contentType: 'application/json',
+        success: function (result) {
+            console.log(result);
+            for ( i = 0; i < result.length ; i++){
+                data.push(
+                    {
+                        title: result[i].nom,
+                        start: result[i].debut.date.substr(0,10),
+                        end: result[i].fin.date.substr(0,10)
+                    },
+                )
+            }
+
+            var calendar = $('#calendar_test');
+
+            var bgEvent = {
+                id: -1,
+                start: null,
+                end: null,
+                rendering: 'background',
+                backgroundColor: '#7ac9435c'
+            };
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+
+            calendar.fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: '',
+                    right: 'title '
+                },
+                eventClick:  function(event, jsEvent, view) {
+                    //set the values and open the modal
+                    $("#eventInfo").html(event.description);
+                    $("#eventLink").attr('href', event.url);
+                    $("#eventContent").dialog({ modal: true, title: event.title });
+                },
+
+                defaultDate: yyyy+'-'+mm+'-'+dd,
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                events: data
+            });
+            console.log(data)
+        },
+        error: function (error) {
+            console.log( ( error) )
+        }
+
+    });
+
+    $(function() { // document ready
+
+
+    });
+
+
+</script>
+{% endif %}
 {% block javascripts %}{% endblock %}
 </body>
 </html>

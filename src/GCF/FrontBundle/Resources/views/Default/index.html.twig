@@ -94,11 +94,6 @@
         @media screen and ( min-width: 989px ) and ( max-width: 1200px ){
             .single_element_desc_container h2{ margin: 5px 0 }
         }
-
-        .btn-default.filter-button{ border-color: transparent; outline: none ;    margin-bottom: 10px;}
-        .btn-default.filter-button:hover, .btn-default.filter-button:focus, .btn-default.filter-button:active ,.btn-default.filter-button:active:focus{ border-color: transparent; background: white;box-shadow: none;outline: none}
-
-
         /*
         ==========
         elearning Block
@@ -112,6 +107,18 @@
             display: none;
         }
         .navigation_elearning a{
+            color: #22AA86;
+        }
+
+        /*
+        =======================
+        publications block
+        =======================
+        */
+        .navs__publications__block li{
+            cursor: pointer;
+        }
+        .navs__publications__block li a{
             color: #22AA86;
         }
     </style>
@@ -227,8 +234,7 @@
                             </div>
                             <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
                                 <h2 class="name">{{ event.Nom }}</h2>
-                                <p class="theme"><strong>Date:</strong> 11-12-2000</p>
-                                <p class="description">{{ event.Description|slice(0, 62)|striptags }}</p>
+                                <p class="theme"><strong>Date:</strong> {{ event.debut|date('d-m-Y') }}</p>
                             </div>
                         </div>
                     </div>
@@ -249,9 +255,9 @@
             <div class="">
                 <div class="projects-horizontal">
                     <div class="intro" >
-                        <h1 class="section_title">Publications</h1>
+                        <h1 class="section_title">{{ 'menu.E-learning'|trans }} </h1>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12" style="    margin-bottom: 20px;">
                         <ul class="nav nav-tabs navigation_elearning">
                             <li class="active" id="technique_tab"><a >Technique</a></li>
                             <li class="" id="legislatives_tab"><a >Législatives</a></li>
@@ -265,7 +271,7 @@
                                  style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
                                 <div class="row">
                                     <div class="col-md-5" style="padding: 0 ">
-                                        <iframe style="max-width: 100%;max-height: 100%;width: 100%; height:150px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                        <iframe style="max-width: 100%;max-height: 100%;width: 100%;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                     </div>
 
                                     <div class="col-md-7">
@@ -332,12 +338,12 @@
                 <h1 class="section_title">Publications</h1>
             </div>
             <div class="projects">
-                <div align="center" class="nav nav-tabs">
-                    <button class="btn btn-default filter-button" data-filter="all">Toutes</button>
-                    <button class="btn btn-default filter-button" data-filter="ours">Nos Publications</button>
-                    <button class="btn btn-default filter-button" data-filter="gb">Green Blogger Publications</button>
-                    <button class="btn btn-default filter-button" data-filter="others">Autres</button>
-                </div>
+                <ul class="nav nav-tabs navs__publications__block">
+                    <li class="active filter-button" data-filter="all"><a> Toutes </a></li>
+                    <li class="filter-button" data-filter="ours" ><a> Nos Publications </a></li>
+                    <li class="filter-button" data-filter="gb"><a> Green Blogger Publications </a></li>
+                    <li class="filter-button" data-filter="others"><a> Autres </a></li>
+                </ul>
                 <br/>
                 <div class="" style="max-width: 100%;">
                 {% for nospublication in nospublications %}
@@ -409,6 +415,9 @@
         </div>
     </div>
 
+
+
+
 {% endblock %}
 
 {% block javascripts %}
@@ -444,12 +453,14 @@
         $(document).ready(function(){
 
             $(".filter-button").click(function(){
+                $(".filter-button").removeClass("active");
+                $(this).addClass("active");
                 var value = $(this).attr('data-filter');
 
                 if(value == "all")
                 {
                     //$('.filter').removeClass('hidden');
-                    $('.filter_display').show('1000');
+                    $('.filter_display').show('3000');
                 }
                 else
                 {
@@ -460,11 +471,6 @@
 
                 }
             });
-
-            if ($(".filter-button").removeClass("active")) {
-                $(this).removeClass("active");
-            }
-            $(this).addClass("active");
 
         });
     </script>

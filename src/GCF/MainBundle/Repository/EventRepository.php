@@ -39,4 +39,24 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
         return $nosEvent;
     }
+
+    //    marwen
+    public function findByDate($year, $nextYear, $previousYear ){
+
+        $nosEvent = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('e')
+            ->from('GCFMainBundle:Event', 'e')
+            ->where('e.debut LIKE :year')
+            ->orWhere('e.debut LIKE :previousyear')
+            ->orWhere('e.debut LIKE :nextyear')
+            ->setParameter('year', '%'.$year.'%')
+            ->setParameter('previousyear', '%'.$previousYear.'%')
+            ->setParameter('nextyear', '%'.$nextYear.'%')
+            ->orderBy('e.id', 'DESC')
+            ->getQuery()
+            ->getArrayResult();;
+
+        return $nosEvent;
+    }
 }
