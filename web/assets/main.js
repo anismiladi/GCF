@@ -50,15 +50,33 @@ function topFunction() {
 //====================================
 function showGBpopup(){
 
-    $('.gb_page_overlay').css('display', 'block');
-    $('.gb_popup_details_container').css('display', 'block');
+    $('.gb_page_overlay').show(500);
+    $('.gb_popup_details_container').show(499);
 
 }
 
 function closeGBPopup() {
 
-    $('.gb_page_overlay').css('display', 'none');
+    $('.gb_page_overlay').hide(499);
 
-    $('.gb_popup_details_container').css('display', 'none');
+    $('.gb_popup_details_container').hide(500);
 
+}
+
+
+
+//====================================
+// script Popup About GCF
+//====================================
+function  openAbout(){
+
+    $('.overlay__about__gcf').show(499);
+    $('.popup__about__gcf').show( 500 );
+
+
+    return false;
+}
+function closeAbout() {
+    $('.overlay__about__gcf').hide(500);
+    $('.popup__about__gcf').hide( 499 );
 }

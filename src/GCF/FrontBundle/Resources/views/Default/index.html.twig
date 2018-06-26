@@ -4,6 +4,10 @@
 
 {% block stylesheets %}
     <style>
+        .intro .icone__behind__title{
+            margin: 0 10px ;
+            max-height: 30px;
+        }
         .project_number_by_sectors .project_container{padding: 15px 8px; margin: auto;}
         .project_number_by_sectors .project_icon{
             max-width: 70px;
@@ -28,8 +32,8 @@
 
 
         .section_title {
-            margin: 0 0 10px;
             padding-left: 10px;
+            margin: 0 0 10px;
             background: #22AA86;
             color: white;
             font-size: 30px;
@@ -284,15 +288,12 @@
                             <div class="col-md-6 col-xs-12"
                                  style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
                                 <div class="row">
-<<<<<<< HEAD
-                                    <div class="col-md-5" style="padding: 0 ">
-                                        <iframe style="max-width: 100%;max-height: 100%;width: 100%;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-=======
+
                                     <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
                                         <a href="#">
                                             <img class="img-fluid" src="{{ Technique.Image }}" />
                                         </a>
->>>>>>> 04fd0ad66a0ae5ee868f5df39d25ea9caf6b5a86
+
                                     </div>
                                     <div class="col-md-7">
                                         <h4 class="name">{{ Technique.Nom }}</h4>
@@ -354,84 +355,84 @@
     <div class="col-md-12 col-sm-12" style="margin-bottom: 50px; padding: 0; min-height: 313px;">
         <div class="projects-horizontal">
             <div class="row" style="width: 100%;background:  #f7f7f7;padding-bottom: 10px;">
-            <div class="intro">
-                <h1 class="section_title">Publications</h1>
-            </div>
-            <div class="projects">
-                <ul class="nav nav-tabs navs__publications__block">
-                    <li class="active filter-button" data-filter="all"><a> Toutes </a></li>
-                    <li class="filter-button" data-filter="ours" ><a> Nos Publications </a></li>
-                    <li class="filter-button" data-filter="gb"><a> Green Blogger Publications </a></li>
-                    <li class="filter-button" data-filter="others"><a> Autres </a></li>
-                </ul>
-                <br/>
-                <div class="" style="max-width: 100%;">
-                {% for nospublication in nospublications %}
-                    {% if nospublication.titre != "" %}
-                    <div class="col-sm-6 item filter_display ours" style="background: white;border: solid 2px #f7f7f7;">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-5 col-xs-5">
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">
-                                    <img class="img-fluid" src="{{ nospublication.featuredImage }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%"/>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">{{ nospublication.titre }}</a></h2>
-                                <p class="description">{{ nospublication.contenu|slice(0, 180)|striptags  }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-                {% endfor %}
+                <div class="intro">
+                    <h1 class="section_title">Publications</h1>
                 </div>
-                <div class="" style="max-width: 100%;">
-                {% for gbpublication in gbpublications %}
-                    {% if gbpublication.titre != "" %}
-                    <div class="col-sm-6 item filter_display gb" style="background: white;border: solid 2px #f7f7f7;">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-5 col-xs-5">
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">
-                                    <img class="img-fluid" src="{{ gbpublication.featuredImage }}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
-                                </a>
-                            </div>
-                            <div class="col">
-
-                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">{{ gbpublication.titre }}</a></h2>
-                                <p class="description">{{ gbpublication.contenu|slice(0, 180)|striptags  }}.</p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-                {% endfor %}
-
-                {% for autrespublication in autrespublications %}
-                    {% if autrespublication.titre != "" %}
-
-                    <div class="col-sm-6 item filter_display others" style="background: white;border: solid 2px #f7f7f7;">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-5 col-xs-5">
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">
-                                    <img class="img-fluid" src="{{ autrespublication.featuredImage }}" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%"/>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">{{ autrespublication.titre }}</a></h2>
-                                <p class="description">{{ autrespublication.contenu|slice(0, 180)|striptags  }}</p>
+                <div class="projects">
+                    <ul class="nav nav-tabs navs__publications__block">
+                        <li class="active filter-button" data-filter="all"><a> Toutes </a></li>
+                        <li class="filter-button" data-filter="ours" ><a> Nos Publications </a></li>
+                        <li class="filter-button" data-filter="gb"><a> Green Blogger Publications </a></li>
+                        <li class="filter-button" data-filter="others"><a> Autres </a></li>
+                    </ul>
+                    <br/>
+                    <div class="" style="max-width: 100%;">
+                    {% for nospublication in nospublications %}
+                        {% if nospublication.titre != "" %}
+                        <div class="col-sm-6 item filter_display ours" style="background: white;border: solid 2px #f7f7f7;">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-5 col-xs-5">
+                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">
+                                        <img class="img-fluid" src="{{ nospublication.featuredImage }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">{{ nospublication.titre }}</a></h2>
+                                    <p class="description">{{ nospublication.contenu|slice(0, 180)|striptags  }}</p>
+                                </div>
                             </div>
                         </div>
+                        {% endif %}
+                    {% endfor %}
                     </div>
-                    {% endif %}
-                {% endfor %}
+                    <div class="" style="max-width: 100%;">
+                    {% for gbpublication in gbpublications %}
+                        {% if gbpublication.titre != "" %}
+                        <div class="col-sm-6 item filter_display gb" style="background: white;border: solid 2px #f7f7f7;">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-5 col-xs-5">
+                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">
+                                        <img class="img-fluid" src="{{ gbpublication.featuredImage }}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                    </a>
+                                </div>
+                                <div class="col">
+
+                                    <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">{{ gbpublication.titre }}</a></h2>
+                                    <p class="description">{{ gbpublication.contenu|slice(0, 180)|striptags  }}.</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for autrespublication in autrespublications %}
+                        {% if autrespublication.titre != "" %}
+
+                        <div class="col-sm-6 item filter_display others" style="background: white;border: solid 2px #f7f7f7;">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-5 col-xs-5">
+                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">
+                                        <img class="img-fluid" src="{{ autrespublication.featuredImage }}" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">{{ autrespublication.titre }}</a></h2>
+                                    <p class="description">{{ autrespublication.contenu|slice(0, 180)|striptags  }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="row read_more_container col-sm-12">
+                    <a href="{{ path('gcf_front_publicationspage') }}">
+                        <button class="button_see_more_lg">
+                            Voir Plus
+                        </button>
+                    </a>
                 </div>
             </div>
-            <div class="row read_more_container col-sm-12">
-                <a href="{{ path('gcf_front_publicationspage') }}">
-                    <button class="button_see_more_lg">
-                        Voir Plus
-                    </button>
-                </a>
-            </div>
-        </div>
         </div>
     </div>
 

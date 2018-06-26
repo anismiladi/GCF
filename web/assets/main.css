@@ -469,7 +469,7 @@ Newsletter and goTop buttons
     background: rgba(0,0,0,0.4);
 }
 
-.my_newsletter_modal .close_popup{
+.close_popup{
     position: absolute;
     top: -10px;
     right: -12px;
@@ -487,10 +487,10 @@ Newsletter and goTop buttons
     z-index: 1003;
     width: 320px;
 
-    max-height: 365px;
+    max-height: 419px;
     padding: 20px;
 
-    height: 400px;
+    height: 419px;
     margin: auto;
     top: 0;
     bottom: 0;
@@ -714,3 +714,42 @@ footer .rs_btns_footer_container{margin: 0 0 10px 0}
 * END --- DataTable
 ======================
 */
+
+/**
+======================
+* popup about gcf
+======================
+*/
+.overlay__about__gcf{
+    display:none;
+    position: fixed;
+    z-index: 9991;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+}
+.popup__about__gcf{
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9992;
+    margin: auto;
+    height: max-content;
+    min-height: 200px;
+    width: 600px;
+    max-width: 100%;
+    background: white;
+}
+.popup__about__gcf__container{
+    padding: 20px ;
+}
+.popup__about__gcf__container p{
+    font-size: 16px;
+    text-align: justify;
+}
+

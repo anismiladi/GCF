@@ -1,4 +1,5 @@
 menu:
+  About: A propos GCF
   Home: Accueil
   Actors: Acteurs
   Projects: Projets
@@ -21,7 +22,7 @@ search:
   Events: Evénements
   Library: Bibliotèque
   Search: Rechercher
-  Slogan: Ensemble, nous défendons une véritable action climatique
+  Slogan: Together we stand up for a real climate action
   Result: Résultat
   Governorate: Gouvernorat
   Type: Type

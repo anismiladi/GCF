@@ -1,4 +1,5 @@
 menu:
+  About: حول GCF
   Home: الإستقبال
   Actors: المتدخلون
   Projects: المشاريع
@@ -21,7 +22,7 @@ search:
   Events: الاحداث
   Library: المكتبة
   Search: بحث
-  Slogan: معاً نتصدى لعمل مناخي حقيقي
+  Slogan: Together we stand up for a real climate action
   Result: نتيجة
   Governorate: الولاية
   Type: النوع

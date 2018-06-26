@@ -83,7 +83,7 @@
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="{{ path('gcf_front_homepage') }}">{{ 'menu.Home'|trans }}</a>
+                                <a onclick="openAbout()" style="cursor: pointer;">{{ 'menu.About'|trans }}</a>
                             </li>
                             <li>
                                 <a href="{{ path('gcf_front_actorspage') }}">{{ 'menu.Actors'|trans }}</a>
@@ -223,22 +223,24 @@
         <div class="col-md-3 col-sm-12 side_bar_custom">
 
             <div class="col-md-12">
-<<<<<<< HEAD
-                {% if  path(app.request.attributes.get('_route')) == path('gcf_front_event_page') %}
+                {% if  path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_event_page') %}
                     <link rel="stylesheet" href="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.min.css') }}">
                     <link media="print" rel="stylesheet" href="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.print.css') }}">
                     <div id="calendar_test" ></div>
                     <style>
                         #calendar_test {
-                            font-size: 10px;
+                            font-size: 13px;
                             margin-bottom: 20px;
+                        }
+                        .fc-basic-view .fc-body .fc-row{
+                            min-height: 3.3em;
                         }
 
                         .fc-button-content {
                             padding: 0;
                         }
                         .fc-toolbar h2{
-                            font-size: 19px;
+                            font-size: 25px;
                         }
                         .fc-head-container table thead {
                             background: #22aa86;
@@ -256,13 +258,16 @@
                             background: #7ac943;
                             border-color: #7ac943;
                         }
+                        .fc-unthemed td.fc-today{
+                            background: #baef96;
+                        }
                     </style>
                 {% else %}
-                    {{ render( controller('GCFFrontBundle:Default:Map') ) }}
+                    {{ render( controller('GCFFrontBundle:Default:Cercles') ) }}
                 {% endif %}
-=======
-                {{ render( controller('GCFFrontBundle:Default:Cercles') ) }}
->>>>>>> 04fd0ad66a0ae5ee868f5df39d25ea9caf6b5a86
+
+
+
             </div>
             <div class="col-md-12" style="display: flex; margin: 0 auto">
                 <img class="sidebar_patenaire_img" src="http://placehold.it/231x100" style="max-width: 100%;">
@@ -461,21 +466,44 @@
 </div>
 
 
+{#
+==================================
+    Popup About GCF
+==================================
+#}
+<div class="overlay__about__gcf" onclick="closeAbout()"></div>
+<div class="popup__about__gcf">
+    <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closeAbout()"></i>
+    <div class="popup__about__gcf__container">
+    <h2 align="center">{{ 'menu.About'|trans }}</h2>
+    <h3>Présentation du projet</h3>
+    <p>
+        La plateforme GCF « Forum Vert pour le climat » est lancé par le département Environnement et climat de l’organisation RAJ-Tunisie qui s’inscrit dans le cadre de cadre de l’appui à la mise en œuvre de l'Accord de Paris signé le 22 Avril 2016 et ratifié le 10 Février 2017 par la république Tunisienne, l’implémentation de la Contribution Nationale Déterminée (NDC) et de l’agenda 2030 pour le développement durable qui fixe les dix-sept objectifs du développements durable (ODD).<br>
+        Cette plateforme a pour objectif de fournir aux utilisateurs une base de données en ligne décrivant la situation et les politiques environnementales et climatiques en Tunisie tout en impliquant les différents acteurs à savoir les citoyens essentiellement les jeunes, la société civile, les structures publiques, les autorités locales, les structures privées et les médias, tout en assurant une évaluation et une lecture critique des politiques environnementales afin de les améliorer.<br>
+        La veille de la situation et des politiques environnementales et climatiques sera mise à la disposition des utilisateurs de la plateforme GCF à travers les publications, les projets, les rapports, les lois, les codes, les stratégies, des lectures critiques, les actualités, les événements nationaux et internationaux….<br>
+        L’implication des différents acteurs nécessite un approfondissement des connaissances en matière de changement climatique, et un respect de plusieurs aspects tels que le droit d’accès à l’information, la transparence et l’approche participative.
 
+    </p>
+    </div>
+</div>
+
+
+{#
+==================================
+    GreenBlogger Popup
+==================================
+#}
 {{ render( controller('GCFFrontBundle:Publications:popup' )) }}
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 <script src="{{ asset('assets/jquery/dist/jquery.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/slick/slick.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/main.js') }}" type="text/javascript" charset="utf-8"></script>
-<<<<<<< HEAD
+
 <script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
 
-{#<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>#}
-=======
-{#<script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
-<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>#}
->>>>>>> 04fd0ad66a0ae5ee868f5df39d25ea9caf6b5a86
+
 <script>
     //====================================
     // basic editor for green blogger
@@ -557,7 +585,10 @@
 
 
 
-{% if  path(app.request.attributes.get('_route')) == path('gcf_front_event_page') %}
+
+
+
+{% if  path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_event_page') %}
 <script src="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.js') }}"></script>
 <script>
     //====================================
@@ -596,7 +627,7 @@
                 start: null,
                 end: null,
                 rendering: 'background',
-                backgroundColor: '#7ac9435c'
+                backgroundColor: 'blue'
             };
             var today = new Date();
             var dd = today.getDate();
