@@ -21,6 +21,10 @@ search:
   Library: Bibliotèque
   Search: Search
   Slogan: Together we stand up for a real climate action
+  Result: Result
+  Governorate: Governorate
+  Type: Type
+  Seemore: See more results
   
 core:
   Hello: Hello !

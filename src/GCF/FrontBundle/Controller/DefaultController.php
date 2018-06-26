@@ -6,6 +6,9 @@ namespace GCF\FrontBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use Symfony\Component\Translation\TranslatorInterface;
+
+
 class DefaultController extends Controller
 {
 
@@ -420,13 +423,36 @@ public function MapAction()
 
 
 
-    public function banniereAction(){
+    public function banniereAction($keyword="", $type="Type", $gouvr="Governorate"){
 
         $em = $this->getDoctrine()->getManager();
         $Gouvernorats = $em->getRepository('GCFMainBundle:Gouvernorat')->findAll();
         
+        $alltype = array();
+        
+        $alltype [] = array(
+                'Label' => $this->get('translator')->trans('search.Actors'),
+                'Name' => 'Actors');
+        $alltype [] = array(
+                'Label' => $this->get('translator')->trans('search.Projects'),
+                'Name' => 'Projects');
+        $alltype [] = array(
+                'Label' => $this->get('translator')->trans('search.Publications'),
+                'Name' => 'Publications');
+        $alltype [] = array(
+                'Label' => $this->get('translator')->trans('search.E-learning'),
+                'Name' => 'E-learning');
+        $alltype [] = array(
+                'Label' => $this->get('translator')->trans('search.Events'),
+                'Name' => 'Events');
+            
         return $this->render('@GCFFront/Default/blocks/banniere.html.twig',array(
             'Gouvernorats' => $Gouvernorats,
+            'alltype' => $alltype,
+            
+            'keyword' => $keyword,
+            'type' => $type,
+            'gouvr' => $gouvr,
         ));
     }
 
