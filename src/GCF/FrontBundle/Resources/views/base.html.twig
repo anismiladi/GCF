@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('assets/main.css') }}">
     {% block stylesheets %}{% endblock %}
     {% block styleBloc %}{% endblock %}
+    {% block headjs %}{% endblock %}
 </head>
 
 <body>
@@ -411,8 +412,8 @@
 <script src="{{ asset('assets/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/slick/slick.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('assets/main.js') }}" type="text/javascript" charset="utf-8"></script>
-<script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
-{#<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>#}
+{#<script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
+<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>#}
 <script>
     CKEDITOR.replace( 'gb_article_content',{
         extraPlugins: 'language',

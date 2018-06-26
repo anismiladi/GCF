@@ -6,8 +6,13 @@ namespace GCF\FrontBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+//use Symfony\Component\Form\Extension\Core\Type\TextType;
+//use Symfony\Component\Form\Extension\Core\Type\DateType;
+//use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 use Symfony\Component\Translation\TranslatorInterface;
 
+use GCF\MainBundle\Entity\Keyword;
 
 class DefaultController extends Controller
 {
@@ -59,7 +64,9 @@ class DefaultController extends Controller
         }
         $Techniques = $em->getRepository('GCFMainBundle:Elearning')->findlast(4, 1);       //Techniques
         foreach ($Techniques as $Technique){
-            $Technique->setYoutube(preg_replace("/com\/(.*)v=/", "com/embed/", $Technique->getYoutube()));
+            $Technique->setImage(preg_replace("/(.*)v=(.*)/", "https://img.youtube.com/vi/$2/0.jpg", $Technique->getYoutube()));
+            $em->persist($Technique);
+            $em->flush();
         }
         
         //Block article & publication
@@ -445,7 +452,7 @@ public function MapAction()
         $alltype [] = array(
                 'Label' => $this->get('translator')->trans('search.Events'),
                 'Name' => 'Events');
-            
+        
         return $this->render('@GCFFront/Default/blocks/banniere.html.twig',array(
             'Gouvernorats' => $Gouvernorats,
             'alltype' => $alltype,

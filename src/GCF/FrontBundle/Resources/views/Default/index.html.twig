@@ -1,6 +1,6 @@
 {% extends "@GCFFront/base.html.twig" %}
 
-{% block title %} GCF - {{ 'menu.Home'|trans  }} {% endblock %}
+{% block title %} GCF - {{ 'menu.Home'|trans }} {% endblock %}
 
 {% block stylesheets %}
     <style>
@@ -117,6 +117,25 @@
     </style>
 {% endblock %}
 
+{% block headjs %}
+    
+    <!-- Using jQuery with a CDN -->
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    
+    <!-- JS file -->
+    <script src="{{ asset('js/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js') }}"></script> 
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="{{ asset('js/EasyAutocomplete-1.3.5/easy-autocomplete.min.css') }}"> 
+
+    <!-- Additional CSS Themes file - not required-->
+    <link rel="stylesheet" href="{{ asset('js/EasyAutocomplete-1.3.5/easy-autocomplete.themes.min.css') }}"> 
+    
+    <!-- Using jQuery with a CDN -->
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+{% endblock %}
+
+
 {% block PBS %}
     {#{{ dump(ProjectsBySector) }}#}
      <div class="project_number_by_sectors" style="margin-bottom: 40px;">
@@ -146,11 +165,6 @@
  {% endblock %}
 
 {% block body %}
-
-
-
-
-
     <div class="col-md-12 col-sm-12" style="margin-bottom: 20px;    padding: 0;">
         <div class="projects_news">
             <div class="row" style="max-width: 100%;">
@@ -264,10 +278,11 @@
                             <div class="col-md-6 col-xs-12"
                                  style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
                                 <div class="row">
-                                    <div class="col-md-5" style="padding: 0 ">
-                                        <iframe style="max-width: 100%;max-height: 100%;width: 100%; height:150px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
+                                        <a href="#">
+                                            <img class="img-fluid" src="{{ Technique.Image }}" />
+                                        </a>
                                     </div>
-
                                     <div class="col-md-7">
                                         <h4 class="name">{{ Technique.Nom }}</h4>
                                         <h6 class="name"><strong>Date :</strong> 2009</h6>
@@ -289,7 +304,7 @@
                                     <h4>{{ Legislative.Nom }}</h4>
                                     <div class="type">
                                         <a target="_blank" href="{{ Legislative.Fichier }}">
-                                            <img src="{{ asset('assets/images/PDF_file.png') }}" title="Lire le document">
+                                            <img src="{{ Legislative.Image }}" title="Lire le document">
                                         </a>
                                     </div>
                                     <p>Date de publication : 2018</p>
@@ -346,7 +361,7 @@
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
                                 <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">
-                                    <img class="img-fluid" src="https://placeimg.com/200/200/nature/any/blur" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                    <img class="img-fluid" src="{{ nospublication.featuredImage }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                 </a>
                             </div>
                             <div class="col">
@@ -365,7 +380,7 @@
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
                                 <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">
-                                    <img class="img-fluid" src="https://placeimg.com/200/200/arch/any/blur" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                    <img class="img-fluid" src="{{ gbpublication.featuredImage }}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                 </a>
                             </div>
                             <div class="col">
@@ -385,7 +400,7 @@
                         <div class="row">
                             <div class="col-md-12 col-lg-5 col-xs-5">
                                 <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">
-                                    <img class="img-fluid" src="https://placeimg.com/200/200/tech/any/blur" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                    <img class="img-fluid" src="{{ autrespublication.featuredImage }}" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                 </a>
                             </div>
                             <div class="col">

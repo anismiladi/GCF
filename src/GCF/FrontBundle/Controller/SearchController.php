@@ -99,7 +99,7 @@ class SearchController extends Controller
             foreach ($Elearnings as $Elearning){
                 //$Technique->setYoutube(preg_replace("/com\/(.*)v=/", "com/embed/", $Technique->getYoutube()));
                 if($Elearning->getImage() == "" && $Elearning->getYoutube() != ""){
-                    echo preg_replace("/(.*)v=(.*)/", "https://img.youtube.com/vi/$2/0.jpg", $Elearning->getYoutube())."<br>";
+                    //echo preg_replace("/(.*)v=(.*)/", "https://img.youtube.com/vi/$2/0.jpg", $Elearning->getYoutube())."<br>";
                     $Elearning->setImage(preg_replace("/(.*)v=(.*)/", "https://img.youtube.com/vi/$2/0.jpg", $Elearning->getYoutube()));
                     $em->persist($Elearning);
                     $em->flush();
