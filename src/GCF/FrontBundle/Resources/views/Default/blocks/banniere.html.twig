@@ -1,6 +1,6 @@
 <style>
     .home_banner_search {
-        padding: 5px 0;
+        padding: 10px 0;
         width: 100% !important;
         background: rgba(0,0,0,0.30);
         margin: 0 !important;
@@ -19,7 +19,7 @@
             {% endfor %}
         </select>
     </div>
-    <div class="form-group col-md-2" style="margin: 0">
+    <div class="form-group col-md-3" style="margin: 0">
         <select name="theme" class="form-control" id="type">
             <option value="Theme">{{ 'search.Theme'|trans }}</option>
             {% for them in allThemes %}
@@ -32,7 +32,7 @@
 
         </select>
     </div>
-    <div class="form-froup col-md-2" style="margin: 0;">
+    <div class="form-froup col-md-1" style="margin: 0;">
         <button type="submit" class="btn btn-primary" ><!-- style="width: 100%;" -->
             <i class="fa fa-search" aria-hidden="true"></i>
             <!-- {{ 'search.Search'|trans }} -->

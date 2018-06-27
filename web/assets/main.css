@@ -353,18 +353,18 @@ header and top bar
 
 .home_banner_search{padding: 15px 0; background: rgba(0,0,0,0.30); }
 
-.home_banner_search input, .home_banner_search select, .home_banner_search button{
+.home_banner_search .easy-autocomplete input, .home_banner_search select, .home_banner_search button{
     border-radius: 0;
     height: unset;
-    padding: 10px 15px;
+    padding: 10px 10px;
     font-weight: 700;
 }
 
 .home_banner_search select{ padding: 11px 15px; }
-.home_banner_search button { background: #22AA86 !important; border-color:#22AA86; padding: 10px 8px; }
+.home_banner_search button { background: #22AA86 !important; border-color:#22AA86; padding: 10px 10px; }
 
 .home_banner_search button:hover { border-color:#22AA86;}
-.home_banner_search button i{ float: left; font-size: 18px; margin-right: 4px; line-height: 20px }
+.home_banner_search button i{ float: left; font-size: 18px; line-height: 20px }
 
 .custom_carousel_caption{width: 100% }
 
@@ -681,10 +681,12 @@ footer .footer_website_nav .row{
 }
 footer .footer_website_nav .single__partner {
     margin: auto;
+
 }
 footer .footer_website_nav .single__partner img{
     max-width: 100%;
     border: solid 1px white;
+    min-width: 165px;
 }
 footer .rs_btns_footer_container{margin: 0 0 10px 0}
 

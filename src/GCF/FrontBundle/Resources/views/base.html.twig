@@ -399,10 +399,10 @@
                     </div>
                     <div class="row">
                         <div class="single__partner col-md-6">
-                            <img src="https://placeimg.com/200/200/any" alt="">
+                            <img src="http://placehold.it/200x200" alt="">
                         </div>
                         <div class="single__partner col-md-6">
-                            <img src="https://placeimg.com/200/200/any" alt="">
+                            <img src="http://placehold.it/200x200" alt="">
                         </div>
                     </div>
                     {#<nav>#}
@@ -603,7 +603,7 @@
             },
         ];
     $.ajax({
-        url: 'http://localhost/symfony/gcf/web/app_dev.php/fr/events',
+        url: '{{ path('gcf_front_event_page') }}',
         type: 'POST',
         data: { 'test' : 'OK' },
         dataType: 'json',

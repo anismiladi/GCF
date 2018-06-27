@@ -110,7 +110,7 @@
                      {#style="background-image: url('{{ evenement.photoCouverture|replace({'app_dev.php': ''}) }}');">#}
                 {#</div>#}
                 <div class="event__banner"
-                style="background-image: url('https://placeimg.com/200/200/any');">
+                style="background-image: url('{{ evenement.photoCouverture|replace({'app_dev.php': ''}) }}');">
                     <div align="center" class="event__banner__date">
                         <div class="event__banner__date__day">{{ evenement.debut|date("jS") }}</div>
                         <div class="event__banner__date__month">{{ evenement.debut|date("F") }}</div>
