@@ -25,6 +25,7 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
 /**{*/
     /*-webkit-transition:  0.5s;*/
     /*-moz-transition: 0.5s;*/
@@ -109,6 +110,26 @@ h2{
 
 =================================================
 */
+.tooltipevent{
+    border-radius:4px;
+    color:white;
+    left:0 ;
+    width:200px;
+    padding:5px;
+    background:rgba(0,0,0,0.7);
+    position:absolute;
+    z-index:10001;
+}
+.tooltipevent::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 100%;
+    margin-bottom: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color:  transparent  transparent  transparent rgba(0,0,0,0.7);
+}
 
 /*
 ==================
@@ -351,20 +372,24 @@ header and top bar
     margin-right: 0 !important;
 }
 
-.home_banner_search{padding: 15px 0; background: rgba(0,0,0,0.30); }
+.home_banner_search{
+    padding: 10px 0;
+    width: 100% !important;
+    background: rgba(0,0,0,0.30);
+    margin: 0 !important; }
 
 .home_banner_search .easy-autocomplete input, .home_banner_search select, .home_banner_search button{
     border-radius: 0;
     height: unset;
-    padding: 10px 10px;
+    padding: 10px 10px !important;
     font-weight: 700;
 }
 
 .home_banner_search select{ padding: 11px 15px; }
-.home_banner_search button { background: #22AA86 !important; border-color:#22AA86; padding: 10px 10px; }
+.home_banner_search button { background: #22AA86 !important; border-color:#22AA86; width: 100% }
 
 .home_banner_search button:hover { border-color:#22AA86;}
-.home_banner_search button i{ float: left; font-size: 18px; line-height: 20px }
+.home_banner_search button i{  font-size: 18px; line-height: 16px }
 
 .custom_carousel_caption{width: 100% }
 

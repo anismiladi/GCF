@@ -37,7 +37,7 @@
             float: left;
             width: 27%;
             height: 83px;
-            padding: 10px;
+            padding: 10px 10px 0 0;
             cursor: pointer;
             top: 0;
             position: absolute;
@@ -90,7 +90,7 @@
 
             {% for Technique in Techniques %}
                 <div class="col-md-12 col-xs-12"
-                     style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px ">
+                     style="background: #f7f7f7;border: solid white; padding-top: 10px; padding-bottom:10px ">
                     <div class="row">
                         <div class="col-md-5" style="padding: 0 ">
                             <iframe   style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -117,7 +117,7 @@
                         <h4>{{ Legislative.Nom }}</h4>
                         <div class="type">
                             <a target="_blank" href="{{ Legislative.Fichier }}">
-                                <img src="{{ Legislative.Image }}" title="Lire le document">
+                                <img src="{{ Legislative.Image|replace({'app_dev.php': ''}) }}" title="Lire le document">
                             </a>
                         </div>
                         <p>Date de publication : 2018</p>

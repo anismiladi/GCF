@@ -55,8 +55,24 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('nextyear', '%'.$nextYear.'%')
             ->orderBy('e.id', 'DESC')
             ->getQuery()
-            ->getArrayResult();;
+            ->getArrayResult();
 
         return $nosEvent;
     }
+
+    public function findByName( $name ){
+
+        $Event = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('e')
+            ->from('GCFMainBundle:Event', 'e')
+            ->where('e.nom LIKE :year')
+            ->setParameter('year', '%'.$name.'%')
+            ->orderBy('e.id', 'DESC')
+            ->getQuery()
+            ->getArrayResult();
+
+        return $Event;
+    }
+
 }

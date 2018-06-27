@@ -113,7 +113,24 @@
         .navigation_elearning a{
             color: #22AA86;
         }
-
+        .single_element_content_container a{
+             color: #333;
+        }
+        .single_element_content_container a:hover{
+            text-decoration: none;
+            color: #22aa86;
+        }
+        .legislatives_single_element_container a{
+            color: #333;
+        }
+        .legislatives_single_element_container img{
+            max-width: 100%;
+            object-fit: cover;
+        }
+        .legislatives_single_element_container a:hover{
+            text-decoration: none;
+            color: #22aa86;
+        }
         /*
         =======================
         publications block
@@ -234,13 +251,14 @@
             <div class="col-md-6 col-sm-6 single_item "
                  style="background: #f7f7f7;border: solid 2px white; padding: 10px">
                 <div class="intro">
+
                     <h1 class="section_title">Evénements</h1>
                 </div>
                 {% for event in events %}
                     <div class="col-sm-12 item single_element">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
-                                <a href="#">
+                                <a href="{{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'})}) }}">
                                     {% if event.photoCouverture != "" %}
                                         <img class="img-fluid" src="{{ event.photoCouverture }}" />
                                     {% else %}
@@ -249,7 +267,7 @@
                                 </a>
                             </div>
                             <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
-                                <h2 class="name">{{ event.Nom }}</h2>
+                                <a href="{{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'})}) }}"><h2 class="name">{{ event.Nom }}</h2></a>
                                 <p class="theme"><strong>Date:</strong> {{ event.debut|date('d-m-Y') }}</p>
                             </div>
                         </div>
@@ -292,8 +310,8 @@
                                             <img class="img-fluid" src="{{ Technique.Image }}" />
                                         </a>
                                     </div>
-                                    <div class="col-md-7">
-                                        <h4 class="name">{{ Technique.Nom }}</h4>
+                                    <div class="col-md-7 single_element_content_container">
+                                        <a target="_blank" href="{{ Technique.Youtube }}"><h4 class="name">{{ Technique.Nom }}</h4></a>
                                         <h6 class="name"><strong>Date :</strong> 2009</h6>
                                         <p class="description" style="font-size: 13px;">{{ Technique.Description|raw|slice(0, 62) }}</p>
                                     </div>
@@ -309,25 +327,28 @@
                         {% for Legislative in Legislatives %}
 
                             <div class="col-md-6 col-sm-6 col-xs-12" style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
-                                <div class="listing">
-                                    <a target="_blank" href="{{ Legislative.Fichier }}">
-                                        <h4>{{ Legislative.Nom }}</h4>
-                                    </a>
-                                    <div class="type">
+                                <div class="listing legislatives_single_element_container">
+
+                                    <div class="type col-md-5 col-sm-5 col-xs-5">
                                         <a target="_blank" href="{{ Legislative.Fichier }}">
-                                            <img src="{{ Legislative.Image }}" title="Lire le document">
+                                            <img src="{{ Legislative.Image|replace({'app_dev.php': ''}) }}" title="Lire le document">
                                         </a>
                                     </div>
-                                    <p>Date de publication : 2018</p>
-                                    <div class="details">
-                                        <p><strong>Description : </strong>{{ Legislative.Description|raw|slice(0, 62) }}</p>
-                                        <!--
-                                        <p><strong>Adresse :</strong> Lorem ipsum</p>
-                                        <p><strong>Type :</strong> Lorem ipsum dolor </p>
-                                        <p><strong>Focus :</strong>Lorem</p>
-                                        <p><strong>Secteur :</strong>ipsum</p>
-                                        <p><strong>Mots clés :</strong>Lorem ipsum, Lorem ipsum dolor sit amet, Lorem dolor, ipsum, Lorem, amet</p>
-                                        -->
+                                    <div class="col-md-7 col-sm-7 col-xs-7">
+                                        <a target="_blank" href="{{ Legislative.Fichier }}">
+                                            <h4>{{ Legislative.Nom }}</h4>
+                                        </a>
+                                        <p>Date de publication : 2018</p>
+                                        <div class="details">
+                                            <p><strong>Description : </strong>{{ Legislative.Description|raw|slice(0, 62) }}</p>
+                                            <!--
+                                            <p><strong>Adresse :</strong> Lorem ipsum</p>
+                                            <p><strong>Type :</strong> Lorem ipsum dolor </p>
+                                            <p><strong>Focus :</strong>Lorem</p>
+                                            <p><strong>Secteur :</strong>ipsum</p>
+                                            <p><strong>Mots clés :</strong>Lorem ipsum, Lorem ipsum dolor sit amet, Lorem dolor, ipsum, Lorem, amet</p>
+                                            -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -370,12 +391,12 @@
                         {% if nospublication.titre != "" %}
                         <div class="col-sm-6 item filter_display ours" style="background: white;border: solid 2px #f7f7f7;">
                             <div class="row">
-                                <div class="col-md-12 col-lg-5 col-xs-5">
+                                <div class="col-md-5 col-lg-5 col-xs-5">
                                     <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">
                                         <img class="img-fluid" src="{{ nospublication.featuredImage }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                     </a>
                                 </div>
-                                <div class="col">
+                                <div class="col-md-7 col-lg-7 col-xs-7">
                                     <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}) }) }}">{{ nospublication.titre }}</a></h2>
                                     <p class="description">{{ nospublication.contenu|slice(0, 180)|striptags  }}</p>
                                 </div>
@@ -389,12 +410,12 @@
                         {% if gbpublication.titre != "" %}
                         <div class="col-sm-6 item filter_display gb" style="background: white;border: solid 2px #f7f7f7;">
                             <div class="row">
-                                <div class="col-md-12 col-lg-5 col-xs-5">
+                                <div class="col-md-5 col-lg-5 col-xs-5">
                                     <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">
                                         <img class="img-fluid" src="{{ gbpublication.featuredImage }}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                     </a>
                                 </div>
-                                <div class="col">
+                                <div class="col-md-7 col-lg-7 col-xs-7">
 
                                     <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">{{ gbpublication.titre }}</a></h2>
                                     <p class="description">{{ gbpublication.contenu|slice(0, 180)|striptags  }}.</p>
@@ -414,7 +435,7 @@
                                         <img class="img-fluid" src="{{ autrespublication.featuredImage }}" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                     </a>
                                 </div>
-                                <div class="col">
+                                <div class="col-md-7 col-lg-7 col-xs-7">
                                     <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}">{{ autrespublication.titre }}</a></h2>
                                     <p class="description">{{ autrespublication.contenu|slice(0, 180)|striptags  }}</p>
                                 </div>

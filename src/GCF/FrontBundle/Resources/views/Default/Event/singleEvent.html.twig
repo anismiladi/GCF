@@ -6,8 +6,8 @@
     <div class="single__event__page__container col-md-12">
 
         <div class="single__event__page__header">
-            {#<img src="{{ evenement.photoCouverture }}" alt="{{ evenement.nom }}">#}
-            <img src="https://placeimg.com/640/480/any" alt="">
+            <img src="{{ evenement.photoCouverture|replace({'app_dev.php': ''}) }}" alt="{{ evenement.nom }}">
+            {#<img src="https://placeimg.com/640/480/any" alt="">#}
             <h1 class="event__info__title">
                 {{ evenement.nom }}
             </h1>

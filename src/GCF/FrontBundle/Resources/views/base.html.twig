@@ -223,11 +223,20 @@
         <div class="col-md-3 col-sm-12 side_bar_custom">
 
             <div class="col-md-12">
-                {% if  path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_event_page') %}
+                {% if app.request.get('slug') %}
+                    {% set params =  app.request.get('slug') %}
+                {% else %}
+                    {% set params =  'rien' %}
+
+                {% endif %}
+                {% if  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_event_page')) or  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_single_event_page',{'slug': params  } )) %}
                     <link rel="stylesheet" href="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.min.css') }}">
                     <link media="print" rel="stylesheet" href="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.print.css') }}">
                     <div id="calendar_test" ></div>
                     <style>
+                        #calendar_test button{
+                            padding: 0 2px !important;
+                        }
                         #calendar_test {
                             font-size: 13px;
                             margin-bottom: 20px;
@@ -240,7 +249,9 @@
                             padding: 0;
                         }
                         .fc-toolbar h2{
-                            font-size: 25px;
+                            font-size: 16px;
+                            line-height: 27px;
+                            font-weight: 600;
                         }
                         .fc-head-container table thead {
                             background: #22aa86;
@@ -269,8 +280,8 @@
 
 
             </div>
-            <div class="col-md-12" style="display: flex; margin: 0 auto">
-                <img class="sidebar_patenaire_img" src="http://placehold.it/231x100" style="max-width: 100%;">
+            <div class="col-md-12" style="display: flex;">
+                <img class="sidebar_patenaire_img" src="http://placehold.it/231x100" style="max-width: 100%; margin: 0 auto">
             </div>
 
         </div>
@@ -588,8 +599,9 @@
 
 
 
-{% if  path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_event_page') %}
+{% if  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_event_page')) or  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_single_event_page',{'slug': params  } )) %}
 <script src="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.js') }}"></script>
+    <script src='{{ asset('assets/fullcalendar-3.9.0/locale-all.js') }}'></script>
 <script>
     //====================================
     // Fullcalender scripts
@@ -597,9 +609,10 @@
     var data =
         [
             {
-                title: 'Long Event',
+                title: 'test',
                 start: '2018-06-06',
-                end: '2018-06-06'
+                end: '2018-06-06',
+                url: '#'
             },
         ];
     $.ajax({
@@ -611,11 +624,14 @@
         success: function (result) {
             console.log(result);
             for ( i = 0; i < result.length ; i++){
+                var url = '{{ path("gcf_front_single_event_page",{"slug": 'slug'}) }}';
+                url = url.replace('slug', result[i].nom.toLowerCase().trim().replace(" ", "-"));
                 data.push(
                     {
                         title: result[i].nom,
                         start: result[i].debut.date.substr(0,10),
-                        end: result[i].fin.date.substr(0,10)
+                        end: result[i].fin.date.substr(0,10),
+                        url: url
                     },
                 )
             }
@@ -635,17 +651,44 @@
             var yyyy = today.getFullYear();
 
             calendar.fullCalendar({
+                locale: '{{ app.request.locale }}',
                 header: {
                     left: 'prev,next today',
                     center: '',
                     right: 'title '
                 },
-                eventClick:  function(event, jsEvent, view) {
-                    //set the values and open the modal
-                    $("#eventInfo").html(event.description);
-                    $("#eventLink").attr('href', event.url);
-                    $("#eventContent").dialog({ modal: true, title: event.title });
+                eventMouseover: function(calEvent, jsEvent) {
+                    var tooltip = '<div class="tooltipevent">' + calEvent.title + '</div>';
+                    var $tooltip = $(tooltip).appendTo('body');
+
+                    $(this).mouseover(function(e) {
+                        $(this).css('z-index', 10000);
+                        $tooltip.fadeIn('500');
+                        $tooltip.fadeTo('10', 1.9);
+                    }).mousemove(function(e) {
+                        $tooltip.css('top', e.pageY - 20);
+                        $tooltip.css('left', e.pageX - 220);
+                    });
                 },
+
+                eventMouseout: function(calEvent, jsEvent) {
+                    $(this).css('z-index', 8);
+                    $('.tooltipevent').remove();
+                },
+                eventClick:  function(event, jsEvent, view) {
+                    // //set the values and open the modal
+                    // $("#eventInfo").html(event.description);
+                    // $("#eventLink").attr('href', event.url);
+                    $("#calendar_test").tooltip({ modal: true, title: event.title });
+                    // alert('Event: ' + event.title);
+                    // alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                    // alert('View: ' + view.name);
+                    // $(this).tooltip({title: event.title});
+
+                    // change the border color just for fun
+                    $(this).css('border-color', 'red');
+                },
+                selectable: true,
 
                 defaultDate: yyyy+'-'+mm+'-'+dd,
                 editable: true,
@@ -659,14 +702,8 @@
         }
 
     });
-
-    $(function() { // document ready
-
-
-    });
-
-
 </script>
+
 {% endif %}
 {% block javascripts %}{% endblock %}
 </body>

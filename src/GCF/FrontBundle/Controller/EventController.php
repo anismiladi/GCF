@@ -55,11 +55,10 @@ class EventController extends Controller
 
 
         $name = str_replace('-',' ',$slug);
+        $name1 = str_replace("%27","'",$name);
         $em = $this->getDoctrine()->getManager();
 
-        $evenement = $em->getRepository('GCFMainBundle:Event')->findBy(array(
-            'nom' => $name
-        ));
+        $evenement = $em->getRepository('GCFMainBundle:Event')->findByName($name1);
 
 
         return $this->render('@GCFFront/Default/Event/singleEvent.html.twig',array(

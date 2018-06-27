@@ -1,12 +1,3 @@
-<style>
-    .home_banner_search {
-        padding: 10px 0;
-        width: 100% !important;
-        background: rgba(0,0,0,0.30);
-        margin: 0 !important;
-    }
-
-</style>
 <form action="{{ path('gcf_front_searchpage') }}" class="col-md-10 col-md-offset-1 home_banner_search">
     <div class="form-group col-md-5" style="margin: 0;">
         <input id="key" name="key" type="text" placeholder="{{ 'search.Search'|trans }}" value="{{ keyword }}" class="form-control">
