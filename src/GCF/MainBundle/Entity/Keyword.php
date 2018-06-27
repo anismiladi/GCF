@@ -248,4 +248,12 @@ class Keyword extends AbstractPersonalTranslatable implements TranslatableInterf
     {
         return $this->elearning;
     }
+    
+    public function jsonSerialize()
+    {
+        return array(
+            'id' => $this->id,
+            'label' => $this->label,
+        );
+    }
 }

@@ -12,7 +12,7 @@ class SearchController extends Controller
     public function searchAction(Request $request){
         
         $keyword = $request->get('key');
-        $type = $request->get('type');
+        $theme = $request->get('theme');
         $gouvr = $request->get('gouvr');
         
         $pageTitle = 'Résultat de recherche';
@@ -27,8 +27,8 @@ class SearchController extends Controller
         
         $nb = 50;
 
-        if($type == "Type" || $type == "Actors"){
-            if($type == "Type"){$nb = 4;}
+        if($theme == "Theme" || $theme == "Actors"){
+            if($theme == "Theme"){$nb = 4;}
             $Acteurs = $em->getRepository('GCFMainBundle:Acteur')->search($keyword, $nb);
             foreach($Acteurs as $key => $Acteur){
                 $Acteur->setLogo(preg_replace("/app_dev.php\//", "", $Acteur->getLogo()));       //$notrepublication->setsetFeaturedImage
@@ -38,8 +38,8 @@ class SearchController extends Controller
             }
         }
 
-        if($type == "Type" || $type == "Projects"){
-            if($type == "Type"){$nb = 4;}
+        if($theme == "Theme" || $theme == "Projects"){
+            if($theme == "Theme"){$nb = 4;}
             $Projets = $em->getRepository('GCFMainBundle:Projet')->search($keyword, $nb);
             foreach($Projets as $key => $Projet){
                 $Projet->setFichier(preg_replace("/app_dev.php\//", "", $Projet->getFichier()));       //$notrepublication->setsetFeaturedImage
@@ -49,7 +49,7 @@ class SearchController extends Controller
             }
         }
         
-        if($type == "Type"){$nb = 3;}
+        if($theme == "Theme"){$nb = 3;}
         
         /*
         $Legislatives = $em->getRepository('GCFMainBundle:Elearning')->search($keyword);       //Legislatives idCat=2
@@ -70,7 +70,7 @@ class SearchController extends Controller
          */
         
         //Block article & publication
-        if($type == "Type" || $type == "Publications"){
+        if($theme == "Theme" || $theme == "Publications"){
             $Publications = $em->getRepository('GCFMainBundle:Publication')->search($keyword, $nb);
             foreach ($Publications as $key => $Publication){
                 $Publication->setFeaturedImage(preg_replace("/app_dev.php\//", "", $Publication->getFeaturedImage()));
@@ -82,7 +82,7 @@ class SearchController extends Controller
             }
         }
         
-        if($type == "Type" || $type == "Events"){
+        if($theme == "Theme" || $theme == "Events"){
             $Events = $em->getRepository('GCFMainBundle:Event')->search($keyword, $nb);
             foreach($Events as $key => $Event){
                 $Event->setphotoCouverture(preg_replace("/app_dev.php\//", "", $Event->getphotoCouverture()));       //$notrepublication->setsetFeaturedImage
@@ -94,13 +94,13 @@ class SearchController extends Controller
             }
         }
                 
-        if($type == "Type" || $type == "E-learning"){
+        if($theme == "Theme" || $theme == "E-learning"){
             $Elearnings = $em->getRepository('GCFMainBundle:Elearning')->search($keyword, $nb);       //Techniques  idCat=1
             foreach ($Elearnings as $Elearning){
                 //$Technique->setYoutube(preg_replace("/com\/(.*)v=/", "com/embed/", $Technique->getYoutube()));
                 if($Elearning->getImage() == "" && $Elearning->getYoutube() != ""){
                     //echo preg_replace("/(.*)v=(.*)/", "https://img.youtube.com/vi/$2/0.jpg", $Elearning->getYoutube())."<br>";
-                    $Elearning->setImage(preg_replace("/(.*)v=(.*)/", "https://img.youtube.com/vi/$2/0.jpg", $Elearning->getYoutube()));
+                    $Elearning->setImage(preg_replace("/(.*)v=([^&]*)&?(.*)/", "https://img.youtube.com/vi/$2/0.jpg", $Elearning->getYoutube()));
                     $em->persist($Elearning);
                     $em->flush();
                 }
@@ -118,7 +118,7 @@ class SearchController extends Controller
             'pageTitle' => $pageTitle,
 
             'keyword' => $keyword,
-            'type' => $type,
+            'theme' => $theme,
             'gouvr' => $gouvr,
         
             'Acteurs' => $Acteurs,

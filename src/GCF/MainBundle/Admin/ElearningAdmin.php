@@ -39,6 +39,7 @@ class ElearningAdmin extends AbstractAdmin
             )
             ->add('youtube', 'text', array('required' => false))
             ->add('fichier', ElFinderType::class, ['instance' => 'form_pdf', 'enable' => true,'required' => false])        //
+            ->add('image', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true,'required' => false])
             ->add('catLearning')    /*, 'sonata_type_model', array(
                 'required' => false,
                 'multiple' => false, 

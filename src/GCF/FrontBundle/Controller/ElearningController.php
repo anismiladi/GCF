@@ -31,7 +31,7 @@ class ElearningController extends Controller
         foreach ($Techniques as $Technique){
             //preg_replace("/(.*)&v=(.*)/", "https://www.youtube.com/embed/$2", $Legislative->getYoutube());
             //echo preg_replace("/com\/(.*)&v=/", "com/embed/", $Technique->getYoutube())."<br>";
-            $Technique->setYoutube(preg_replace("/com\/(.*)v=/", "com/embed/", $Technique->getYoutube()));
+            $Technique->setYoutube(preg_replace("/(.*)v=([^&]*)&?(.*)/", "https://www.youtube.com/embed/$2", $Technique->getYoutube()));
         }
         $Legislatives = $em->getRepository('GCFMainBundle:Elearning')->findByCatLearning($TypeLegislative);       //Legislatives 
         foreach ($Legislatives as $Legislative){

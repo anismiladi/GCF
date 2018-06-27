@@ -6,6 +6,8 @@ namespace GCF\FrontBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 //use Symfony\Component\Form\Extension\Core\Type\TextType;
 //use Symfony\Component\Form\Extension\Core\Type\DateType;
 //use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -64,7 +66,7 @@ class DefaultController extends Controller
         }
         $Techniques = $em->getRepository('GCFMainBundle:Elearning')->findlast(4, 1);       //Techniques
         foreach ($Techniques as $Technique){
-            $Technique->setImage(preg_replace("/(.*)v=(.*)/", "https://img.youtube.com/vi/$2/0.jpg", $Technique->getYoutube()));
+            $Technique->setImage(preg_replace("/(.*)v=([^&]*)&?(.*)/", "https://img.youtube.com/vi/$2/0.jpg", $Technique->getYoutube()));
             $em->persist($Technique);
             $em->flush();
         }
@@ -430,37 +432,62 @@ public function MapAction()
 
 
 
-    public function banniereAction($keyword="", $type="Type", $gouvr="Governorate"){
+    public function banniereAction($keyword="", $theme="Theme", $gouvr="Governorate"){
 
         $em = $this->getDoctrine()->getManager();
         $Gouvernorats = $em->getRepository('GCFMainBundle:Gouvernorat')->findAll();
         
-        $alltype = array();
+        $allThemes = array();
         
-        $alltype [] = array(
+        $allThemes [] = array(
                 'Label' => $this->get('translator')->trans('search.Actors'),
                 'Name' => 'Actors');
-        $alltype [] = array(
+        $allThemes [] = array(
                 'Label' => $this->get('translator')->trans('search.Projects'),
                 'Name' => 'Projects');
-        $alltype [] = array(
+        $allThemes [] = array(
                 'Label' => $this->get('translator')->trans('search.Publications'),
                 'Name' => 'Publications');
-        $alltype [] = array(
+        $allThemes [] = array(
                 'Label' => $this->get('translator')->trans('search.E-learning'),
                 'Name' => 'E-learning');
-        $alltype [] = array(
+        $allThemes [] = array(
                 'Label' => $this->get('translator')->trans('search.Events'),
                 'Name' => 'Events');
         
         return $this->render('@GCFFront/Default/blocks/banniere.html.twig',array(
             'Gouvernorats' => $Gouvernorats,
-            'alltype' => $alltype,
+            'allThemes' => $allThemes,
             
             'keyword' => $keyword,
-            'type' => $type,
+            'theme' => $theme,
             'gouvr' => $gouvr,
         ));
+    }
+    
+    public function autocompleteSearchAction(){
+        $em = $this->getDoctrine()->getManager();
+        $key = array();
+        //$id = $request->get('id');
+        $keywords = $em->getRepository('GCFMainBundle:Keyword')->findAll();
+        foreach($keywords as $keyword){
+            $key[] = array(
+                'id' => $keyword->getId(),
+                'key' => $keyword->getLabel(),
+            );
+        }
+        $focuss = $em->getRepository('GCFMainBundle:Focus')->findAll();
+        foreach($focuss as $focus){
+            $key[] = array(
+                'id' => $focus->getId(),
+                'key' => $focus->getNom(),
+            );
+        }
+
+        return new JsonResponse($key);
+        
+        //return json_encode($actor);
+        //return new JsonResponse(json_encode($actor));
     }
 
 }

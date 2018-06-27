@@ -56,6 +56,7 @@ class Elearning extends AbstractPersonalTranslatable implements TranslatableInte
     /**
      * @var string
      *
+     * @Gedmo\Translatable
      * @ORM\Column(name="fichier", type="text", length=255, nullable=true)
      */
     private $fichier;

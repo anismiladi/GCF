@@ -9,7 +9,7 @@
 </style>
 <form action="{{ path('gcf_front_searchpage') }}" class="col-md-10 col-md-offset-1 home_banner_search">
     <div class="form-group col-md-5" style="margin: 0;">
-        <input name="key" type="text" placeholder="{{ 'search.Search'|trans }}" value="{{ keyword }}" class="form-control" id="search">
+        <input id="key" name="key" type="text" placeholder="{{ 'search.Search'|trans }}" value="{{ keyword }}" class="form-control">
     </div>
     <div class="form-group col-md-3 " style="margin: 0;">
         <select name="gouvr" class="form-control" id="gouvernorat">
@@ -20,10 +20,10 @@
         </select>
     </div>
     <div class="form-group col-md-2" style="margin: 0">
-        <select name="type" class="form-control" id="type">
-            <option value="Type">{{ 'search.Type'|trans }}</option>
-            {% for typ in alltype %}
-                <option value="{{ typ.Name }}" {% if typ.Name == type %}selected{% endif %}>{{ typ.Label }}</option>
+        <select name="theme" class="form-control" id="type">
+            <option value="Theme">{{ 'search.Theme'|trans }}</option>
+            {% for them in allThemes %}
+                <option value="{{ them.Name }}" {% if them.Name == theme %}selected{% endif %}>{{ them.Label }}</option>
             {% endfor %}
             <!--
                 <option value="News">{{ 'search.News'|trans }}</option>
@@ -33,17 +33,20 @@
         </select>
     </div>
     <div class="form-froup col-md-2" style="margin: 0;">
-        <button type="submit" class="btn btn-primary" style="width: 100%;">
+        <button type="submit" class="btn btn-primary" ><!-- style="width: 100%;" -->
             <i class="fa fa-search" aria-hidden="true"></i>
-            Rechercher
+            <!-- {{ 'search.Search'|trans }} -->
         </button>
     </div>
 </form>
-<script>
-    var options = {
-	url: "http://easyautocomplete.com/resources/people.json",
 
-	getValue: "name",
+<script>
+    var url = '{{ path('gcf_front_autocompleteSearch') }}';
+    //url = url.replace("app_dev.php/", "");
+    var options = {
+	url: url,
+
+	getValue: "key",
 
 	list: {
 		match: {
@@ -51,6 +54,6 @@
 		}
 	}
     };
-    
-    $("#search").easyAutocomplete(options);
+    $('#key').easyAutocomplete(options);
+
 </script>

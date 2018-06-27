@@ -44,7 +44,8 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     /**
      * @var string
      *
-     * @ORM\Column(name="youtube", type="text", length=255, nullable=true)
+     * @Gedmo\Translatable
+     * @ORM\Column(name="fichier", type="text", length=255, nullable=true)
      */
     private $fichier;
     

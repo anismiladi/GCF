@@ -156,4 +156,12 @@ class Focus extends AbstractPersonalTranslatable implements TranslatableInterfac
     {
         return $this->nom;
     }
+    
+    public function jsonSerialize()
+    {
+        return array(
+            'id' => $this->id,
+            'nom' => $this->nom,
+        );
+    }
 }

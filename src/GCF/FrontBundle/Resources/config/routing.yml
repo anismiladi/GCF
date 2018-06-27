@@ -8,7 +8,10 @@ gcf_front_homepage:
     path:     /
     defaults: { _controller: GCFFrontBundle:Default:index}
 
-
+gcf_front_autocompleteSearch:
+    path:     /searchkeys
+    defaults: { _controller: GCFFrontBundle:Default:autocompleteSearch}
+    
 gcf_front_actorspage:
     path:     /actors
     defaults: { _controller: GCFFrontBundle:Actors:index}
