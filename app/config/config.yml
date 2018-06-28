@@ -244,7 +244,7 @@ fm_elfinder:
                     uploads:
                         driver: LocalFileSystem
                         path: uploads/files
-                        upload_allow: ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.openxmlformats-officedocument.presentationml.presentation']
+                        upload_allow: ['application/files','application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.openxmlformats-officedocument.presentationml.presentation']
                         upload_deny: ['all']
                         upload_max_size: 20M
  

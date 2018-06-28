@@ -1247,7 +1247,7 @@ DataTable.ext.buttons.excelHtml5 = {
 // PDF export - using pdfMake - http://pdfmake.org
 //
 DataTable.ext.buttons.pdfHtml5 = {
-	className: 'buttons-pdf buttons-html5',
+	className: 'buttons-files buttons-html5',
 
 	available: function () {
 		return window.FileReader !== undefined && _pdfMake();

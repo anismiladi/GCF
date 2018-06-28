@@ -15,13 +15,6 @@ class ElearningController extends Controller
 {
     public function indexAction()
     {
-        $pageTitle = 'E-learning';
-        $breadcrumbs = $this->get("white_october_breadcrumbs");
-        // Simple example
-        $breadcrumbs->addItem("Accueil", $this->get("router")->generate("gcf_front_homepage"));
-        // Simple example
-        $breadcrumbs->addItem("E-learning");
-
         $em = $this->getDoctrine()->getManager();
         $TypeTechnique = $em->getRepository('GCFMainBundle:CatLearning')->findOneById(1);
         //echo $TypeTechnique->getNom()."<br>";
@@ -39,7 +32,6 @@ class ElearningController extends Controller
         }
         
         return $this->render('@GCFFront/Default/Elearning/e-learning.html.twig',array(
-            'pageTitle' => $pageTitle,
             'Techniques' => $Techniques,
             'Legislatives' => $Legislatives
             

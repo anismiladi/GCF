@@ -27,6 +27,16 @@
     {% block stylesheets %}{% endblock %}
     {% block styleBloc %}{% endblock %}
     {% block headjs %}{% endblock %}
+    <style>
+        {% if app.request.locale == 'ar_TN' %}
+            body{
+                direction: rtl;
+            }
+            .navbar-nav>li>a{
+                font-family: MyriadPro-Regular !important;
+            }
+        {% endif %}
+    </style>
 </head>
 
 <body>
@@ -46,15 +56,15 @@
             <div class="col-md-6 col-sm-6 col-xs-12 language_container" >
                 {#<a title="Changer la langue"><i class="fa fa-language" aria-hidden="true"></i></a>#}
                 {#<a ><i class="fa fa-language" aria-hidden="true" style="color:transparent;background: transparent"></i></a>#}
-                <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ar_TN'})) }}" title="العربية">Ar</a></button>
-                <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" title="English">En</a></button>
-                <button class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" title="Français">Fr</a></button>
+                <div class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ar_TN'})) }}" title="العربية">Ar</a></div>
+                <div class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" title="English">En</a></div>
+                <div class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" title="Français">Fr</a></div>
 
             </div>
 
             <div class="col-md-6 col-sm-6 col-xs-12 menu_top_bar_container" >
                 <a href="{{ path('gcf_front_event_page') }}">{{ 'menu.Events'|trans }}</a>
-                <a href="#">{{ 'menu.Library'|trans }}</a>
+                {#<a href="#">{{ 'menu.Library'|trans }}</a>#}
                 <a href="{{ path('gcf_front_contactpage') }}">{{ 'menu.Contact-us'|trans }}</a>
             </div>
 
@@ -141,65 +151,17 @@
 
     {% else %}
 
-        <style>
-            .under_header_navigation{
-
-                background-image: url("{{ asset('assets/images/BACKGROUND.jpg') }}");
-                position: relative;
-                width: 100%;
-                height: 200px;
-                background-size: cover;
-                object-fit: cover;
-                margin-bottom: 40px;
-            }
-            .under_header_navigation > div{
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-            }
-            .custom_breadcrumb{
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                margin-bottom: 20px;
-                list-style: none;
-                border-radius: 4px;
-            }
-            .custom_breadcrumb h1{margin:0; font-size: 24px; padding: 5px; font-weight: 600;}
-
-            .custom_breadcrumb .breadcrumb{text-align: right; background: transparent}
-
-            .custom_breadcrumb > div { border-radius: 4px; padding: 0;}
-
-            .custom_breadcrumb .col-md-6{padding:0}
-            
-            .custom_breadcrumb li a{
-                color: #22AA86;
-                text-decoration: none;
-            }
-            .custom_breadcrumb li a:hover   {
-                text-decoration: none;
-                color: #25caa2;
-            }
-        </style>
-
-
-        <div class="under_header_navigation">
+        <div class="under_header_navigation" style=" background-image: url('{{ asset('assets/images/BACKGROUND.jpg') }}') ">
             <div class="container custom_breadcrumb">
                 <div class="col-md-12">
                     <div>
                         <div class=" col-md-6" >
-                            <h1></h1>
+                            <h1>{% block pageTitle %} {% endblock %}</h1>
                         </div>
-                        <div class=" col-md-6">
-                            {#<ol class="breadcrumb" style="margin: 0; background: transparent">#}
-                                {#<li><a href="{{ path('gcf_front_homepage') }}">Accueil</a></li>#}
-                                {#<li><a href="#">Library</a></li>#}
-                                {#<li class="active"><a href="" class="actual_page" style="color: gray">Data</a></li>#}
-                            {#</ol>#}
-                            {{ wo_render_breadcrumbs() }}
+                        <div class=" col-md-6 breadcrump__schema">
+
+                               {% block breadcrump %} {% endblock %}
+
                         </div>
                     </div>
                 </div>
@@ -258,7 +220,12 @@
                         }
                         .fc-head-container table thead th{
                             color: white;
+                            height: 25px;
                         }
+                        .fc-head-container table thead th span{
+                            line-height: 25px;
+                        }
+
                         .side_bar_custom> div {
                             padding: 0;
                         }
@@ -319,7 +286,7 @@
                 <center><h2>{{ 'mailchampNewsletter.SubscribeToOurNewsletter'|trans }}</h2></center>
                 <div class="indicates-required"><span class="asterisk">*</span>{{ 'mailchampNewsletter.indicates required'|trans }}</div>
                 <div class="mc-field-group">
-                    <label for="mce-EMAIL">Email  <span class="asterisk">*</span>
+                    <label for="mce-EMAIL">{{ 'mailchampNewsletter.Email'|trans }}  <span class="asterisk">*</span>
                     </label>
                     <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                 </div>
@@ -470,9 +437,6 @@
     <div>
         <a href="{{ facebook }}" class="fa fa-facebook" title="Facebook"></a>
     </div>
-    <div>
-        <a href="{{ phone_number }}" class="fa fa-phone" title="Telephone"></a>
-    </div>
 
 </div>
 
@@ -614,6 +578,12 @@
                 end: '2018-06-06',
                 url: '#'
             },
+            {
+                title: 'test2',
+                start: '2018-06-06',
+                end: '2018-06-06',
+                url: '#'
+            },
         ];
     $.ajax({
         url: '{{ path('gcf_front_event_page') }}',
@@ -660,7 +630,6 @@
                 eventMouseover: function(calEvent, jsEvent) {
                     var tooltip = '<div class="tooltipevent">' + calEvent.title + '</div>';
                     var $tooltip = $(tooltip).appendTo('body');
-
                     $(this).mouseover(function(e) {
                         $(this).css('z-index', 10000);
                         $tooltip.fadeIn('500');
@@ -676,20 +645,10 @@
                     $('.tooltipevent').remove();
                 },
                 eventClick:  function(event, jsEvent, view) {
-                    // //set the values and open the modal
-                    // $("#eventInfo").html(event.description);
-                    // $("#eventLink").attr('href', event.url);
-                    $("#calendar_test").tooltip({ modal: true, title: event.title });
-                    // alert('Event: ' + event.title);
-                    // alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-                    // alert('View: ' + view.name);
-                    // $(this).tooltip({title: event.title});
-
-                    // change the border color just for fun
-                    $(this).css('border-color', 'red');
+                    //$("#calendar_test").tooltip({ modal: true, title: event.title });
+                    $(this).css('border-color', '#22AA86');
                 },
                 selectable: true,
-
                 defaultDate: yyyy+'-'+mm+'-'+dd,
                 editable: true,
                 eventLimit: true, // allow "more" link when too many events

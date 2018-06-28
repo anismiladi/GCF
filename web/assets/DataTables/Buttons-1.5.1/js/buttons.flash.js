@@ -1403,7 +1403,7 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 
 // PDF export
 DataTable.ext.buttons.pdfFlash = $.extend( {}, flashButton, {
-	className: 'buttons-pdf buttons-flash',
+	className: 'buttons-files buttons-flash',
 
 	text: function ( dt ) {
 		return dt.i18n( 'buttons.pdf', 'PDF' );

@@ -1,6 +1,9 @@
 {% extends '@GCFFront/base.html.twig' %}
 
-{% block title %} {% endblock %}
+{% block title %} GCF - {{ evenement.nom }} {% endblock %}
+
+{% block pageTitle %} {{ 'menu.Events'|trans }} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}" title="{{ 'menu.Home'|trans }}">{{ 'menu.Home'|trans }}</a> / <a href="{{ path('gcf_front_event_page') }}" title="{{ 'menu.Events'|trans }}"> {{ 'menu.Events'|trans }}</a> / <a title="{{ evenement.nom }}">{{ evenement.nom|slice(0, 40) }}...</a> {% endblock %}
 
 {% block body %}
     <div class="single__event__page__container col-md-12">

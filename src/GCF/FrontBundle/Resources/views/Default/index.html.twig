@@ -142,6 +142,36 @@
         .navs__publications__block li a{
             color: #22AA86;
         }
+
+
+        .index__overlay{
+            display: none;
+            position: fixed;
+            z-index: 9991;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+        }
+        .video__home__popup{
+            display: none;
+            position: fixed;
+            z-index: 9992;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            height: 400px;
+            width: 700px;
+            max-width: 100%;
+            background: white;
+        }
+        .video__container{
+            height: 100%;
+            width: 100%;
+        }
     </style>
 {% endblock %}
 
@@ -306,12 +336,12 @@
                                 <div class="row">
 
                                     <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
-                                        <a target="_blank" href="{{ Technique.Youtube }}">
+                                        <a  class="play__youtube__video " data-url-youtube="{{ Technique.Youtube }}?rel=0">
                                             <img class="img-fluid" src="{{ Technique.Image }}" />
                                         </a>
                                     </div>
                                     <div class="col-md-7 single_element_content_container">
-                                        <a target="_blank" href="{{ Technique.Youtube }}"><h4 class="name">{{ Technique.Nom }}</h4></a>
+                                        <a class="play__youtube__video" data-url-youtube="{{ Technique.Youtube }}?rel=0"><h4 class="name">{{ Technique.Nom }}</h4></a>
                                         <h6 class="name"><strong>Date :</strong> 2009</h6>
                                         <p class="description" style="font-size: 13px;">{{ Technique.Description|raw|slice(0, 62) }}</p>
                                     </div>
@@ -411,7 +441,7 @@
                         <div class="col-sm-6 item filter_display gb" style="background: white;border: solid 2px #f7f7f7;">
                             <div class="row">
                                 <div class="col-md-5 col-lg-5 col-xs-5">
-                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">
+                                    <a  href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}">
                                         <img class="img-fluid" src="{{ gbpublication.featuredImage }}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                     </a>
                                 </div>
@@ -456,12 +486,33 @@
         </div>
     </div>
 
-
-
-
+<div class="index__overlay" onclick="closeVideoPopup()"></div>
+<div class="video__home__popup">
+    <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closeVideoPopup()"></i>
+    <div class="video__container">
+        <iframe width="100%" height="100%" src=" " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+</div>
 {% endblock %}
 
 {% block javascripts %}
+    <script>
+        $('.play__youtube__video').click( function () {
+            var videoUrl = $(this).attr('data-url-youtube');
+            videoUrl = videoUrl.replace(/(.*)v=([^&]*)&?(.*)/, "https://www.youtube.com/embed/$2");
+
+            $('.video__container iframe').attr('src', videoUrl);
+
+            $('.index__overlay').fadeIn("slow");
+            $('.video__home__popup').fadeIn( );
+        } );
+        function closeVideoPopup() {
+            $('.index__overlay').fadeOut("slow");
+            $('.video__home__popup').fadeOut();
+            $('.video__container iframe').attr('src', '');
+        }
+    </script>
+
     <script>
         $('.slider_projects').slick({
             dots: false,

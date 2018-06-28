@@ -222,7 +222,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			throw 'getDataUrl is an async method and needs a callback argument';
 		}
 		this.getBuffer(function (buffer) {
-			cb('data:application/pdf;base64,' + buffer.toString('base64'));
+			cb('data:application/files;base64,' + buffer.toString('base64'));
 		}, options);
 	};
 
@@ -2296,7 +2296,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// PdfPrinter
 
 	/**
-	 * @class Creates an instance of a PdfPrinter which turns document definition into a pdf
+	 * @class Creates an instance of a PdfPrinter which turns document definition into a files
 	 *
 	 * @param {Object} fontDescriptors font definition dictionary
 	 *
@@ -2321,7 +2321,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * ready to be saved.
 	 *
 	 * @param {Object} docDefinition document definition
-	 * @param {Object} docDefinition.content an array describing the pdf structure (for more information take a look at the examples in the /examples folder)
+	 * @param {Object} docDefinition.content an array describing the files structure (for more information take a look at the examples in the /examples folder)
 	 * @param {Object} [docDefinition.defaultStyle] default (implicit) style definition
 	 * @param {Object} [docDefinition.styles] dictionary defining all styles which can be used in the document
 	 * @param {Object} [docDefinition.pageSize] page size (pdfkit units, A4 dimensions by default)
@@ -2354,7 +2354,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *
 	 * var pdfKitDoc = printer.createPdfKitDocument(docDefinition);
 	 *
-	 * pdfKitDoc.pipe(fs.createWriteStream('sample.pdf'));
+	 * pdfKitDoc.pipe(fs.createWriteStream('sample.files'));
 	 * pdfKitDoc.end();
 	 *
 	 * @return {Object} a pdfKit document object which can be saved or encode to data-url
@@ -2697,7 +2697,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function renderVector(vector, pdfKitDoc) {
-		//TODO: pdf optimization (there's no need to write all properties everytime)
+		//TODO: files optimization (there's no need to write all properties everytime)
 		pdfKitDoc.lineWidth(vector.lineWidth || 1);
 		if (vector.dash) {
 			pdfKitDoc.dash(vector.dash.length, {space: vector.dash.space || vector.dash.length, phase: vector.dash.phase || 0});

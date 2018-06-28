@@ -1,6 +1,10 @@
 {% extends '@GCFFront/base.html.twig' %}
 
 {% block title %} GCF - {{ 'menu.E-learning'|trans }} {% endblock %}
+
+{% block pageTitle %} {{ 'menu.E-learning'|trans }} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}">{{ 'menu.Home'|trans }}</a> / <a > {{ 'menu.E-learning'|trans }}</a>  {% endblock %}
+
 {% block body %}
     <style>
         .navigation_elearning{
@@ -20,6 +24,7 @@
             padding: 10px;
             margin-bottom: 30px;
             min-height: 240px;
+            position: relative;
         }
         .listing h4{
             background: #22AA86;
@@ -30,6 +35,15 @@
             width: 70%;
             margin-left: 30%;
         }
+        .listing h4 a{
+             color: inherit;
+            text-decoration: none;
+        }
+        .listing h4 a:hover{
+            color: inherit;
+            text-decoration: none;
+        }
+
         .listing a{
             margin-bottom: 10px;
         }
@@ -37,21 +51,15 @@
             float: left;
             width: 27%;
             height: 83px;
-            padding: 10px 10px 0 0;
+            padding: 10px 5px 0 0;
             cursor: pointer;
             top: 0;
             position: absolute;
         }
-        .listing p {
-            margin-bottom: 5px;
-        }
         .listing > p{
-            background: #262626;
             width: 70%;
             margin-left: 30%;
-            padding: 5px 20px;
-            color: #fff;
-            font-size: 12px;
+            padding: 5px 0;
         }
         #technique_tab, #legislatives_tab{
             padding:0;
@@ -62,7 +70,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.7);
             display: none;
             z-index: 9999;
         }
@@ -72,6 +80,29 @@
             right: 20px;
             color: white;
             cursor: pointer;
+        }
+        #legislatives_tab_container .card-footer{
+            background: #333;
+            color:white;
+            height: max-content;
+            position: absolute;
+            bottom: 10px;
+            width: calc(100% - 20px);
+        }
+        #legislatives_tab_container .card-footer .card-text{
+            font-size: 16px;
+            color: white;
+            line-height: 30px;
+            margin-right: 20px;
+            margin-bottom: 0;
+        }
+        #legislatives_tab_container .card-footer .card-text a{
+            text-decoration: none;
+            color:inherit;
+        }
+        #legislatives_tab_container .card-footer .card-text a:hover{
+            text-decoration: none;
+            color:inherit;
         }
     </style>
 
@@ -114,26 +145,26 @@
 
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="listing">
-                        <h4>{{ Legislative.Nom }}</h4>
+                        <h4><a target="_blank" href="{{ Legislative.Fichier }}">{{ Legislative.Nom }}</a></h4>
                         <div class="type">
                             <a target="_blank" href="{{ Legislative.Fichier }}">
                                 <img src="{{ Legislative.Image|replace({'app_dev.php': ''}) }}" title="Lire le document">
                             </a>
                         </div>
-                        <p>Date de publication : 2018</p>
-                        <div class="details">
+                        <p><strong>Date de publication :</strong> 2018</p>
+                        <div class="details" style="margin-top: 20px;">
                             <p><strong>Description : </strong>{{ Legislative.Description|raw|slice(0, 62) }}</p>
-
-                            <p><strong>Adresse :</strong> Lorem ipsum</p>
-                            <p><strong>Type :</strong> Lorem ipsum dolor </p>
-                            <p><strong>Focus :</strong>Lorem</p>
-                            <p><strong>Secteur :</strong>ipsum</p>
-                            <p><strong>Mots clés :</strong>Lorem ipsum, Lorem ipsum dolor sit amet, Lorem dolor, ipsum, Lorem, amet</p>
-
+                            <p><strong>Mots clés :</strong>
+                                {% for keyword in Legislative.keyword %}
+                                {{ keyword.label }},
+                                {% endfor %}
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text text-right"><a target="_blank" href="{{ Legislative.Fichier }}">Acceder à ce document</a></p>
                         </div>
                     </div>
                 </div>
-
             {% endfor %}
 
         </div>

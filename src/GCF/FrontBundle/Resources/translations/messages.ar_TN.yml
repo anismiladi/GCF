@@ -34,6 +34,12 @@ core:
 mailchampNewsletter:
   SubscribeToOurNewsletter: اشترك في نشرتنا الإخبارية
   indicates required: يشير إلى إجباري
+  Email: البريد الإلكتروني
   First Name: الأسم الأول
   Last Name: اسم العائلة
   Subscribe: الاشتراك
+
+contactPage:
+  Contact-us: اتصل بنا
+  Where to find us: أين تجدنا
+  Leave us a message: اترك لنا رسالة

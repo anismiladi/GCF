@@ -2,21 +2,38 @@
 
 {% block title %} GCF - {{ 'menu.Contact-us'|trans }} {% endblock %}
 
+{% block pageTitle %} {{ 'menu.Contact-us'|trans }} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}" title="{{ 'menu.Home'|trans }}">{{ 'menu.Home'|trans }}</a> / <a title="{{ 'menu.Contact-us'|trans }}"> {{ 'menu.Contact-us'|trans }}</a> {% endblock %}
+
 
 {% block stylesheets %}
 
     <style>
+        .contact__page__container{
+            background: #f7f7f7;
+            padding-top: 20px;
+        }
+
+        .contact__page__container h2{
+            font-family: inherit !important;
+            width: 100%;
+            margin: 0 0 30px 0;
+            background: #22aa86;
+            color: white;
+        }
+
+        .contact_card_container{
+            background: #f7f7f7;
+            margin-top: 40px;
+            border-radius: 2px;
+        }
+
         .contact_card_container input, .contact_card_container textarea, .contact_card_container .btn-primary{
             -webkit-border-radius: 2px !important;
             -moz-border-radius: 2px !important;
             border-radius: 2px !important;
         }
-        .contact_card_container{
-            background: whitesmoke;
-            padding-top: 60px;
-            margin-top: 40px;
-            border-radius: 2px;
-        }
+
         .contact_card_container .btn.btn-primary{
             background-color: #7ac943 !important;
             border-color: #7ac943;
@@ -29,24 +46,43 @@
             margin: 10px 0;
             padding: 10px;
             color: black;
-
         }
+
     </style>
 
 {% endblock %}
 
-
 {% block body %}
 
+    <div class="col-md-12 contact__page__container" >
+        <h2 align="center">{{ 'contactPage.Where to find us'|trans }}</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6389.625720877152!2d10.182694263748806!3d36.79903705971493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x733b1f539249f6d1!2sR%C3%A9seau+Alternatif+Des+Jeunes+Tunisie!5e0!3m2!1sfr!2stn!4v1530200591783" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
-<section class="section">
-
-    <div class="row">
-
+        <div class="col-md6 col-xs-6 contact_card_container">
+            <h2 align="center">{{ 'contactPage.Contact-us'|trans }}</h2>
+            <div class="item footer_social_body">
+                <div class="item_contact_footer" >
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <p> Rue 18 Janvier 1952, Imm n°15, 2éme Étage, 1001 Tunis </p>
+                </div>
+                <div class="item_contact_footer">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <p> Tél: (00216) 70318342 / (00216) 71247538 </p>
+                </div>
+                <div class="item_contact_footer">
+                    <i class="fa fa-fax" aria-hidden="true"></i>
+                    <p> Fax: (00216) 71 253 547 </p>
+                </div>
+                <div class="item_contact_footer">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <p> Email: contact@raj-tunisie.org</p>
+                </div>
+            </div>
+        </div>
         <!--Grid column-->
-        <div class="col-md-10 col-md-offset-1 col-xs-12 contact_card_container">
-
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+        <div class="col-md-6 col-xs-6 contact_card_container" style="padding: 0;">
+            <h2 align="center">{{ 'contactPage.Leave us a message'|trans }}</h2>
+            <form id="contact-form" name="contact-form" action="" method="POST">
 
                 <!--Grid row-->
                 <div class="row">
@@ -91,7 +127,7 @@
 
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea type="text" id="message" name="message" rows="7" class="form-control" style="resize: vertical;"></textarea>
+                            <textarea id="message" name="message" rows="7" class="form-control" style="resize: vertical;"></textarea>
                         </div>
 
                     </div>
@@ -107,10 +143,7 @@
 
         </div>
         <!--Grid column-->
-
     </div>
-
-</section>
 <!--Section: Contact v.2-->
 
 {% endblock %}

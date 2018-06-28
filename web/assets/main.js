@@ -4,24 +4,24 @@
 //====================================
 
 $('#button_newsletter').click(function () {
-    $('.my_newsletter_modal').css('display', 'block' );
-    $('.close_my_newsletter_modal').css('display', 'block' );
+    $('.my_newsletter_modal').fadeIn("slow");
+    $('.close_my_newsletter_modal').fadeIn();
 
 });
 
 $('.close_my_newsletter_modal').click(function () {
-    $('.my_newsletter_modal').css('display', 'none' );
-    $('.close_my_newsletter_modal').css('display', 'none' );
+    $('.my_newsletter_modal').fadeOut( );
+    $('.close_my_newsletter_modal').fadeOut("slow");
 });
 
 $('.close_newsletter').click(function () {
-    $('.my_newsletter_modal').css('display', 'none' );
-    $('.close_my_newsletter_modal').css('display', 'none' );
+    $('.my_newsletter_modal').fadeOut( );
+    $('.close_my_newsletter_modal').fadeOut("slow");
 });
 
 $('.my_newsletter_modal .close_popup').click(function () {
-    $('.my_newsletter_modal').css('display', 'none' );
-    $('.close_my_newsletter_modal').css('display', 'none' );
+    $('.my_newsletter_modal').fadeOut( );
+    $('.close_my_newsletter_modal').fadeOut("slow");
 });
 
 
@@ -49,18 +49,14 @@ function topFunction() {
 //Green Blogger popup
 //====================================
 function showGBpopup(){
-
-    $('.gb_page_overlay').show(500);
-    $('.gb_popup_details_container').show(499);
-
+    $('.gb_page_overlay').fadeIn();
+    $('.gb_popup_details_container').fadeIn("slow");
 }
 
 function closeGBPopup() {
+    $('.gb_page_overlay').fadeOut("slow");
 
-    $('.gb_page_overlay').hide(499);
-
-    $('.gb_popup_details_container').hide(500);
-
+    $('.gb_popup_details_container').fadeOut();
 }
 
 
@@ -70,13 +66,13 @@ function closeGBPopup() {
 //====================================
 function  openAbout(){
 
-    $('.overlay__about__gcf').show(499);
-    $('.popup__about__gcf').show( 500 );
+    $('.overlay__about__gcf').fadeIn();
+    $('.popup__about__gcf').fadeIn( "slow" );
 
 
     return false;
 }
 function closeAbout() {
-    $('.overlay__about__gcf').hide(500);
-    $('.popup__about__gcf').hide( 499 );
+    $('.overlay__about__gcf').fadeOut("slow");
+    $('.popup__about__gcf').fadeOut();
 }

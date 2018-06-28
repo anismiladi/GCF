@@ -34,6 +34,12 @@ core:
 mailchampNewsletter:
   SubscribeToOurNewsletter: Inscrivez vous à notre newsletter
   indicates required: indique requis
+  Email: Email
   First Name: Prénom
   Last Name: Nom de famille
   Subscribe: Souscrire
+
+contactPage:
+  Contact-us: Contactez-nous
+  Where to find us: Où nous trouver
+  Leave us a message: Laissez nous un message
