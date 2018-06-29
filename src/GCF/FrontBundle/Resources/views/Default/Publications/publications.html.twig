@@ -2,6 +2,9 @@
 
 {% block title %} GCF - {{ 'menu.Publications'|trans }} {% endblock %}
 
+{% block pageTitle %} {{ 'menu.Publications'|trans }} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}">{{ 'menu.Home'|trans }}</a> / <a > {{ 'menu.Publications'|trans }}</a>  {% endblock %}
+
 {% block stylesheets %}
 
     <style>
@@ -63,6 +66,15 @@
 
         .post_title:hover{ text-decoration: none; color:#333 }
 
+        .publications__page__img{
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+            height: 134px;
+            width: 100%;
+            object-fit: cover;
+            padding: 10px 0;
+        }
 
     </style>
 
@@ -90,25 +102,26 @@
 
             {% for publication in nospublications %}
 
+                {% if publication.titre %}
                 <div class="col-md-6 col-sm-6 col-xs-12"
                      style="background: whitesmoke;border: solid white; padding-top: 10px; padding-bottom:10px ">
                     <div class="row">
-                        <div class="col-md-5">
-                            <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}) }) }}" title="{{ publication.titre }}">
-                                <img src="{{ publication.featuredImage }}" class="img-responsive" style="width: 100%;"  alt="{{ publication.titre }}" title="{{ publication.titre }}" />
+                        <div class="col-md-5" style="padding-right: 0">
+                            <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" title="{{ publication.titre }}">
+                                <img src="{{ publication.featuredImage }}" class="publications__page__img" style="width: 100%;"  alt="{{ publication.titre }}" title="{{ publication.titre }}" />
                             </a>
                         </div>
                         <div class="col-md-7">
-                            <h4><a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}) }) }}" class="post_title" title="{{ publication.titre }}">{{ publication.titre }}</a></h4>
-                            <h6><strong>Date :</strong> 2009</h6>
-                            <p class="description" style="font-size: 13px;">{{ publication.contenu|raw|slice(0, 62) }}...</p>
-                            <p style="width: 100%; text-align: right">
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}) }) }}" title="{{ publication.titre }}" class="button_see_more">Lire la suite. </a>
+                            <h4><a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" class="post_title" title="{{ publication.titre }}">{{ publication.titre }}</a></h4>
+                            <p class="description" style="font-size: 13px;">{{ publication.contenu|striptags|slice(0, 62) }}...</p>
+                            <h6><i class="fa fa-clock-o" aria-hidden="true"></i> {{ 'now'|date('d-m-Y') }}</h6>
+                            <p style="width: 100%; text-align: right; margin: 0;">
+                                <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" title="{{ publication.titre }}" class="button_see_more">Lire la suite. </a>
                             </p>
                         </div>
                     </div>
                 </div>
-
+                {% endif %}
             {% endfor %}
 
         </div>
@@ -117,60 +130,61 @@
 
             {% for gbpublication in gbpublications %}
 
+                {% if gbpublication.titre %}
                 <div class="col-md-6 col-sm-6 col-xs-12"
                      style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px ">
                     <div class="row">
-                        <div class="col-md-5">
-                            <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}" title="{{ gbpublication.titre }}">
-                                <img src="{{ gbpublication.featuredImage }}" class="img-responsive" alt="{{ gbpublication.titre }}" title="{{ gbpublication.titre }}"/>
+                        <div class="col-md-5"  style="padding-right: 0">
+                            <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}" title="{{ gbpublication.titre }}">
+                                <img src="{{ gbpublication.featuredImage }}" class="publications__page__img" alt="{{ gbpublication.titre }}" title="{{ gbpublication.titre }}"/>
                             </a>
                         </div>
                         <div class="col-md-7">
                             <h4>
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}" class="post_title" title="{{ gbpublication.titre }}">
+                                <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}" class="post_title" title="{{ gbpublication.titre }}">
                                     {{ gbpublication.titre }}
                                 </a>
                             </h4>
-                            <h6><strong>Date :</strong> 2009</h6>
                             <p class="description" style="font-size: 13px;">
-                                {{ gbpublication.contenu|raw|slice(0, 62) }}...
+                                {{ gbpublication.contenu|striptags|slice(0, 62) }}...
                             </p>
-                            <p style="width: 100%; text-align: right">
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}) }) }}" title="{{ gbpublication.titre }}" class="button_see_more">
+                            <h6><i class="fa fa-clock-o" aria-hidden="true"></i> {{ 'now'|date('d-m-Y') }}</h6>
+                            <p style="width: 100%; text-align: right; margin: 0;">
+                                <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}" title="{{ gbpublication.titre }}" class="button_see_more">
                                     Lire la suite. </a>
                             </p>
                         </div>
                     </div>
                 </div>
-
+                {% endif %}
             {% endfor %}
         </div>
 
         <div id="autres_pub_tab_container">
             {% for autrespublication in autrespublications %}
-
+                {% if autrespublication.titre %}
                 <div class="col-md-6 col-sm-6 col-xs-12"
                      style=" background: rgba(255,239,0,0.1);border: solid white; padding-top: 10px; padding-bottom:10px ">
                     <div class="row">
-                        <div class="col-md-5">
-                            <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}" title="{{ autrespublication.titre }}">
-                                <img src="{{ autrespublication.featuredImage }}" class="img-responsive" alt="{{ autrespublication.titre }}" />
+                        <div class="col-md-5"  style="padding-right: 0">
+                            <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}" title="{{ autrespublication.titre }}">
+                                <img src="{{ autrespublication.featuredImage }}" class="publications__page__img" alt="{{ autrespublication.titre }}" />
                             </a>
                         </div>
                         <div class="col-md-7">
-                            <h4 class="post_title"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}" title="{{ autrespublication.titre }}">{{ autrespublication.titre }}</a></h4>
-                            <h6 class="name"><strong>Date :</strong> 2009</h6>
+                            <h4 class="post_title"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}" title="{{ autrespublication.titre }}">{{ autrespublication.titre }}</a></h4>
                             <p class="description" style="font-size: 13px;">
-                                {{ autrespublication.contenu|raw|slice(0, 62) }}...
+                                {{ autrespublication.contenu|striptags|slice(0, 62) }}...
                             </p>
-                            <p style="width: 100%; text-align: right">
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}) }) }}" title="{{ autrespublication.titre }}" class="button_see_more" >
+                            <h6 class="name"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ 'now'|date('d-m-Y') }} 2009</h6>
+                            <p style="width: 100%; text-align: right; margin: 0;">
+                                <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}" title="{{ autrespublication.titre }}" class="button_see_more" >
                                     Lire la suite. </a>
                             </p>
                         </div>
                     </div>
                 </div>
-
+                {% endif %}
             {% endfor %}
         </div>
     </div>

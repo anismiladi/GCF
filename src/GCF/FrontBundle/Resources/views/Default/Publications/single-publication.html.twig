@@ -1,13 +1,13 @@
 {% extends '@GCFFront/base.html.twig' %}
 
-{% block title %} GCF | {{ pageTitle }} {% endblock %}
+{% block title %} GCF -  {{ 'menu.Publications'|trans }} - {{ publication.titre|slice(0, 40) }} {% endblock %}
+{% block pageTitle %} {% if  publication.titre|length > 40 %} {{ publication.titre|slice(0, 40) }}... {% else %} {{ publication.titre }} {% endif %} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}">{{ 'menu.Home'|trans }}</a> / <a > {{ 'menu.Publications'|trans }}</a> / <a title="{{ publication.titre }}">{% if  publication.titre|length > 40 %} {{ publication.titre|slice(0, 40) }}... {% else %} {{ publication.titre }} {% endif %}</a>  {% endblock %}
 
 {% block body %}
 
 {#{{ dump(publication) }}#}
 <div class="col-md-12">
-
-    <h2>{{ publication.titre }}</h2>
 
     {% if publication.categorie.id == 2  %}
         {{ publication.emailBloggeur }}
@@ -16,8 +16,79 @@
         {{ publication.projet.nom }}
     {% endif %}
 
-    <p>{{ publication.contenu|raw }}</p>
 
+
+    <div class="single__publication__page__container col-md-12">
+
+        <div class="single__publication__page__header">
+            <img src="{{ publication.featuredImage|replace({'app_dev.php': ''}) }}" alt="{{ publication.titre }}">
+            {#<img src="https://placeimg.com/640/480/any" alt="">#}
+            <h1 class="publication__info__title">
+                {{ publication.titre }}
+            </h1>
+            <div class="single__publication__page__header__info">
+                {#<p class="publication__info__time">#}
+                    {#<i class="fa fa-clock-o" aria-hidden="true"></i>#}
+                    {#{{ evenement.debut|date("d-m-Y") }}#}
+                {#</p>#}
+                {#<p class="publication__info__date">#}
+                    {#<i class="fa fa-calendar" aria-hidden="true"></i>#}
+                    {#{{ evenement.debut|date("g:ia") }} - {{ evenement.fin|date("g:ia") }}#}
+                {#</p>#}
+                <p class="publication__info__tags">
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    {% for keyword in publication.keyword %}
+                    {{ keyword }},
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+
+        <div class="single__publication__page__body">
+            {{ publication.contenu|raw }}
+        </div>
+
+    </div>
 </div>
 {% endblock %}
+
+
+{% block stylesheets %}
+    <style>
+        .single__publication__page__header img{
+            width:100%;
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        .single__publication__page__header h1.publication__info__title {
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        .single__publication__page__header__info{
+            display: flex;
+        }
+
+        .single__publication__page__header__info p.publication__info__date {
+            margin-right: 20px;
+        }
+        .single__publication__page__header__info p.publication__info__date i {
+            width: 15px;
+            font-size: 13px;
+        }
+
+        .single__publication__page__header__info p.publication__info__time{
+            margin-right: 20px;
+        }
+        .single__publication__page__header__info p.publication__info__time i {
+            width: 15px;
+            font-size: 13px;
+        }
+
+
+    </style>
+{% endblock %}
+
+
 

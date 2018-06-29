@@ -2,8 +2,8 @@
 
 {% block title %} GCF - {{ evenement.nom }} {% endblock %}
 
-{% block pageTitle %} {{ 'menu.Events'|trans }} {% endblock %}
-{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}" title="{{ 'menu.Home'|trans }}">{{ 'menu.Home'|trans }}</a> / <a href="{{ path('gcf_front_event_page') }}" title="{{ 'menu.Events'|trans }}"> {{ 'menu.Events'|trans }}</a> / <a title="{{ evenement.nom }}">{{ evenement.nom|slice(0, 40) }}...</a> {% endblock %}
+{% block pageTitle %} {% if  evenement.nom|length > 40 %} {{ evenement.nom|slice(0, 40) }}... {% else %} {{ evenement.nom }} {% endif %} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}" title="{{ 'menu.Home'|trans }}">{{ 'menu.Home'|trans }}</a> / <a href="{{ path('gcf_front_event_page') }}" title="{{ 'menu.Events'|trans }}"> {{ 'menu.Events'|trans }}</a> / <a title="{{ evenement.nom }}">{% if  evenement.nom|length > 40 %} {{ evenement.nom|slice(0, 40) }}... {% else %} {{ evenement.nom }} {% endif %}</a> {% endblock %}
 
 {% block body %}
     <div class="single__event__page__container col-md-12">
@@ -27,6 +27,12 @@
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     {{ evenement.lieu }}
                 </p>
+                <p class="event__info__facebook">
+                    <a href="{{ evenement.lienFB }}"
+                       title="Facebook" target="_blank">
+                        <i class="fa fa-facebook " aria-hidden="true"></i>
+                    </a>
+                </p>
             </div>
         </div>
 
@@ -41,6 +47,7 @@
     <style>
         .single__event__page__header img{
             width:100%;
+            max-height: 300px ;
             object-fit: cover;
         }
 
@@ -75,6 +82,16 @@
         .single__event__page__header__info p.event__info__place i {
             width: 15px;
             font-size: 13px;
+        }
+        .single__event__page__header__info p.event__info__facebook i {
+            width: 25px;
+            padding: 5px;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: #22AA86;
+            border-radius: 50%;
+            background: #cccccc;
         }
 
     </style>

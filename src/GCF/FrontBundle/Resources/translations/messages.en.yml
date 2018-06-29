@@ -43,3 +43,13 @@ contactPage:
   Contact-us: Contactez-nous
   Where to find us: Where to find us
   Leave us a message: Leave us a message
+  Name: Name
+  Email: Email
+  Subject: Subject
+  Message: Message
+  Send: Send
+
+elearningPage:
+  Access to this file: Access to this file
+  Technical: Technical
+  Legislative: Legislative

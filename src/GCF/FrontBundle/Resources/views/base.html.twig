@@ -84,8 +84,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="{{ path('gcf_front_homepage') }}">
-                            <img class="logo__non__affix" src="{{ asset('assets/images/GCF-Logo-V1.png') }}" alt="GCF - logo">
-                            <img class="logo__affix" src="{{ asset('assets/images/GCF-logo-fix.png') }}" alt="GCF - logo">
+                            <img class="logo__nav__affix" src="{{ asset('assets/images/GCF-Logo-V1.png') }}" alt="GCF - logo">
                         </a>
 
                     </div>
@@ -160,7 +159,7 @@
                         </div>
                         <div class=" col-md-6 breadcrump__schema">
 
-                               {% block breadcrump %} {% endblock %}
+                           {% block breadcrump %} {% endblock %}
 
                         </div>
                     </div>
@@ -187,11 +186,14 @@
             <div class="col-md-12">
                 {% if app.request.get('slug') %}
                     {% set params =  app.request.get('slug') %}
+                    {% set paramID =  app.request.get('id') %}
+
                 {% else %}
                     {% set params =  'rien' %}
+                    {% set paramID =  'rien' %}
 
                 {% endif %}
-                {% if  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_event_page')) or  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_single_event_page',{'slug': params  } )) %}
+                {% if  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_event_page')) or  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_single_event_page',{'slug': params, 'id': paramID  } )) %}
                     <link rel="stylesheet" href="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.min.css') }}">
                     <link media="print" rel="stylesheet" href="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.print.css') }}">
                     <div id="calendar_test" ></div>
@@ -325,7 +327,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-4 footer_logo_description item" >
                     <div class="footer_social_media_header">
-                        <a class="footer_logo_GCF"><img  src="{{ asset('assets/images/GCF-logo-final-green.png') }}" alt="GCF"></a>
+                        <a class="footer_logo_GCF"><img  src="{{ asset('assets/images/GCF-logo-fix.png') }}" alt="GCF"></a>
                         <div class="footer_social_media_separate_logos"></div>
                         <a class="footer_logo_RAJ" href="https://www.raj-tunisie.org/"><img  src="{{ asset('assets/images/RAJ-red-logo.png') }}" alt="RAJ"></a>
                     </div>
@@ -451,7 +453,6 @@
     <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closeAbout()"></i>
     <div class="popup__about__gcf__container">
     <h2 align="center">{{ 'menu.About'|trans }}</h2>
-    <h3>Présentation du projet</h3>
     <p>
         La plateforme GCF « Forum Vert pour le climat » est lancé par le département Environnement et climat de l’organisation RAJ-Tunisie qui s’inscrit dans le cadre de cadre de l’appui à la mise en œuvre de l'Accord de Paris signé le 22 Avril 2016 et ratifié le 10 Février 2017 par la république Tunisienne, l’implémentation de la Contribution Nationale Déterminée (NDC) et de l’agenda 2030 pour le développement durable qui fixe les dix-sept objectifs du développements durable (ODD).<br>
         Cette plateforme a pour objectif de fournir aux utilisateurs une base de données en ligne décrivant la situation et les politiques environnementales et climatiques en Tunisie tout en impliquant les différents acteurs à savoir les citoyens essentiellement les jeunes, la société civile, les structures publiques, les autorités locales, les structures privées et les médias, tout en assurant une évaluation et une lecture critique des politiques environnementales afin de les améliorer.<br>
@@ -490,8 +491,9 @@
             {"name":"basicstyles","groups":["basicstyles"]},
             {"name":"paragraph","groups":["align"]},
             {"name":"paragraph","groups":["list"]},
-            {"name":"styles","groups":["styles"]},
+
             {"name":"links","groups":["links"]},
+            {"name":"styles","groups":["styles"]},
             //  {"name":"paragraph","groups":["bidi"]}, // language
 
             // { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
@@ -558,12 +560,7 @@
     });
 </script>
 
-
-
-
-
-
-{% if  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_event_page')) or  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_single_event_page',{'slug': params  } )) %}
+{% if  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_event_page')) or  (path(app.request.attributes.get('_route'), app.request.get('_route_params')) == path('gcf_front_single_event_page',{'slug': params, 'id': paramID  } )) %}
 <script src="{{ asset('assets/fullcalendar-3.9.0/fullcalendar.js') }}"></script>
     <script src='{{ asset('assets/fullcalendar-3.9.0/locale-all.js') }}'></script>
 <script>
@@ -592,9 +589,10 @@
         dataType: 'json',
         contentType: 'application/json',
         success: function (result) {
-            console.log(result);
+            //console.log(result);
             for ( i = 0; i < result.length ; i++){
-                var url = '{{ path("gcf_front_single_event_page",{"slug": 'slug'}) }}';
+                var url = '{{ path("gcf_front_single_event_page",{"slug": 'slug', "id": 'id'}) }}';
+                url = url.replace('id', result[i].id);
                 url = url.replace('slug', result[i].nom.toLowerCase().trim().replace(" ", "-"));
                 data.push(
                     {
@@ -654,10 +652,10 @@
                 eventLimit: true, // allow "more" link when too many events
                 events: data
             });
-            console.log(data)
+            //console.log(data)
         },
         error: function (error) {
-            console.log( ( error) )
+            //console.log( ( error) )
         }
 
     });

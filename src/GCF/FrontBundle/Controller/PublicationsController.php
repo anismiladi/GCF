@@ -15,14 +15,6 @@ class PublicationsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $pageTitle = 'Publications';
-
-        $breadcrumbs = $this->get("white_october_breadcrumbs");
-        // Simple example
-        $breadcrumbs->addItem("Accueil", $this->get("router")->generate("gcf_front_homepage"));
-        // Simple example
-        $breadcrumbs->addItem("Publications");
-
         $nospublications = $em->getRepository('GCFMainBundle:Publication')->findBy(
             array('categorie' => '1'),
             array('id' => 'desc')
@@ -44,7 +36,6 @@ class PublicationsController extends Controller
         $catsPub = $em ->getRepository('GCFMainBundle:CatPublication')->findAll();
 
         return $this->render('@GCFFront/Default/Publications/publications.html.twig', array(
-            'pageTitle' => $pageTitle,
             'catsPub' => $catsPub,
             'nospublications' => $nospublications,
             'gbpublications' => $gbpublications,
@@ -52,35 +43,13 @@ class PublicationsController extends Controller
         ));
     }
 
-    public function singlePublicationAction($slug)
+    public function singlePublicationAction($slug, $id)
     {
-        $name = str_replace('-',' ',$slug);
-
         $em = $this->getDoctrine()->getManager();
 
-
-        $publication = $em->getRepository('GCFMainBundle:Publication')->findBy(array(
-            'titre' => $name
-        ));
-
-        $publication = $publication[0];
-
-        $pageTitle = $publication->getTitre();
-
-        $breadcrumbs = $this->get("white_october_breadcrumbs");
-        // Simple example
-        $breadcrumbs->addItem("Accueil", $this->get("router")->generate("gcf_front_homepage"));
-        // Simple example
-        $breadcrumbs->addItem("Publications", $this->get("router")->generate("gcf_front_publicationspage"));
-        // example with route params
-        if( strlen($publication->getTitre()) > 50 ){
-            $publication_title = substr($publication->getTitre(), 0, 50);
-        }
-        $breadcrumbs->addItem($publication->getTitre(), $this->get("router")->generate("gcf_front_single_publications_page", array('slug' => $slug ) ));
-
+        $publication = $em->getRepository('GCFMainBundle:Publication')->find($id);
 
         return $this->render('@GCFFront/Default/Publications/single-publication.html.twig', array(
-            'pageTitle' => $pageTitle,
             'publication' => $publication
         ));
     }

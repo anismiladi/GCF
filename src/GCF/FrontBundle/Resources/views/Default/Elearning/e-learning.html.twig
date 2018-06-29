@@ -104,6 +104,12 @@
             text-decoration: none;
             color:inherit;
         }
+
+        .technique__info__container{
+            height: max-content;
+            min-height: 160px;
+            max-height: 160px;
+        }
     </style>
 
 
@@ -112,30 +118,43 @@
     <div>
         <div class="col-md-12">
             <ul class="nav nav-tabs navigation_elearning">
-                <li class="active" id="technique_tab"><a >Technique</a></li>
-                <li class="" id="legislatives_tab"><a >Législatives</a></li>
+                <li class="active" id="technique_tab"><a href="#{{ 'elearningPage.Technical'|trans }}">{{ 'elearningPage.Technical'|trans }}</a></li>
+                <li class="" id="legislatives_tab"><a href="#{{ 'elearningPage.Legislative'|trans }}">{{ 'elearningPage.Legislative'|trans }}</a></li>
             </ul>
         </div>
 
         <div id="technique_tab_container">
 
             {% for Technique in Techniques %}
-                <div class="col-md-12 col-xs-12"
-                     style="background: #f7f7f7;border: solid white; padding-top: 10px; padding-bottom:10px ">
-                    <div class="row">
-                        <div class="col-md-5" style="padding: 0 ">
-                            <iframe   style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                        </div>
+                {#<div class="col-md-12 col-xs-12"#}
+                     {#style="background: #f7f7f7;border: solid white; padding-top: 10px; padding-bottom:10px ">#}
+                    {#<div class="row">#}
+                        {#<div class="col-md-5" style="padding: 0 ">#}
+                            {#<iframe   style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>#}
+                        {#</div>#}
 
-                        <div class="col-md-7">
-                            <h4 class="name">{{ Technique.Nom }}</h4>
-                            <h6 class="name"><strong>Date :</strong> 2009</h6>
-                            <p class="description" style="font-size: 13px;">{{ Technique.Description|raw|slice(0, 62) }}</p>
-                        </div>
+                        {#<div class="col-md-7">#}
+                            {#<h4 class="name">{{ Technique.Nom }}</h4>#}
+                            {#<h6 class="name"><strong>Date :</strong> 2009</h6>#}
+                            {#<p class="description" style="font-size: 13px;">{{ Technique.Description|raw|slice(0, 62) }}</p>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+                {% if Technique.Nom %}
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="technique__video__container">
+                        <iframe style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="technique__info__container">
+                        <h4 class="name">{{ Technique.Nom }}</h4>
+                        <p class="name"><strong>Date :</strong> 2009</p>
+                        <p class="description" title="{{ Technique.Description }}">{{ Technique.Description|raw|slice(0, 124) }}...</p>
+                        <p ><strong>Mot clés :</strong></p>
                     </div>
                 </div>
-
+                {% endif %}
             {% endfor %}
+
 
         </div>
 
@@ -161,7 +180,7 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <p class="card-text text-right"><a target="_blank" href="{{ Legislative.Fichier }}">Acceder à ce document</a></p>
+                            <p class="card-text text-right"><a target="_blank" href="{{ Legislative.Fichier }}">{{ 'elearningPage.Access to this file'|trans }}</a></p>
                         </div>
                     </div>
                 </div>

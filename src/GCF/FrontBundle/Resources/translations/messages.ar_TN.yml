@@ -43,3 +43,13 @@ contactPage:
   Contact-us: اتصل بنا
   Where to find us: أين تجدنا
   Leave us a message: اترك لنا رسالة
+  Name: الأسم
+  Email: البريد الإلكتروني
+  Subject: الموظوع
+  Message: الرسالة
+  Send: إرسال
+
+elearningPage:
+  Access to this file: الإطلاع على هذا المستند
+  Technical: تقنية
+  Legislative: تشريعي

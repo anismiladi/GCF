@@ -26,35 +26,28 @@ class EventController extends Controller
             array('debut'=> 'desc')
         );
 
-
-
-
-        $eventByDate = $em->getRepository('GCFMainBundle:Event')->findByDate(2017, 2018, 2016);
+        $eventByDate = $em->getRepository('GCFMainBundle:Event')->findEvent();
         if($request->isXmlHttpRequest()) {
             // Do something...
             return new JsonResponse( $eventByDate );
         }
 
+
         return $this->render('@GCFFront/Default/Event/eventIndex.html.twig',array(
             'evenements' => $evenements,
-
             'eventByDate' => $eventByDate
 
         ));
     }
 
-    public function singleEventAction($slug){
+    public function singleEventAction($slug, $id){
 
-
-        $name = str_replace('-',' ',$slug);
-        $name1 = str_replace("%27","'",$name);
         $em = $this->getDoctrine()->getManager();
 
-        $evenement = $em->getRepository('GCFMainBundle:Event')->findByName($name1);
-
+        $evenement = $em->getRepository('GCFMainBundle:Event')->find($id);
 
         return $this->render('@GCFFront/Default/Event/singleEvent.html.twig',array(
-            'evenement' => $evenement[0]
+            'evenement' => $evenement
         ));
     }
 

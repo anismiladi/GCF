@@ -12,19 +12,20 @@
         .contact__page__container{
             background: #f7f7f7;
             padding-top: 20px;
+            padding-bottom: 20px;
         }
 
         .contact__page__container h2{
             font-family: inherit !important;
             width: 100%;
-            margin: 0 0 30px 0;
+            margin: 0 0 20px 0;
             background: #22aa86;
             color: white;
         }
 
         .contact_card_container{
             background: #f7f7f7;
-            margin-top: 40px;
+            margin-top: 18px;
             border-radius: 2px;
         }
 
@@ -43,9 +44,27 @@
             border-color: #8ce24a;
         }
         #sending_status{
-            margin: 10px 0;
-            padding: 10px;
+            padding: 7px;
             color: black;
+            width: 100%;
+            text-align: left;
+        }
+        .center-on-small-only{
+            text-align: right;
+            display: flex;
+        }
+        .contact_social_body{
+            color: #8a8a8a;
+        }
+        .item_contact{
+            display: flex;
+            margin-bottom: 7px;
+        }
+        .item_contact p{
+            line-height: 32px;
+        }
+        .item_contact i{
+            width: 45px;
         }
 
     </style>
@@ -56,31 +75,31 @@
 
     <div class="col-md-12 contact__page__container" >
         <h2 align="center">{{ 'contactPage.Where to find us'|trans }}</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6389.625720877152!2d10.182694263748806!3d36.79903705971493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x733b1f539249f6d1!2sR%C3%A9seau+Alternatif+Des+Jeunes+Tunisie!5e0!3m2!1sfr!2stn!4v1530200591783" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6389.625720877152!2d10.182694263748806!3d36.79903705971493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x733b1f539249f6d1!2sR%C3%A9seau+Alternatif+Des+Jeunes+Tunisie!5e0!3m2!1sfr!2stn!4v1530200591783" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
 
-        <div class="col-md6 col-xs-6 contact_card_container">
+        <div class="col-md-6 col-xs-12 contact_card_container" style="padding: 0 2px 0 0 ;">
             <h2 align="center">{{ 'contactPage.Contact-us'|trans }}</h2>
-            <div class="item footer_social_body">
-                <div class="item_contact_footer" >
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <div class="item contact_social_body">
+                <div class="item_contact" >
+                    <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
                     <p> Rue 18 Janvier 1952, Imm n°15, 2éme Étage, 1001 Tunis </p>
                 </div>
-                <div class="item_contact_footer">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
+                <div class="item_contact">
+                    <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
                     <p> Tél: (00216) 70318342 / (00216) 71247538 </p>
                 </div>
-                <div class="item_contact_footer">
-                    <i class="fa fa-fax" aria-hidden="true"></i>
+                <div class="item_contact">
+                    <i class="fa fa-fax fa-2x" aria-hidden="true"></i>
                     <p> Fax: (00216) 71 253 547 </p>
                 </div>
-                <div class="item_contact_footer">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                <div class="item_contact">
+                    <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
                     <p> Email: contact@raj-tunisie.org</p>
                 </div>
             </div>
         </div>
         <!--Grid column-->
-        <div class="col-md-6 col-xs-6 contact_card_container" style="padding: 0;">
+        <div class="col-md-6 col-xs-12 contact_card_container" style="padding: 0 0 0 2px;">
             <h2 align="center">{{ 'contactPage.Leave us a message'|trans }}</h2>
             <form id="contact-form" name="contact-form" action="" method="POST">
 
@@ -90,8 +109,7 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name" class="">Nom</label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            <input type="text" id="name" name="name" placeholder="{{ 'contactPage.Name'|trans }}" class="form-control">
                         </div>
                     </div>
                     <!--Grid column-->
@@ -99,8 +117,7 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="email" class="">Email</label>
-                            <input type="email" id="email" name="email" class="form-control">
+                            <input type="email" id="email" name="email" placeholder="{{ 'contactPage.Email'|trans }}" class="form-control">
                         </div>
                     </div>
                     <!--Grid column-->
@@ -112,8 +129,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="subject" class="">Sujet</label>
-                            <input type="text" id="subject" name="subject" class="form-control">
+                            <input type="text" id="subject" name="subject" placeholder="{{ 'contactPage.Subject'|trans }}" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -126,8 +142,7 @@
                     <div class="col-md-12">
 
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="7" class="form-control" style="resize: vertical;"></textarea>
+                            <textarea id="message" name="message" rows="7" placeholder="{{ 'contactPage.Message'|trans }}" class="form-control" style="resize: vertical;"></textarea>
                         </div>
 
                     </div>
@@ -136,10 +151,11 @@
             </form>
 
             <div class="center-on-small-only">
-                <input type="submit"  class="btn btn-primary" onclick="submitForm()" value="Envoyer" >
+                <div id="sending_status"></div>
+                <input type="submit"  class="btn btn-primary" onclick="submitForm()" value="{{ 'contactPage.Send'|trans }}" >
             </div>
 
-            <div id="sending_status"></div>
+
 
         </div>
         <!--Grid column-->
@@ -152,7 +168,7 @@
     <script>
         function submitForm() {
 
-            document.getElementById('sending_status').innerHTML = "Envoi ...";
+            document.getElementById('sending_status').innerHTML = "{{ 'contactPage.Send'|trans }} ...";
             formData = {
                 'name'     : $('input[name=name]').val(),
                 'email'    : $('input[name=email]').val(),

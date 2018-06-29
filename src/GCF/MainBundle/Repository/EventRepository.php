@@ -41,21 +41,14 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
     }
 
     //    marwen
-    public function findByDate($year, $nextYear, $previousYear ){
+    public function findEvent( ){
 
         $nosEvent = $this->getEntityManager()
             ->createQueryBuilder()
             ->select('e')
             ->from('GCFMainBundle:Event', 'e')
-            ->where('e.debut LIKE :year')
-            ->orWhere('e.debut LIKE :previousyear')
-            ->orWhere('e.debut LIKE :nextyear')
-            ->setParameter('year', '%'.$year.'%')
-            ->setParameter('previousyear', '%'.$previousYear.'%')
-            ->setParameter('nextyear', '%'.$nextYear.'%')
-            ->orderBy('e.id', 'DESC')
             ->getQuery()
-            ->getArrayResult();
+            ->getArrayResult();// a ne pas supprimer array result (utiliser dans le calendrier)
 
         return $nosEvent;
     }
@@ -66,11 +59,12 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
             ->createQueryBuilder()
             ->select('e')
             ->from('GCFMainBundle:Event', 'e')
-            ->where('e.nom LIKE :year')
-            ->setParameter('year', '%'.$name.'%')
+            ->where('e.nom LIKE :name')
+            ->setParameter('name', '%'.$name.'%')
             ->orderBy('e.id', 'DESC')
             ->getQuery()
-            ->getArrayResult();
+            ->getResult()
+            ->getSingleResult();
 
         return $Event;
     }

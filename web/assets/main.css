@@ -58,7 +58,7 @@ h1{
     font-family: Cabo-Rounded !important;
 }
 h2{
-    font-family: Rounded_Elegance !important;
+    font-family: Rounded-Elegance !important;
 }
 
 .navbar-default .navbar-toggle .icon-bar{
@@ -138,14 +138,7 @@ header and top bar
 
 .navbar-header .navbar-brand {padding: 0;}
 
-.navbar-header .navbar-brand img.logo__non__affix{max-width: 200px; display: block}
-
-.custom_navigation.affix .navbar-header .navbar-brand img.logo__non__affix{ display: none}
-
-.custom_navigation .navbar-header .navbar-brand img.logo__affix{max-width: 120px; display:none; padding: 9px 0;}
-
-.custom_navigation.affix .navbar-header .navbar-brand img.logo__affix{display:block;}
-
+.navbar-header .navbar-brand img.logo__nav__affix{max-width: 200px; display: block}
 
 .navbar-nav>li>a { font-family: Rounded-Elegance ; font-size: 16px !important; font-weight: 600;line-height: 42px !important; color: white !important;padding-bottom: 10px !important; padding-top: 10px !important; }
 

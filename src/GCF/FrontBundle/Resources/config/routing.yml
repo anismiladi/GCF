@@ -45,7 +45,7 @@ gcf_front_publicationspage:
     defaults: { _controller: GCFFrontBundle:Publications:index }
 
 gcf_front_single_publications_page:
-    path:     /publications/{slug}
+    path:     /publications/{slug}/{id}
     defaults: { _controller: GCFFrontBundle:Publications:singlePublication }
 
 
@@ -90,6 +90,6 @@ gcf_front_single_event:
     defaults: { _controller: GCFFrontBundle:Event:eventsingle }
 
 gcf_front_single_event_page:
-    path:     /event/{slug}
+    path:     /event/{slug}/{id}
     defaults: { _controller: GCFFrontBundle:Event:singleEvent }
 
