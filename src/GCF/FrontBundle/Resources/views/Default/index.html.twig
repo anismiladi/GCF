@@ -333,14 +333,14 @@
                         {% for Technique in Techniques %}
                             <div class="col-md-6 col-xs-12"
                                  style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
-                                <div class="row">
+                                <div >
 
-                                    <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
+                                    <div class="col-md-5 col-sm-5 col-xs-5 single_element_image_container" style="padding:0;">
                                         <a  class="play__youtube__video " data-url-youtube="{{ Technique.Youtube }}?rel=0">
-                                            <img class="img-fluid" src="{{ Technique.Image }}" />
+                                            <img class="img-fluid" src="{{ Technique.Image }}" style="cursor:pointer" />
                                         </a>
                                     </div>
-                                    <div class="col-md-7 single_element_content_container">
+                                    <div class="col-md-7 col-sm-7 col-xs-7 single_element_content_container">
                                         <a class="play__youtube__video" data-url-youtube="{{ Technique.Youtube }}?rel=0"><h4 class="name">{{ Technique.Nom }}</h4></a>
                                         <h6 class="name"><strong>Date :</strong> 2009</h6>
                                         <p class="description" style="font-size: 13px;">{{ Technique.Description|raw|slice(0, 62) }}</p>
@@ -359,7 +359,7 @@
                             <div class="col-md-6 col-sm-6 col-xs-12" style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
                                 <div class="listing legislatives_single_element_container">
 
-                                    <div class="type col-md-5 col-sm-5 col-xs-5">
+                                    <div class="type col-md-5 col-sm-5 col-xs-5" style="padding:0;">
                                         <a target="_blank" href="{{ Legislative.Fichier }}">
                                             <img src="{{ Legislative.Image|replace({'app_dev.php': ''}) }}" title="Lire le document">
                                         </a>

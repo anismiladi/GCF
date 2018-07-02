@@ -1,58 +1,58 @@
 {% extends '@GCFFront/base.html.twig' %}
 
-{% block title %} GCF - {{ pageTitle }} {% endblock %}
+{% block title %} GCF - {% endblock %}
 
 {% block body %}
 
+{{ dump() }}
+    {#<div class="col-md-12">#}
+        {#<h1>{{ project.nom }}</h1>#}
+    {#</div>#}
 
-    <div class="col-md-12">
-        <h1>{{ project.nom }}</h1>
-    </div>
+    {#<table class="table table-bordered table-striped ">#}
+        {#<thead></thead>#}
+        {#<tbody>#}
+        {#<tr>#}
+            {#<td>Id</td><td>{{ project.id }}</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td>Nom</td> <td>{{ project.nom }}</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td>Gouvernorat</td><td>#}
+                {#{% for gouvernorat in project.gouvernorat %}#}
+                    {#{{ gouvernorat.nom }}#}
+                {#{% endfor %}#}
+            {#</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td>Organisme</td><td>#}
+                {#{% if project.acteur != null %}#}
+                    {#{% if (project.acteur.secteurActeur.secteurActeurParent == null) %}#}
+                        {#{{ project.acteur.secteurActeur.nom }}#}
+                    {#{% else %}#}
+                        {#{{ project.acteur.secteurActeur.secteurActeurParent.nom }}#}
+                    {#{% endif %}#}
+                {#{% endif %}#}
+            {#</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td>Secteur</td><td>{{ project.secteurProjet.nom }}</td>#}
+        {#</tr>#}
+        {#<tr><td>Focus</td>#}
+            {#{% spaceless %}#}
+                {#<td>#}
+                    {#<ul>#}
+                        {#{% for focus in project.focus %}#}
+                            {#<li>{{ focus.nom}}&nbsp;</li>#}
+                        {#{% endfor %}#}
+                    {#</ul>#}
+                {#</td>#}
+            {#{% endspaceless %}#}
 
-    <table class="table table-bordered table-striped ">
-        <thead></thead>
-        <tbody>
-        <tr>
-            <td>Id</td><td>{{ project.id }}</td>
-        </tr>
-        <tr>
-            <td>Nom</td> <td>{{ project.nom }}</td>
-        </tr>
-        <tr>
-            <td>Gouvernorat</td><td>
-                {% for gouvernorat in project.gouvernorat %}
-                    {{ gouvernorat.nom }}
-                {% endfor %}
-            </td>
-        </tr>
-        <tr>
-            <td>Organisme</td><td>
-                {% if project.acteur != null %}
-                    {% if (project.acteur.secteurActeur.secteurActeurParent == null) %}
-                        {{ project.acteur.secteurActeur.nom }}
-                    {% else %}
-                        {{ project.acteur.secteurActeur.secteurActeurParent.nom }}
-                    {% endif %}
-                {% endif %}
-            </td>
-        </tr>
-        <tr>
-            <td>Secteur</td><td>{{ project.secteurProjet.nom }}</td>
-        </tr>
-        <tr><td>Focus</td>
-            {% spaceless %}
-                <td>
-                    <ul>
-                        {% for focus in project.focus %}
-                            <li>{{ focus.nom}}&nbsp;</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            {% endspaceless %}
-
-        </tr>
-        </tbody>
-    </table>
+        {#</tr>#}
+        {#</tbody>#}
+    {#</table>#}
 {% endblock %}
 
 {% block stylesheets %}

@@ -275,7 +275,7 @@
         {#{{ path('gcf_front_projectsinglepage', {'id': project.id} ) }}#}
         function showDetails(id){
 
-
+            $('.loading_page_overlay').css('display', 'block');
             url = '{{ path('gcf_front_projectsinglepage', {'id': 'id'} ) }}';
             url = url.replace("id", id);
             //console.log(url);
@@ -285,10 +285,12 @@
                 type: 'POST',
                 dataType: 'json',
                 success: function (result) {
+
+                    $('.loading_page_overlay').css('display', 'none');
                     console.log(result);
                     $('.page_overlay').css('display', 'block');
                     $('.popup_details_container').css('display', 'block');
-
+                    $('.popup_details_container_inner').empty();
                     var toAppend = '';
                     toAppend = '<table class="table table-striped table-bordered">';
                     toAppend +=  '<thead></thead>';
@@ -314,7 +316,31 @@
                     toAppend +=  '</tr>';
                     toAppend +=  '<tr>';
                     toAppend +=  '<td class="line_name">Gouvernorat</td>';
-                    toAppend +=  '<td>'+result.gouvernorat+'</td>';
+                    toAppend +=  '<td>';
+                    for ( i = 0 ; i< result.gouvernorat.length; i++ ) {
+                        if ( i === result.gouvernorat.length-1 ){
+                            toAppend +=  result.gouvernorat[i];
+                        }else{
+                            toAppend +=  result.gouvernorat[i]+', ' ;
+                        }
+                    }
+                    toAppend +=  '</td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td class="line_name">Fichier</td>';
+                    toAppend +=  '<td><a href="'+result.fichierUrl.replace('/app_dev.php','')+'" target="_blank">fichier</a></td>';
+                    toAppend +=  '</tr>';
+                    toAppend +=  '<tr>';
+                    toAppend +=  '<td class="line_name">Mots clés</td>';
+                    toAppend +=  '<td>';
+                    for ( i = 0 ; i< result.motsCles.length; i++ ) {
+                        if ( i === result.motsCles.length-1 ){
+                            toAppend +=  result.motsCles[i];
+                        }else{
+                            toAppend +=  result.motsCles[i]+', ' ;
+                        }
+                    }
+                    toAppend +=  '</td>';
                     toAppend +=  '</tr>';
                     toAppend +=  '</tbody>';
                     toAppend +=  '</table>';
@@ -323,6 +349,7 @@
 
                 },
                 error: function (error) {
+                    $('.loading_page_overlay').css('display', 'none');
                     alert(error);
                     console.log(error);
                 }

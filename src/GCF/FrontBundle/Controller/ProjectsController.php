@@ -265,11 +265,7 @@ class ProjectsController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $project = $em->getRepository('GCFMainBundle:Projet')->findOneBy(array(
-            'id' => $id
-        ));
-
-        $pageTitle = 'Projet: '.substr($project->getNom(), 0, 30).'...';
+        $project = $em->getRepository('GCFMainBundle:Projet')->find($id);
 
         $response = array();
 
@@ -293,30 +289,38 @@ class ProjectsController extends Controller
         }
 
         $response['focus'] = '';
-
         foreach ( $project->getFocus() as $focus){
 
                 $response['focus'] = $focus->getNom();
 
         }
 
-        $response['gouvernorat'] = '';
-
+        $response['gouvernorat'] = array();
         foreach ( $project->getGouvernorat() as $gouvernorat) {
 
-                $response['gouvernorat'] = $gouvernorat->getNom();
+                $response['gouvernorat'][] = $gouvernorat->getNom();
 
         }
 
+        //fichier
+        $response['fichierUrl'] ='' ;
+        if ($project->getFichier())
+            $response['fichierUrl'] = $project->getFichier();
 
-        if($request->request->get('details-projet')) {
+        $response['motsCles'] = array();
+        foreach ($project->getKeyword() as $keyword){
+            $response['motsCles'][] = $keyword->getLabel();
+        }
+        //mots clés
 
-            return new Response(json_encode($response));
+
+        if($request->isXmlHttpRequest()) {
+
+            return new JsonResponse($response);
 
         }
 
         return $this->render('@GCFFront/Default/Projects/single-projects.html.twig',array(
-            'pageTitle' => $pageTitle,
             'project' => $project
         ));
     }
