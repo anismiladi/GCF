@@ -5,6 +5,18 @@
 {% block pageTitle %} {% if  evenement.nom|length > 40 %} {{ evenement.nom|slice(0, 40) }}... {% else %} {{ evenement.nom }} {% endif %} {% endblock %}
 {% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}" title="{{ 'menu.Home'|trans }}">{{ 'menu.Home'|trans }}</a> / <a href="{{ path('gcf_front_event_page') }}" title="{{ 'menu.Events'|trans }}"> {{ 'menu.Events'|trans }}</a> / <a title="{{ evenement.nom }}">{% if  evenement.nom|length > 40 %} {{ evenement.nom|slice(0, 40) }}... {% else %} {{ evenement.nom }} {% endif %}</a> {% endblock %}
 
+{% block meta %}
+    <meta name="Author" content="GCF">
+    <meta name="Language" content="{{ app.request.locale }}">
+    <meta name="Description" content="{{ evenement.description|striptags }}">
+    <meta name="Keywords" content=" ">{#mots cles#}
+
+    <meta property="og:url"                content="{{ app.request.uri }}" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="GCF - {{ evenement.nom }}" />
+    <meta property="og:description"        content="{{ evenement.description|striptags }}" />
+    <meta property="og:image"              content="{{ app.request.getSchemeAndHttpHost() }}{{ evenement.photoCouverture|replace({'app_dev.php': ''}) }}" />
+{% endblock %}
 {% block body %}
     <div class="single__event__page__container col-md-12">
 
@@ -41,26 +53,26 @@
         </div>
 
     </div>
-    <div class="share-buttons">
 
-        <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank" class="fa fa-facebook"> Facebook</a>
-        <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank" class="fa fa-twitter" > Twitter</a>
-        <a href="https://plus.google.com/share?url=https://simplesharebuttons.com" target="_blank" class="fa fa-google"> Google +</a>
-        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://simplesharebuttons.com" class="fa fa-linkedin" target="_blank"> Linkedin</a>
+
+    {#share buttons#}
+    <div class="share-buttons col-md-12">
+        <a href="http://www.facebook.com/sharer/sharer.php?u={{ app.request.uri }}" target="_blank" class="fa fa-facebook"> Facebook</a>
+        <a href="https://twitter.com/share?url={{ app.request.uri }}&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank" class="fa fa-twitter" > Twitter</a>
+        <a href="https://plus.google.com/share?url={{ app.request.uri }}" target="_blank" class="fa fa-google"> Google +</a>
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ app.request.uri }}" class="fa fa-linkedin" target="_blank"> Linkedin</a>
         <a href="#" class="fa fa-instagram"> Instagram</a>
-        <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" class="fa fa-pinterest"> Pinterest</a>
-
-        <a href="http://www.tumblr.com/share/link?url=https://simplesharebuttons.com&amp;title=Simple Share Buttons" target="_blank" class="fa fa-tumblr"> Tumbler</a>
-
+        <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" target="_blank" class="fa fa-pinterest"> Pinterest</a>
+        <a href="http://www.tumblr.com/share/link?url={{ app.request.uri }}" target="_blank" class="fa fa-tumblr"> Tumbler</a>
     </div>
 {% endblock %}
 {% block stylesheets %}
-    //share buttons style
-    <style type="text/css">
 
+    <style type="text/css">
+        /*share buttons style*/
         .share-buttons .fa {
             padding: 10px 15px;
-            font-size: 20px;
+            font-size: 17px;
             text-align: center;
             text-decoration: none;
             margin: 5px 2px;

@@ -13,16 +13,6 @@ class ProjectsController extends Controller
 {
     public function indexAction()
     {
-        $pageTitle = 'Projets';
-
-        $breadcrumbs = $this->get("white_october_breadcrumbs");
-        // Simple example
-        $breadcrumbs->addItem("Accueil", $this->get("router")->generate("gcf_front_homepage"));
-        // Simple example
-        $breadcrumbs->addItem("Projets", $this->get("router")->generate("gcf_front_projectspage"));
-        // example with route params
-        $breadcrumbs->addItem("Projets", $this->get("router")->generate("gcf_front_projectsinglepage", array('id' => '1') ));
-
         $em = $this->getDoctrine()->getManager();
 
         $gouvernorates = $em->getRepository('GCFMainBundle:Gouvernorat')->findAll();
@@ -45,7 +35,6 @@ class ProjectsController extends Controller
         $focus = $em->getRepository('GCFMainBundle:Focus')->findAll();
 
         return $this->render('@GCFFront/Default/Projects/projects.html.twig',array(
-            'pageTitle' => $pageTitle,
             'gouvernorates' => $gouvernorates,
             'organismes' => $org,
             'secteurs' => $secteurs,

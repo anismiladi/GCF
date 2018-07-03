@@ -1,9 +1,10 @@
 {% extends '@GCFFront/base.html.twig' %}
 
 {% block title %} GCF - {{ 'menu.Projects'|trans }} {% endblock %}
+{% block pageTitle %} {{ 'menu.Projects'|trans }} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}">{{ 'menu.Home'|trans }}</a> / <a> {{ 'menu.Projects'|trans }}</a>  {% endblock %}
 
 {% block stylesheets %}
-    {#<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">#}
     <link rel="stylesheet" href="{{ asset('assets/DataTables/datatables.css') }}">
     <style>
         div.dataTables_wrapper div.dataTables_filter{
@@ -14,7 +15,7 @@
         .paginate_button.previous, .paginate_button.next{ display: none; }
 
         .filter_container{margin: 10px 0; padding: 0; border-left: solid #22AA86;}
-        .filter_select_projects{padding-top: 5px;padding-bottom: 5px; width: 100%; max-width:100%; margin: 5px 0; padding: 5px 5px !important; margin: 5px 0; outline: none; font-weight: 600}
+        .filter_select_projects{width: 100%; max-width:100%; margin: 5px 0; padding: 5px 5px !important; outline: none; font-weight: 600}
         .filter_select_projects option{color:gray}
         #myTable thead tr{background: #22AA86; color: white;}
     </style>
@@ -55,7 +56,7 @@
             height: -moz-max-content;
             height: -webkit-max-content;
             height: max-content;
-            width: 500px;
+            width: 600px;
             max-width:100%;
             border-radius: 2px;
             border: solid 1px #7ac943;
@@ -152,7 +153,7 @@
                     {% for project in projects %}
                         <tr>
                             <td>
-                                <p class="project_name_show" onclick="showDetails( {{ project.id }} )">{{ project.nom }}</p>
+                                <p class="project_name_show" onclick="showDetails( {{ project.id }} , '{{ project.nom }}' )"> {{ project.nom }}</p>
                             </td>
 
                             <td>
@@ -273,11 +274,12 @@
 
     <script>
         {#{{ path('gcf_front_projectsinglepage', {'id': project.id} ) }}#}
-        function showDetails(id){
+        function showDetails(id, nom){
 
             $('.loading_page_overlay').css('display', 'block');
-            url = '{{ path('gcf_front_projectsinglepage', {'id': 'id'} ) }}';
+            url = '{{ path('gcf_front_projectsinglepage', {'id': 'id', 'name':'name'} ) }}';
             url = url.replace("id", id);
+            url = url.replace("name", nom);
             //console.log(url);
             $.ajax({
                 url: url,
@@ -295,53 +297,81 @@
                     toAppend = '<table class="table table-striped table-bordered">';
                     toAppend +=  '<thead></thead>';
                     toAppend +=  '<tbody>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td colspan = "2" style="text-align:center; font-weight:600">'+result.nom+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td class="line_name">Description</td>';
-                    toAppend +=  '<td>'+result.description+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td class="line_name">Secteur</td>';
-                    toAppend +=  '<td>'+result.secteurProjet+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td class="line_name">Acteur</td>';
-                    toAppend +=  '<td>'+result.acteur+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td class="line_name">Focus</td>';
-                    toAppend +=  '<td>'+result.focus+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td class="line_name">Gouvernorat</td>';
-                    toAppend +=  '<td>';
-                    for ( i = 0 ; i< result.gouvernorat.length; i++ ) {
-                        if ( i === result.gouvernorat.length-1 ){
-                            toAppend +=  result.gouvernorat[i];
-                        }else{
-                            toAppend +=  result.gouvernorat[i]+', ' ;
-                        }
+                    if(result.nom !== '') {
+                        toAppend += '<tr>';
+                        toAppend += '<td class="line_name">Nom</td>';
+                        toAppend += '<td style="font-weight:600">' + result.nom + '</td>';
+                        toAppend += '</tr>';
                     }
-                    toAppend +=  '</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td class="line_name">Fichier</td>';
-                    toAppend +=  '<td><a href="'+result.fichierUrl.replace('/app_dev.php','')+'" target="_blank">fichier</a></td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td class="line_name">Mots clés</td>';
-                    toAppend +=  '<td>';
-                    for ( i = 0 ; i< result.motsCles.length; i++ ) {
-                        if ( i === result.motsCles.length-1 ){
-                            toAppend +=  result.motsCles[i];
-                        }else{
-                            toAppend +=  result.motsCles[i]+', ' ;
-                        }
+                    if(result.description !== '') {
+                        toAppend += '<tr>';
+                        toAppend += '<td class="line_name">Description</td>';
+                        toAppend += '<td>' + result.description + '</td>';
+                        toAppend += '</tr>';
                     }
-                    toAppend +=  '</td>';
+                    if(result.secteurProjet !== ''){
+                        toAppend +=  '<tr>';
+                        toAppend +=  '<td class="line_name">Secteur</td>';
+                        toAppend +=  '<td>'+result.secteurProjet+'</td>';
+                        toAppend +=  '</tr>';
+                    }
+                    if(result.acteur !== ''){
+                        toAppend +=  '<tr>';
+                        toAppend +=  '<td class="line_name">Acteur</td>';
+                        toAppend +=  '<td>'+result.acteur+'</td>';
+                        toAppend +=  '</tr>';
+                    }
+                    if(result.focus !== ''){
+                        toAppend +=  '<tr>';
+                        toAppend +=  '<td class="line_name">Focus</td>';
+                        toAppend +=  '<td>'+result.focus+'</td>';
+                        toAppend +=  '</tr>';
+                    }
+                    if(result.gouvernorat.length > 0) {
+                        toAppend += '<tr>';
+                        toAppend += '<td class="line_name">Gouvernorat</td>';
+                        if (result.gouvernorat !== '') {
+                            toAppend += '<td>';
+                            for (i = 0; i < result.gouvernorat.length; i++) {
+                                if (i === result.gouvernorat.length - 1) {
+                                    toAppend += result.gouvernorat[i];
+                                } else {
+                                    toAppend += result.gouvernorat[i] + ', ';
+                                }
+                            }
+                            toAppend += '</td>';
+                        }
+                        toAppend += '</tr>';
+                    }
+                    if(result.fichierUrl !== ''){
+                        toAppend +=  '<tr>';
+                        toAppend +=  '<td class="line_name">Fichier</td>';
+                        toAppend +=  '<td><a href="'+  result.fichierUrl.replace('/app_dev.php','')+'" target="_blank">fichier</a></td>';
+                        toAppend +=  '</tr>';
+                    }
+                    if(result.motsCles.length > 0) {
+                        toAppend += '<tr>';
+                        toAppend += '<td class="line_name">Mots clés</td>';
+                        toAppend += '<td>';
+                        for (i = 0; i < result.motsCles.length; i++) {
+                            if (i === result.motsCles.length - 1) {
+                                toAppend += result.motsCles[i];
+                            } else {
+                                toAppend += result.motsCles[i] + ', ';
+                            }
+                        }
+                        toAppend += '</td>';
+                        toAppend += '</tr>';
+                    }
+                    toAppend +=  '<tr>';
+                    var urlSingle = '{{ path('gcf_front_projectsinglepage', {'name': 'name', 'id': 'id'} ) }}';
+                    urlSingle = urlSingle.replace("id", result.id);
+                    urlSingle = urlSingle.replace("name", result.nom);
+
+                    toAppend +=  '<td align="center" colspan="2" class="line_name"><a class="button_see_more_lg" href="'+urlSingle+'"> Voir les détails </a>     </td>';
+
                     toAppend +=  '</tr>';
+
                     toAppend +=  '</tbody>';
                     toAppend +=  '</table>';
 

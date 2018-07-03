@@ -37,7 +37,7 @@ gcf_front_resultprojectspage:
     defaults: { _controller: GCFFrontBundle:Projects:resut  }
 
 gcf_front_projectsinglepage:
-    path: /get-projects-{id}
+    path: /project/{name}/{id}
     defaults: { _controller: GCFFrontBundle:Projects:singleProject}
 
 gcf_front_publicationspage:

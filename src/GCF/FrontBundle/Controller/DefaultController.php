@@ -77,6 +77,7 @@ class DefaultController extends Controller
         $autrespublications = $em->getRepository('GCFMainBundle:Publication')->findLastAutresPublication();
 
 
+
         return $this->render('@GCFFront/Default/index.html.twig',array(
             'pageTitle' => $pageTitle,
             'ProjectsBySector' => $nbrProj,
@@ -88,7 +89,9 @@ class DefaultController extends Controller
                 
             'nospublications' => $nospublications,
             'gbpublications' => $gbpublications,
-            'autrespublications' => $autrespublications
+            'autrespublications' => $autrespublications,
+
+
         ));
     }
 
@@ -490,4 +493,13 @@ public function MapAction()
         //return new JsonResponse(json_encode($actor));
     }
 
+    public function AproposAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $apropos = $em->getRepository('GCFMainBundle:Apropos')->findAll();
+
+            return $this->render('@GCFFront/blocks/apropos.html.twig',array(
+                'apropos' => $apropos[0]
+            ));
+    }
 }

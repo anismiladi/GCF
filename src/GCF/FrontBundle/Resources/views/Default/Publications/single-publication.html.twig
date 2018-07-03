@@ -4,6 +4,19 @@
 {% block pageTitle %} {% if  publication.titre|length > 40 %} {{ publication.titre|slice(0, 40) }}... {% else %} {{ publication.titre }} {% endif %} {% endblock %}
 {% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}">{{ 'menu.Home'|trans }}</a> / <a > {{ 'menu.Publications'|trans }}</a> / <a title="{{ publication.titre }}">{% if  publication.titre|length > 40 %} {{ publication.titre|slice(0, 40) }}... {% else %} {{ publication.titre }} {% endif %}</a>  {% endblock %}
 
+{% block meta %}
+    <meta name="Author" content="GCF">
+    <meta name="Language" content="{{ app.request.locale }}">
+    <meta name="Description" content="{{ publication.contenu|striptags }}">
+    <meta name="Keywords" content=" {% for keyword in publication.keyword %} {{ keyword }}, {% endfor %} ">{#mots cles#}
+
+    <meta property="og:url"                content="{{ app.request.uri }}" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="GCF - {{ publication.titre }}" />
+    <meta property="og:description"        content="{{ publication.contenu|striptags }}" />
+    <meta property="og:image"              content="{{ app.request.getSchemeAndHttpHost() }}{{ publication.featuredImage|replace({'app_dev.php': ''}) }}" />
+{% endblock %}
+
 {% block body %}
 
 {#{{ dump(publication) }}#}
@@ -50,10 +63,71 @@
 
     </div>
 </div>
+
+
+{#share buttons#}
+<div class="share-buttons col-md-12">
+    <a href="http://www.facebook.com/sharer/sharer.php?u={{ app.request.uri }}" target="_blank" class="fa fa-facebook"> Facebook</a>
+    <a href="https://twitter.com/share?url={{ app.request.uri }}&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank" class="fa fa-twitter" > Twitter</a>
+    <a href="https://plus.google.com/share?url={{ app.request.uri }}" target="_blank" class="fa fa-google"> Google +</a>
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ app.request.uri }}" class="fa fa-linkedin" target="_blank"> Linkedin</a>
+    <a href="#" class="fa fa-instagram"> Instagram</a>
+    <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" target="_blank" class="fa fa-pinterest"> Pinterest</a>
+    <a href="http://www.tumblr.com/share/link?url={{ app.request.uri }}" target="_blank" class="fa fa-tumblr"> Tumbler</a>
+</div>
 {% endblock %}
 
 
 {% block stylesheets %}
+    <style type="text/css">
+        /*share buttons style*/
+        .share-buttons .fa {
+            padding: 10px 15px;
+            font-size: 17px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+        }
+
+        .share-buttons .fa:hover {
+            opacity: 0.7;
+        }
+
+        .share-buttons .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .share-buttons .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .share-buttons .fa-google {
+            background: #dd4b39;
+            color: white;
+        }
+
+        .share-buttons .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .share-buttons .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        .share-buttons .fa-pinterest {
+            background: #cb2027;
+            color: white;
+        }
+
+        .share-buttons .fa-tumblr {
+            background: #2c4762;
+            color: white;
+        }
+    </style>
     <style>
         .single__publication__page__header img{
             width:100%;

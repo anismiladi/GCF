@@ -1,44 +1,67 @@
 {% extends '@GCFFront/base.html.twig' %}
 
-{% block title %} GCF - {% endblock %}
+{% block title %} GCF - {{ project.nom }} {% endblock %}
+{% block pageTitle %} {% if  project.nom|length > 40 %} {{ project.nom|slice(0, 40) }}... {% else %} {{ project.nom }} {% endif %} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}" title="{{ 'menu.Home'|trans }}">{{ 'menu.Home'|trans }}</a> / <a href="{{ path('gcf_front_projectspage') }}" title="{{ 'menu.Projects'|trans }}"> {{ 'menu.Projects'|trans }}</a> / <a title="{{ project.nom }}">{% if  project.nom|length > 40 %} {{ project.nom|slice(0, 40) }}... {% else %} {{ project.nom }} {% endif %}</a> {% endblock %}
+
+{% block meta %}
+    <meta name="Author" content="GCF">
+    <meta name="Language" content="{{ app.request.locale }}">
+    <meta name="Description" content="{{ project.description|striptags }}">
+    <meta name="Keywords" content=" ">{#mots cles#}
+
+    <meta property="og:url"                content="{{ app.request.uri }}" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="GCF - {{ project.nom }}" />
+    <meta property="og:description"        content="{{ project.description|striptags }}" />
+    {#<meta property="og:image"              content="{{ app.request.getSchemeAndHttpHost() }}{{ evenement.photoCouverture|replace({'app_dev.php': ''}) }}" />#}
+{% endblock %}
 
 {% block body %}
 
-{{ dump() }}
-    {#<div class="col-md-12">#}
-        {#<h1>{{ project.nom }}</h1>#}
-    {#</div>#}
+    {# nom #}
+    <h2>{{ project.nom }}</h2>
 
-    {#<table class="table table-bordered table-striped ">#}
-        {#<thead></thead>#}
-        {#<tbody>#}
-        {#<tr>#}
-            {#<td>Id</td><td>{{ project.id }}</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td>Nom</td> <td>{{ project.nom }}</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td>Gouvernorat</td><td>#}
-                {#{% for gouvernorat in project.gouvernorat %}#}
-                    {#{{ gouvernorat.nom }}#}
-                {#{% endfor %}#}
-            {#</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td>Organisme</td><td>#}
-                {#{% if project.acteur != null %}#}
-                    {#{% if (project.acteur.secteurActeur.secteurActeurParent == null) %}#}
-                        {#{{ project.acteur.secteurActeur.nom }}#}
-                    {#{% else %}#}
-                        {#{{ project.acteur.secteurActeur.secteurActeurParent.nom }}#}
-                    {#{% endif %}#}
-                {#{% endif %}#}
-            {#</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td>Secteur</td><td>{{ project.secteurProjet.nom }}</td>#}
-        {#</tr>#}
+    {# description #}
+    <p>{{ project.description }}</p>
+
+    {# fichier #}
+    <p><a href="{{ project.fichier|replace({'/app_dev.php': ''}) }}" target="_blank">piece jointe</a></p>
+
+    {# organisme #}
+    <p>
+    {% if project.acteur != null %}
+        {% if (project.acteur.secteurActeur.secteurActeurParent == null) %}
+            {{ project.acteur.secteurActeur.nom }}<br/>
+        {% else %}
+            {{ project.acteur.secteurActeur.secteurActeurParent.nom }}<br/>
+        {% endif %}
+    {% endif %}
+    </p>
+    <p>
+    {# gouvernorat #}
+    {% for gouvernorat in project.gouvernorat %}
+        {{ gouvernorat.nom }},&nbsp;
+    {% endfor %}
+    </p>
+    <p>
+    {# focus #}
+    {% for focus in project.focus %}
+        {{ focus.nom}}&nbsp;
+    {% endfor %}
+    </p>
+    <p>
+    {# secteur #}
+    {{ project.secteurProjet.nom }}<br/>
+    </p>
+    <p>
+    {# keyword #}
+    {% for keyword in project.keyword %}
+        {{ keyword.label}}&nbsp;
+    {% endfor %}
+    </p>
+
+
         {#<tr><td>Focus</td>#}
             {#{% spaceless %}#}
                 {#<td>#}

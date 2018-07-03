@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block meta %}
+        <meta name="Author"         content="GCF">
+        <meta name="Language"       content=" ">
+        <meta name="Description"    content=" ">
+        <meta name="Keywords"       content=" ">{#mots cles#}
+
+        <meta property="og:url"                content="" />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content="" />
+        <meta property="og:description"        content="" />
+        <meta property="og:image"              content="" />
+    {% endblock %}
     <title>{% block title %}Welcome!{% endblock %}</title>
     <style>
         @font-face {
@@ -453,13 +465,7 @@
     <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closeAbout()"></i>
     <div class="popup__about__gcf__container">
     <h2 align="center">{{ 'menu.About'|trans }}</h2>
-    <p>
-        La plateforme GCF « Forum Vert pour le climat » est lancé par le département Environnement et climat de l’organisation RAJ-Tunisie qui s’inscrit dans le cadre de cadre de l’appui à la mise en œuvre de l'Accord de Paris signé le 22 Avril 2016 et ratifié le 10 Février 2017 par la république Tunisienne, l’implémentation de la Contribution Nationale Déterminée (NDC) et de l’agenda 2030 pour le développement durable qui fixe les dix-sept objectifs du développements durable (ODD).<br>
-        Cette plateforme a pour objectif de fournir aux utilisateurs une base de données en ligne décrivant la situation et les politiques environnementales et climatiques en Tunisie tout en impliquant les différents acteurs à savoir les citoyens essentiellement les jeunes, la société civile, les structures publiques, les autorités locales, les structures privées et les médias, tout en assurant une évaluation et une lecture critique des politiques environnementales afin de les améliorer.<br>
-        La veille de la situation et des politiques environnementales et climatiques sera mise à la disposition des utilisateurs de la plateforme GCF à travers les publications, les projets, les rapports, les lois, les codes, les stratégies, des lectures critiques, les actualités, les événements nationaux et internationaux….<br>
-        L’implication des différents acteurs nécessite un approfondissement des connaissances en matière de changement climatique, et un respect de plusieurs aspects tels que le droit d’accès à l’information, la transparence et l’approche participative.
-
-    </p>
+        {{ render( controller('GCFFrontBundle:Default:Apropos') ) }}
     </div>
 </div>
 
@@ -472,7 +478,7 @@
     GreenBlogger Popup
 ==================================
 #}
-{{ render( controller('GCFFrontBundle:Publications:popup' )) }}
+{{ render( controller('GCFFrontBundle:Publications:popup') ) }}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 <script src="{{ asset('assets/jquery/dist/jquery.js') }}" type="text/javascript" charset="utf-8"></script>
