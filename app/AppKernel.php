@@ -49,6 +49,8 @@ class AppKernel extends Kernel
             //new Oneup\FlysystemBundle\OneupFlysystemBundle(),
             //new MediaMonks\SonataMediaBundle\MediaMonksSonataMediaBundle(),
             
+            new FOS\UserBundle\FOSUserBundle(),
+            
             new GCF\MainBundle\GCFMainBundle(),
             new GCF\FrontBundle\GCFFrontBundle(),
         ];

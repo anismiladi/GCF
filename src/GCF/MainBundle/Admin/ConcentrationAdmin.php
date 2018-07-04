@@ -12,7 +12,7 @@ use Sonata\TranslationBundle\Filter\TranslationFieldFilter;
 use Sonata\AdminBundle\Form\Type\ModelType;
 
 
-class FocusAdmin extends AbstractAdmin
+class ConcentrationAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {

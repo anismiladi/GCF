@@ -60,6 +60,7 @@ class PublicationAdmin extends AbstractAdmin
                 )
             )*/
             ->add('categorie')
+            ->add('etatPub')
             ;
     }
 

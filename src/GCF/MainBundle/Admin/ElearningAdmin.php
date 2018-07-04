@@ -58,6 +58,7 @@ class ElearningAdmin extends AbstractAdmin
             )
              * 
              */
+            ->add('etatPub')
         ;
     }
 

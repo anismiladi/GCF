@@ -92,12 +92,12 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
      * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Keyword", mappedBy="projet")
      */
     private $keyword;
-    
-    /**
-     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Focus", mappedBy="projet")
-     */
-    private $focus;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Concentration", mappedBy="projet")
+     */
+    private $concentration;
+    
     /**
      * @return mixed
      */
@@ -211,6 +211,7 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     {
         return $this->nom;
     }
+    
     /**
      * Constructor
      */
@@ -219,7 +220,7 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
         $this->publication = new \Doctrine\Common\Collections\ArrayCollection();
         $this->gouvernorat = new \Doctrine\Common\Collections\ArrayCollection();
         $this->keyword = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->focus = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->concentration = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -270,8 +271,9 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     public function removeGouvernorat(\GCF\MainBundle\Entity\Gouvernorat $gouvernorat)
     {
         //echo "removeGouvernorat";
-        $gouvernorat->removeProjet($this);
+        
         $this->gouvernorat->removeElement($gouvernorat);
+        $gouvernorat->removeProjet($this);
     }
 
     /**
@@ -318,7 +320,6 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
         else
             return "";
     }
-    
     
     /**
      * Set fichier
@@ -383,41 +384,39 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     }
 
     /**
-     * Add focus.
+     * Add concentration.
      *
-     * @param \GCF\MainBundle\Entity\Focus $focus
+     * @param \GCF\MainBundle\Entity\Concentration $concentration
      *
      * @return Projet
      */
-    public function addFocus(\GCF\MainBundle\Entity\Focus $focus)
+    public function addConcentration(\GCF\MainBundle\Entity\Concentration $concentration)
     {
-        $focus->addProjet($this);
-        $this->focus[] = $focus;
+        $concentration->addProjet($this);
+        $this->concentration[] = $concentration;
 
         return $this;
     }
 
     /**
-     * Remove focus.
+     * Remove concentration.
      *
-     * @param \GCF\MainBundle\Entity\Focus $focus
+     * @param \GCF\MainBundle\Entity\Concentration $concentration
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeFocus(\GCF\MainBundle\Entity\Focus $focus)
+    public function removeConcentration(\GCF\MainBundle\Entity\Concentration $concentration)
     {
-        $focus->removeProjet($this);
-        return $this->focus->removeElement($focus);
+        return $this->concentration->removeElement($concentration);
     }
 
     /**
-     * Get focus.
+     * Get concentration.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFocus()
+    public function getConcentration()
     {
-        return $this->focus;
+        return $this->concentration;
     }
-    
 }

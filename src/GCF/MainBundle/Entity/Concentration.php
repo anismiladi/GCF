@@ -10,11 +10,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Focu
  *
- * @ORM\Table(name="focus")
- * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\FocusRepository")
- * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\FocusTranslation")
+ * @ORM\Table(name="concentration")
+ * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\ConcentrationRepository")
+ * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\ConcentrationTranslation")
  */
-class Focus extends AbstractPersonalTranslatable implements TranslatableInterface
+class Concentration extends AbstractPersonalTranslatable implements TranslatableInterface
 {
     /**
      * @var int
@@ -34,10 +34,10 @@ class Focus extends AbstractPersonalTranslatable implements TranslatableInterfac
     private $nom;
 
     /**
-     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="focus", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="concentration", cascade={"persist", "remove"})
      * @ORM\JoinTable(
-     *     name="focusprojet",
-     *     joinColumns={@ORM\JoinColumn(name="focus", referencedColumnName="id", nullable=false)},
+     *     name="concentrationprojet",
+     *     joinColumns={@ORM\JoinColumn(name="concentration", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="projet", referencedColumnName="id", nullable=false)}
      * )
      */
@@ -47,7 +47,7 @@ class Focus extends AbstractPersonalTranslatable implements TranslatableInterfac
      * @var ArrayCollection
      *
      * @ORM\OneToMany(
-     *     targetEntity="GCF\MainBundle\Entity\FocusTranslation",
+     *     targetEntity="GCF\MainBundle\Entity\ConcentrationTranslation",
      *     mappedBy="object",
      *     cascade={"persist", "remove"}
      * )
@@ -93,7 +93,7 @@ class Focus extends AbstractPersonalTranslatable implements TranslatableInterfac
      *
      * @param \GCF\MainBundle\Entity\Projet $projet
      *
-     * @return Focus
+     * @return Concentration
      */
     public function addProjet(\GCF\MainBundle\Entity\Projet $projet)
     {
