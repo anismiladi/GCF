@@ -61,7 +61,7 @@ doctrine:
 
     orm:
         #naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_generate_proxy_classes: %kernel.debug%
+        auto_generate_proxy_classes: '%kernel.debug%'
 #        auto_mapping: true
         entity_managers:
             default:
@@ -253,5 +253,5 @@ fos_user:
     firewall_name: main
     user_class: GCF\MainBundle\Entity\User
     from_email:
-        address: "%mailer_user%"
+        address:  "%mailer_user%"
         sender_name: "%mailer_user%"

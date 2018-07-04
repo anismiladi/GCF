@@ -12,6 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @ORM\Table(name="etat_pub")
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\EtatPubRepository")
+ * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\EtatPubTranslation")
  */
 class EtatPub
 {

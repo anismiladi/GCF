@@ -32,7 +32,7 @@ class ProjectsController extends Controller
 
         $secteurs = $em->getRepository('GCFMainBundle:SecteurProjet')->findAll();
 
-        $focus = $em->getRepository('GCFMainBundle:Focus')->findAll();
+        $focus = $em->getRepository('GCFMainBundle:Concentration')->findAll();
 
         return $this->render('@GCFFront/Default/Projects/projects.html.twig',array(
             'gouvernorates' => $gouvernorates,
@@ -278,7 +278,7 @@ class ProjectsController extends Controller
         }
 
         $response['focus'] = '';
-        foreach ( $project->getFocus() as $focus){
+        foreach ( $project->getConcentration() as $focus){
 
                 $response['focus'] = $focus->getNom();
 

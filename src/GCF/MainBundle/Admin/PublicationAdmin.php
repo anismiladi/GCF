@@ -66,12 +66,16 @@ class PublicationAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('titre', TranslationFieldFilter::class);
+        $datagridMapper->add('titre', TranslationFieldFilter::class)
+            ->add('categorie')
+            ->add('etatPub');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->add('titre', TranslationFieldList::class)
+            ->add('categorie')
+            ->add('etatPub')
             // You may also specify the actions you want to be displayed in the list
             ->add('_action', 'actions', array(
                     'actions' => array(

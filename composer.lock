@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "1e38e773062ec25a220df07e91b5fbd6",
@@ -2339,23 +2339,23 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v5.1.6",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "bf4940572e43af679aaa13be98f3446a1c237bd8"
+                "reference": "50e8b7292425957b8fd66887504430c89bcbd83c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/bf4940572e43af679aaa13be98f3446a1c237bd8",
-                "reference": "bf4940572e43af679aaa13be98f3446a1c237bd8",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/50e8b7292425957b8fd66887504430c89bcbd83c",
+                "reference": "50e8b7292425957b8fd66887504430c89bcbd83c",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "^2.2",
                 "symfony/config": "^3.3|^4.0",
                 "symfony/dependency-injection": "^3.3|^4.0",
-                "symfony/framework-bundle": "^3.3|^4.0",
+                "symfony/framework-bundle": "^3.4|^4.0",
                 "symfony/http-kernel": "^3.3|^4.0"
             },
             "require-dev": {
@@ -2365,6 +2365,8 @@
                 "symfony/dom-crawler": "^3.3|^4.0",
                 "symfony/expression-language": "^3.3|^4.0",
                 "symfony/finder": "^3.3|^4.0",
+                "symfony/monolog-bridge": "^3.0|^4.0",
+                "symfony/monolog-bundle": "^3.2",
                 "symfony/phpunit-bridge": "^3.3|^4.0",
                 "symfony/psr-http-message-bridge": "^0.3",
                 "symfony/security-bundle": "^3.3|^4.0",
@@ -2381,7 +2383,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1.x-dev"
+                    "dev-master": "5.2.x-dev"
                 }
             },
             "autoload": {
@@ -2404,7 +2406,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2018-02-14T08:40:54+00:00"
+            "time": "2018-05-12T09:37:42+00:00"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -2457,12 +2459,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "82a4d6ea1a6eab39b48c5b1fcf54eecf2e88dbfd"
+                "reference": "6c80b7d9c63a0f6a998b6a5f7cc323730d72b966"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/82a4d6ea1a6eab39b48c5b1fcf54eecf2e88dbfd",
-                "reference": "82a4d6ea1a6eab39b48c5b1fcf54eecf2e88dbfd",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/6c80b7d9c63a0f6a998b6a5f7cc323730d72b966",
+                "reference": "6c80b7d9c63a0f6a998b6a5f7cc323730d72b966",
                 "shasum": ""
             },
             "require": {
@@ -2501,6 +2503,7 @@
             },
             "conflict": {
                 "jms/di-extra-bundle": "<1.9",
+                "sonata-project/media-bundle": "<3.7",
                 "sonata-project/user-bundle": "<3.3"
             },
             "require-dev": {
@@ -2553,7 +2556,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2018-06-18T18:09:48+00:00"
+            "time": "2018-07-03T11:38:24+00:00"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2716,12 +2719,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "352275323c28f921c57312d5fb609b693a8bc8e0"
+                "reference": "3bef132965aa0f3a25f489fa66d1999075407d77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/352275323c28f921c57312d5fb609b693a8bc8e0",
-                "reference": "352275323c28f921c57312d5fb609b693a8bc8e0",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/3bef132965aa0f3a25f489fa66d1999075407d77",
+                "reference": "3bef132965aa0f3a25f489fa66d1999075407d77",
                 "shasum": ""
             },
             "require": {
@@ -2785,7 +2788,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2018-06-13T04:16:25+00:00"
+            "time": "2018-07-01T19:06:33+00:00"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -3072,12 +3075,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataTranslationBundle.git",
-                "reference": "9b32c19f636ea4d50a897362e02fe23260084f78"
+                "reference": "6dc3e37db554146322d6b2abeb7c723dbe2eca35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataTranslationBundle/zipball/9b32c19f636ea4d50a897362e02fe23260084f78",
-                "reference": "9b32c19f636ea4d50a897362e02fe23260084f78",
+                "url": "https://api.github.com/repos/sonata-project/SonataTranslationBundle/zipball/6dc3e37db554146322d6b2abeb7c723dbe2eca35",
+                "reference": "6dc3e37db554146322d6b2abeb7c723dbe2eca35",
                 "shasum": ""
             },
             "require": {
@@ -3146,7 +3149,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2018-06-01T00:00:35+00:00"
+            "time": "2018-06-22T00:00:10+00:00"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -3846,12 +3849,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "c01bd6f897109513f706333921609800eb7baaca"
+                "reference": "bb1eaf2dfd8ac414f1ee9947d8989fe18cba4470"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/c01bd6f897109513f706333921609800eb7baaca",
-                "reference": "c01bd6f897109513f706333921609800eb7baaca",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/bb1eaf2dfd8ac414f1ee9947d8989fe18cba4470",
+                "reference": "bb1eaf2dfd8ac414f1ee9947d8989fe18cba4470",
                 "shasum": ""
             },
             "require": {
@@ -3918,7 +3921,7 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-            "time": "2018-06-11T14:10:14+00:00"
+            "time": "2018-07-03T18:14:13+00:00"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -3981,20 +3984,20 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.4.11",
+            "version": "v3.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "8eb567d8398ce31a402ea8db3e6b5b1faf121cbc"
+                "reference": "c36f8cb21b5f1661a14fdb8cef9cc611d54a3494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/8eb567d8398ce31a402ea8db3e6b5b1faf121cbc",
-                "reference": "8eb567d8398ce31a402ea8db3e6b5b1faf121cbc",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/c36f8cb21b5f1661a14fdb8cef9cc611d54a3494",
+                "reference": "c36f8cb21b5f1661a14fdb8cef9cc611d54a3494",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.4",
+                "doctrine/common": "~2.4@stable",
                 "ext-xml": "*",
                 "fig/link-util": "^1.0",
                 "php": "^5.5.9|>=7.0.8",
@@ -4132,7 +4135,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2018-05-25T13:16:49+00:00"
+            "time": "2018-06-25T12:29:33+00:00"
         },
         {
             "name": "thormeier/breadcrumb-bundle",
@@ -4533,16 +4536,16 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v3.4.11",
+            "version": "v3.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "63cdae00a75862fa543b765ba63d55f6b6397d0c"
+                "reference": "8a21eb6bedad38bf1f15d529c65eb9e17d0242fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/63cdae00a75862fa543b765ba63d55f6b6397d0c",
-                "reference": "63cdae00a75862fa543b765ba63d55f6b6397d0c",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/8a21eb6bedad38bf1f15d529c65eb9e17d0242fd",
+                "reference": "8a21eb6bedad38bf1f15d529c65eb9e17d0242fd",
                 "shasum": ""
             },
             "require": {
@@ -4595,7 +4598,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2018-05-16T12:49:49+00:00"
+            "time": "2018-06-10T07:25:02+00:00"
         }
     ],
     "aliases": [],

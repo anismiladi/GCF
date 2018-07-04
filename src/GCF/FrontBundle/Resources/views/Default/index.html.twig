@@ -288,7 +288,7 @@
                     <div class="col-sm-12 item single_element">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
-                                <a href="{{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }}">
+                                <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}">
                                     {% if event.photoCouverture != "" %}
                                         <img class="img-fluid" src="{{ event.photoCouverture }}" />
                                     {% else %}
@@ -297,7 +297,7 @@
                                 </a>
                             </div>
                             <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
-                                <a href="{{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }}"><h2 class="name">{{ event.Nom }}</h2></a>
+                                <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}"><h2 class="name">{{ event.Nom }}</h2></a>
                                 <p class="theme"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ event.debut|date('d-m-Y') }}</p>
                             </div>
                         </div>
@@ -421,12 +421,12 @@
                         <div class="col-sm-6 item filter_display ours" style="background: white;border: solid 2px #f7f7f7;">
                             <div class="row">
                                 <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
-                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }}">
+                                    <a href="{% if nospublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }} {% endif %}">
                                         <img class="img-fluid" src="{{ nospublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 106px; object-fit: cover;"/>
                                     </a>
                                 </div>
                                 <div class="col-md-8 col-lg-8 col-xs-8">
-                                    <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }}">{{ nospublication.titre }}</a></h2>
+                                    <h2 class="name"><a href="{% if nospublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }} {% endif %}">{{ nospublication.titre }}</a></h2>
                                     <p class="description" style="    font-size: 13px;">{{ nospublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                 </div>
                             </div>
@@ -441,12 +441,12 @@
                         <div class="col-sm-6 item filter_display others" style="background: white;border: solid 2px #f7f7f7;">
                             <div class="row">
                                 <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
-                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}">
+                                    <a href="{% if autrespublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }} {% endif %}">
                                         <img class="img-fluid" src="{{ autrespublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                     </a>
                                 </div>
                                 <div class="col-md-8 col-lg-8 col-xs-8">
-                                    <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}">{{ autrespublication.titre }}</a></h2>
+                                    <h2 class="name"><a href="{% if autrespublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }} {% endif %}">{{ autrespublication.titre }}</a></h2>
                                     <p class="description" style="font-size: 13px;">{{ autrespublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                 </div>
                             </div>
@@ -459,13 +459,13 @@
                             <div class="col-sm-6 item filter_display gb" style="background: white;border: solid 2px #f7f7f7;">
                                 <div class="row">
                                     <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
-                                        <a  href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}">
+                                        <a  href="{% if gbpublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }} {% endif %}">
                                             <img class="img-fluid" src="{{ gbpublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
                                         </a>
                                     </div>
                                     <div class="col-md-8 col-lg-8 col-xs-8">
 
-                                        <h2 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}">{{ gbpublication.titre }}</a></h2>
+                                        <h2 class="name"><a href="{% if gbpublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }} {% endif %}">{{ gbpublication.titre }}</a></h2>
                                         <p class="description" style="font-size: 13px;">{{ gbpublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                     </div>
                                 </div>

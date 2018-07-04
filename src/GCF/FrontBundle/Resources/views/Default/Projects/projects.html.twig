@@ -180,7 +180,7 @@
                             {% spaceless %}
                             <td>
                                 <ul>
-                                    {% for focus in project.focus %}
+                                    {% for focus in project.concentration %}
                                         <li>{{ focus.nom}}</li>
                                     {% endfor %}
                                 </ul>
@@ -321,10 +321,10 @@
                         toAppend +=  '<td>'+result.acteur+'</td>';
                         toAppend +=  '</tr>';
                     }
-                    if(result.focus !== ''){
+                    if(result.concentration !== ''){
                         toAppend +=  '<tr>';
                         toAppend +=  '<td class="line_name">Focus</td>';
-                        toAppend +=  '<td>'+result.focus+'</td>';
+                        toAppend +=  '<td>'+result.concentration+'</td>';
                         toAppend +=  '</tr>';
                     }
                     if(result.gouvernorat.length > 0) {
