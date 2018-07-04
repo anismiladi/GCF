@@ -144,9 +144,10 @@
 
                         <div class="container">
 
-                            <h2 class="slogan_banner_txt">{{ 'search.Slogan'|trans }}</h2>
-                            {{ render( controller('GCFFrontBundle:Default:banniere') ) }}
-
+                            <h2 class="slogan_banner_txt col-md-10 col-md-offset-1">{{ 'search.Slogan'|trans }}</h2>
+                            <div class="col-md-10 col-md-offset-1">
+                                {{ render( controller('GCFFrontBundle:Default:banniere') ) }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -576,18 +577,23 @@
     //====================================
     // Fullcalender scripts
     //====================================
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
     var data =
         [
             {
                 title: 'test',
-                start: '2018-06-06',
-                end: '2018-06-06',
+                start: yyyy+'-'+mm+'-'+dd,
+                end: yyyy+'-'+mm+'-'+dd,
                 url: '#'
             },
             {
                 title: 'test2',
-                start: '2018-06-06',
-                end: '2018-06-06',
+                start: yyyy+'-'+mm+'-'+dd,
+                end: yyyy+'-'+mm+'-'+dd,
                 url: '#'
             },
         ];
@@ -622,10 +628,7 @@
                 rendering: 'background',
                 backgroundColor: 'blue'
             };
-            var today = new Date();
-            var dd = today.getDate();
-            var mm = today.getMonth()+1; //January is 0!
-            var yyyy = today.getFullYear();
+
 
             calendar.fullCalendar({
                 locale: '{{ app.request.locale }}',

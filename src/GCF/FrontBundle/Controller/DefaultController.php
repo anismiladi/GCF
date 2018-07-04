@@ -498,7 +498,7 @@ public function MapAction()
         $em = $this->getDoctrine()->getManager();
         $apropos = $em->getRepository('GCFMainBundle:Apropos')->findAll();
 
-            return $this->render('@GCFFront/blocks/apropos.html.twig',array(
+            return $this->render('@GCFFront/Default/blocks/apropos.html.twig',array(
                 'apropos' => $apropos[0]
             ));
     }
