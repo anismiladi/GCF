@@ -23,8 +23,10 @@ class ProjetAdmin extends AbstractAdmin
         $formMapper
             ->add('nom')
             ->add('description')
-            /*->add('focus', ModelAutocompleteType::class,    //  )        //_autocomplete
+            
+            ->add('concentration', ModelAutocompleteType::class,    //  )        //_autocomplete
                 array(
+                    'label' => "Focus",
                     'required' => false,
                     //'expanded' => true,
                     'multiple' => true,
@@ -35,7 +37,8 @@ class ProjetAdmin extends AbstractAdmin
                         return $enitity->getNom();
                     },
                 )
-            )*/
+            )
+            
             /*->add('focus', ModelAutocompleteType::class,    //  )        //_autocomplete
                 array(
                     'label' => "Focus",

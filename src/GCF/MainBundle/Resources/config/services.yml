@@ -31,13 +31,13 @@ services:
             - { name: sonata.admin, manager_type: orm, group: Projets, label: Secteurs }
         public: true
 
-    admin.Focus:
-        class: GCF\MainBundle\Admin\FocusAdmin
-        arguments: [~, GCF\MainBundle\Entity\Focus, ~]
+    admin.Concentration:
+        class: GCF\MainBundle\Admin\ConcentrationAdmin
+        arguments: [~, GCF\MainBundle\Entity\Concentration, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Projets, label: Focus }
         public: true
-    
+        
     #admin.Focus:
     #    class: GCF\MainBundle\Admin\FocusAdmin
     #    arguments: [~, GCF\MainBundle\Entity\Focus, ~]
@@ -103,6 +103,13 @@ services:
             - { name: sonata.admin, manager_type: orm, group: Autres, label: Mots clés } 
         public: false
 
+    admin.Etatpub:
+        class: GCF\MainBundle\Admin\EtatPubAdmin
+        arguments: [~, GCF\MainBundle\Entity\EtatPub, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Autres, label: Etat Publication }
+        public: true
+        
     admin.Apropos:
         class: GCF\MainBundle\Admin\AproposAdmin
         arguments: [~, GCF\MainBundle\Entity\Apropos, ~]

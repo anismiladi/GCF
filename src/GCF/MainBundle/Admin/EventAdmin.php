@@ -38,7 +38,7 @@ class EventAdmin extends AbstractAdmin
             ->add('debut')
             ->add('fin')
             ->add('lieu')
-//            ->add('etatPub')
+            ->add('etatPub')
         ;
     }
 

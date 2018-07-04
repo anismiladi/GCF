@@ -42,7 +42,7 @@ class Gouvernorat extends AbstractPersonalTranslatable implements TranslatableIn
     private $nom;
 
     /**
-     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="gouvernorat")
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="gouvernorat", cascade={"persist", "remove"})
      * @ORM\JoinTable(
      *     name="gouverprojet",
      *     joinColumns={@ORM\JoinColumn(name="gouvernorat", referencedColumnName="id", nullable=false)},
