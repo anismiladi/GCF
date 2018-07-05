@@ -28,6 +28,10 @@ gcf_front_single_actor:
     path:     /get-single-actor-details-{id}
     defaults: { _controller: GCFFrontBundle:Actors:singleActor }
 
+gcf_front_single_actor_page:
+    path:     /actor/{slug}/{id}
+    defaults: { _controller: GCFFrontBundle:Actors:pageSingleActor }
+
 gcf_front_projectspage:
     path:     /projects
     defaults: { _controller: GCFFrontBundle:Projects:index }

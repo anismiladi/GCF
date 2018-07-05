@@ -10,15 +10,6 @@ class ActorsController extends Controller
 {
     public function indexAction()
     {
-        $pageTitle = 'Acteurs';
-
-        $breadcrumbs = $this->get("white_october_breadcrumbs");
-
-        // Simple example
-        $breadcrumbs->addItem("Accueil", $this->get("router")->generate("gcf_front_homepage"));
-        // Simple example
-        $breadcrumbs->addItem("Acteurs", $this->get("router")->generate("gcf_front_actorspage"));
-
         $em = $this->getDoctrine()->getManager();
 
         $sectors = $em->getRepository('GCFMainBundle:SecteurActeur')->findBy(
@@ -41,7 +32,6 @@ class ActorsController extends Controller
 
 
         return $this->render('@GCFFront/Default/Actors/actors.html.twig',array(
-            'pageTitle' => $pageTitle,
             'sectors' => $sectors,
             'mainactors' => $mainactors,
             'actors' => $actors
@@ -49,50 +39,7 @@ class ActorsController extends Controller
         ));
     }
 
-//    public function gethierarchieAction( $clicked )
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//
-//        $acteur = $em->getRepository('GCFMainBundle:Acteur')->findAll();
-//
-//        $secteursActeur = $em->getRepository('GCFMainBundle:SecteurActeur')->findAll();
-//
-//        $response = array();
-//
-//        foreach ($acteur as $act){
-//
-//            //$response[] = $act->getSecteurActeur()->getId();
-//
-//            foreach ( $secteursActeur as $secteurActeur)
-//            {
-//                if($secteurActeur->getId() == $act->getSecteurActeur()->getId())
-//                {
-//                    if ($secteurActeur->getNom() == $clicked){
-//                        //$response[] = $act->getActeurParent();
-//                        if ($act->getActeurParent() == null){
-//                            //dump($act->getNom());
-//
-//                            foreach ($act->getActeurFils() as $fils){
-//                                $filsarray[] = $fils->getNom();
-//                            }
-//                            $response[] = array('nom' => $act->getNom(), 'parent'=> 'null', 'fils' => $filsarray );
-//                        }else{
-//                            //dump($act->getNom());
-//                            $filsarray = array();
-//                            foreach ($act->getActeurFils() as $fils){
-//                                $filsarray[] = $fils->getNom();
-//                            }
-//                            $response[] = array('nom'=>$act->getNom(), 'parent' => $act->getActeurParent()->getNom(), 'fils' => $filsarray );
-//
-//                        }
-//                    }
-//                }
-//            }
-//
-//        }
-//
-//        return new JsonResponse($response);
-//    }
+
 
     public function ActorsSectorAction($id){
 
@@ -137,20 +84,21 @@ class ActorsController extends Controller
         $singleActor = array();
         //$id = $request->get('id');
         $actor = $em->getRepository('GCFMainBundle:Acteur')->findOneBy( array( 'id' => $id ) );
-        
-        //$data =  $this->get('serializer')->serialize($actor, 'json');
-        //$response = new Response($data);
-        //$response->headers->set('Content-Type', 'application/json');
-        //return $response;
-        
-        //$jsonContent = new serialize($actor);
-        // $jsonContent contains {"name":"foo","age":99,"sportsperson":false,"createdAt":null}
-        //return $jsonContent; // or return it in a Response
+
 
         return new JsonResponse($actor->jsonSerialize());
-        
-        //return json_encode($actor);
-        //return new JsonResponse(json_encode($actor));
+    }
+
+    public function pageSingleActorAction($id, $slug){
+        $em = $this->getDoctrine()->getManager();
+
+        $actor = $em->getRepository('GCFMainBundle:Acteur')->findOneBy( array( 'id' => $id ) );
+
+
+        return $this->render('@GCFFront/Default/Actors/singleActor.html.twig',array(
+            'actor'=> $actor
+
+        ));
     }
 
 }

@@ -67,10 +67,10 @@
 
         .popup_details_container{
             display: none;
-            position: absolute;
+            position: fixed;
             z-index: 1001;
-            margin: 0 auto;
-            top: 35px;
+            margin: auto;
+            top: 0;
             bottom: 0;
             right: 0;
             left: 0;
@@ -99,7 +99,17 @@
         .popup_details_container_inner{
             padding: 20px;
         }
+        .card__actor__img{
+            width: 100%;
+            max-width: 100%;
+            border: solid 1px gray;
+            height: 115px;
+            max-height: 115px;
 
+        }
+        .card__actor__footer a{
+            border-radius:0;
+        }
     </style>
 {% endblock %}
 
@@ -166,8 +176,9 @@
     </div>
     <div class="popup_details_container">
         <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closePop()"></i>
-        <div class="popup_details_container_inner"></div>
+        <div class="popup_details_container_inner col-md-12"></div>
     </div>
+
 {% endblock %}
 
 
@@ -186,45 +197,29 @@
                 contentType: 'application/json',
                 success: function (result) {
                     $('.loading_page_overlay').css('display', 'none');
-
+                    var urlSingle = '{{ path('gcf_front_single_actor_page',{'id': 'id','slug': 'slug'}) }}';
+                    urlSingle = urlSingle.replace('id', result.id);
+                    urlSingle = urlSingle.replace('slug', result.nom);
                     var toAppend = '';
-                    toAppend = '<table class="table table-striped table-bordered">';
-                    toAppend +=  '<thead></thead>';
-                    toAppend +=  '<tbody>';
-                    toAppend +=  ' <tr>';
-                    toAppend +=  '<td>ID</td>';
-                    toAppend +=  '<td>'+actor_id+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td>Logo : </td>';
-                    toAppend +=  '<td><img src="'+result.logo.replace('/app_dev.php', '')+'" alt="'+result.nom+'" style="max-width:200px"></td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td>Nom : </td>';
-                    toAppend +=  '<td>'+result.nom+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td>Nom Complet : </td>';
-                    toAppend +=  '<td>'+result.nomcomplet+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td>Description : </td>';
-                    toAppend +=  '<td>'+result.description+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td>Hiérarchie : </td>';
-                    toAppend +=  '<td>'+result.hierarchie+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td>Mission</td>';
-                    toAppend +=  '<td>'+result.mission+'</td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '<tr>';
-                    toAppend +=  '<td>...</td>';
-                    toAppend +=  '<td></td>';
-                    toAppend +=  '</tr>';
-                    toAppend +=  '</tbody>';
-                    toAppend +=  '</table>';
+                    toAppend = '<div class="popup__card col-md-12 col-xs-12">';
+                    toAppend += ' <div class="card__actor__header">';
+                    toAppend += '<div class="col-md-4 col-xs-4">';
+                    toAppend += '<img src="'+result.logo.replace('/app_dev.php', '')+'" alt="'+result.nom+'" class="card__actor__img">';
+                    toAppend += '</div>';
+                    toAppend += ' <div class="col-md-8 col-xs-8">';
+                    toAppend += '<h1 style="margin-top: 0;">'+result.nom+'</h1>';
+                    toAppend += ' <h3>'+result.siteweb+'</h3>';
+                    toAppend += '</div>';
+                    toAppend += ' </div>';
+
+                    toAppend += '<div class="card__actor__body col-md-12 col-xs-12">';
+                    toAppend += ' <p>'+result.description.slice(0, 440)+'...</p>';
+                    toAppend += '</div>';
+                    toAppend += '<div class="card__actor__footer col-md-12 col-xs-12">';
+                    toAppend += '<a href="'+urlSingle+'" class="btn btn-default btn-block" >Voir les détails</a>';
+                    toAppend += '</div>';
+                    toAppend += '</div>';
+
             $('.popup_details_container_inner').append(toAppend);
             $('.popup_details_container').css('display', 'block');
                 },

@@ -28,12 +28,12 @@ class AproposAdmin extends AbstractAdmin
 
     /**/protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('contenu', TranslationFieldFilter::class);
+        $datagridMapper->add('id', TranslationFieldFilter::class);
     }
 
     /**/protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->add('contenu', TranslationFieldList::class)
+        $listMapper->add('id', TranslationFieldList::class)
             // You may also specify the actions you want to be displayed in the list
             ->add('_action', 'actions', array(
                 'actions' => array(

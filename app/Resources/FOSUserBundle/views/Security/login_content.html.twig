@@ -1,0 +1,141 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+{#<form action="{{ path("fos_user_security_check") }}" method="post">#}
+    {#{% if csrf_token %}#}
+        {#<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />#}
+    {#{% endif %}#}
+
+    {#<label for="username">{{ 'security.login.username'|trans }}</label>#}
+    {#<input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />#}
+
+    {#<label for="password">{{ 'security.login.password'|trans }}</label>#}
+    {#<input type="password" id="password" name="_password" required="required" autocomplete="current-password" />#}
+
+    {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" />#}
+    {#<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>#}
+
+    {#<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />#}
+{#</form>#}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Connexion Admin</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="{{ asset('assets/images/user-Login.png') }}"
+                     alt="">
+
+                <form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
+                    <input id="username" name="_username" type="text" class="form-control" placeholder="{{ 'security.login.username'|trans }}" value="{{ last_username }}" required="required" autocomplete="username" >
+
+                    <input type="password" id="password" name="_password" class="form-control" placeholder="{{ 'security.login.password'|trans }}" required="required" autocomplete="current-password">
+
+                    <label class="remember_me" for="remember_me" >
+                        <input id="remember_me" name="_remember_me" type="checkbox" value="on">
+                        {{ 'security.login.remember_me'|trans }}
+                    </label>
+
+                    <button class="btn btn-lg btn-default btn-block button__login" type="submit" id="_submit" name="_submit" >
+                        {{ 'security.login.submit'|trans }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <style>
+        .button__login{
+            border-radius:0;
+        }
+        .form-signin
+        {
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+        .form-signin .form-signin-heading, .form-signin .checkbox
+        {
+            margin-bottom: 10px;
+        }
+        .form-signin .checkbox
+        {
+            font-weight: normal;
+        }
+        .form-signin .form-control
+        {
+            position: relative;
+            font-size: 16px;
+            height: auto;
+            padding: 10px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .form-signin .form-control:focus
+        {
+            z-index: 2;
+        }
+        .form-signin input[type="text"]
+        {
+            border-radius: 0;
+            margin-bottom: 10px;
+        }
+        .form-signin input[type="password"]
+        {
+            border-radius: 0;
+            margin-bottom: 10px;
+        }
+        label.remember_me{
+            margin-bottom: 10px;
+        }
+        button.btn-default{
+            background: #7ac943;
+            border-color: #7ac943;
+            color:white;
+        }
+        button.btn-default:hover{
+            background: #8fe851;
+            border-color: #7ac943;
+            color:white;
+        }
+        .account-wall
+        {
+            margin-top: 20px;
+            padding: 40px 0px 20px 0px;
+            background-color: #f7f7f7;
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        }
+        .login-title
+        {
+            color: #555;
+        }
+        .profile-img
+        {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 10px;
+            display: block;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .need-help
+        {
+            margin-top: 10px;
+        }
+        .new-account
+        {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>

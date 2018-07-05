@@ -1,0 +1,68 @@
+{% extends '@GCFFront/base.html.twig' %}
+
+{% block title %} GCF - {{ actor.nom }} {% endblock %}
+
+{% block pageTitle %} {% if  actor.nom|length > 40 %} {{ actor.nom|slice(0, 40) }}... {% else %} {{ actor.nom }} {% endif %} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}" title="{{ 'menu.Home'|trans }}">{{ 'menu.Home'|trans }}</a> / <a href="{{ path('gcf_front_actorspage') }}" title="{{ 'menu.Actors'|trans }}"> {{ 'menu.Actors'|trans }}</a> / <a title="{{ actor.nom }}">{% if  actor.nom|length > 40 %} {{ actor.nom|slice(0, 40) }}... {% else %} {{ actor.nom }} {% endif %}</a> {% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .img__container{
+            width: 100%;
+            border: solid 1px #f1f1f1;
+            text-align: center;
+        }
+        .img__container img{
+             max-width: 100%;
+         }
+        .single__actor__header_info span{
+            margin-right: 10px
+        }
+        .single__actor__body span{
+            margin-right: 10px
+        }
+    </style>
+{% endblock %}
+{% block body %}
+
+    {#{{ dump(actor) }}#}
+    <div class="single__actor__page__container">
+
+        <div class="single__actor__header">
+            <div class="img__container">
+                <img src="{{ actor.logo|replace({'/app_dev.php': ''}) }}" alt="">
+            </div>
+            <h1>{{ actor.nom }}</h1>
+            <h2>{{ actor.nomcomplet }}</h2>
+            <p class="single__actor__header_info">
+                <span><i class="fa fa-envelope" aria-hidden="true"></i> {{ actor.email }}</span>
+                <span><i class="fa fa-phone" aria-hidden="true"></i> {{ actor.tel }}</span>
+                <span><i class="fa fa-fax" aria-hidden="true"></i> {{ actor.fax }}</span>
+                <span><i class="fa fa-map-marker" aria-hidden="true"></i> {{ actor.adresse|striptags }}</span>
+                <span><i class="fa fa-globe" aria-hidden="true"></i> {{ actor.siteweb }}</span>
+            </p>
+        </div>
+        <div class="single__actor__body col-md-12" style=" padding-left:0">
+            {% if actor.description !='' %}
+                <h3>Description</h3>
+                <p class="actor__desription">{{ actor.description|raw }}</p>
+            {% endif %}
+            {% if actor.hierarchie !='' %}
+                <h3>Hiérarchie</h3>
+                <p class="actor__hierarchie">{{ actor.hierarchie|raw }}</p>
+            {% endif %}
+            {% if actor.mission !='' %}
+                <h3>Mission</h3>
+                <p class="actor__mission">{{ actor.mission|raw }}</p>
+            {% endif %}
+            {% if actor.responsable !='' %}
+                <h3>Responsable à l'information</h3>
+                <span class="actor__nom__responsable">{{ actor.responsable }}</span>
+                <span class="actor__tel__responsable"><i class="fa fa-phone" aria-hidden="true"></i> {{ actor.telresponsable }}</span>
+                <span class="actor__email__responsable"><i class="fa fa-envelope" aria-hidden="true"></i> {{ actor.emailresponsable }}</span>
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock %}
