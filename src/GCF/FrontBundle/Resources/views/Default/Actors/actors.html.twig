@@ -1,6 +1,10 @@
 {% extends '@GCFFront/base.html.twig' %}
 
-{% block title %} GCF - Acteurs {% endblock %}
+{% block title %} GCF - {{ 'menu.Actors'|trans }} {% endblock %}
+
+{% block pageTitle %} {{ 'menu.Actors'|trans }} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}">{{ 'menu.Home'|trans }}</a> / <a> {{ 'menu.Actors'|trans }}</a>  {% endblock %}
+
 
 {% block styleBloc %}
     <style>
@@ -105,6 +109,7 @@
             border: solid 1px gray;
             height: 115px;
             max-height: 115px;
+            object-fit: cover;
 
         }
         .card__actor__footer a{
@@ -151,20 +156,20 @@
             <div class="col-md-8">
                 <div class="hierarchie_result_lvl">
 
-{% block actorsSector %}
-    {% set i = 0 %}
-    {% for sector in sectors %}
-        {% set i = i + 1 %}
-        <h1>{{ sector.nom }}</h1>
-        <ul>
-            {% for actor in mainactors[sector.id].actors %}
-                <li>
-                    <span onclick="seeDetails( {{ actor.id }} )">{{ actor.nom }}</span>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
-{% endblock %}
+                {% block actorsSector %}
+                    {% set i = 0 %}
+                    {% for sector in sectors %}
+                        {% set i = i + 1 %}
+                        <h1>{{ sector.nom }}</h1>
+                        <ul>
+                            {% for actor in mainactors[sector.id].actors %}
+                                <li>
+                                    <span onclick="seeDetails( {{ actor.id }} )">{{ actor.nom }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                {% endblock %}
                 </div>
             </div>
 
@@ -204,16 +209,26 @@
                     toAppend = '<div class="popup__card col-md-12 col-xs-12">';
                     toAppend += ' <div class="card__actor__header">';
                     toAppend += '<div class="col-md-4 col-xs-4">';
-                    toAppend += '<img src="'+result.logo.replace('/app_dev.php', '')+'" alt="'+result.nom+'" class="card__actor__img">';
+                    toAppend += '<div style="border: solid 1px; height:115px">';
+                    if ( result.logo !== ''){
+                        toAppend += '<img src="'+result.logo.replace('/app_dev.php', '')+'" alt="'+result.nom+'" class="card__actor__img">';
+                    }else{
+                        toAppend += '<img src="{{ asset('assets/images/empty-image.png') }}" alt="'+result.nom+'" class="card__actor__img">';
+                    }
+
+
                     toAppend += '</div>';
-                    toAppend += ' <div class="col-md-8 col-xs-8">';
+                    toAppend += '</div>';
+                    toAppend += '<div class="col-md-8 col-xs-8">';
                     toAppend += '<h1 style="margin-top: 0;">'+result.nom+'</h1>';
-                    toAppend += ' <h3>'+result.siteweb+'</h3>';
+                    if(result.siteweb != null) {
+                        toAppend += '<h3><i class="fa fa-globe" aria-hidden="true"></i>' + result.siteweb + '</h3>';
+                    }
                     toAppend += '</div>';
-                    toAppend += ' </div>';
+                    toAppend += '</div>';
 
                     toAppend += '<div class="card__actor__body col-md-12 col-xs-12">';
-                    toAppend += ' <p>'+result.description.slice(0, 440)+'...</p>';
+                    toAppend += '<p>'+result.description.slice(0, 440)+'...</p>';
                     toAppend += '</div>';
                     toAppend += '<div class="card__actor__footer col-md-12 col-xs-12">';
                     toAppend += '<a href="'+urlSingle+'" class="btn btn-default btn-block" >Voir les détails</a>';

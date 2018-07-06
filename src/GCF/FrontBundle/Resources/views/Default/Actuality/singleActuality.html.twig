@@ -1,0 +1,15 @@
+{% extends '@GCFFront/base.html.twig' %}
+
+{% block title %} GCF - {{ actuality.titre }} {% endblock %}
+
+{% block pageTitle %} {% if  actuality.titre|length > 40 %} {{ actuality.titre|slice(0, 40) }}... {% else %} {{ actuality.titre }} {% endif %} {% endblock %}
+
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}" title="{{ 'menu.Home'|trans }}">{{ 'menu.Home'|trans }}</a> / <a href="{{ path('gcf_front_event_page') }}" title="{{ 'menu.News'|trans }}"> {{ 'menu.News'|trans }}</a> / <a title="{{ actuality.titre }}">{% if  actuality.titre|length > 40 %} {{ actuality.titre|slice(0, 40) }}... {% else %} {{ actuality.titre }} {% endif %}</a> {% endblock %}
+
+{% block body %}
+
+    {{ dump(actuality) }}
+{% endblock %}
+
+
+

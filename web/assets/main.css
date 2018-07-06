@@ -517,6 +517,8 @@ Newsletter and goTop buttons
     right: 0;
     left: 0;
     background: white;
+
+    border: solid 2px #7ac943;
 }
 .my_newsletter_form_header{min-height: 90px}
 .my_newsletter_form_inner{ padding: 20px; }
@@ -763,9 +765,10 @@ footer .rs_btns_footer_container{margin: 0 0 10px 0}
     margin: auto;
     height: max-content;
     min-height: 200px;
-    width: 600px;
+    width: 700px;
     max-width: 100%;
     background: white;
+    border: solid 2px #7ac943;
 }
 .popup__about__gcf__container{
     padding: 20px ;

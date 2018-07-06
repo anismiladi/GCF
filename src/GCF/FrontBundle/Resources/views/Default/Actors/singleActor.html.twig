@@ -33,30 +33,40 @@
                 <img src="{{ actor.logo|replace({'/app_dev.php': ''}) }}" alt="">
             </div>
             <h1>{{ actor.nom }}</h1>
-            <h2>{{ actor.nomcomplet }}</h2>
+            <h3>{{ actor.secteurActeur.nom }}</h3>
             <p class="single__actor__header_info">
-                <span><i class="fa fa-envelope" aria-hidden="true"></i> {{ actor.email }}</span>
+                {% if actor.email != '' %}
+                    <span><i class="fa fa-envelope" aria-hidden="true"></i> {{ actor.email }}</span>
+                {% endif %}
+                {% if actor.tel != '' %}
                 <span><i class="fa fa-phone" aria-hidden="true"></i> {{ actor.tel }}</span>
+                {% endif %}
+                {% if actor.fax != '' %}
                 <span><i class="fa fa-fax" aria-hidden="true"></i> {{ actor.fax }}</span>
+                {% endif %}
+                {% if actor.adresse != '' %}
                 <span><i class="fa fa-map-marker" aria-hidden="true"></i> {{ actor.adresse|striptags }}</span>
+                {% endif %}
+                {% if actor.siteweb != '' %}
                 <span><i class="fa fa-globe" aria-hidden="true"></i> {{ actor.siteweb }}</span>
+                {% endif %}
             </p>
         </div>
         <div class="single__actor__body col-md-12" style=" padding-left:0">
             {% if actor.description !='' %}
-                <h3>Description</h3>
+                <h4>Description</h4>
                 <p class="actor__desription">{{ actor.description|raw }}</p>
             {% endif %}
             {% if actor.hierarchie !='' %}
-                <h3>Hiérarchie</h3>
+                <h4>Hiérarchie</h4>
                 <p class="actor__hierarchie">{{ actor.hierarchie|raw }}</p>
             {% endif %}
             {% if actor.mission !='' %}
-                <h3>Mission</h3>
+                <h4>Mission</h4>
                 <p class="actor__mission">{{ actor.mission|raw }}</p>
             {% endif %}
             {% if actor.responsable !='' %}
-                <h3>Responsable à l'information</h3>
+                <h4>Responsable à l'information</h4>
                 <span class="actor__nom__responsable">{{ actor.responsable }}</span>
                 <span class="actor__tel__responsable"><i class="fa fa-phone" aria-hidden="true"></i> {{ actor.telresponsable }}</span>
                 <span class="actor__email__responsable"><i class="fa fa-envelope" aria-hidden="true"></i> {{ actor.emailresponsable }}</span>

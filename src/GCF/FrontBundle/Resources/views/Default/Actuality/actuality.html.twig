@@ -1,0 +1,41 @@
+{% extends '@GCFFront/base.html.twig' %}
+
+{% block title %} GCF - {{ 'menu.News'|trans }} {% endblock %}
+
+{% block pageTitle %} {{ 'menu.News'|trans }} {% endblock %}
+{% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}">{{ 'menu.Home'|trans }}</a> / <a> {{ 'menu.News'|trans }}</a>  {% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .article__title{
+
+        }
+        .article__content{
+
+        }
+        .button_see_more_lg{
+            text-decoration: none;
+            color:white;
+        }
+        .button_see_more_lg:hover{
+            text-decoration: none;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+
+    {% for actuality in actualities %}
+        {% if actuality.titre != '' %}
+            <div class="col-md-12" style="padding-left: 0">
+                <h3 class="article__title">{{ actuality.titre }}</h3>
+                <p style="margin: 0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right: 5px"></i> {{ actuality.createdAt|date("d-m-Y") }}</p>
+                <p class="article__content">{{ actuality.contenue|slice(0,445)|raw }}...</p>
+                <p style="text-align: right"><a class="button_see_more_lg" href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}">{{ 'actuality.Read more'|trans }}</a></p>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}
+
+

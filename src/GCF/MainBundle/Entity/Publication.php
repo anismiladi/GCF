@@ -44,7 +44,7 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
      * @var string
      *
      * @Gedmo\Translatable
-     * @ORM\Column(name="contenu", type="text")
+     * @ORM\Column(name="contenu", type="text", nullable=false)
      */
     private $contenu;
 
@@ -79,7 +79,7 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
 
     /**
      * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\EtatPub", inversedBy="publication")
-     * @ORM\JoinColumn(name="etat", referencedColumnName="id")
+     * @ORM\JoinColumn(name="etat", referencedColumnName="id",nullable=true)
      */
     private $etatPub;
 

@@ -69,6 +69,11 @@ gcf_front_actualitypage:
     path:     /news
     defaults: { _controller: GCFFrontBundle:Actuality:index}
 
+gcf_front_actuality_single_page:
+    path:     /news/{slug}/{id}
+    defaults: { _controller: GCFFrontBundle:Actuality:singleActualityPage}
+
+
 gcf_front_contactpage:
     path:     /contact-us
     defaults: { _controller: GCFFrontBundle:Contact:index}

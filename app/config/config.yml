@@ -111,7 +111,7 @@ swiftmailer:
 sonata_admin:
     title: Admin
 #    title_logo: img/logo_small.png
-    title_logo: assets/images/GCF-logo-final-green.png
+    title_logo: assets/images/GCF-Logo-V1.png
 
     options:
         html5_validate:    true     # enable or disable html5 form validation

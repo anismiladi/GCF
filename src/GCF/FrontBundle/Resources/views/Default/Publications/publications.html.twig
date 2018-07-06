@@ -101,7 +101,7 @@
 
             {% for publication in nospublications %}
 
-                {% if publication.titre %}
+                {% if publication.titre and  publication.etatPub == 'Public' %}
                 <div class="col-md-6 col-sm-6 col-xs-12"
                      style="background: whitesmoke;border: solid white; padding-top: 10px; padding-bottom:10px ">
                     <div class="row">
@@ -129,7 +129,7 @@
 
             {% for gbpublication in gbpublications %}
 
-                {% if gbpublication.titre %}
+                {% if gbpublication.titre and  gbpublication.etatPub == 'Public' %}
                 <div class="col-md-6 col-sm-6 col-xs-12"
                      style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px ">
                     <div class="row">
@@ -161,7 +161,7 @@
 
         <div id="autres_pub_tab_container">
             {% for autrespublication in autrespublications %}
-                {% if autrespublication.titre %}
+                {% if autrespublication.titre  and  autrespublication.etatPub == 'Public' %}
                 <div class="col-md-6 col-sm-6 col-xs-12"
                      style=" background: rgba(255,239,0,0.1);border: solid white; padding-top: 10px; padding-bottom:10px ">
                     <div class="row">

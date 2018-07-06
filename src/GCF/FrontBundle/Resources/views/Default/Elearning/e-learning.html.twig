@@ -96,6 +96,40 @@
         ._tab__container{
             display: none;
         }
+
+        /**
+        ===================
+        *popup video
+        ===================
+         */
+        .index__overlay{
+            display: none;
+            position: fixed;
+            z-index: 9991;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+        }
+        .video__home__popup{
+            display: none;
+            position: fixed;
+            z-index: 9992;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            height: 400px;
+            width: 700px;
+            max-width: 100%;
+            background: white;
+        }
+        .video__container{
+            height: 100%;
+            width: 100%;
+        }
     </style>
 
 
@@ -126,42 +160,73 @@
                 {% endif %}
             {% for learning in elearning %}
                 {% if learning.fichier != '' and learning.catLearning.nom == elearningCategorie.nom %}
+                    {% if learning.nom and learning.etatPub == 'Public' %}
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="listing">
                             <h4><a target="_blank" href="{{ learning.Fichier }}">{{ learning.Nom }}</a></h4>
                             <div class="type">
                                 <a target="_blank" href="{{ learning.Fichier }}">
-                                <img src="{{ learning.Image|replace({'app_dev.php': ''}) }}" title="Lire le document">
+                                <img src="{{ learning.Image|replace({'app_dev.php': ''}) }}" title="{{ 'elearningPage.Access to this file'|trans }}">
 
-                                <span style="position: absolute; top: 10px; left: 12px; color: red; right: 10px; font-size: 12px; font-weight: 600;">PDF</span>
+                                <span style="position: absolute; top: 10px; left: 12px; color: red; right: 10px; font-size: 12px; font-weight: 600;"><i class="fa fa-file" aria-hidden="true"></i></span>
                                 </a>
                             </div>
-                            <p><strong>Date de publication :</strong> 2018</p>
+                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> 2018</p>
                             <div class="details" style="margin-top: 20px;">
-                                <p><strong>Description : </strong>{{ learning.Description|raw|slice(0, 62) }}</p>
-                                <p><strong>Mots clés :</strong>
-                                {% for keyword in learning.keyword %}
-                                    {{ keyword.label }},
-                                {% endfor %}
-                                </p>
+                                <p>{{ learning.Description|raw|slice(0, 112) }} ...</p>
+                                {% if  learning.keyword|length > 0 %}
+                                    <p><i class="fa fa-tags" aria-hidden="true"></i>
+                                    {% for keyword in learning.keyword %}
+                                        {{ keyword.label }},
+                                    {% endfor %}
+                                    </p>
+                                {% endif %}
+
                             </div>
                             <div class="card-footer">
                                 <p class="card-text text-right"><a target="_blank" href="{{ learning.Fichier }}">{{ 'elearningPage.Access to this file'|trans }}</a></p>
                             </div>
                         </div>
                     </div>
+                        {% endif %}
                     {% elseif learning.youtube != '' and learning.catLearning.nom == elearningCategorie.nom %}
 
-                        {% if learning.Nom %}
+                        {% if learning.Nom and learning.etatPub == 'Public' %}
+                            {#<div class="col-md-6 col-sm-6 col-xs-12">#}
+                                {#<div class="technique__video__container">#}
+                                    {#<iframe style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ learning.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>#}
+                                {#</div>#}
+                                {#<div class="technique__info__container">#}
+                                    {#<h4 class="name">{{ learning.Nom }}</h4>#}
+                                    {#<p class="name"><strong>Date :</strong> 2009</p>#}
+                                    {#<p class="description" title="{{ learning.Description }}">{{ learning.Description|raw|slice(0, 124) }}...</p>#}
+                                    {#<p ><strong>Mot clés :</strong></p>#}
+                                {#</div>#}
+                            {#</div>#}
+
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="technique__video__container">
-                                    <iframe style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ learning.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                </div>
-                                <div class="technique__info__container">
-                                    <h4 class="name">{{ learning.Nom }}</h4>
-                                    <p class="name"><strong>Date :</strong> 2009</p>
-                                    <p class="description" title="{{ learning.Description }}">{{ learning.Description|raw|slice(0, 124) }}...</p>
-                                    <p ><strong>Mot clés :</strong></p>
+                                <div class="listing">
+                                    <h4><a class="play__youtube__video" data-url-youtube="{{ learning.Youtube }}?rel=0" style="cursor: pointer">{{ learning.Nom }}</a></h4>
+                                    <div class="type">
+                                        <a class="play__youtube__video" data-url-youtube="{{ learning.Youtube }}?rel=0" style="cursor: pointer" title="{{ 'elearningPage.Read this video'|trans }}">
+                                            <img class="img-fluid" src="{{ learning.Image }}" style="cursor:pointer" />
+                                            <span style="position: absolute; top: 10px; left: 12px; color: red; right: 10px; font-size: 12px; font-weight: 600;"><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
+                                        </a>
+                                    </div>
+                                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> 2018</p>
+                                    <div class="details" style="margin-top: 20px;">
+                                        <p>{{ learning.Description|raw|slice(0, 112) }} ...</p>
+                                        {% if  learning.keyword|length > 0 %}
+                                            <p><i class="fa fa-tags" aria-hidden="true"></i>
+                                                {% for keyword in learning.keyword %}
+                                                    {{ keyword.label }},
+                                                {% endfor %}
+                                            </p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text text-right"><a class="play__youtube__video"  data-url-youtube="{{ learning.Youtube }}?rel=0" style="cursor: pointer">{{ 'elearningPage.Read this video'|trans }}</a></p>
+                                    </div>
                                 </div>
                             </div>
                         {% endif %}
@@ -171,79 +236,35 @@
             </div>
 
         {% endfor %}
-
-        {#<div id="technique_tab_container">#}
-
-            {#{% for Technique in Techniques %}#}
-                {#<div class="col-md-12 col-xs-12"#}
-                     {#style="background: #f7f7f7;border: solid white; padding-top: 10px; padding-bottom:10px ">#}
-                    {#<div class="row">#}
-                        {#<div class="col-md-5" style="padding: 0 ">#}
-                            {#<iframe   style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>#}
-                        {#</div>#}
-
-                        {#<div class="col-md-7">#}
-                            {#<h4 class="name">{{ Technique.Nom }}</h4>#}
-                            {#<h6 class="name"><strong>Date :</strong> 2009</h6>#}
-                            {#<p class="description" style="font-size: 13px;">{{ Technique.Description|raw|slice(0, 62) }}</p>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-                {#{% if Technique.Nom %}#}
-                {#<div class="col-md-6 col-sm-6 col-xs-12">#}
-                    {#<div class="technique__video__container">#}
-                        {#<iframe style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ Technique.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>#}
-                    {#</div>#}
-                    {#<div class="technique__info__container">#}
-                        {#<h4 class="name">{{ Technique.Nom }}</h4>#}
-                        {#<p class="name"><strong>Date :</strong> 2009</p>#}
-                        {#<p class="description" title="{{ Technique.Description }}">{{ Technique.Description|raw|slice(0, 124) }}...</p>#}
-                        {#<p ><strong>Mot clés :</strong></p>#}
-                    {#</div>#}
-                {#</div>#}
-                {#{% endif %}#}
-            {#{% endfor %}#}
-
-
-        {#</div>#}
-
-        {#<div id="legislatives_tab_container">#}
-
-            {#{% for Legislative in Legislatives %}#}
-
-                {#<div class="col-md-6 col-sm-6 col-xs-12">#}
-                    {#<div class="listing">#}
-                        {#<h4><a target="_blank" href="{{ Legislative.Fichier }}">{{ Legislative.Nom }}</a></h4>#}
-                        {#<div class="type">#}
-                            {#<a target="_blank" href="{{ Legislative.Fichier }}">#}
-                                {#<img src="{{ Legislative.Image|replace({'app_dev.php': ''}) }}" title="Lire le document">#}
-
-                                {#<span style="position: absolute; top: 10px; left: 12px; color: red; right: 10px; font-size: 12px; font-weight: 600;">PDF</span>#}
-                            {#</a>#}
-                        {#</div>#}
-                        {#<p><strong>Date de publication :</strong> 2018</p>#}
-                        {#<div class="details" style="margin-top: 20px;">#}
-                            {#<p><strong>Description : </strong>{{ Legislative.Description|raw|slice(0, 62) }}</p>#}
-                            {#<p><strong>Mots clés :</strong>#}
-                                {#{% for keyword in Legislative.keyword %}#}
-                                {#{{ keyword.label }},#}
-                                {#{% endfor %}#}
-                            {#</p>#}
-                        {#</div>#}
-                        {#<div class="card-footer">#}
-                            {#<p class="card-text text-right"><a target="_blank" href="{{ Legislative.Fichier }}">{{ 'elearningPage.Access to this file'|trans }}</a></p>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#{% endfor %}#}
-
-        {#</div>#}
     </div>
 
-
+    <div class="index__overlay" onclick="closeVideoPopup()"></div>
+    <div class="video__home__popup">
+        <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closeVideoPopup()"></i>
+        <div class="video__container">
+            <iframe width="100%" height="100%" src=" " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
+
+    <script>
+        $('.play__youtube__video').click( function () {
+            var videoUrl = $(this).attr('data-url-youtube');
+            videoUrl = videoUrl.replace(/(.*)v=([^&]*)&?(.*)/, "https://www.youtube.com/embed/$2");
+
+            $('.video__container iframe').attr('src', videoUrl);
+
+            $('.index__overlay').fadeIn("slow");
+            $('.video__home__popup').fadeIn( );
+        } );
+        function closeVideoPopup() {
+            $('.index__overlay').fadeOut("slow");
+            $('.video__home__popup').fadeOut();
+            $('.video__container iframe').attr('src', '');
+        }
+    </script>
 
     <script>
     {% for key, elearningCategorie in elearningCategories %}

@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\EtatPubRepository")
  * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\EtatPubTranslation")
  */
-class EtatPub
+class EtatPub extends AbstractPersonalTranslatable implements TranslatableInterface
 {
     /**
      * @var int

@@ -2,6 +2,7 @@
 
 namespace GCF\MainBundle\Admin;
 
+use GCF\MainBundle\Entity\EtatPub;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -44,12 +45,14 @@ class EventAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('nom', TranslationFieldFilter::class);
+        $datagridMapper->add('nom', TranslationFieldFilter::class)
+            ->add('etatPub');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->add('nom', TranslationFieldList::class)
+            ->add('etatPub')
             // You may also specify the actions you want to be displayed in the list
             ->add('_action', 'actions', array(
                 'actions' => array(

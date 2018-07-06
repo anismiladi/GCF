@@ -60,12 +60,12 @@ services:
     #    public: true
     
     #cateogries publication MARWEN#
-    admin.CatPublication:
-        class: GCF\MainBundle\Admin\CatPublicationAdmin
-        arguments: [~, GCF\MainBundle\Entity\CatPublication, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Publications, label: Categories }
-        public: false
+#    admin.CatPublication:
+#        class: GCF\MainBundle\Admin\CatPublicationAdmin
+#        arguments: [~, GCF\MainBundle\Entity\CatPublication, ~]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: Publications, label: Categories }
+#        public: false
     #END cateogries publication MARWEN#
 
     admin.Elearning:
@@ -88,7 +88,14 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Evénements, label: Gestion des Evénements }
         public: true
-        
+
+    admin.Actualites:
+        class: GCF\MainBundle\Admin\ActualitesAdmin
+        arguments: [~, GCF\MainBundle\Entity\Actualites, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Actualités, label: gestion des Actualités  }
+        public: false
+
     admin.Gouvernorats:
         class: GCF\MainBundle\Admin\GouvernoratAdmin
         arguments: [~, GCF\MainBundle\Entity\Gouvernorat, ~]

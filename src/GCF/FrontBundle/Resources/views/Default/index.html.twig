@@ -285,6 +285,7 @@
                     <h1 class="section_title"><i class="fa fa-calendar" aria-hidden="true" style="font-size: 25px;"></i> {{ 'menu.Events'|trans }}</h1>
                 </div>
                 {% for event in events %}
+                    {% if event.nom != '' and  event.etatPub == 'Public' %}
                     <div class="col-sm-12 item single_element">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
@@ -302,6 +303,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 {% endfor %}
                 
                 <div class="col-md-12 item" style="text-align: right;">
@@ -331,6 +333,7 @@
                     <div id="technique_tab_container" style="padding: 10px;">
 
                         {% for Technique in Techniques %}
+                            {% if Technique.etatPub == 'Public' %}
                             <div class="col-md-6 col-xs-12"
                                  style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
                                 <div >
@@ -342,12 +345,12 @@
                                     </div>
                                     <div class="col-md-7 col-sm-7 col-xs-7 single_element_content_container">
                                         <a class="play__youtube__video" data-url-youtube="{{ Technique.Youtube }}?rel=0"><h4 class="name">{{ Technique.Nom }}</h4></a>
-                                        <h6 class="name"><strong>Date :</strong> 2009</h6>
+                                        <h6 class="name"><i class="fa fa-clock-o" aria-hidden="true"></i> 2009</h6>
                                         <p class="description" style="font-size: 13px;">{{ Technique.Description|raw|slice(0, 62) }}</p>
                                     </div>
                                 </div>
                             </div>
-
+                            {% endif %}
                         {% endfor %}
 
                     </div>
@@ -355,7 +358,7 @@
                     <div id="legislatives_tab_container" style="padding: 10px;">
 
                         {% for Legislative in Legislatives %}
-
+                            {% if Legislative.etatPub == 'Public' %}
                             <div class="col-md-6 col-sm-6 col-xs-12" style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
                                 <div class="listing legislatives_single_element_container">
 
@@ -368,21 +371,14 @@
                                         <a target="_blank" href="{{ Legislative.Fichier }}">
                                             <h4>{{ Legislative.Nom }}</h4>
                                         </a>
-                                        <p>Date de publication : 2018</p>
+                                        <p><i class="fa fa-clock-o" aria-hidden="true"></i> : 2018</p>
                                         <div class="details">
-                                            <p><strong>Description : </strong>{{ Legislative.Description|raw|slice(0, 62) }}</p>
-                                            <!--
-                                            <p><strong>Adresse :</strong> Lorem ipsum</p>
-                                            <p><strong>Type :</strong> Lorem ipsum dolor </p>
-                                            <p><strong>Focus :</strong>Lorem</p>
-                                            <p><strong>Secteur :</strong>ipsum</p>
-                                            <p><strong>Mots clés :</strong>Lorem ipsum, Lorem ipsum dolor sit amet, Lorem dolor, ipsum, Lorem, amet</p>
-                                            -->
+                                            <p>{{ Legislative.Description|raw|slice(0, 62) }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
+                            {% endif %}
                         {% endfor %}
 
                     </div>
@@ -417,16 +413,21 @@
                     </ul>
                     <br/>
                     {% for nospublication in nospublications %}
-                        {% if nospublication.titre != "" %}
+                        {% if nospublication.titre != "" and  nospublication.etatPub == 'Public' %}
                         <div class="col-sm-6 item filter_display ours" style="background: white;border: solid 2px #f7f7f7;">
                             <div class="row">
                                 <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
                                     <a href="{% if nospublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }} {% endif %}">
-                                        <img class="img-fluid" src="{{ nospublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 106px; object-fit: cover;"/>
+                                        {% if nospublication.featuredImage != '' %}
+                                            <img class="img-fluid" src="{{ nospublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
+                                        {% else %}
+                                            <img class="img-fluid" src="{{ asset('assets/images/empty-image.png') }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
+                                        {% endif %}
                                     </a>
                                 </div>
                                 <div class="col-md-8 col-lg-8 col-xs-8">
                                     <h2 class="name"><a href="{% if nospublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }} {% endif %}">{{ nospublication.titre }}</a></h2>
+                                    <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"></i> </p>
                                     <p class="description" style="    font-size: 13px;">{{ nospublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                 </div>
                             </div>
@@ -436,17 +437,18 @@
 
 
                     {% for autrespublication in autrespublications %}
-                        {% if autrespublication.titre != "" %}
+                        {% if autrespublication.titre != "" and  autrespublication.etatPub == 'Public' %}
 
                         <div class="col-sm-6 item filter_display others" style="background: white;border: solid 2px #f7f7f7;">
                             <div class="row">
                                 <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
                                     <a href="{% if autrespublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }} {% endif %}">
-                                        <img class="img-fluid" src="{{ autrespublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                        <img class="img-fluid" src="{{ autrespublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
                                     </a>
                                 </div>
                                 <div class="col-md-8 col-lg-8 col-xs-8">
                                     <h2 class="name"><a href="{% if autrespublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }} {% endif %}">{{ autrespublication.titre }}</a></h2>
+                                    <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"></i> </p>
                                     <p class="description" style="font-size: 13px;">{{ autrespublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                 </div>
                             </div>
@@ -455,17 +457,18 @@
                     {% endfor %}
 
                     {% for gbpublication in gbpublications %}
-                        {% if gbpublication.titre != "" %}
+                        {% if gbpublication.titre != "" and  gbpublication.etatPub == 'Public' %}
                             <div class="col-sm-6 item filter_display gb" style="background: white;border: solid 2px #f7f7f7;">
                                 <div class="row">
                                     <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
                                         <a  href="{% if gbpublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }} {% endif %}">
-                                            <img class="img-fluid" src="{{ gbpublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%"/>
+                                            <img class="img-fluid" src="{{ gbpublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
                                         </a>
                                     </div>
                                     <div class="col-md-8 col-lg-8 col-xs-8">
 
                                         <h2 class="name"><a href="{% if gbpublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }} {% endif %}">{{ gbpublication.titre }}</a></h2>
+                                        <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"></i> </p>
                                         <p class="description" style="font-size: 13px;">{{ gbpublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                     </div>
                                 </div>

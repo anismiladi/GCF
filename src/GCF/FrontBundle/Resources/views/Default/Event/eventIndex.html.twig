@@ -109,7 +109,7 @@
 
     <div class="col-md-12" style="padding: 0;">
         {% for evenement in evenements %}
-            {% if evenement.nom != '' %}
+            {% if evenement.nom != '' and evenement.etatPub == 'Public' %}
             <div class="col-md-6 col-sm-6 event__banner__container">
 
                 {#<div class="event__banner"#}

@@ -37,7 +37,7 @@ class Elearning extends AbstractPersonalTranslatable implements TranslatableInte
      * @var string
      *
      * @Gedmo\Translatable
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=false)
      */
     private $description;
 
@@ -76,7 +76,7 @@ class Elearning extends AbstractPersonalTranslatable implements TranslatableInte
 
     /**
      * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\EtatPub", inversedBy="elearning")
-     * @ORM\JoinColumn(name="etat", referencedColumnName="id")
+     * @ORM\JoinColumn(name="etat", referencedColumnName="id",nullable=false)
      */
     private $etatPub;
     

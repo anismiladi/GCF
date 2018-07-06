@@ -38,7 +38,7 @@ class Event extends AbstractPersonalTranslatable implements TranslatableInterfac
      * @var string
      *
      * @Gedmo\Translatable
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=false)
      */
     private $description;
 
@@ -94,7 +94,7 @@ class Event extends AbstractPersonalTranslatable implements TranslatableInterfac
 
     /**
      * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\EtatPub", inversedBy="event")
-     * @ORM\JoinColumn(name="etat", referencedColumnName="id",nullable=true)
+     * @ORM\JoinColumn(name="etat", referencedColumnName="id",nullable=false)
      */
     private $etatPub;
 
