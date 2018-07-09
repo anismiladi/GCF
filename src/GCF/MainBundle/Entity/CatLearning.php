@@ -206,4 +206,16 @@ class CatLearning extends AbstractPersonalTranslatable implements TranslatableIn
         else
             return "";
     }
+
+    /**
+     * Remove translation.
+     *
+     * @param \GCF\MainBundle\Entity\CatLearningTranslation $translation
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTranslation(\GCF\MainBundle\Entity\CatLearningTranslation $translation)
+    {
+        return $this->translations->removeElement($translation);
+    }
 }

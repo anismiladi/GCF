@@ -20,26 +20,30 @@ class EventAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nom')
-            ->add('description', CKEditorType::class, array(
-                    'config' => array(
-                        'filebrowserBrowseRoute' => 'elfinder',
-                        'filebrowserBrowseRouteParameters' => array(
-                            'instance' => 'default',
-                            'homeFolder' => ''
-                        )
-                    ),
+            ->with('Gestion des évenements', ['class' => 'col-md-8'])
+                ->add('nom')
+                ->add('description', CKEditorType::class, array(
+                        'config' => array(
+                            'filebrowserBrowseRoute' => 'elfinder',
+                            'filebrowserBrowseRouteParameters' => array(
+                                'instance' => 'default',
+                                'homeFolder' => ''
+                            )
+                        ),
+                    )
                 )
-            )
-            ->add('lienFB', 'text', ['required' => false])
-            ->add('lienAutre', 'text', ['required' => false])
+                ->add('lienFB', 'text', ['required' => false])
+                ->add('lienAutre', 'text', ['required' => false])
 
-            ->add('photoCouverture', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true, 'required' => false])
-            //->add('photoAffiche', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true,'required' => false])
-            ->add('debut')
-            ->add('fin')
-            ->add('lieu')
-            ->add('etatPub')
+                ->add('photoCouverture', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true, 'required' => false])
+                //->add('photoAffiche', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true,'required' => false])
+                ->add('debut')
+                ->add('fin')
+                ->add('lieu')
+            ->end()
+            ->with('Etat de publication', ['class' => 'col-md-4'])
+                ->add('etatPub')
+            ->end()
         ;
     }
 

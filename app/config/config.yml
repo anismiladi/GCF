@@ -127,6 +127,18 @@ sonata_admin:
         edit:              '@SonataAdmin/CRUD/edit.html.twig'
         tab_menu_template: '@SonataAdmin/Core/tab_menu_template.html.twig'
         dashboard: '@SonataAdmin/Core/dashboard.html.twig'
+        search:              '@SonataAdmin/Core/search.html.twig'
+        search_result_block: '@SonataAdmin/Block/block_search_result.html.twig'
+        user_block: '@SonataAdmin/core/user_block.html.twig'
+
+    global_search:
+        empty_boxes: fade
+
+    security:
+        handler: sonata.admin.security.handler.role
+
+        role_admin: ROLE_ADMIN
+        role_super_admin: ROLE_SUPER_ADMIN
 
 
 sonata_block:
@@ -135,6 +147,8 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts:   [admin]
+        sonata.admin.block.search_result:
+            contexts: [admin]
 
 sonata_translation:
     locales: [fr, en, ar_TN]

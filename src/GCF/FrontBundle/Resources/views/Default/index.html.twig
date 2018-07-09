@@ -34,7 +34,7 @@
         .section_title {
             padding-left: 10px;
             margin: 0 0 10px;
-            background: #22AA86;
+            background: #4E9100;
             color: white;
             font-size: 30px;
         }
@@ -72,7 +72,7 @@
         }
         .item a:hover{
             text-decoration: none;
-            color: #22aa86 ;
+            color: #6EFF00 ;
         }
         .read_more_container a{
             text-decoration: none;
@@ -111,14 +111,14 @@
             display: none;
         }
         .navigation_elearning a{
-            color: #22AA86;
+            color: #4E9100;
         }
         .single_element_content_container a{
              color: #333;
         }
         .single_element_content_container a:hover{
             text-decoration: none;
-            color: #22aa86;
+            color: #6EFF00;
         }
         .legislatives_single_element_container a{
             color: #333;
@@ -131,6 +131,21 @@
             text-decoration: none;
             color: #22aa86;
         }
+
+        .close__video__popup{
+            position: absolute;
+            right: 20px;
+            top: 0;
+            font-size: 35px;
+            color: gray;
+            text-decoration: none;
+            cursor:pointer;
+        }
+        .close__video__popup:hover{
+            text-decoration: none;
+            color: gray;
+        }
+
         /*
         =======================
         publications block
@@ -140,7 +155,7 @@
             cursor: pointer;
         }
         .navs__publications__block li a{
-            color: #22AA86;
+            color: #4E9100;
         }
 
 
@@ -163,14 +178,16 @@
             bottom: 0;
             left: 0;
             margin: auto;
-            height: 400px;
-            width: 700px;
+            height: 95%;
+            width: 90%;
             max-width: 100%;
             background: white;
         }
         .video__container{
+            padding: 70px 0;
             height: 100%;
-            width: 100%;
+            width: 80%;
+            margin: auto;
         }
     </style>
 {% endblock %}
@@ -489,8 +506,8 @@
 
 <div class="index__overlay" onclick="closeVideoPopup()"></div>
 <div class="video__home__popup">
-    <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closeVideoPopup()"></i>
     <div class="video__container">
+        <a class="close__video__popup" style="position: absolute; right: 20px ; top: 0; font-size: 35px; color:gray" onclick="closeVideoPopup()">&times;</a>
         <iframe width="100%" height="100%" src=" " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 </div>

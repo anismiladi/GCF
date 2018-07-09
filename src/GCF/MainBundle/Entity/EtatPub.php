@@ -32,7 +32,7 @@ class EtatPub extends AbstractPersonalTranslatable implements TranslatableInterf
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
-    
+
     /**
      * @var ArrayCollection
      *
@@ -43,7 +43,7 @@ class EtatPub extends AbstractPersonalTranslatable implements TranslatableInterf
      * )
      */
     protected $translations;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="GCF\MainBundle\Entity\Acteur", mappedBy="etatPub")
      */
@@ -322,5 +322,18 @@ class EtatPub extends AbstractPersonalTranslatable implements TranslatableInterf
     public function removeElearning(\GCF\MainBundle\Entity\Elearning $elearning)
     {
         $this->elearning->removeElement($elearning);
+    }
+
+
+    /**
+     * Remove translation.
+     *
+     * @param \GCF\MainBundle\Entity\EtatPubTranslation $translation
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTranslation(\GCF\MainBundle\Entity\EtatPubTranslation $translation)
+    {
+        return $this->translations->removeElement($translation);
     }
 }

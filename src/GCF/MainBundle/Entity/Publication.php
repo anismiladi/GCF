@@ -1,6 +1,7 @@
 <?php
 
 namespace GCF\MainBundle\Entity;
+use GCF\MainBundle\Repository\EtatPubRepository;
 use Sonata\TranslationBundle\Model\Gedmo\AbstractPersonalTranslatable;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Sonata\TranslationBundle\Model\Gedmo\TranslatableInterface;
@@ -59,6 +60,80 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
      * @ORM\Column(name="emailBloggeur", type="string", length=255, nullable=true)
      */
     private $emailBloggeur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomBloggeur", type="string", length=255, nullable=true)
+     */
+    private $nomBloggeur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenomBloggeur", type="string", length=255, nullable=true)
+     */
+    private $prenomBloggeur;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * @return string
+     */
+    public function getNomBloggeur()
+    {
+        return $this->nomBloggeur;
+    }
+
+    /**
+     * @param string $nomBloggeur
+     */
+    public function setNomBloggeur($nomBloggeur)
+    {
+        $this->nomBloggeur = $nomBloggeur;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenomBloggeur()
+    {
+        return $this->prenomBloggeur;
+    }
+
+    /**
+     * @param string $prenomBloggeur
+     */
+    public function setPrenomBloggeur($prenomBloggeur)
+    {
+        $this->prenomBloggeur = $prenomBloggeur;
+    }
     
     /**
      * @var ArrayCollection
@@ -79,7 +154,7 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
 
     /**
      * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\EtatPub", inversedBy="publication")
-     * @ORM\JoinColumn(name="etat", referencedColumnName="id",nullable=true)
+     * @ORM\JoinColumn(name="etat", referencedColumnName="id", nullable=false)
      */
     private $etatPub;
 
@@ -88,6 +163,8 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
      * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id")
      */
     private $categorie;
+
+
 
     /**
      * @return mixed
@@ -292,4 +369,5 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
     {
         return $this->keyword;
     }
+
 }

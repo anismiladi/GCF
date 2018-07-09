@@ -6,9 +6,39 @@
 
 {% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}" title="{{ 'menu.Home'|trans }}">{{ 'menu.Home'|trans }}</a> / <a href="{{ path('gcf_front_event_page') }}" title="{{ 'menu.News'|trans }}"> {{ 'menu.News'|trans }}</a> / <a title="{{ actuality.titre }}">{% if  actuality.titre|length > 40 %} {{ actuality.titre|slice(0, 40) }}... {% else %} {{ actuality.titre }} {% endif %}</a> {% endblock %}
 
+{% block stylesheets %}
+    <style>
+
+        .single__actuality__image__container{
+            width: 100%;
+            border: solid 1px #e7e7e7;
+        }
+        .single__actuality__image{
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+
+        }
+        .single__actuality__content__container{
+            text-align: justify;
+        }
+    </style>
+{% endblock %}
 {% block body %}
 
-    {{ dump(actuality) }}
+    <div class="single__actuality__container col-md-12 col-sm-12 col-xs-12" style="padding-left:0">
+        <div class="single__actuality__image__container">
+            <img class="single__actuality__image" src="{{ actuality.image|replace({'/app_dev.php': ''}) }}" alt="{{ actuality.titre }}" />
+        </div>
+        <div class="single__actuality__title__info__container">
+            <h3>{{ actuality.titre }}</h3>
+            <p style="margin: 0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right: 5px"></i> {{ actuality.createdAt|date("d-m-Y") }}</p>
+        </div>
+        <div class="single__actuality__content__container">
+            <p>{{ actuality.contenue|raw }}</p>
+        </div>
+    </div>
+
 {% endblock %}
 
 

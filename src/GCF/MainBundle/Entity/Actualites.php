@@ -43,6 +43,29 @@ class Actualites extends AbstractPersonalTranslatable implements TranslatableInt
     private $contenue;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="text", length=255, nullable=false)
+     */
+    private $image;
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="createdAt", type="datetime")
@@ -137,5 +160,17 @@ class Actualites extends AbstractPersonalTranslatable implements TranslatableInt
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * Remove translation.
+     *
+     * @param \GCF\MainBundle\Entity\ActualitesTranslation $translation
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTranslation(\GCF\MainBundle\Entity\ActualitesTranslation $translation)
+    {
+        return $this->translations->removeElement($translation);
     }
 }

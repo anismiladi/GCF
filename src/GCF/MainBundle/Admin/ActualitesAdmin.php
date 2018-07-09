@@ -1,6 +1,7 @@
 <?php
 namespace GCF\MainBundle\Admin;
 
+use FM\ElfinderBundle\Form\Type\ElFinderType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -14,16 +15,21 @@ class ActualitesAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('titre')
-            ->add('contenue',CKEditorType::class, array(
-                    'config' => array(
-                        'filebrowserBrowseRoute' => 'elfinder',
-                        'filebrowserBrowseRouteParameters' => array(
-                            'instance' => 'default',
-                            'homeFolder' => ''
+            ->with('Gestion des actualités', ['class' => 'col-md-8'])
+                ->add('titre')
+                ->add('contenue',CKEditorType::class, array(
+                        'config' => array(
+                            'filebrowserBrowseRoute' => 'elfinder',
+                            'filebrowserBrowseRouteParameters' => array(
+                                'instance' => 'default',
+                                'homeFolder' => ''
+                            )
                         )
-                    )
-                ));
+                    ))
+            ->end()
+            ->with('Image', ['class' => 'col-md-4'])
+                ->add('image', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true,'required' => true])
+            ->end();
     }
 
     /**/protected function configureDatagridFilters(DatagridMapper $datagridMapper)

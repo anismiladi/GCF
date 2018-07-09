@@ -49,6 +49,10 @@ function topFunction() {
 //Green Blogger popup
 //====================================
 function showGBpopup(){
+    var body = $("html, body");
+
+    body.stop().animate({scrollTop:0}, 1000, 'swing');
+
     $('.gb_page_overlay').fadeIn();
     $('.gb_popup_details_container').fadeIn("slow");
 }

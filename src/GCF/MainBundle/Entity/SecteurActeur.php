@@ -206,4 +206,16 @@ class SecteurActeur extends AbstractPersonalTranslatable implements Translatable
         else
             return "";
     }
+
+    /**
+     * Remove translation.
+     *
+     * @param \GCF\MainBundle\Entity\SecteurActeurTranslation $translation
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTranslation(\GCF\MainBundle\Entity\SecteurActeurTranslation $translation)
+    {
+        return $this->translations->removeElement($translation);
+    }
 }

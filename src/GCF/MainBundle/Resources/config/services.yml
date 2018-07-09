@@ -49,7 +49,7 @@ services:
         class: GCF\MainBundle\Admin\PublicationAdmin
         arguments: [~, GCF\MainBundle\Entity\Publication, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Publications, label: Gestion les Publications }
+            - { name: sonata.admin, manager_type: orm, group: Publications, label: Gestion des Publications }
         public: true
         
     #admin.PublicationGreen:

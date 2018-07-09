@@ -90,4 +90,16 @@ class CatPublication extends AbstractPersonalTranslatable implements Translatabl
         else
             return "";
     }
+
+    /**
+     * Remove translation.
+     *
+     * @param \GCF\MainBundle\Entity\CatPublicationTranslation $translation
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTranslation(\GCF\MainBundle\Entity\CatPublicationTranslation $translation)
+    {
+        return $this->translations->removeElement($translation);
+    }
 }

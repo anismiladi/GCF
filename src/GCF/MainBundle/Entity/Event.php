@@ -98,6 +98,28 @@ class Event extends AbstractPersonalTranslatable implements TranslatableInterfac
      */
     private $etatPub;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
 
     /**
      * @var ArrayCollection
@@ -362,5 +384,10 @@ class Event extends AbstractPersonalTranslatable implements TranslatableInterfac
     public function getPhotoAffiche()
     {
         return $this->photoAffiche;
+    }
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
     }
 }

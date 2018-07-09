@@ -2,10 +2,14 @@
 
 namespace GCF\MainBundle\Admin;
 
+use Doctrine\ORM\EntityRepository;
+use GCF\MainBundle\Entity\EtatPub;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\Filter\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Sonata\TranslationBundle\Filter\TranslationFieldFilter;
 use Sonata\AdminBundle\Form\Type\ModelType;
@@ -21,47 +25,48 @@ class PublicationAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('titre')
-            ->add('featuredImage', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true,'required' => false])
-            ->add('contenu', CKEditorType::class, array(
-                    'config' => array(
-                        'filebrowserBrowseRoute' => 'elfinder',
-                        'filebrowserBrowseRouteParameters' => array(
-                            'instance' => 'default',
-                            'homeFolder' => ''
-                        )
-                    ),
+            ->with( 'Gestion des Publications', ['class' => 'col-md-8'])
+                ->add('titre')
+                ->add('contenu', CKEditorType::class, array(
+                        'config' => array(
+                            'filebrowserBrowseRoute' => 'elfinder',
+                            'filebrowserBrowseRouteParameters' => array(
+                                'instance' => 'default',
+                                'homeFolder' => ''
+                            )
+                        ),
+                    )
                 )
-            )
-            ->add('keyword', ModelAutocompleteType::class,        //_autocomplete
-                array(
-                    'label' => "Mots clés",
-                    'required' => false,
-                    //'expanded' => true,
-                    'multiple' => true,
-                    'minimum_input_length' => 1,
-                    'property' => 'label',
-                    'to_string_callback' => function($enitity, $property) {
-                        return $enitity->getLabel();
-                    },
+                ->add('keyword', ModelAutocompleteType::class,        //_autocomplete
+                    array(
+                        'label' => "Mots clés",
+                        'required' => false,
+                        //'expanded' => true,
+                        'multiple' => true,
+                        'minimum_input_length' => 1,
+                        'property' => 'label',
+                        'to_string_callback' => function($enitity, $property) {
+                            return $enitity->getLabel();
+                        },
+                    )
                 )
-            )
-            ->add('projet')
-            /*
-            ->add('projet','sonata_type_model_autocomplete',
-                array(
-                    'required' => false,
-                    'multiple' => false,
-                    'minimum_input_length' => 1,
-                    'property' => 'nom',
-                    'to_string_callback' => function($enitity, $property) {
-                        return $enitity->getNom();
-                    },
-                )
-            )*/
-            ->add('categorie')
-            ->add('etatPub')
-            ;
+                ->add('projet')
+                ->add('categorie')
+            ->end()
+            ->with( 'Green Blogger info', ['class' => 'col-md-4'])
+                ->add('emailBloggeur',TextType::class, ['disabled' => true, 'required' => false])
+                ->add('nomBloggeur',TextType::class, ['disabled' => true, 'required' => false])
+                ->add('prenomBloggeur', TextType::class, ['disabled' => true, 'required' => false ])
+            ->end()
+            ->with( 'Image', ['class' => 'col-md-4'])
+                ->add('featuredImage', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true,'required' => false])
+            ->end()
+            ->with('Etat de publication', ['class' => 'col-md-4'])
+                ->add('etatPub')
+            ->end()
+
+        ;
+
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
