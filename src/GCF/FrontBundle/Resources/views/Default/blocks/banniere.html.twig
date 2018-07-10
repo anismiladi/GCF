@@ -1,9 +1,9 @@
 <form action="{{ path('gcf_front_searchpage') }}" class="col-md-10 col-md-offset-1 home_banner_search">
     <div class="form-group col-md-5" style="margin: 0; color: #333">
-        <input id="key" name="key" type="text" placeholder="{{ 'search.Search'|trans }}" value="{{ keyword }}" class="form-control">
+        <input id="key" name="key" type="text" placeholder="{{ 'search.Search'|trans }}" value="{{ keyword }}" class="form-control"  style="background-image: url('{{ asset('assets/images/material/arrow_down_input.png') }}')">
     </div>
     <div class="form-group col-md-3 " style="margin: 0;">
-        <select name="gouvr" class="form-control" id="gouvernorat">
+        <select name="gouvr" class="form-control" id="gouvernorat" style="background-image: url('{{ asset('assets/images/material/arrow_down_select.png') }}')" >
             <option value="Governorate">{{ 'search.Governorate'|trans }}</option>
             {% for Gouvernorat in Gouvernorats %}
                 <option value="{{ Gouvernorat.Id }}"{% if Gouvernorat.Id == gouvr %}selected{% endif %}>{{ Gouvernorat.Nom }}</option>
@@ -11,7 +11,7 @@
         </select>
     </div>
     <div class="form-group col-md-3" style="margin: 0">
-        <select name="theme" class="form-control" id="type">
+        <select name="theme" class="form-control" id="type" style="background-image: url('{{ asset('assets/images/material/arrow_down_select.png') }}')">
             <option value="Theme">{{ 'search.Theme'|trans }}</option>
             {% for them in allThemes %}
                 <option value="{{ them.Name }}" {% if them.Name == theme %}selected{% endif %}>{{ them.Label }}</option>

@@ -19,7 +19,7 @@ $('.close_newsletter').click(function () {
     $('.close_my_newsletter_modal').fadeOut("slow");
 });
 
-$('.my_newsletter_modal .close_popup').click(function () {
+$('.my_newsletter_modal .close__video__popup').click(function () {
     $('.my_newsletter_modal').fadeOut( );
     $('.close_my_newsletter_modal').fadeOut("slow");
 });

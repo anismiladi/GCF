@@ -1,9 +1,9 @@
 ::selection {
-    background: #22AA86; /* WebKit/Blink Browsers */
+    background: #7ac943; /* WebKit/Blink Browsers */
     color:white;
 }
 ::-moz-selection {
-    background: #22AA86; /* Gecko Browsers */
+    background: #7ac943; /* Gecko Browsers */
     color:white;
 }
 /* width */
@@ -380,27 +380,38 @@ header and top bar
     font-weight: 700;
 }
 
-.home_banner_search select {
+.home_banner_search select ,.home_banner_search .easy-autocomplete input {
     -webkit-appearance: button;
     -webkit-border-radius: 2px;
     -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
     -webkit-padding-end: 20px;
     -webkit-padding-start: 2px;
     -webkit-user-select: none;
-    background-image: url(http://i62.tinypic.com/15xvbd5.png);
-    background-position: 97% center;
-    background-repeat: no-repeat;
+    background-position: 100% center;
+    background-size: 25px;
+    background-repeat-x: no-repeat;
     border: 1px solid #AAA;
-    /*color: #555;*/
+    /* color: #555; */
     font-size: inherit;
     overflow: hidden;
-    padding: 11px 15px;;
+    padding: 11px 15px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.home_banner_search .easy-autocomplete input, .home_banner_search select, .home_banner_search button {
+    border-radius: 0;
+    height: unset;
+    padding: 10px 10px !important;
+    font-weight: 700;
+    border:0;
+}
 
-.home_banner_search select {
-    /*color: #fff;*/
+.home_banner_search select option:hover {
+    background-color: #7ac943;
+    color: white;
+}
+.home_banner_search select option{
+    font-size: 18px !important;
 }
 
 /*.home_banner_search select{ padding: 11px 15px; }*/
@@ -511,7 +522,19 @@ Newsletter and goTop buttons
     left: 0;
     background: rgba(0,0,0,0.7);
 }
-
+.close__video__popup{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    font-size: 35px;
+    color: gray;
+    text-decoration: none;
+    cursor:pointer;
+}
+.close__video__popup:hover{
+    text-decoration: none;
+    color: gray;
+}
 .close_popup{
     position: absolute;
     top: -10px;
@@ -523,35 +546,45 @@ Newsletter and goTop buttons
     background: white;
     border-radius: 50%;
 }
+#mc_embed_signup_scroll input{
+    border-radius:0 !important;
+}
+#mc_embed_signup_scroll .button{
+    background:#7ac943 !important;
+}
+#mc_embed_signup_scroll .button:hover{
+    background:#6EFF00 !important;
+}
 
 .my_newsletter_modal{
     display: none;
     position: fixed;
     z-index: 1003;
-    width: 320px;
-
-    max-height: 419px;
-    padding: 20px;
-
-    height: 419px;
+    width: 500px;
+    max-height: 400px;
+    padding: 0 50px;
+    height: 380px;
     margin: auto;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     background: white;
-
-    border: solid 2px #7ac943;
 }
 .my_newsletter_form_header{min-height: 90px}
 .my_newsletter_form_inner{ padding: 20px; }
 .close_newsletter{
     position: absolute;
-    right: 5px;
-    top: 2px;
-    color: red;
-    font-size: 18px;
+    right: 20px;
+    top: 0;
+     font-size: 35px;
+    color: gray;
+    text-decoration: none;
     cursor: pointer;
+}
+.close_newsletter:hover{
+     text-decoration: none;
+    color: gray;
 }
 .button_go_top{
     width: 40px;
@@ -788,13 +821,13 @@ footer .rs_btns_footer_container{margin: 0 0 10px 0}
     margin: auto;
     height: max-content;
     min-height: 200px;
-    width: 700px;
+    width: 800px;
     max-width: 100%;
     background: white;
-    border: solid 2px #7ac943;
+    /*border: solid 2px #7ac943;*/
 }
 .popup__about__gcf__container{
-    padding: 20px ;
+    padding: 20px 50px ;
 }
 .popup__about__gcf__container p{
     font-size: 16px;

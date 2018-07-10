@@ -50,6 +50,9 @@
         .projects_news .theme { font-size: 13px; margin: 0 }
 
         .projects_news .description { font-size: 13px; margin: 0 }
+        .projects_news .description p{ margin: 0 }
+        .projects_news .date{margin: 0;font-size: 13px }
+        .projects_news .date i{margin: 0 5px 0 0 }
 
         .read_more_container { text-align: right;  margin-top: 10px; }
 
@@ -242,55 +245,34 @@
         <div class="projects_news">
             <div class="row" style="max-width: 100%;">
             {#Block Actualités#}
+
             <div class="col-md-6 col-sm-6 single_item "
                 style="background: #f7f7f7;border: solid 2px white; padding: 10px">
                 <div class="intro">
                    <h1 class="section_title"> <i class="fa fa-newspaper-o" aria-hidden="true" style="font-size: 25px;"></i> {{ 'menu.News'|trans }}</h1>
                 </div>
+                {% for actuality in actualities %}
+                    {% if actuality.titre != '' %}
                 <div class="col-sm-12 item single_element">
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/nature/any/blur" />
+                            <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}">
+                                <img class="img-fluid" src="{% if actuality.image != '' %}{{ actuality.image|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" />
                             </a>
                         </div>
                         <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
-                            <h2 class="name">Project Name</h2>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Praesent aliquam in tellus eu gravi...</p>
+                            <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}"><h3 class="name">{{ actuality.titre }}</h3></a>
+                            <div class="description">{{ actuality.contenue|slice(0,80)|raw }}...</div>
+                            <p class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ actuality.createdAt|date('d-m-Y') }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/640/480/nature/grayscale" />
-                            </a>
-                        </div>
-                        <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
-                            <h2 class="name">Project Name</h2>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Praesent aliquam in tellus eu gravi...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 item single_element">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
-                            <a href="#">
-                                <img class="img-fluid" src="https://placeimg.com/100/100/nature/any/blur" />
-                            </a>
-                        </div>
-                        <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
-                            <h2 class="name">Project Name</h2>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
-                                Praesent aliquam in tellus eu gravi...</p>
-                        </div>
-                    </div>
-                </div>
+                    {% endif %}
+                {% endfor %}
                 <div class="col-md-12 item" style=" text-align: right;">
-                    <button class="button_see_more">Voir Plus</button>
+                    <a href="{{ path('gcf_front_actualitypage') }}">
+                        <button class="button_see_more">Voir Plus</button>
+                    </a>
                 </div>
             </div>
 
@@ -307,15 +289,11 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
                                 <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}">
-                                    {% if event.photoCouverture != "" %}
-                                        <img class="img-fluid" src="{{ event.photoCouverture }}" />
-                                    {% else %}
-                                        <img class="img-fluid" src="https://png.icons8.com/windows/1600/event-accepted.png" />
-                                    {% endif %}
+                                    <img class="img-fluid" src="{% if event.photoCouverture != "" %}{{ event.photoCouverture }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" />
                                 </a>
                             </div>
                             <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
-                                <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}"><h2 class="name">{{ event.Nom }}</h2></a>
+                                <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}"><h3 class="name">{{ event.Nom }}</h3></a>
                                 <p class="theme"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ event.debut|date('d-m-Y') }}</p>
                             </div>
                         </div>
@@ -354,7 +332,6 @@
                             <div class="col-md-6 col-xs-12"
                                  style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
                                 <div >
-
                                     <div class="col-md-5 col-sm-5 col-xs-5 single_element_image_container" style="padding:0;">
                                         <a  class="play__youtube__video " data-url-youtube="{{ Technique.Youtube }}?rel=0">
                                             <img class="img-fluid" src="{{ Technique.Image }}" style="cursor:pointer" />
@@ -443,7 +420,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-8 col-lg-8 col-xs-8">
-                                    <h2 class="name"><a href="{% if nospublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }} {% endif %}">{{ nospublication.titre }}</a></h2>
+                                    <h3 class="name"><a href="{% if nospublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }} {% endif %}">{{ nospublication.titre }}</a></h3>
                                     <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"></i> </p>
                                     <p class="description" style="    font-size: 13px;">{{ nospublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                 </div>
@@ -464,7 +441,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-8 col-lg-8 col-xs-8">
-                                    <h2 class="name"><a href="{% if autrespublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }} {% endif %}">{{ autrespublication.titre }}</a></h2>
+                                    <h3 class="name"><a href="{% if autrespublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }} {% endif %}">{{ autrespublication.titre }}</a></h3>
                                     <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"></i> </p>
                                     <p class="description" style="font-size: 13px;">{{ autrespublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                 </div>
@@ -483,8 +460,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-8 col-lg-8 col-xs-8">
-
-                                        <h2 class="name"><a href="{% if gbpublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }} {% endif %}">{{ gbpublication.titre }}</a></h2>
+                                        <h3 class="name"><a href="{% if gbpublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }} {% endif %}">{{ gbpublication.titre }}</a></h3>
                                         <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"></i> </p>
                                         <p class="description" style="font-size: 13px;">{{ gbpublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                     </div>

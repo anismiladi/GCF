@@ -27,7 +27,7 @@
             position: relative;
         }
         .listing h4{
-            background: #22AA86;
+            background: #7ac943;
             color: #fff;
             font-weight: 400;
             padding: 8px 15px;
@@ -121,14 +121,29 @@
             bottom: 0;
             left: 0;
             margin: auto;
-            height: 400px;
-            width: 700px;
+            height: 95%;
+            width: 90%;
             max-width: 100%;
             background: white;
         }
         .video__container{
+            padding: 70px 0;
             height: 100%;
-            width: 100%;
+            width: 80%;
+            margin: auto;
+        }
+        .close__video__popup {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            font-size: 35px;
+            color: gray;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .close__video__popup:hover{
+            text-decoration: none;
+            color: gray;
         }
     </style>
 
@@ -240,8 +255,8 @@
 
     <div class="index__overlay" onclick="closeVideoPopup()"></div>
     <div class="video__home__popup">
-        <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closeVideoPopup()"></i>
         <div class="video__container">
+            <a class="close__video__popup"  onclick="closeVideoPopup()" style="position: absolute; right: 20px ; top: 0; font-size: 35px; color:gray" onclick="closeVideoPopup()">×</a>
             <iframe width="100%" height="100%" src=" " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>

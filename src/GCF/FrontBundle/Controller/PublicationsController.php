@@ -17,16 +17,16 @@ class PublicationsController extends Controller
 
         $nospublications = $em->getRepository('GCFMainBundle:Publication')->findBy(
             array('categorie' => '1'),
-            array('id' => 'desc')
+            array('createdAt' => 'desc')
         );
 
         $gbpublications = $em->getRepository('GCFMainBundle:Publication')->findBy(
             array('categorie' => '2'),
-            array('id' => 'desc')
+            array('createdAt' => 'desc')
         );
         $autrespublications = $em->getRepository('GCFMainBundle:Publication')->findBy(
             array('categorie' => '3'),
-            array('id' => 'desc')
+            array('createdAt' => 'desc')
         );
         
         foreach($nospublications as $notrepublication){
@@ -67,20 +67,22 @@ class PublicationsController extends Controller
             $response[$key] = $data;
         }
 
-        $projettype = $em->getRepository('GCFMainBundle:Projet')->find($response['gb_article_project']);
+//        $projettype = $em->getRepository('GCFMainBundle:Projet')->find($response['gb_article_project']);
         $categorie = $em->getRepository('GCFMainBundle:CatPublication')->find(2);
+        $etat = $em->getRepository('GCFMainBundle:EtatPub')->find(1);
 
         //save data
         $publication  = new Publication();
         $publication->setTitre($response['gb_article_title']);
         $publication->setContenu($response['gb_article_content']);
-        $publication->setProjet($projettype);
+        $publication->setCategorie($categorie);
 
         $publication->setEmailBloggeur($response['gb_email']);
-//        $publication->setNameBloggeur($response['gb_name']);
+        $publication->setNomBloggeur($response['gb_name']);
+        $publication->setPrenomBloggeur($response['gb_last_name']);
 
-        $publication->setCategorie($categorie);
-//        $publication->setEtatPub();
+
+        $publication->setEtatPub($etat);
 
 
         $em->persist($publication);

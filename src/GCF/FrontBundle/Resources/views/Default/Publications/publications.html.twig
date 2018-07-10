@@ -21,23 +21,14 @@
             color: #22AA86;
         }
 
-        #catPub-0{
-            text-align: center;
-        }
-
         #green_blogger_pub_tab_container {
             display: none;
-        }
-        #catPub-1{
-            text-align: center;
         }
 
         #autres_pub_tab_container{
             display:none;
         }
-        #catPub-2{
-            text-align: center;
-        }
+
         .nav_our_and_green_blogger li a h2{
             font-weight: inherit ;
             font-size: inherit;
@@ -103,11 +94,11 @@
 
                 {% if publication.titre and  publication.etatPub == 'Public' %}
                 <div class="col-md-6 col-sm-6 col-xs-12"
-                     style="background: whitesmoke;border: solid white; padding-top: 10px; padding-bottom:10px ">
+                     style="background: whitesmoke;border: solid white; padding-top: 10px; padding-bottom:10px; max-height: 160px; height: 160px; ">
                     <div class="row">
                         <div class="col-md-5" style="padding-right: 0">
                             <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" title="{{ publication.titre }}">
-                                <img src="{{ publication.featuredImage }}" class="publications__page__img" style="width: 100%;"  alt="{{ publication.titre }}" title="{{ publication.titre }}" />
+                                <img src="{% if publication.featuredImage != '' %}{{ publication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" class="publications__page__img" style="width: 100%;"  alt="{{ publication.titre }}" title="{{ publication.titre }}" />
                             </a>
                         </div>
                         <div class="col-md-7">
@@ -131,11 +122,11 @@
 
                 {% if gbpublication.titre and  gbpublication.etatPub == 'Public' %}
                 <div class="col-md-6 col-sm-6 col-xs-12"
-                     style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px ">
+                     style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px; max-height: 160px; height: 160px; ">
                     <div class="row">
                         <div class="col-md-5"  style="padding-right: 0">
                             <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}" title="{{ gbpublication.titre }}">
-                                <img src="{{ gbpublication.featuredImage }}" class="publications__page__img" alt="{{ gbpublication.titre }}" title="{{ gbpublication.titre }}"/>
+                                <img src="{% if gbpublication.featuredImage != '' %}{{ gbpublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" class="publications__page__img" alt="{{ gbpublication.titre }}" title="{{ gbpublication.titre }}"/>
                             </a>
                         </div>
                         <div class="col-md-7">
@@ -163,11 +154,11 @@
             {% for autrespublication in autrespublications %}
                 {% if autrespublication.titre  and  autrespublication.etatPub == 'Public' %}
                 <div class="col-md-6 col-sm-6 col-xs-12"
-                     style=" background: rgba(255,239,0,0.1);border: solid white; padding-top: 10px; padding-bottom:10px ">
+                     style=" background: rgba(255,239,0,0.1);border: solid white; padding-top: 10px; padding-bottom:10px;max-height: 160px; height: 160px; ">
                     <div class="row">
                         <div class="col-md-5"  style="padding-right: 0">
                             <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}" title="{{ autrespublication.titre }}">
-                                <img src="{{ autrespublication.featuredImage }}" class="publications__page__img" alt="{{ autrespublication.titre }}" />
+                                <img src="{% if autrespublication.featuredImage != '' %}{{ autrespublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" class="publications__page__img" alt="{{ autrespublication.titre }}" />
                             </a>
                         </div>
                         <div class="col-md-7">

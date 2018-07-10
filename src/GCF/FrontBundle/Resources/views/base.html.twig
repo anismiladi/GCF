@@ -283,11 +283,9 @@
 </div><!-- End newsletter -->
 
 <div class="close_my_newsletter_modal">
-
 <!-- Modal -->
 </div>
 <div class="my_newsletter_modal">
-    <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true"></i>
     <!-- Begin MailChimp Signup Form -->
     <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
     <style type="text/css">
@@ -296,6 +294,8 @@
            We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
     </style>
     <div id="mc_embed_signup">
+
+        <a class="close_newsletter"  onclick="closeGBPopup()">&times;</a>
         <form action="https://raj-tunisie.us18.list-manage.com/subscribe/post?u=2a6d14e04ebc66332bdd78bb3&amp;id=6501f4b843" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
             <div id="mc_embed_signup_scroll">
                 <center><h2>{{ 'mailchampNewsletter.SubscribeToOurNewsletter'|trans }}</h2></center>
@@ -463,8 +463,9 @@
 #}
 <div class="overlay__about__gcf" onclick="closeAbout()"></div>
 <div class="popup__about__gcf">
-    <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closeAbout()"></i>
+
     <div class="popup__about__gcf__container">
+    <a class="close__video__popup" onclick="closeAbout()">&times;</a>
     <h2 align="center">{{ 'menu.About'|trans }}</h2>
         {{ render( controller('GCFFrontBundle:Default:Apropos') ) }}
     </div>
@@ -521,6 +522,13 @@
     $('#gb_posts_form').submit(function(e) {
 
         e.preventDefault();
+
+            /* Before serialize */
+            for ( instance in CKEDITOR.instances ) {
+                CKEDITOR.instances[instance].updateElement();
+            }
+
+        //console.log($(this).serialize());
         $.ajax({
             url: '{{ path('gcf_front_save_gb_post_page') }}',
             data: $(this).serialize(),

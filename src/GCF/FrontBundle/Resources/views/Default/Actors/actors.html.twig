@@ -84,8 +84,6 @@
             height: max-content;
             width: 700px;
             max-width: 100%;
-            border-radius: 4px;
-            border: solid 2px #22aa86;
         }
 
         .popup_details_container .close_popup{
@@ -101,7 +99,7 @@
         }
 
         .popup_details_container_inner{
-            padding: 20px;
+            padding: 35px 20px;
         }
         .card__actor__img{
             width: 100%;
@@ -114,6 +112,19 @@
         }
         .card__actor__footer a{
             border-radius:0;
+        }
+        .close__actor__popup {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            font-size: 35px;
+            color: gray;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .close__actor__popup:hover{
+            text-decoration: none;
+            color: gray;
         }
     </style>
 {% endblock %}
@@ -161,13 +172,13 @@
                     {% for sector in sectors %}
                         {% set i = i + 1 %}
                         <h1>{{ sector.nom }}</h1>
-                        <ul>
+                        <div class="col-md-12">  
                             {% for actor in mainactors[sector.id].actors %}
-                                <li>
-                                    <span onclick="seeDetails( {{ actor.id }} )">{{ actor.nom }}</span>
-                                </li>
+                                <div class="col-md-4" style="margin-bottom: 20px;">
+                                    <img src="{% if actor.logo != '' %}{{ actor.logo|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" alt="{{ actor.nom }}" onclick="seeDetails( {{ actor.id }} )" style="cursor:pointer;width: 100%; max-width: 100%; object-fit: cover; height:100px;">
+                                </div>
                             {% endfor %}
-                        </ul>
+                        </div>
                     {% endfor %}
                 {% endblock %}
                 </div>
@@ -180,7 +191,6 @@
     <div class="page_overlay" onclick="closePop()">
     </div>
     <div class="popup_details_container">
-        <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closePop()"></i>
         <div class="popup_details_container_inner col-md-12"></div>
     </div>
 
@@ -206,7 +216,8 @@
                     urlSingle = urlSingle.replace('id', result.id);
                     urlSingle = urlSingle.replace('slug', result.nom);
                     var toAppend = '';
-                    toAppend = '<div class="popup__card col-md-12 col-xs-12">';
+                    toAppend =  ' <a class="close__actor__popup"  onclick="closePop()">×</a>'
+                    toAppend += '<div class="popup__card col-md-12 col-xs-12">';
                     toAppend += ' <div class="card__actor__header">';
                     toAppend += '<div class="col-md-4 col-xs-4">';
                     toAppend += '<div style="border: solid 1px; height:115px">';
@@ -220,9 +231,9 @@
                     toAppend += '</div>';
                     toAppend += '</div>';
                     toAppend += '<div class="col-md-8 col-xs-8">';
-                    toAppend += '<h1 style="margin-top: 0;">'+result.nom+'</h1>';
+                    toAppend += '<h3 style="margin-top: 0;">'+result.nom+'</h3>';
                     if(result.siteweb != null) {
-                        toAppend += '<h3><i class="fa fa-globe" aria-hidden="true"></i>' + result.siteweb + '</h3>';
+                        toAppend += '<h4><i class="fa fa-globe" aria-hidden="true" style="margin-right: 10px;"></i>' + result.siteweb + '</h4>';
                     }
                     toAppend += '</div>';
                     toAppend += '</div>';

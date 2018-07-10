@@ -77,8 +77,11 @@ class DefaultController extends Controller
         $autrespublications = $em->getRepository('GCFMainBundle:Publication')->findLastAutresPublication();
 
 
+        $actualities = $em->getRepository('GCFMainBundle:Actualites')->findAll();
+
 
         return $this->render('@GCFFront/Default/index.html.twig',array(
+            'actualities' => $actualities,
             'pageTitle' => $pageTitle,
             'ProjectsBySector' => $nbrProj,
 
