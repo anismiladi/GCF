@@ -5,8 +5,7 @@
 {% block pageTitle %} {{ 'menu.Publications'|trans }} {% endblock %}
 {% block breadcrump %} <a href="{{ path('gcf_front_homepage') }}">{{ 'menu.Home'|trans }}</a> / <a > {{ 'menu.Publications'|trans }}</a>  {% endblock %}
 
-{% block stylesheets %}
-
+{% block body %}
     <style>
         .nav_our_and_green_blogger {
             margin-bottom: 30px !important;
@@ -18,7 +17,7 @@
         }
 
         .nav_our_and_green_blogger a {
-            color: #22AA86;
+            color: #7ac943;
         }
 
         #green_blogger_pub_tab_container {
@@ -29,7 +28,7 @@
             display:none;
         }
 
-        .nav_our_and_green_blogger li a h2{
+        .nav_our_and_green_blogger li a h3{
             font-weight: inherit ;
             font-size: inherit;
             line-height: inherit;
@@ -55,7 +54,7 @@
 
         .post_title{color:#333 }
 
-        .post_title:hover{ text-decoration: none; color:#333 }
+        .post_title:hover,.post_title:focus { text-decoration: none; color:#7ac943 }
 
         .publications__page__img{
             margin: auto;
@@ -66,21 +65,24 @@
             object-fit: cover;
         }
 
+
+        ._tab_container{
+            display: none;
+        }
     </style>
-
-
-{% endblock %}
-{% block body %}
-
-
     <div>
+
         <div class="col-md-12">
             <ul class="nav nav-tabs nav_our_and_green_blogger">
                 {#<li class="active" id="our_pub_tab"><a><h2>Nos Publications</h2></a></li>#}
                 {#<li class="" id="green_blogger_pub_tab"><a><h2>Green bloggeur Publications</h2></a></li>#}
                 {#<li class="" id="autres_pub_tab"><a><h2>Autres</h2></a></li>#}
                 {% for key, catPub in catsPub %}
-                    <li id="catPub-{{ key }}"><a><h2>{{ catPub.nom }}</h2></a></li>
+                    {% if key == 0 %}
+                        <li id="{{ catPub.nom|replace({' ': '_'}) }}_tab" class="active header__tabs" ><a><h3>{{ catPub.nom }}</h3></a></li>
+                    {% else %}
+                        <li id="{{ catPub.nom|replace({' ': '_'}) }}_tab" class="header__tabs"><a><h3>{{ catPub.nom }}</h3></a></li>
+                    {% endif %}
                 {% endfor %}
                 <div class="navbar-right">
                     <a class="btn btn-default" onclick="showGBpopup()">+ Green Blogger</a>
@@ -88,139 +90,61 @@
             </ul>
         </div>
 
-        <div id="our_pub_tab_container">
+        {% for key, catPub in catsPub %}
+        <div id="{{ catPub.nom|replace({' ': '_'}) }}_tab_container" class="_tab_container">
 
-            {% for publication in nospublications %}
+            {% for publication in publications %}
 
-                {% if publication.titre and  publication.etatPub == 'Public' %}
-                <div class="col-md-6 col-sm-6 col-xs-12"
-                     style="background: whitesmoke;border: solid white; padding-top: 10px; padding-bottom:10px; max-height: 160px; height: 160px; ">
-                    <div class="row">
-                        <div class="col-md-5" style="padding-right: 0">
-                            <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" title="{{ publication.titre }}">
-                                <img src="{% if publication.featuredImage != '' %}{{ publication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" class="publications__page__img" style="width: 100%;"  alt="{{ publication.titre }}" title="{{ publication.titre }}" />
-                            </a>
-                        </div>
-                        <div class="col-md-7">
-                            <h4><a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" class="post_title" title="{{ publication.titre }}">{{ publication.titre }}</a></h4>
-                            <p class="description" style="font-size: 13px;">{{ publication.contenu|striptags|slice(0, 62) }}...</p>
-                            <h6><i class="fa fa-clock-o" aria-hidden="true"></i> {{ 'now'|date('d-m-Y') }}</h6>
-                            <p style="width: 100%; text-align: right; margin: 0;">
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" title="{{ publication.titre }}" class="button_see_more">Lire la suite. </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-            {% endfor %}
+                {% if publication.titre and  publication.etatPub == 'Public' and publication.categorie  == catPub.nom %}
+                    {% if key == 0 %}
+                        <style>
 
-        </div>
-
-        <div id="green_blogger_pub_tab_container">
-
-            {% for gbpublication in gbpublications %}
-
-                {% if gbpublication.titre and  gbpublication.etatPub == 'Public' %}
-                <div class="col-md-6 col-sm-6 col-xs-12"
-                     style="background: #f2fffc;border: solid white; padding-top: 10px; padding-bottom:10px; max-height: 160px; height: 160px; ">
-                    <div class="row">
-                        <div class="col-md-5"  style="padding-right: 0">
-                            <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}" title="{{ gbpublication.titre }}">
-                                <img src="{% if gbpublication.featuredImage != '' %}{{ gbpublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" class="publications__page__img" alt="{{ gbpublication.titre }}" title="{{ gbpublication.titre }}"/>
-                            </a>
-                        </div>
-                        <div class="col-md-7">
-                            <h4>
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}" class="post_title" title="{{ gbpublication.titre }}">
-                                    {{ gbpublication.titre }}
+                            #{{ catPub.nom|replace({' ': '_'}) }}_tab_container{
+                                display:block;
+                            }
+                        </style>
+                    {% endif %}
+                    <div class="col-md-6 col-sm-6 col-xs-12"
+                         style="background: whitesmoke;border: solid white; padding-top: 10px; padding-bottom:10px; min-height: 160px; max-height: 200px; ">
+                        <div class="row">
+                            <div class="col-md-5 col-xs-5" style="padding-right: 0">
+                                <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" title="{{ publication.titre }}">
+                                    <img src="{% if publication.featuredImage != '' %}{{ publication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" class="publications__page__img" style="width: 100%;"  alt="{{ publication.titre }}" title="{{ publication.titre }}" />
                                 </a>
-                            </h4>
-                            <p class="description" style="font-size: 13px;">
-                                {{ gbpublication.contenu|striptags|slice(0, 62) }}...
-                            </p>
-                            <h6><i class="fa fa-clock-o" aria-hidden="true"></i> {{ 'now'|date('d-m-Y') }}</h6>
-                            <p style="width: 100%; text-align: right; margin: 0;">
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}" title="{{ gbpublication.titre }}" class="button_see_more">
-                                    Lire la suite. </a>
-                            </p>
+                            </div>
+                            <div class="col-md-7 col-xs-7">
+                                <h4><a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" class="post_title" title="{{ publication.titre }}">{{ publication.titre }}</a></h4>
+                                <p class="description" style="font-size: 13px;">{{ publication.contenu|striptags|slice(0, 62) }}...</p>
+                                <h6><i class="fa fa-clock-o" aria-hidden="true"></i> {{ 'now'|date('d-m-Y') }}</h6>
+                                <p style="width: 100%; text-align: right; margin: 0;">
+                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" title="{{ publication.titre }}" class="button_see_more">Lire la suite. </a>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endif %}
-            {% endfor %}
-        </div>
 
-        <div id="autres_pub_tab_container">
-            {% for autrespublication in autrespublications %}
-                {% if autrespublication.titre  and  autrespublication.etatPub == 'Public' %}
-                <div class="col-md-6 col-sm-6 col-xs-12"
-                     style=" background: rgba(255,239,0,0.1);border: solid white; padding-top: 10px; padding-bottom:10px;max-height: 160px; height: 160px; ">
-                    <div class="row">
-                        <div class="col-md-5"  style="padding-right: 0">
-                            <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}" title="{{ autrespublication.titre }}">
-                                <img src="{% if autrespublication.featuredImage != '' %}{{ autrespublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" class="publications__page__img" alt="{{ autrespublication.titre }}" />
-                            </a>
-                        </div>
-                        <div class="col-md-7">
-                            <h4 class="post_title"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}" title="{{ autrespublication.titre }}">{{ autrespublication.titre }}</a></h4>
-                            <p class="description" style="font-size: 13px;">
-                                {{ autrespublication.contenu|striptags|slice(0, 62) }}...
-                            </p>
-                            <h6 class="name"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ 'now'|date('d-m-Y') }} 2009</h6>
-                            <p style="width: 100%; text-align: right; margin: 0;">
-                                <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}" title="{{ autrespublication.titre }}" class="button_see_more" >
-                                    Lire la suite. </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
             {% endfor %}
+
         </div>
+        {% endfor %}
+
     </div>
 
 {% endblock %}
 
 {% block javascripts %}
-<script>
-    jQuery('#catPub-0').addClass('active');
 
-    jQuery('#catPub-0').click(function () {
+    <script>
+        {% for key, catPub in catsPub %}
+        jQuery('#{{ catPub.nom|replace({' ': '_'}) }}_tab').click(function () {
 
-        jQuery('#our_pub_tab_container').css('display', 'block');
-        jQuery('#green_blogger_pub_tab_container').css('display', 'none');
-        jQuery('#autres_pub_tab_container').css('display', 'none');
-
-        jQuery('#catPub-0').addClass('active');
-        jQuery('#catPub-1').removeClass('active');
-        jQuery('#catPub-2').removeClass('active');
-
-    });
-
-    jQuery('#catPub-1').click(function () {
-
-        jQuery('#green_blogger_pub_tab_container').css('display', 'block');
-        jQuery('#our_pub_tab_container').css('display', 'none');
-        jQuery('#autres_pub_tab_container').css('display', 'none');
-
-        jQuery('#catPub-1').addClass('active');
-        jQuery('#catPub-0').removeClass('active');
-        jQuery('#catPub-2').removeClass('active');
-
-    });
-
-    jQuery('#catPub-2').click(function () {
-
-        jQuery('#autres_pub_tab_container').css('display', 'block');
-        jQuery('#green_blogger_pub_tab_container').css('display', 'none');
-        jQuery('#our_pub_tab_container').css('display', 'none');
-
-        jQuery('#catPub-2').addClass('active');
-        jQuery('#catPub-0').removeClass('active');
-        jQuery('#catPub-1').removeClass('active');
-
-    });
-
-</script>
+            jQuery('._tab_container').hide();
+            jQuery('#{{ catPub.nom|replace({' ': '_'}) }}_tab_container').show();
+            jQuery('.header__tabs').removeClass('active');
+            jQuery('#{{ catPub.nom|replace({' ': '_'}) }}_tab').addClass('active');
+        });
+        {% endfor %}
+    </script>
 {% endblock %}
 

@@ -68,10 +68,11 @@
             <div class="col-md-6 col-sm-6 col-xs-12 language_container" >
                 {#<a title="Changer la langue"><i class="fa fa-language" aria-hidden="true"></i></a>#}
                 {#<a ><i class="fa fa-language" aria-hidden="true" style="color:transparent;background: transparent"></i></a>#}
-                <div class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ar_TN'})) }}" title="العربية">Ar</a></div>
-                <div class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" title="English">En</a></div>
-                <div class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" title="Français">Fr</a></div>
-
+                <div class="language_container_inner">
+                    <div class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ar_TN'})) }}" title="العربية">Ar</a></div>
+                    <div class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" title="English">En</a></div>
+                    <div class="language_switch_btn"><a class="" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" title="Français">Fr</a></div>
+                </div>
             </div>
 
             <div class="col-md-6 col-sm-6 col-xs-12 menu_top_bar_container" >
@@ -189,12 +190,12 @@
 
 <div class="main-page-site">
     <div class="container ">
-        <div class="col-md-9 col-sm-12" style="padding: 0; position:static;">
+        <div class="col-md-9 col-sm-12 col-xs-12" style="padding: 0; position:static;">
 
             {% block body %}{% endblock %}
 
         </div>
-        <div class="col-md-3 col-sm-12 side_bar_custom">
+        <div class="col-md-3 col-sm-6 col-xs-12 side_bar_custom">
 
             <div class="col-md-12">
                 {% if app.request.get('slug') %}

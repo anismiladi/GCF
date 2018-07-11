@@ -21,19 +21,18 @@ class SecteurProjetAdmin extends AbstractAdmin
         $formMapper
             ->add('nom')
             ->add('logo', ElFinderType::class, ['instance' => 'form_image', 'enable' => true])        //
-            ->add('secteurProjetParent','sonata_type_model',        //_autocomplete',
-                array(
-                    'required' => false,
-                    'multiple' => false,
-                    //'minimum_input_length' => 1,
-                    'property' => 'nom',
-                    /*'to_string_callback' => function($enitity, $property) {
-                        return $enitity->getNom();
-                    },*/
-                )
-            );
-        //->add('translations', TranslationsType::class)
-        //        ->add('nom');
+//            ->add('secteurProjetParent','sonata_type_model',        //_autocomplete',
+//                array(
+//                    'required' => false,
+//                    'multiple' => false,
+//                    //'minimum_input_length' => 1,
+//                    'property' => 'nom',
+//                    /*'to_string_callback' => function($enitity, $property) {
+//                        return $enitity->getNom();
+//                    },*/
+//                )
+//            );
+        ;
     }
 
     /**/protected function configureDatagridFilters(DatagridMapper $datagridMapper)

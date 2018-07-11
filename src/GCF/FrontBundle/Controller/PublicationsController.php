@@ -15,21 +15,12 @@ class PublicationsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $nospublications = $em->getRepository('GCFMainBundle:Publication')->findBy(
-            array('categorie' => '1'),
-            array('createdAt' => 'desc')
-        );
-
-        $gbpublications = $em->getRepository('GCFMainBundle:Publication')->findBy(
-            array('categorie' => '2'),
-            array('createdAt' => 'desc')
-        );
-        $autrespublications = $em->getRepository('GCFMainBundle:Publication')->findBy(
-            array('categorie' => '3'),
+        $publications = $em->getRepository('GCFMainBundle:Publication')->findBy(
+            array( ),
             array('createdAt' => 'desc')
         );
         
-        foreach($nospublications as $notrepublication){
+        foreach($publications as $notrepublication){
             $notrepublication->setFeaturedImage(preg_replace("/app_dev.php\//", "", $notrepublication->getFeaturedImage()));       //$notrepublication->setsetFeaturedImage
         }
 
@@ -37,9 +28,7 @@ class PublicationsController extends Controller
 
         return $this->render('@GCFFront/Default/Publications/publications.html.twig', array(
             'catsPub' => $catsPub,
-            'nospublications' => $nospublications,
-            'gbpublications' => $gbpublications,
-            'autrespublications' => $autrespublications
+            'publications' => $publications
         ));
     }
 

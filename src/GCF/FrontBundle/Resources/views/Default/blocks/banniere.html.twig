@@ -1,6 +1,6 @@
 <form action="{{ path('gcf_front_searchpage') }}" class="col-md-10 col-md-offset-1 home_banner_search">
     <div class="form-group col-md-5" style="margin: 0; color: #333">
-        <input id="key" name="key" type="text" placeholder="{{ 'search.Search'|trans }}" value="{{ keyword }}" class="form-control"  style="background-image: url('{{ asset('assets/images/material/arrow_down_input.png') }}')">
+        <input id="key" name="key" type="text" placeholder="{{ 'search.Search'|trans }}" value="{{ keyword }}" class="form-control"  style="background-image: url('{{ asset('assets/images/material/arrow_down_input.png') }}'); max-width:100%">
     </div>
     <div class="form-group col-md-3 " style="margin: 0;">
         <select name="gouvr" class="form-control" id="gouvernorat" style="background-image: url('{{ asset('assets/images/material/arrow_down_select.png') }}')" >

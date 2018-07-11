@@ -155,17 +155,30 @@ header and top bar
 }
 @media screen and (max-width: 767px){
 
+    .popup__about__gcf{
+        position: absolute !important;
+        margin: 0 auto !important;
+    }
     .bar_fixed_top > div{ padding: 0; }
 
 
     .bar_fixed_top .menu_top_bar_container{
-        margin-top: 10px;
+        margin-top: 0;
         text-align: center;
+        line-height: 20px;
     }
 
+    .slogan_banner_txt{
+        font-size: 40px !important;
+        margin-bottom: 0 !important;
+    }
     .social_media_container{ display: none; }
 
-
+    .carousel-inner .item > img{
+        max-height: 500px !important;
+        min-height: 500px !important;;
+        height: 500px !important;;
+    }
 
     .language_rs_container{display:flex !important;}
 
@@ -200,14 +213,14 @@ header and top bar
 
 
 
-    .slogan_banner_txt{  font-size: 30px; margin-bottom: 40px; }
+    .slogan_banner_txt{  font-size: 30px !important; margin-bottom: 40px !important; }
 
     .footer-basic .copyright{font-size:12px}
 
     .side_bar_custom{position: relative;}
 
 
-    .language_container { text-align: center; }
+    .language_container .language_container_inner{ margin: auto; }
 
     .language_container, .social_media_container { text-align: center; }
 
@@ -216,8 +229,13 @@ header and top bar
 
     .custom_navigation nav { padding: 10px 0; }
 
-    .affix .navbar-brand img{ max-width: 80px !important; }
-
+    .affix .navbar-brand img{ max-width: 130px !important; }
+    .navbar-header .navbar-brand img.logo__nav__affix{ max-width: 160px;}
+    .bar_fixed_top{
+        padding: 5px 0 0 0;
+        background: #4F7D00;
+        color: white;
+    }
 }
 
 
@@ -248,6 +266,7 @@ header and top bar
     color: white;
 }
 .language_container{ direction: ltr; padding: 0!important; display:flex }
+.language_container_inner{display: flex;}
 
 .language_container .fa, .social_media_container .fa-phone{
 
@@ -561,6 +580,7 @@ Newsletter and goTop buttons
     position: fixed;
     z-index: 1003;
     width: 500px;
+    max-width:100%;
     max-height: 400px;
     padding: 0 50px;
     height: 380px;
@@ -617,7 +637,7 @@ Newsletter and goTop buttons
     cursor: pointer;
     z-index: 999;
     bottom: 55px;
-    right: 20px;
+    right: 0;
 }
 /*
 ======================
@@ -687,6 +707,7 @@ Block footer copyright
     margin: auto;
     max-height: 70px;
     width: 129px;
+    max-width: 100%;
 }
 .footer_logo_RAJ{
     margin: auto;
@@ -695,6 +716,7 @@ Block footer copyright
 .footer_logo_RAJ img{
     margin: auto;
     max-height: 70px;
+    max-width: 100%;
 }
 .footer_social_media_separate_logos{
     border: solid 0.5px white;
@@ -764,7 +786,7 @@ footer .footer_website_nav .single__partner {
 footer .footer_website_nav .single__partner img{
     max-width: 100%;
     border: solid 1px white;
-    min-width: 165px;
+    min-width: 100%;
 }
 footer .rs_btns_footer_container{margin: 0 0 10px 0}
 
@@ -863,19 +885,19 @@ footer .rs_btns_footer_container{margin: 0 0 10px 0}
     list-style: none;
     border-radius: 4px;
 }
-.custom_breadcrumb h1{margin:0; font-size: 24px; padding: 5px; font-weight: 600;}
+.custom_breadcrumb h1{margin:0; font-size: 35px; padding: 5px; font-weight: 600; }
 
 .custom_breadcrumb > div { padding: 0;}
 
 .custom_breadcrumb .col-md-6{padding:0}
 
-.custom_breadcrumb .breadcrump__schema{text-align: right; background: transparent}
+.custom_breadcrumb .breadcrump__schema{text-align: right; background: transparent; padding: 14px 0;}
 
 .custom_breadcrumb  .col-md-6{padding:0}
 
 .custom_breadcrumb .breadcrump__schema  a{
     padding: 0 10px;
-    color: #22AA86;
+    color: #7ac943;
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
@@ -890,7 +912,7 @@ footer .rs_btns_footer_container{margin: 0 0 10px 0}
 }
 .custom_breadcrumb .breadcrump__schema a:hover   {
     text-decoration: none;
-    color: #25caa2;
+    color: #7ac943;
 }
 
 

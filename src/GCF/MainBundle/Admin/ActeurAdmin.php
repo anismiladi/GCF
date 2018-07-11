@@ -110,7 +110,7 @@ class ActeurAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('nomcomplet', TranslationFieldFilter::class);
+        $datagridMapper->add('nomcomplet', TranslationFieldFilter::class) ;
     }
 
     protected function configureListFields(ListMapper $listMapper)

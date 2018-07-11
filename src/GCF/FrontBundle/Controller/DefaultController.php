@@ -80,6 +80,10 @@ class DefaultController extends Controller
         $actualities = $em->getRepository('GCFMainBundle:Actualites')->findAll();
 
 
+        $secteurs = $em->getRepository('GCFMainBundle:SecteurActeur')->findAll( );
+        $actors = $em->getRepository('GCFMainBundle:Acteur')->findAll();
+
+
         return $this->render('@GCFFront/Default/index.html.twig',array(
             'actualities' => $actualities,
             'pageTitle' => $pageTitle,
@@ -93,6 +97,9 @@ class DefaultController extends Controller
             'nospublications' => $nospublications,
             'gbpublications' => $gbpublications,
             'autrespublications' => $autrespublications,
+
+            'secteurs' => $secteurs,
+            'actors' => $actors
 
 
         ));

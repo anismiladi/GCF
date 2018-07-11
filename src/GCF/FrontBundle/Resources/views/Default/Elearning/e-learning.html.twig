@@ -114,14 +114,15 @@
         }
         .video__home__popup{
             display: none;
-            position: fixed;
+            position: absolute;
             z-index: 9992;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
             margin: auto;
-            height: 95%;
+            min-height: 95%;
+            height: max-content;
             width: 90%;
             max-width: 100%;
             background: white;
@@ -150,7 +151,7 @@
 
     <!-- <h1>Page E-learning</h1> -->
 
-    <div>
+    <div >
         <div class="col-md-12">
             <ul class="nav nav-tabs navigation_elearning">
             {% for key, elearningCategorie in elearningCategories %}
@@ -173,64 +174,53 @@
                         }
                     </style>
                 {% endif %}
-            {% for learning in elearning %}
-                {% if learning.fichier != '' and learning.catLearning.nom == elearningCategorie.nom %}
-                    {% if learning.nom and learning.etatPub == 'Public' %}
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="listing">
-                            <h4><a target="_blank" href="{{ learning.Fichier }}">{{ learning.Nom }}</a></h4>
-                            <div class="type">
-                                <a target="_blank" href="{{ learning.Fichier }}">
-                                <img src="{{ learning.Image|replace({'app_dev.php': ''}) }}" title="{{ 'elearningPage.Access to this file'|trans }}">
+                {% for learning in elearning %}
+                    {% if learning.fichier != '' and learning.catLearning.nom == elearningCategorie.nom %}
+                        {% if learning.nom and learning.etatPub == 'Public' %}
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="listing">
+                                    <h4><a target="_blank" href="{{ learning.Fichier }}">{{ learning.Nom }}</a></h4>
+                                    <div class="type">
+                                        <a target="_blank" href="{{ learning.Fichier }}">
+                                        <img src="{{ learning.Image|replace({'app_dev.php': ''}) }}" title="{{ 'elearningPage.Access to this file'|trans }}">
 
-                                <span style="position: absolute; top: 10px; left: 12px; color: red; right: 10px; font-size: 12px; font-weight: 600;"><i class="fa fa-file" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> 2018</p>
-                            <div class="details" style="margin-top: 20px;">
-                                <p>{{ learning.Description|raw|slice(0, 112) }} ...</p>
-                                {% if  learning.keyword|length > 0 %}
-                                    <p><i class="fa fa-tags" aria-hidden="true"></i>
-                                    {% for keyword in learning.keyword %}
-                                        {{ keyword.label }},
-                                    {% endfor %}
-                                    </p>
-                                {% endif %}
+                                        <span style="position: absolute; top: 10px; left: 12px; color: red; right: 10px; font-size: 12px; font-weight: 600;"><i class="fa fa-file" aria-hidden="true"></i></span>
+                                        </a>
+                                    </div>
+                                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{ learning.createdAt|date('d-m-Y') }}</p>
+                                    <div class="details" style="margin-top: 20px;">
+                                        <p>{{ learning.Description|raw|slice(0, 112) }} ...</p>
+                                        {% if  learning.keyword|length > 0 %}
+                                            <p><i class="fa fa-tags" aria-hidden="true"></i>
+                                            {% for keyword in learning.keyword %}
+                                                {{ keyword.label }},
+                                            {% endfor %}
+                                            </p>
+                                        {% endif %}
 
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text text-right"><a target="_blank" href="{{ learning.Fichier }}">{{ 'elearningPage.Access to this file'|trans }}</a></p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-footer">
-                                <p class="card-text text-right"><a target="_blank" href="{{ learning.Fichier }}">{{ 'elearningPage.Access to this file'|trans }}</a></p>
-                            </div>
-                        </div>
-                    </div>
                         {% endif %}
                     {% elseif learning.youtube != '' and learning.catLearning.nom == elearningCategorie.nom %}
 
                         {% if learning.Nom and learning.etatPub == 'Public' %}
-                            {#<div class="col-md-6 col-sm-6 col-xs-12">#}
-                                {#<div class="technique__video__container">#}
-                                    {#<iframe style="max-width: 100%;max-height: 100%;width: 100%; height:200px;" src="{{ learning.youtube }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>#}
-                                {#</div>#}
-                                {#<div class="technique__info__container">#}
-                                    {#<h4 class="name">{{ learning.Nom }}</h4>#}
-                                    {#<p class="name"><strong>Date :</strong> 2009</p>#}
-                                    {#<p class="description" title="{{ learning.Description }}">{{ learning.Description|raw|slice(0, 124) }}...</p>#}
-                                    {#<p ><strong>Mot clés :</strong></p>#}
-                                {#</div>#}
-                            {#</div>#}
 
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="listing">
-                                    <h4><a class="play__youtube__video" data-url-youtube="{{ learning.Youtube }}?rel=0" style="cursor: pointer">{{ learning.Nom }}</a></h4>
+                                    <h4><a class="play__youtube__video" data-url-youtube="{{ learning.Youtube }}?rel=0" data-description-youtube="{{ learning.Description|raw }}" data-tags-youtube="{% for keyword in learning.keyword %} {{ keyword.label }}, {% endfor %}" style="cursor: pointer">{{ learning.Nom }}</a></h4>
                                     <div class="type">
-                                        <a class="play__youtube__video" data-url-youtube="{{ learning.Youtube }}?rel=0" style="cursor: pointer" title="{{ 'elearningPage.Read this video'|trans }}">
+                                        <a class="play__youtube__video" data-url-youtube="{{ learning.Youtube }}?rel=0" data-description-youtube="{{ learning.Description|raw }}" data-tags-youtube="{% for keyword in learning.keyword %} {{ keyword.label }}, {% endfor %}" style="cursor: pointer" title="{{ 'elearningPage.Read this video'|trans }}">
                                             <img class="img-fluid" src="{{ learning.Image }}" style="cursor:pointer" />
                                             <span style="position: absolute; top: 10px; left: 12px; color: red; right: 10px; font-size: 12px; font-weight: 600;"><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
                                         </a>
                                     </div>
-                                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> 2018</p>
+                                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{ learning.createdAt|date('d-m-Y') }}</p>
                                     <div class="details" style="margin-top: 20px;">
-                                        <p>{{ learning.Description|raw|slice(0, 112) }} ...</p>
+                                        <p>{% if learning.Description|length > 109 %}{{ learning.Description|raw|slice(0, 112) }} ...{% else %}{{ learning.Description|raw }} {% endif %}</p>
                                         {% if  learning.keyword|length > 0 %}
                                             <p><i class="fa fa-tags" aria-hidden="true"></i>
                                                 {% for keyword in learning.keyword %}
@@ -245,8 +235,8 @@
                                 </div>
                             </div>
                         {% endif %}
-                {% endif %}
-            {% endfor %}
+                    {% endif %}
+                {% endfor %}
 
             </div>
 
@@ -257,7 +247,9 @@
     <div class="video__home__popup">
         <div class="video__container">
             <a class="close__video__popup"  onclick="closeVideoPopup()" style="position: absolute; right: 20px ; top: 0; font-size: 35px; color:gray" onclick="closeVideoPopup()">×</a>
-            <iframe width="100%" height="100%" src=" " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="100%" height="500px" src=" " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="video__content__description col-md-6 col-sm-6 col-xs-12"></div>
+            <div class="video__content__tags col-md-6 col-sm-6 col-xs-12"></div>
         </div>
     </div>
 {% endblock %}
@@ -270,6 +262,11 @@
             videoUrl = videoUrl.replace(/(.*)v=([^&]*)&?(.*)/, "https://www.youtube.com/embed/$2");
 
             $('.video__container iframe').attr('src', videoUrl);
+            toAppend= $(this).attr('data-description-youtube');
+            $('.video__content__description').html(toAppend);
+
+            tagsToAppend= '<p><i class="fa fa-tags" aria-hidden="true"></i>'+$(this).attr('data-tags-youtube')+'</p>'
+            $('.video__content__tags').html(tagsToAppend);
 
             $('.index__overlay').fadeIn("slow");
             $('.video__home__popup').fadeIn( );
