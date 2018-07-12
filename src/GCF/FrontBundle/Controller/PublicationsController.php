@@ -38,8 +38,11 @@ class PublicationsController extends Controller
 
         $publication = $em->getRepository('GCFMainBundle:Publication')->find($id);
 
+        $relatedPublications = $em->getRepository('GCFMainBundle:Publication')->findRelatedPublications();
+
         return $this->render('@GCFFront/Default/Publications/single-publication.html.twig', array(
-            'publication' => $publication
+            'publication' => $publication,
+            'relatedPublications' => $relatedPublications
         ));
     }
 

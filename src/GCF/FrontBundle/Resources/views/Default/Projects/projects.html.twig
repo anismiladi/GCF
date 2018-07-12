@@ -114,7 +114,7 @@
             <select class="filter_select_projects col-md-12" name="" id="bySecteur">
                 <option value="" >Tous les Secteurs</option>
                 {% for secteur in secteurs  %}
-                    <option value="{{ secteur.nom }}">{{ secteur.nom }}</option>
+                        <option value="{{ secteur.nom }}">{{ secteur.nom }}</option>
                 {% endfor %}
             </select>
         </div>
@@ -255,12 +255,22 @@
                         .draw();
                 });
         //=============================================
+
             select = $('#bySecteur')
                 .on('change', function () {
                     table.column(3)
                         .search( $(this).val() )
                         .draw();
                 });
+            var secteurs = document.getElementById('bySecteur'), secteur, i;
+
+            for(i = 0; i < secteurs.length; i++) {
+                secteur = secteurs[i];
+                if (secteur.getAttribute('value') === '{{ secteurName }}') {
+                    secteur.setAttribute("selected", "selected");
+                    select = $('#bySecteur').trigger("change");
+                }
+            }
         //=============================================
             select = $('#byFocus')
                 .on('change', function () {
@@ -268,6 +278,8 @@
                         .search( ($(this).val()).replace(/<[^>]+>/g, '') )
                         .draw();
                 });
+
+
         } );
     </script>
 
@@ -383,6 +395,7 @@
                     alert(error);
                     console.log(error);
                 }
+
             });
 
 
@@ -397,5 +410,31 @@
             $('.popup_details_container').css('display', 'none');
 
         }
+    </script>
+
+
+    <script>
+        // $(document).ready(function () {
+        //    // if ( $('.filter_select_projects option').val()=== 'energie' ){
+        //    //     $('.filter_select_projects option').attr("selected", "selected");
+        //    // }
+        //     var secteurs = document.getElementById('bySecteur'), secteur, i;
+        //
+        //     for(i = 0; i < secteurs.length; i++) {
+        //         secteur = secteurs[i];
+        //         if (secteur.getAttribute('value').toLowerCase() === 'energie') {
+        //             secteur.setAttribute("selected", "selected");
+        //             var table = $('#myTable');
+        //             table.column(3)
+        //                 .search( $(this).val() )
+        //                 .draw();
+        //             //alert(secteur.value);
+        //             //secteur.setAttribute('selected', 'selected');
+        //             //secteur.changeFocus('selected')
+        //             //console.log('ok')
+        //
+        //         }
+        //     }
+        // });
     </script>
 {% endblock %}

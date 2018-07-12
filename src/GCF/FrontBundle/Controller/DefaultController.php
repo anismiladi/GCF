@@ -77,11 +77,11 @@ class DefaultController extends Controller
         $autrespublications = $em->getRepository('GCFMainBundle:Publication')->findLastAutresPublication();
 
 
-        $actualities = $em->getRepository('GCFMainBundle:Actualites')->findAll();
+        $actualities = $em->getRepository('GCFMainBundle:Actualites')->findLast3Actualities();
 
 
         $secteurs = $em->getRepository('GCFMainBundle:SecteurActeur')->findAll( );
-        $actors = $em->getRepository('GCFMainBundle:Acteur')->findAll();
+        $actors = $em->getRepository('GCFMainBundle:Acteur')->findLast12Actors();
 
 
         return $this->render('@GCFFront/Default/index.html.twig',array(

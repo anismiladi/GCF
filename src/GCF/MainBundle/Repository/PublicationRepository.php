@@ -68,4 +68,19 @@ class PublicationRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
         return $nosPub;
     }
+
+    public function findRelatedPublications(){
+
+        $relatedPublications = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('p')
+            ->from('GCFMainBundle:Publication', 'p')
+            ->where('p.etatPub = 2')
+            ->setMaxResults(3)
+            ->orderBy('p.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        return $relatedPublications;
+    }
 }

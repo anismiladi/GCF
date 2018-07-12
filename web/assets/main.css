@@ -891,7 +891,7 @@ footer .rs_btns_footer_container{margin: 0 0 10px 0}
 
 .custom_breadcrumb .col-md-6{padding:0}
 
-.custom_breadcrumb .breadcrump__schema{text-align: right; background: transparent; padding: 14px 0;}
+.custom_breadcrumb .breadcrump__schema{text-align: right; background: transparent; padding: 14px 0 !important;}
 
 .custom_breadcrumb  .col-md-6{padding:0}
 

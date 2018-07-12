@@ -69,4 +69,19 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
         return $Event;
     }
 
+    public function findRelatedEvent(){
+
+        $relatedEvent = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('p')
+            ->from('GCFMainBundle:Event', 'p')
+            ->where('p.etatPub = 2')
+            ->setMaxResults(3)
+            ->orderBy('p.debut', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+        return $relatedEvent;
+    }
+
 }

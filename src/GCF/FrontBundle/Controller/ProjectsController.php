@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProjectsController extends Controller
 {
-    public function indexAction()
+    public function indexAction($secteurName)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -39,7 +39,10 @@ class ProjectsController extends Controller
             'organismes' => $org,
             'secteurs' => $secteurs,
             'focuss' => $focus,
-            'projects' => $projects
+            'projects' => $projects,
+
+
+            'secteurName' => $secteurName
 
         ));
     }

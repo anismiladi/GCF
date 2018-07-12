@@ -10,4 +10,33 @@ namespace GCF\MainBundle\Repository;
  */
 class ActualitesRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findLast3Actualities(){
+
+        $actualities = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('p')
+            ->from('GCFMainBundle:Actualites', 'p')
+            ->setMaxResults(3)
+            ->orderBy('p.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        return $actualities;
+    }
+
+    public function findRelatedNews(){
+
+        $relatedNews = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('p')
+            ->from('GCFMainBundle:Actualites', 'p')
+            ->where('p.etatPub = 2') //etat pub Public '2' -> son id dans la bdd
+            ->setMaxResults(3)
+            ->orderBy('p.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        return $relatedNews;
+    }
+
 }

@@ -29,9 +29,11 @@ class ActualityController extends Controller
 
         $actuality = $em->getRepository('GCFMainBundle:Actualites')->find($id);
 
+        $relatedActualities = $em->getRepository('GCFMainBundle:Actualites')->findRelatedNews();
 
         return $this->render('@GCFFront/Default/Actuality/singleActuality.html.twig',array(
-            'actuality' => $actuality
+            'actuality' => $actuality,
+            'relatedActualities' => $relatedActualities
         ));
     }
 }

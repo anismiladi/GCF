@@ -22,6 +22,29 @@
         .single__actuality__content__container{
             text-align: justify;
         }
+
+        /*related article*/
+        .related__article{
+            margin-top:50px;
+        }
+        .related__article img{
+            max-width: 100%;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border: solid 1px #e7e7e7;
+        }
+        .related__article a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .related__article a:hover{
+            text-decoration: none;
+            color: #7ac943;
+        }
+        .related__article a h5{
+            font-weight: 600;
+        }
     </style>
 {% endblock %}
 {% block body %}
@@ -35,8 +58,19 @@
             <p style="margin: 0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right: 5px"></i> {{ actuality.createdAt|date("d-m-Y") }}</p>
         </div>
         <div class="single__actuality__content__container">
-            <p>{{ actuality.contenue|raw }}</p>
+            <p>{{ actuality.contenu|raw }}</p>
         </div>
+    </div>
+
+
+    <div class="col-md-12 col-sm-12 col-xs-12 related__article">
+        <h4>Voir plus d'Actualités</h4>
+        {% for relatedActuality in relatedActualities %}
+            <div class="col-md-4 col-sm-4 col-xs-4" style="min-height: 215px">
+                <a href="{{ path('gcf_front_actuality_single_page',{'id': relatedActuality.id, 'slug': relatedActuality.titre}) }}"><img src="{% if relatedActuality.image != '' %}{{ relatedActuality.image|replace({'app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" alt="{{ relatedActuality.titre }}"></a>
+                <a href="{{ path('gcf_front_actuality_single_page',{'id': relatedActuality.id, 'slug': relatedActuality.titre}) }}"><h5>{{ relatedActuality.titre|slice(0, 70) }}</h5></a>
+            </div>
+        {% endfor %}
     </div>
 
 {% endblock %}

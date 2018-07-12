@@ -87,7 +87,7 @@
                 {#<img class="article__image" src="{{ actuality.image|replace({'/app_dev.php': ''}) }}" alt="{{ actuality.titre }}">#}
                 {#<h3 class="article__title">{{ actuality.titre }}</h3>#}
                 {#<p style="margin: 0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right: 5px"></i> {{ actuality.createdAt|date("d-m-Y") }}</p>#}
-                {#<p class="article__content">{{ actuality.contenue|slice(0,445)|raw }}...</p>#}
+                {#<p class="article__content">{{ actuality.contenu|slice(0,445)|raw }}...</p>#}
                 {#<p style="text-align: right"><a class="button_see_more_lg" href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}">{{ 'actuality.Read more'|trans }}</a></p>#}
             {#</div>#}
 
@@ -103,7 +103,7 @@
                         </h4>
                         <p style="margin: 0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right: 5px"></i> {{ actuality.createdAt|date("d-m-Y") }}</p>
                         <p class="">
-                            {{ actuality.contenue|slice(0,66)|raw }}...
+                            {{ actuality.contenu|slice(0,66)|raw }}...
                         </p>
                     </div>
                     <div class="card-read-more">

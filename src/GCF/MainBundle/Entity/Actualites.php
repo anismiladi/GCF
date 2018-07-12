@@ -38,9 +38,9 @@ class Actualites extends AbstractPersonalTranslatable implements TranslatableInt
      * @var string
      *
      * @Gedmo\Translatable
-     * @ORM\Column(name="Contenue", type="text")
+     * @ORM\Column(name="contenu", type="text")
      */
-    private $contenue;
+    private $contenu;
 
     /**
      * @var string
@@ -48,6 +48,28 @@ class Actualites extends AbstractPersonalTranslatable implements TranslatableInt
      * @ORM\Column(name="image", type="text", length=255, nullable=false)
      */
     private $image;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\EtatPub", inversedBy="actualities")
+     * @ORM\JoinColumn(name="etat", referencedColumnName="id", nullable=false)
+     */
+    private $etatPub;
+
+    /**
+     * @return mixed
+     */
+    public function getEtatPub()
+    {
+        return $this->etatPub;
+    }
+
+    /**
+     * @param mixed $etatPub
+     */
+    public function setEtatPub($etatPub)
+    {
+        $this->etatPub = $etatPub;
+    }
 
     /**
      * @return string
@@ -118,27 +140,27 @@ class Actualites extends AbstractPersonalTranslatable implements TranslatableInt
     }
 
     /**
-     * Set contenue.
+     * Set contenu.
      *
-     * @param string $contenue
+     * @param string $contenu
      *
      * @return Actualites
      */
-    public function setContenue($contenue)
+    public function setcontenu($contenu)
     {
-        $this->contenue = $contenue;
+        $this->contenu = $contenu;
 
         return $this;
     }
 
     /**
-     * Get contenue.
+     * Get contenu.
      *
      * @return string
      */
-    public function getContenue()
+    public function getcontenu()
     {
-        return $this->contenue;
+        return $this->contenu;
     }
 
     /**

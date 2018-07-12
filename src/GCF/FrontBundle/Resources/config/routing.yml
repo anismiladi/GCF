@@ -33,8 +33,10 @@ gcf_front_single_actor_page:
     defaults: { _controller: GCFFrontBundle:Actors:pageSingleActor }
 
 gcf_front_projectspage:
-    path:     /projects
-    defaults: { _controller: GCFFrontBundle:Projects:index }
+    path:     /projects/{secteurName}
+    defaults:
+        _controller: GCFFrontBundle:Projects:index
+        "secteurName" : " "
 
 gcf_front_resultprojectspage:
     path:     /projects/result/gouvernorat={gouvernorat}-organisme={organisme}-secteur={secteur}-focus={focus}

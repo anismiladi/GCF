@@ -34,7 +34,7 @@ class ActorsController extends Controller
         return $this->render('@GCFFront/Default/Actors/actors.html.twig',array(
             'sectors' => $sectors,
             'mainactors' => $mainactors,
-            'actors' => $actors
+            'actors' => $actors,
 
         ));
     }

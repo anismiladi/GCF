@@ -77,6 +77,20 @@
     <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" target="_blank" class="fa fa-pinterest"> Pinterest</a>
     <a href="http://www.tumblr.com/share/link?url={{ app.request.uri }}" target="_blank" class="fa fa-tumblr"> Tumbler</a>
 </div>
+
+
+
+    <div class="col-md-12 col-sm-12 col-xs-12 related__article">
+        <h4>Voir plus d'Actualités</h4>
+        {% for relatedPublication in relatedPublications %}
+            {% if  relatedPublication.titre != '' %}
+            <div class="col-md-4 col-sm-4 col-xs-4" style="min-height: 215px">
+                <a href="{{ path('gcf_front_single_publications_page',{'id': relatedPublication.id, 'slug': relatedPublication.titre}) }}"><img src="{% if relatedPublication.featuredImage != '' %}{{ relatedPublication.featuredImage|replace({'app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" alt="{{ relatedPublication.titre }}"></a>
+                <a href="{{ path('gcf_front_single_publications_page',{'id': relatedPublication.id, 'slug': relatedPublication.titre}) }}"><h5>{{ relatedPublication.titre|slice(0, 70) }}</h5></a>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}
 
 
@@ -185,7 +199,28 @@
             font-size: 13px;
         }
 
-
+        /*related article*/
+        .related__article{
+            margin-top:50px;
+        }
+        .related__article img{
+            max-width: 100%;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border: solid 1px #e7e7e7;
+        }
+        .related__article a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .related__article a:hover{
+            text-decoration: none;
+            color: #7ac943;
+        }
+        .related__article a h5{
+            font-weight: 600;
+        }
     </style>
 
 {% endblock %}

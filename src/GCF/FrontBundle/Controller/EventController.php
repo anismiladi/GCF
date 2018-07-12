@@ -46,8 +46,11 @@ class EventController extends Controller
 
         $evenement = $em->getRepository('GCFMainBundle:Event')->find($id);
 
+        $relatedEvents = $em->getRepository('GCFMainBundle:Event')->findRelatedEvent();
+
         return $this->render('@GCFFront/Default/Event/singleEvent.html.twig',array(
-            'evenement' => $evenement
+            'evenement' => $evenement,
+            'relatedEvents' => $relatedEvents
         ));
     }
 

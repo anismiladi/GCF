@@ -10,11 +10,11 @@
         }
         .project_number_by_sectors .project_container{padding: 15px 8px; margin: auto;}
         .project_number_by_sectors .project_icon{
-            max-width: 70px;
-            width: 70px;
+            max-width: 80px;
+            width: 80px;
             margin-bottom: 5px;
             object-fit: cover;
-            height: 70px;
+            height: 80px;
             border: solid 2px transparent;
             border-radius: 50%;
             padding: 5px;
@@ -207,6 +207,9 @@
         ._tab_container{
             display: none;
         }
+        .header__tabs{
+            cursor: pointer;
+        }
     </style>
 {% endblock %}
 
@@ -235,16 +238,14 @@
 
                  {% for key, ProjectBySector in ProjectsBySector %}
                      {% set key1 =  '' %}
-                     {% if key|length > 20 %}
-                         {% set key1 =  key|slice(0, 17) ~ '...' %}
-                     {% else %}
-                         {% set key1 =  key %}
-                     {% endif %}
+
                  <div class="col-md-2 col-sm-2 col-sm-offset-1 col-md-offset-1 project_container">
                      <center>
-                         <img class="project_icon" src="{{ ProjectBySector["url"]|replace({'app_dev.php': ''}) }}" alt="{{ key1 }}"> <br>
+                         <a href="{{ path('gcf_front_projectspage', {'secteurName': key }) }}">
+                            <img class="project_icon" src="{{ ProjectBySector["url"]|replace({'app_dev.php': ''}) }}" alt="{{ key }}">
+                         </a>
                          <a class="project_name" href="#" title="{{ key }}">
-                             {{ key1 }}
+                             {% if key|length > 20 %} {{ key|slice(0, 17) ~ '...' }} {% else %} {{ key }} {% endif %}
                          </a>
                          <span class="badge project_number">{{ ProjectBySector["nbr"] }}</span>
                      </center>
@@ -279,39 +280,44 @@
                 {% for key, secteur in secteurs %}
                     {% if key == 0 %}
                         <style>
-
                             #{{ secteur.nom|replace({' ': '_'}) }}_tab_container{
                                 display:block;
                             }
                         </style>
                     {% endif %}
-                <div id="{{ secteur.nom|replace({' ': '_'}) }}_tab_container" class="_tab_container">
-                    {% for actor in actors %}
-                        {% if actor.secteurActeur == secteur.nom %}
-                            {% if actor.nom != '' %}
-
+                    <div id="{{ secteur.nom|replace({' ': '_'}) }}_tab_container" class="_tab_container">
+                        {% set actorsNum = 0 %}
+                        {% for actor in actors %}
+                            {% if actor.secteurActeur == secteur.nom %}
+                                {% if actor.nom != '' %}
+                                    {% if actorsNum < 4 %}
+                                    {% set actorsNum = actorsNum+1 %}
                                     <div class="col-md-3 col-sm-3 col-xs-3 item filter_display ours" style="background: white;border: solid 2px #f7f7f7;">
                                         <div class="row">
-                                            <div class="col-md-12 col-lg-12 col-xs-12" style="padding: 0;">
+                                            <div class="col-md-12 col-lg-12 col-xs-12 " style="padding: 0;">
                                                 <a href="{{ path('gcf_front_single_actor_page',{'slug': actor.nom|lower|replace({' ': '-'}), 'id': actor.id }) }} ">
                                                     {% if actor.logo != '' %}
-                                                        <img class="img-fluid" src="{{ actor.logo|replace({'/app_dev.php': ''}) }}" title="{{ actor.nom }}" style=" width: 100%; max-height: 153px; object-fit: cover;"/>
+                                                        <img class="img-fluid" src="{{ actor.logo|replace({'/app_dev.php': ''}) }}" title="{{ actor.nom }}" style=" width: 100%; height: 150px; object-fit: cover;"/>
                                                     {% else %}
-                                                        <img class="img-fluid" src="{{ asset('assets/images/empty-image.png') }}" title="{{ actor.nom }}" style="width: 100%; max-height: 153px; object-fit: cover;"/>
+                                                        <img class="img-fluid" src="{{ asset('assets/images/empty-image.png') }}" title="{{ actor.nom }}" style="width: 100%; height: 150px; object-fit: cover;"/>
                                                     {% endif %}
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
-
+                                    {% endif %}
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                        {% endfor %}
+                    </div>
                 {% endfor %}
-
-
-
+                <div class="read_more_container col-md-12 col-sm12 col-xs-12" style="margin: 0px 10px">
+                    <a href="{{ path('gcf_front_actorspage') }}">
+                        <button class="button_see_more_lg" style="margin-top: 10px">
+                            Voir Plus
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -329,7 +335,7 @@
                        <h1 class="section_title"> <i class="fa fa-newspaper-o" aria-hidden="true" style="font-size: 25px;"></i> {{ 'menu.News'|trans }}</h1>
                     </div>
                     {% for actuality in actualities %}
-                        {% if actuality.titre != '' %}
+                        {% if actuality.titre != '' and actuality.etatPub.nom == 'Public' %}
                     <div class="col-sm-12 item single_element">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
@@ -339,8 +345,8 @@
                             </div>
                             <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
                                 <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}"><h3 class="name">{{ actuality.titre }}</h3></a>
-                                <div class="description">{{ actuality.contenue|slice(0,80)|raw }}...</div>
                                 <p class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ actuality.createdAt|date('d-m-Y') }}</p>
+                                <div class="description">{{ actuality.contenu|slice(0,80)|raw }}...</div>
                             </div>
                         </div>
                     </div>
@@ -348,7 +354,7 @@
                     {% endfor %}
                     <div class="col-md-12 item" style=" text-align: right;">
                         <a href="{{ path('gcf_front_actualitypage') }}">
-                            <button class="button_see_more">Voir Plus</button>
+                            <button class="button_see_more_lg">Voir Plus</button>
                         </a>
                     </div>
                 </div>
@@ -380,7 +386,7 @@
 
                     <div class="col-md-12 item" style="text-align: right;">
                         <a href="{{ path('gcf_front_event_page') }}">
-                            <button class=" button_see_more">Voir Plus</button>
+                            <button class=" button_see_more_lg" style="margin-top: 10px">Voir Plus</button>
                         </a>
                     </div>
 
@@ -388,7 +394,7 @@
                 </div>
 
 
-                {#elearning#}
+                {# block elearning#}
                 <div class="row " style="width: 100%;padding-bottom: 10px; background: #f7f7f7;">
                 <div class="">
                     <div class="projects-horizontal">
@@ -416,7 +422,7 @@
                                         </div>
                                         <div class="col-md-7 col-sm-7 col-xs-7 single_element_content_container">
                                             <a class="play__youtube__video" data-url-youtube="{{ Technique.Youtube }}?rel=0"><h4 class="name">{{ Technique.Nom }}</h4></a>
-                                            <h6 class="name"><i class="fa fa-clock-o" aria-hidden="true"></i> 2009</h6>
+                                             <i class="fa fa-clock-o" aria-hidden="true" style="margin-right:5px"></i>{{ Technique.createdAt|date('d-m-Y') }}
                                             <p class="description" style="font-size: 13px;">{{ Technique.Description|raw|slice(0, 62) }}</p>
                                         </div>
                                     </div>
@@ -442,7 +448,7 @@
                                             <a target="_blank" href="{{ Legislative.Fichier }}">
                                                 <h4>{{ Legislative.Nom }}</h4>
                                             </a>
-                                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> : 2018</p>
+                                            <i class="fa fa-clock-o" aria-hidden="true" style="margin-right:5px"></i>{{ Legislative.createdAt|date('d-m-Y') }}
                                             <div class="details">
                                                 <p>{{ Legislative.Description|raw|slice(0, 62) }}</p>
                                             </div>
@@ -454,7 +460,7 @@
 
                         </div>
 
-                        <div class="read_more_container" style="margin: 0 10px">
+                        <div class="read_more_container" style="margin: 0px 10px">
                             <a href="{{ path('gcf_front_elearningpage') }}">
                                 <button class="button_see_more_lg">
                                     Voir Plus

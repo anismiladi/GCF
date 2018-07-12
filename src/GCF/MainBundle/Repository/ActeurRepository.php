@@ -53,4 +53,17 @@ class ActeurRepository extends \Doctrine\ORM\EntityRepository
                 ->getResult();
         return $Acteurs;
     }
+
+    public function findLast12Actors(){
+
+        $actors = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('p')
+            ->from('GCFMainBundle:Acteur', 'p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        return $actors;
+    }
 }

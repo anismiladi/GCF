@@ -17,7 +17,7 @@ class ActualitesAdmin extends AbstractAdmin
         $formMapper
             ->with('Gestion des actualités', ['class' => 'col-md-8'])
                 ->add('titre')
-                ->add('contenue',CKEditorType::class, array(
+                ->add('contenu',CKEditorType::class, array(
                         'config' => array(
                             'filebrowserBrowseRoute' => 'elfinder',
                             'filebrowserBrowseRouteParameters' => array(
@@ -29,6 +29,10 @@ class ActualitesAdmin extends AbstractAdmin
             ->end()
             ->with('Image', ['class' => 'col-md-4'])
                 ->add('image', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true,'required' => true])
+            ->end()
+
+            ->with('etatPub', ['class' => 'col-md-4'])
+                ->add('etatPub')
             ->end();
     }
 

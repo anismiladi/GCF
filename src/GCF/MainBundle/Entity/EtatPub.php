@@ -72,6 +72,27 @@ class EtatPub extends AbstractPersonalTranslatable implements TranslatableInterf
     /**
      * @return mixed
      */
+    public function getActualities()
+    {
+        return $this->actualities;
+    }
+
+    /**
+     * @param mixed $actualities
+     */
+    public function setActualities($actualities)
+    {
+        $this->actualities = $actualities;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="GCF\MainBundle\Entity\Actualites", mappedBy="etatPub")
+     */
+    private $actualities;
+
+    /**
+     * @return mixed
+     */
     public function getActeur()
     {
         return $this->acteur;
