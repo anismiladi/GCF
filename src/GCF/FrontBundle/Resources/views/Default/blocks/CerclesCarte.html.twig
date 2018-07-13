@@ -1,5 +1,42 @@
-<svg viewBox=" 0 0 230 487.5"   version="1.1"   xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
+<style>
+    @keyframes agrandir {
+        0% {transform: scale(1,1);} 
+        50% {transform :scale(2,2); } 
+        100% {transform :scale(3,3); } 
+    }
+    
+    circle {
+        transition: fill-opacity 1s, fill-width 1s, transform 1s;
+        transform-origin: 50% 50%;
+    }
 
+    circle:hover {
+        fill-opacity: 1;
+        //fill-width: 0;
+        //transform: scale(2);
+        //animation : agrandir 5s 0s infinite linear alternate ; 
+        //transform-origin : top left ;
+    }
+    .map-tooltip {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100px;
+        display: none;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border:#d3d3d3 solid 1px;
+        background: #fff;
+        color: black;
+        font-size: smaller;
+        padding: 8px;
+        pointer-events:none;
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>
+
+<svg viewBox=" 0 0 230 487.5"   version="1.1"  class = "button" expanded = "true" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
     <g class="map" transform="scale(1.5)">
         {% for i in 1..24 %}
             <a xlink:title="{{ Gouvernorats[i]["name"] }}" id="{{ Gouvernorats[i]["name"] }}" class="HI-map" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
@@ -24,37 +61,27 @@
     </defs>
     {% for Gouv in Gouvs  %}
         {% if Gouv.nbProjets %}
-            <circle filter="url(#flou_blur)" cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ (Gouv.nbProjets/maxNbProjets)*35 }}" fill="green" fill-opacity="0.40"  />
-            <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="2" fill="green" fill-opacity="1"  />
+            <!-- 
+            <a xlink:title="{{ Gouvernorats[Gouv.idmap]["name"]}} ({{Gouv.nbProjets }})" id="{{ Gouvernorats[Gouv.idmap]["name"] }}" class="HI-map">
+            </a>
+            -->
+            <circle filter="url(#flou_blur)" cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ (Gouv.nbProjets/interNbProjets)*12 }}" fill="green" fill-opacity="0.40"  />
         {% endif %}
     {% endfor %}
-
 </svg>
+
+<svg>
+    <circle cx="50" cy="15" r="{{ (interNbProjets*1)*12 }}" fill="green" fill-opacity="0.40"  />
+    <text x="70" y="20" fill="black">0 -> {{(interNbProjets*1)}} : {{ 'menu.Projects'|trans }}</text>
+    <circle cx="50" cy="52" r="{{ (interNbProjets*2)*12 }}" fill="green" fill-opacity="0.40"  />
+    <text x="80" y="57" fill="black">{{(interNbProjets*1)+1}} -> {{(interNbProjets*2)}} : {{ 'menu.Projects'|trans }}</text>
+    <circle cx="50" cy="113" r="{{ (interNbProjets*3)*12 }}" fill="green" fill-opacity="0.40"  />
+    <text x="95" y="118" fill="black">{{(interNbProjets*2)+1}} -> {{(interNbProjets*3)}} : {{ 'menu.Projects'|trans }}</text>
+</svg>
+    
 <div class="map-tooltip">
-    Tooltip
+
 </div>
-
-<style>
-    .map-tooltip {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100px;
-        display: none;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        border:#d3d3d3 solid 1px;
-        background: #fff;
-        color: black;
-        font-size: smaller;
-        padding: 8px;
-        pointer-events:none;
-        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-
-
-</style>
 
 <script>
 

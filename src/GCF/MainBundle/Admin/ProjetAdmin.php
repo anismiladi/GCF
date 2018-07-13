@@ -12,6 +12,7 @@ use Sonata\AdminBundle\Form\Type\ModelType;
 use Sonata\AdminBundle\Form\Type\CollectionType;
 use Sonata\AdminBundle\Form\Type\AdminType;
 use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
+use Sonata\AdminBundle\Form\Type\ModelListType;
 
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use FM\ElfinderBundle\Form\Type\ElFinderType;
@@ -28,11 +29,10 @@ class ProjetAdmin extends AbstractAdmin
                 array(
                     'label' => "Focus",
                     'required' => false,
-                    //'expanded' => true,
                     'multiple' => true,
                     'by_reference' => false,
                     'minimum_input_length' => 1,
-                    'property' => 'nom',
+                    'property' => ['id'],     //      'property' => 'id',    //
                     'to_string_callback' => function($enitity, $property) {
                         return $enitity->getNom();
                     },
@@ -54,18 +54,19 @@ class ProjetAdmin extends AbstractAdmin
                 )
             )*/
             
-            /**/
-            ->add('keyword', ModelAutocompleteType::class,        //_autocomplete
-                array(
-                    'label' => "Mots clés",
-                    'required' => false,
-                    //'expanded' => true,
-                    'multiple' => true,
-                    'minimum_input_length' => 1,
-                    'property' => 'label',
-                    'to_string_callback' => function($enitity, $property) {
-                        return $enitity->getLabel();
-                    },
+            /*->add('keyword')*/
+            
+            ->add('keyword', ModelAutocompleteType::class , array(
+                'label' => "Mots clés",
+                'required' => false,
+                'btn_add' => true,
+                'multiple' => true,
+                'by_reference' => true,
+                'minimum_input_length' => 1,
+                'property' => ['label'],     //      'property' => 'id',    //
+                'to_string_callback' => function($enitity, $property) {
+                    return $enitity->getLabel();
+                },
                 )
             )
             

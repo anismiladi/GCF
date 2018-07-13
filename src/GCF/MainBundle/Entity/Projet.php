@@ -271,9 +271,9 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     public function removeGouvernorat(\GCF\MainBundle\Entity\Gouvernorat $gouvernorat)
     {
         //echo "removeGouvernorat";
-        
-        $this->gouvernorat->removeElement($gouvernorat);
         $gouvernorat->removeProjet($this);
+        $this->gouvernorat->removeElement($gouvernorat);
+        
     }
 
     /**
@@ -354,6 +354,7 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
      */
     public function addKeyword(\GCF\MainBundle\Entity\Keyword $keyword)
     {
+        //die ("ICI"."<br>");
         $keyword->addProjet($this);
         $this->keyword[] = $keyword;
 
@@ -369,6 +370,7 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
      */
     public function removeKeyword(\GCF\MainBundle\Entity\Keyword $keyword)
     {
+        //die ("ICI"."<br>");
         $keyword->removeProjet($this);
         return $this->keyword->removeElement($keyword);
     }
@@ -392,6 +394,7 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
      */
     public function addConcentration(\GCF\MainBundle\Entity\Concentration $concentration)
     {
+        //die ("ICI"."<br>");
         $concentration->addProjet($this);
         $this->concentration[] = $concentration;
 
@@ -407,6 +410,8 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
      */
     public function removeConcentration(\GCF\MainBundle\Entity\Concentration $concentration)
     {
+        //die ("ICI"."<br>");
+        $concentration->removeProjet($this);
         return $this->concentration->removeElement($concentration);
     }
 

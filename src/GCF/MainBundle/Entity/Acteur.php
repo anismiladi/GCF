@@ -38,6 +38,14 @@ class Acteur extends AbstractPersonalTranslatable implements TranslatableInterfa
      * @var string
      *
      * @Gedmo\Translatable
+     * @ORM\Column(name="fichier", type="text", length=255, nullable=true)
+     */
+    private $fichier;
+    
+    /**
+     * @var string
+     *
+     * @Gedmo\Translatable
      * @ORM\Column(name="nom", type="string", length=255, nullable=true)
      */
     private $nom;
@@ -760,5 +768,29 @@ class Acteur extends AbstractPersonalTranslatable implements TranslatableInterfa
             'projet' => $this->projet,
             'acteurParent' => $this->acteurParent,
         );
+    }
+
+    /**
+     * Set fichier.
+     *
+     * @param string|null $fichier
+     *
+     * @return Acteur
+     */
+    public function setFichier($fichier = null)
+    {
+        $this->fichier = $fichier;
+
+        return $this;
+    }
+
+    /**
+     * Get fichier.
+     *
+     * @return string|null
+     */
+    public function getFichier()
+    {
+        return $this->fichier;
     }
 }

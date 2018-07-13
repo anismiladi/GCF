@@ -28,7 +28,7 @@ class ElearningAdmin extends AbstractAdmin
                 array(
                     'label' => "Mots clés",
                     'required' => false,
-                    //'expanded' => true,
+                    'btn_add' => true,
                     'multiple' => true,
                     'minimum_input_length' => 1,
                     'property' => 'label',
