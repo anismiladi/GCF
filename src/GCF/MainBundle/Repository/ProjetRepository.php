@@ -45,7 +45,7 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
             ->from('GCFMainBundle:Projet', 'p')
             ->leftJoin('p.gouvernorat', 'g')
             ->leftJoin('p.acteur', 'a')
-            ->leftJoin('p.focus', 'f')
+            ->leftJoin('p.concentration', 'c')
             ->Where($txtWhere)
             //->orderBy('p.nom', 'ASC')
             //->orderBy('a.Num', 'ASC')

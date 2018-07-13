@@ -117,6 +117,7 @@ class Keyword extends AbstractPersonalTranslatable implements TranslatableInterf
      */
     public function addProjet(\GCF\MainBundle\Entity\Projet $projet)
     {
+        
         $this->projet[] = $projet;
 
         return $this;

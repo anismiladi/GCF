@@ -35,7 +35,7 @@ class ActeurAdmin extends AbstractAdmin
                 )          //, 'textarea', array('attr' => array('class' => 'ckeditor')))
                 ->add('hierarchie', CKEditorType::class, ['required' => false])        //, 'textarea', array('attr' => array('class' => 'ckeditor')))
                 ->add('mission', CKEditorType::class, ['required' => false])        //, 'textarea', array('attr' => array('class' => 'ckeditor')))
-                
+                ->add('fichier', ElFinderType::class, ['instance' => 'form_pdf', 'enable' => true, 'required' => false,])
                 /*->add('adresse', SimpleFormatterType::class, array(
                     'format' => 'markdown',
                     'ckeditor_context' => 'default'))

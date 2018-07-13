@@ -118,6 +118,7 @@ class DefaultController extends Controller
             if($maxNbProjets < $Gouv["nbProjets"]) {$maxNbProjets=$Gouv["nbProjets"];}
         }
         //echo $maxNbProjets."<br>";
+        $interNbProjets  = $maxNbProjets/3;
         $Gouvernorats = array(
             1 => array(
                 'name' => "Ariana",
@@ -270,6 +271,7 @@ class DefaultController extends Controller
             'Gouvs' => $Gouvs,
             'Gouvernorats' => $Gouvernorats,
             'maxNbProjets' => $maxNbProjets,
+            'interNbProjets' => $interNbProjets,
         ));
     }
 
@@ -489,7 +491,7 @@ public function MapAction()
                 'key' => $keyword->getLabel(),
             );
         }
-        $focuss = $em->getRepository('GCFMainBundle:Focus')->findAll();
+        $focuss = $em->getRepository('GCFMainBundle:Concentration')->findAll();
         foreach($focuss as $focus){
             $key[] = array(
                 'id' => $focus->getId(),
