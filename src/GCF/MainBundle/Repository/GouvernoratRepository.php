@@ -23,8 +23,7 @@ class GouvernoratRepository extends \Doctrine\ORM\EntityRepository
             ->groupBy('g.idmap')
             ->select('g.idmap, Count(p.id) as nbProjets')
 
-            //->andWhere(" ")
-            //->orderBy('p.nom', 'ASC')
+            ->orderBy('nbProjets', 'DESC')
             //->orderBy('a.Num', 'ASC')
             //->setParameter('course', $course->getId())
             //->setParameter('null', NULL)

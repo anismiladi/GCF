@@ -32,7 +32,7 @@ class ProjetAdmin extends AbstractAdmin
                     'multiple' => true,
                     'by_reference' => false,
                     'minimum_input_length' => 1,
-                    'property' => ['id'],     //      'property' => 'id',    //
+                    'property' => 'nom',     //      'property' => 'id',    //
                     'to_string_callback' => function($enitity, $property) {
                         return $enitity->getNom();
                     },

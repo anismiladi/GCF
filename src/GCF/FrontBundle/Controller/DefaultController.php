@@ -118,7 +118,7 @@ class DefaultController extends Controller
             if($maxNbProjets < $Gouv["nbProjets"]) {$maxNbProjets=$Gouv["nbProjets"];}
         }
         //echo $maxNbProjets."<br>";
-        $interNbProjets  = $maxNbProjets/3;
+        $interNbProjets  = floor($maxNbProjets/3)+1;
         $Gouvernorats = array(
             1 => array(
                 'name' => "Ariana",

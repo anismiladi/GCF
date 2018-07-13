@@ -6,8 +6,7 @@
     }
     
     circle {
-        transition: fill-opacity 1s, fill-width 1s, transform 1s;
-        transform-origin: 50% 50%;
+
     }
 
     circle:hover {
@@ -50,9 +49,6 @@
             <feGaussianBlur in="SourceGraphic" stdDeviation="15" ></feGaussianBlur>
         </filter>
     </defs>
-    {% for Gouv in Gouvs  %}
-        <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ (Gouv.nbProjets/maxNbProjets)*35 }}" fill="green" fill-opacity="0.40"  />
-    {% endfor %}
 
     <defs>
         <filter height="200%" width="200%" y="-50%" x="-50%" id="flou_blur">
@@ -65,17 +61,22 @@
             <a xlink:title="{{ Gouvernorats[Gouv.idmap]["name"]}} ({{Gouv.nbProjets }})" id="{{ Gouvernorats[Gouv.idmap]["name"] }}" class="HI-map">
             </a>
             -->
-            <circle filter="url(#flou_blur)" cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ (Gouv.nbProjets/interNbProjets)*12 }}" fill="green" fill-opacity="0.40"  />
+            {% if Gouv.nbProjets < interNbProjets %}
+                <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="12" fill="green" fill-opacity="0.40"  />
+
+            {% else %}
+                <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ ((((Gouv.nbProjets)/interNbProjets)|round(0, 'floor'))+1)*12 }}" fill="green" fill-opacity="0.40"  />
+            {% endif %}
         {% endif %}
     {% endfor %}
 </svg>
 
 <svg>
-    <circle cx="50" cy="15" r="{{ (interNbProjets*1)*12 }}" fill="green" fill-opacity="0.40"  />
+    <circle cx="50" cy="15" r="{{ (1)*12 }}" fill="green" fill-opacity="0.40"  />
     <text x="70" y="20" fill="black">0 -> {{(interNbProjets*1)}} : {{ 'menu.Projects'|trans }}</text>
-    <circle cx="50" cy="52" r="{{ (interNbProjets*2)*12 }}" fill="green" fill-opacity="0.40"  />
+    <circle cx="50" cy="52" r="{{ (2)*12 }}" fill="green" fill-opacity="0.40"  />
     <text x="80" y="57" fill="black">{{(interNbProjets*1)+1}} -> {{(interNbProjets*2)}} : {{ 'menu.Projects'|trans }}</text>
-    <circle cx="50" cy="113" r="{{ (interNbProjets*3)*12 }}" fill="green" fill-opacity="0.40"  />
+    <circle cx="50" cy="113" r="{{ (3)*12 }}" fill="green" fill-opacity="0.40"  />
     <text x="95" y="118" fill="black">{{(interNbProjets*2)+1}} -> {{(interNbProjets*3)}} : {{ 'menu.Projects'|trans }}</text>
 </svg>
     
