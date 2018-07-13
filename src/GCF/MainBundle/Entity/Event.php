@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Event
  *
- * @ORM\Table(name="event")
+ * @ORM\Table(name="gcf_event")
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\EventRepository")
  * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\EventTranslation")
  */
@@ -45,7 +45,7 @@ class Event extends AbstractPersonalTranslatable implements TranslatableInterfac
     /**
      * @var string
      *
-     * @ORM\Column(name="lienFB", type="string", length=255)
+     * @ORM\Column(name="lienFB", type="string", length=255, nullable=true)
      */
     private $lienFB;
 
@@ -66,7 +66,7 @@ class Event extends AbstractPersonalTranslatable implements TranslatableInterfac
     /**
      * @var string
      *
-     * @ORM\Column(name="lienAutre", type="string", length=255)
+     * @ORM\Column(name="lienAutre", type="string", length=255, nullable=true)
      */
     private $lienAutre;
 

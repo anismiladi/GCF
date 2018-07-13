@@ -9,7 +9,7 @@
 {% block stylesheets %}
     <style>
         .event__banner__container {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             padding: 0 15px 0 0;
         }
 
@@ -97,7 +97,7 @@
             text-align: center;
             text-decoration: none;
             background: white;
-            color: #22AA86;
+            color: #7ac943;
             border-radius: 50%;
         }
 
@@ -140,6 +140,7 @@
                                aria-hidden="true" style="margin-left: 10px"></i>{{ evenement.debut|date("g:ia") }}
                             - {{ evenement.fin|date("g:ia") }}
                         </p>
+
                         <p class="event__info__fb">
                             <a href="{{ path('gcf_front_single_event_page', {'slug': evenement.nom|lower|replace({' ': '-'}) , 'id':evenement.id}) }}"
                                title="Facebook" target="_blank">

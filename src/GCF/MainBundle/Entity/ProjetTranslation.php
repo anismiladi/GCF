@@ -7,7 +7,7 @@ use Sonata\TranslationBundle\Model\Gedmo\AbstractPersonalTranslation;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="projet_translation",
+ * @ORM\Table(name="gcf_projet_translation",
  *     uniqueConstraints={@ORM\UniqueConstraint(name="lookup_unique_projet_translation_idx", columns={
  *         "locale", "object_id", "field"
  *     })}

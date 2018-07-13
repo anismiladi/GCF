@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Gouvernorat
  *
- * @ORM\Table(name="gouvernorat")
+ * @ORM\Table(name="gcf_gouvernorat")
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\GouvernoratRepository")
  * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\GouvernoratTranslation")
  */
@@ -44,7 +44,7 @@ class Gouvernorat extends AbstractPersonalTranslatable implements TranslatableIn
     /**
      * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="gouvernorat", cascade={"persist", "remove"})
      * @ORM\JoinTable(
-     *     name="gouverprojet",
+     *     name="gcf_gouverprojet",
      *     joinColumns={@ORM\JoinColumn(name="gouvernorat", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="projet", referencedColumnName="id", nullable=false)}
      * )

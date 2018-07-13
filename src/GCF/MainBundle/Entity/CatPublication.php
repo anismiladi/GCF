@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * CatPublication
  *
- * @ORM\Table(name="cat_publication")
+ * @ORM\Table(name="gcf_cat_publication")
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\CatPublicationRepository")
  * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\CatPublicationTranslation")
  */

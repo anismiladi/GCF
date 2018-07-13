@@ -35,7 +35,7 @@
         }
         .actualities__container .card-content {
             padding:10px;
-            text-align:left;
+            min-height: 125px;
         }
         .actualities__container .card-title {
             margin-top:0px;
@@ -103,7 +103,7 @@
                         </h4>
                         <p style="margin: 0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right: 5px"></i> {{ actuality.createdAt|date("d-m-Y") }}</p>
                         <p class="">
-                            {{ actuality.contenu|slice(0,66)|raw }}...
+                            {% if actuality.contenu|length > 63 %}{{ actuality.contenu|slice(0,66)|raw }}...{% else %}{{ actuality.contenu|raw }} {% endif %}
                         </p>
                     </div>
                     <div class="card-read-more">

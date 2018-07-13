@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Actualites
  *
- * @ORM\Table(name="actualites")
+ * @ORM\Table(name="gcf_actualites")
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\ActualitesRepository")
  * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\ActualitesTranslation")
  */

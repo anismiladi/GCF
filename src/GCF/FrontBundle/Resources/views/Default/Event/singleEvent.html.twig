@@ -78,7 +78,7 @@
 
 
     <div class="col-md-12 col-sm-12 col-xs-12 related__article">
-        <h4>Voir plus d'evenements</h4>
+        <h4 class="col-md-12 col-sm-12 col-xs-12">{{ 'events.See more events'|trans }}Voir plus d'evenements</h4>
         {% for relatedEvent in relatedEvents %}
         <div class="col-md-4 col-sm-4 col-xs-4" style="min-height: 215px">
             <a href="{{ path('gcf_front_single_event_page',{'id': relatedEvent.id, 'slug': relatedEvent.nom}) }}"><img src="{% if relatedEvent.photoCouverture != '' %}{{ relatedEvent.photoCouverture|replace({'app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" alt="{{ relatedEvent.nom }}"></a>
@@ -93,6 +93,7 @@
         /*related article*/
         .related__article{
             margin-top:50px;
+            padding:0;
         }
         .related__article img{
             max-width: 100%;
@@ -205,7 +206,7 @@
             font-size: 15px;
             text-align: center;
             text-decoration: none;
-            color: #22AA86;
+            color: #4267b2;
             border-radius: 50%;
             background: #cccccc;
         }

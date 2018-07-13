@@ -280,10 +280,10 @@ class ProjectsController extends Controller
 
         }
 
-        $response['focus'] = '';
+        $response['focus'] = array();
         foreach ( $project->getConcentration() as $focus){
 
-                $response['focus'] = $focus->getNom();
+                $response['focus'][] = $focus->getNom();
 
         }
 

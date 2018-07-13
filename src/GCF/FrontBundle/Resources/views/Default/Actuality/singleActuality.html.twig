@@ -26,6 +26,7 @@
         /*related article*/
         .related__article{
             margin-top:50px;
+            padding: 0;
         }
         .related__article img{
             max-width: 100%;
@@ -47,9 +48,11 @@
         }
     </style>
 {% endblock %}
+
 {% block body %}
 
-    <div class="single__actuality__container col-md-12 col-sm-12 col-xs-12" style="padding-left:0">
+{% if actuality.titre != '' %}
+    <div class="single__actuality__container col-md-12 col-sm-12 col-xs-12">
         <div class="single__actuality__image__container">
             <img class="single__actuality__image" src="{{ actuality.image|replace({'/app_dev.php': ''}) }}" alt="{{ actuality.titre }}" />
         </div>
@@ -64,7 +67,7 @@
 
 
     <div class="col-md-12 col-sm-12 col-xs-12 related__article">
-        <h4>Voir plus d'Actualités</h4>
+        <h4 class="col-md-12 col-sm-12 col-xs-12">Voir plus d'Actualités</h4>
         {% for relatedActuality in relatedActualities %}
             <div class="col-md-4 col-sm-4 col-xs-4" style="min-height: 215px">
                 <a href="{{ path('gcf_front_actuality_single_page',{'id': relatedActuality.id, 'slug': relatedActuality.titre}) }}"><img src="{% if relatedActuality.image != '' %}{{ relatedActuality.image|replace({'app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" alt="{{ relatedActuality.titre }}"></a>
@@ -72,6 +75,8 @@
             </div>
         {% endfor %}
     </div>
+
+{% endif %}
 
 {% endblock %}
 

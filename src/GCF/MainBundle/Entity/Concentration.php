@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Focu
  *
- * @ORM\Table(name="concentration")
+ * @ORM\Table(name="gcf_concentration")
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\ConcentrationRepository")
  * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\ConcentrationTranslation")
  */
@@ -36,7 +36,7 @@ class Concentration extends AbstractPersonalTranslatable implements Translatable
     /**
      * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="concentration", cascade={"persist", "remove"})
      * @ORM\JoinTable(
-     *     name="concentrationprojet",
+     *     name="gcf_concentrationprojet",
      *     joinColumns={@ORM\JoinColumn(name="concentration", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="projet", referencedColumnName="id", nullable=false)}
      * )

@@ -14,10 +14,10 @@
 
         .paginate_button.previous, .paginate_button.next{ display: none; }
 
-        .filter_container{margin: 10px 0; padding: 0; border-left: solid #22AA86;}
+        .filter_container{margin: 10px 0; padding: 0; border-left: solid #7ac943;}
         .filter_select_projects{width: 100%; max-width:100%; margin: 5px 0; padding: 5px 5px !important; outline: none; font-weight: 600}
         .filter_select_projects option{color:gray}
-        #myTable thead tr{background: #22AA86; color: white;}
+        #myTable thead tr{background: #7ac943; color: white;}
     </style>
 
     <style>
@@ -75,7 +75,7 @@
         }
 
         .popup_details_container_inner{
-            padding: 20px;
+            padding: 50px 20px 20px;
         }
         .popup_details_container_inner table{
             margin-bottom: 0;
@@ -200,7 +200,7 @@
     </div>
 
     <div class="popup_details_container">
-        <i class="fa fa-times-circle fa-2x close_popup" aria-hidden="true" onclick="closePop()"></i>
+        <a class="close__video__popup" onclick="closePop()">×</a>
         <div class="popup_details_container_inner">
             <div class="popup_details_container_inner"></div>
         </div>
@@ -299,9 +299,9 @@
                 type: 'POST',
                 dataType: 'json',
                 success: function (result) {
-
+                    // console.log(result);
                     $('.loading_page_overlay').css('display', 'none');
-                    console.log(result);
+
                     $('.page_overlay').css('display', 'block');
                     $('.popup_details_container').css('display', 'block');
                     $('.popup_details_container_inner').empty();
@@ -318,7 +318,7 @@
                     if(result.description !== '') {
                         toAppend += '<tr>';
                         toAppend += '<td class="line_name">Description</td>';
-                        toAppend += '<td>' + result.description + '</td>';
+                        toAppend += '<td>' + result.description.substr(0, 100) + '</td>';
                         toAppend += '</tr>';
                     }
                     if(result.secteurProjet !== ''){
@@ -333,11 +333,21 @@
                         toAppend +=  '<td>'+result.acteur+'</td>';
                         toAppend +=  '</tr>';
                     }
-                    if(result.concentration !== ''){
-                        toAppend +=  '<tr>';
-                        toAppend +=  '<td class="line_name">Focus</td>';
-                        toAppend +=  '<td>'+result.concentration+'</td>';
-                        toAppend +=  '</tr>';
+                    if(result.focus.length > 0) {
+                        toAppend += '<tr>';
+                        toAppend += '<td class="line_name">Focus</td>';
+                        if (result.focus !== '') {
+                            toAppend += '<td>';
+                            for (i = 0; i < result.focus.length; i++) {
+                                if (i === result.focus.length - 1) {
+                                    toAppend += result.focus[i];
+                                } else {
+                                    toAppend += result.focus[i] + ', ';
+                                }
+                            }
+                            toAppend += '</td>';
+                        }
+                        toAppend += '</tr>';
                     }
                     if(result.gouvernorat.length > 0) {
                         toAppend += '<tr>';
@@ -410,31 +420,5 @@
             $('.popup_details_container').css('display', 'none');
 
         }
-    </script>
-
-
-    <script>
-        // $(document).ready(function () {
-        //    // if ( $('.filter_select_projects option').val()=== 'energie' ){
-        //    //     $('.filter_select_projects option').attr("selected", "selected");
-        //    // }
-        //     var secteurs = document.getElementById('bySecteur'), secteur, i;
-        //
-        //     for(i = 0; i < secteurs.length; i++) {
-        //         secteur = secteurs[i];
-        //         if (secteur.getAttribute('value').toLowerCase() === 'energie') {
-        //             secteur.setAttribute("selected", "selected");
-        //             var table = $('#myTable');
-        //             table.column(3)
-        //                 .search( $(this).val() )
-        //                 .draw();
-        //             //alert(secteur.value);
-        //             //secteur.setAttribute('selected', 'selected');
-        //             //secteur.changeFocus('selected')
-        //             //console.log('ok')
-        //
-        //         }
-        //     }
-        // });
     </script>
 {% endblock %}

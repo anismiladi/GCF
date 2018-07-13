@@ -6,31 +6,48 @@
   <component name="ChangeListManager">
     <list default="true" id="8fae6a69-e6b4-4729-9683-1fa9489b2b2c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ActorsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ActorsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ActualityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ActualityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/EventController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ProjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ProjectsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/PublicationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/PublicationsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/actuality.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/actuality.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/singleActuality.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/singleActuality.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Elearning/e-learning.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Elearning/e-learning.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/eventIndex.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/eventIndex.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/singleEvent.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/singleEvent.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Projects/projects.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Projects/projects.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Publications/single-publication.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Publications/single-publication.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/contact.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Admin/ActualitesAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Admin/ActualitesAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Acteur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Acteur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ActeurTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ActeurTranslation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Actualites.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Actualites.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ActualitesTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ActualitesTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Apropos.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Apropos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/AproposTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/AproposTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatLearning.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatLearning.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatLearningTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatLearningTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatPublication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatPublication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatPublicationTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatPublicationTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Concentration.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Concentration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ConcentrationTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ConcentrationTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Elearning.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Elearning.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ElearningTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ElearningTranslation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/EtatPub.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/EtatPub.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Repository/ActeurRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Repository/ActeurRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Repository/ActualitesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Repository/ActualitesRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Repository/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Repository/EventRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Repository/PublicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Repository/PublicationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/EtatPubTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/EtatPubTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/EventTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/EventTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Gouvernorat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Gouvernorat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/GouvernoratTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/GouvernoratTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Keyword.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Keyword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/KeywordTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/KeywordTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Projet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Projet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ProjetTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ProjetTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Publication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Publication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/PublicationTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/PublicationTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurActeur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurActeur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurActeurTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurActeurTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurProjet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurProjet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurProjetTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurProjetTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GCF/MainBundle/Entity/User.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,17 +59,51 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig">
+      <file leaf-file-name="single-projects.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Projects/single-projects.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4649">
-              <caret line="450" column="131" selection-start-line="450" selection-start-column="131" selection-end-line="450" selection-end-column="131" />
+            <state>
               <folding>
-                <element signature="e#18531#18555#0#HTML" expanded="true" />
-                <element signature="e#20303#20327#0#HTML" expanded="true" />
+                <element signature="e#12#36#0#Twig" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projects.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Projects/projects.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="302" column="33" selection-start-line="302" selection-start-column="33" selection-end-line="302" selection-end-column="33" />
+              <folding>
+                <element signature="e#12#36#0#Twig" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ProjectsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="285" column="35" selection-start-line="285" selection-start-column="35" selection-end-line="285" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -69,36 +120,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_tab_container</find>
-      <find>_tab__container</find>
-      <find>.custom_breadcrumb .breadcrump__schema a</find>
-      <find>.button_newsletter</find>
-      <find>fill</find>
-      <find>.contact__page__container h2</find>
-      <find>sec</find>
-      <find>des</find>
-      <find>navigation_elearning</find>
-      <find>.custom_breadcrumb h1</find>
-      <find>padding: 14px 0;</find>
-      <find>breadcrump__schema</find>
-      <find>bread</find>
-      <find>slider_projects</find>
-      <find>see_more</find>
-      <find>button_see_more_lg</find>
-      <find>header__tabs</find>
-      <find>.custom_breadcrumb .breadcrump__schema</find>
-      <find>.project_number_by_sectors .project_icon</find>
+      <find />
       <find>projet</find>
-      <find>.event__info h3.event__info__title a:hover</find>
+      <find />
       <find>login-title</find>
       <find>.video__home__popup</find>
-      <find>related__article</find>
       <find>publication</find>
       <find>contenue</find>
       <find>contenu</find>
       <find>etatPub</find>
-      <find>etat</find>
       <find>single_element_content_container</find>
+      <find>table</find>
+      <find>keyw</find>
+      <find>trans</find>
+      <find>ROL</find>
+      <find>autrespublication</find>
+      <find>etat</find>
+      <find>join</find>
+      <find>joi</find>
+      <find>gcf_</find>
+      <find>JoinTable</find>
+      <find>lie</find>
+      <find>event__info__fb</find>
+      <find>facebook</find>
+      <find>.event__banner__container</find>
+      <find />
+      <find>related__article</find>
+      <find>single__actuality__container</find>
+      <find>popup_details_container_inner</find>
+      <find>.popup_details_container_inner</find>
+      <find>description</find>
     </findStrings>
     <replaceStrings>
       <replace>contenu</replace>
@@ -110,57 +161,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/bundles/sonataadmin/css/styles.css" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Admin/CatLearningAdmin.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Apropos.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ActualitesTranslation.php" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml" />
-        <option value="$PROJECT_DIR$/vendor/sonata-project/admin-bundle/src/Resources/views/Core/user_block.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Resources/config/services.yml" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Admin/PublicationAdmin.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Elearning.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Event.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Publication.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Admin/EventAdmin.php" />
-        <option value="$PROJECT_DIR$/web/assets/main.js" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actors/actors.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actors/singleActor.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/blocks/banniere.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/blocks/gb-popoup.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Publications/publications.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Admin/ActeurAdmin.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Admin/SecteurProjetAdmin.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Admin/ProjetAdmin.php" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Repository/ActeurRepository.php" />
-        <option value="$PROJECT_DIR$/web/assets/main.css" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ActorsController.php" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ProjectsController.php" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Projects/projects.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/contact.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/eventIndex.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/EventController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Elearning/e-learning.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/MainBundle/Repository/ElearningRepository.php" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ActualityController.php" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/singleEvent.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/PublicationsController.php" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Publications/single-publication.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/singleActuality.html.twig" />
-        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/actuality.html.twig" />
         <option value="$PROJECT_DIR$/src/GCF/MainBundle/Repository/PublicationRepository.php" />
         <option value="$PROJECT_DIR$/src/GCF/MainBundle/Repository/EventRepository.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Actualites.php" />
-        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/EtatPub.php" />
         <option value="$PROJECT_DIR$/src/GCF/MainBundle/Admin/ActualitesAdmin.php" />
         <option value="$PROJECT_DIR$/src/GCF/MainBundle/Repository/ActualitesRepository.php" />
         <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurProjetTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurProjet.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurActeurTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurActeur.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Publication.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ProjetTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Acteur.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ActeurTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Actualites.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ActualitesTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Apropos.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/AproposTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatLearning.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatLearningTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatPublication.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatPublicationTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Concentration.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ConcentrationTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Elearning.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/ElearningTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/EtatPub.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/EtatPubTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/EventTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Gouvernorat.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/GouvernoratTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Keyword.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/KeywordTranslation.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Projet.php" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/PublicationTranslation.php" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml" />
+        <option value="$PROJECT_DIR$/src/GCF/MainBundle/Entity/Event.php" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/singleEvent.html.twig" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/eventIndex.html.twig" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/actuality.html.twig" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/singleActuality.html.twig" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Publications/single-publication.html.twig" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ProjectsController.php" />
+        <option value="$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Projects/projects.html.twig" />
       </list>
     </option>
   </component>
@@ -257,7 +308,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,7 +356,7 @@
               <item name="GCF" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="FrontBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="translations" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
@@ -326,61 +376,6 @@
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Default" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gcf" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="GCF" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="FrontBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Default" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Actors" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gcf" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="GCF" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="FrontBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Default" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Actuality" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gcf" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="GCF" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="FrontBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Default" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="blocks" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gcf" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="GCF" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="FrontBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Default" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Elearning" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gcf" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="GCF" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="FrontBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Default" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Event" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
@@ -411,29 +406,11 @@
               <item name="GCF" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="MainBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gcf" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="GCF" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="MainBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gcf" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="gcf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gcf" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -520,21 +497,22 @@
       <workItem from="1531208902909" duration="20078000" />
       <workItem from="1531295911048" duration="22143000" />
       <workItem from="1531382396271" duration="20208000" />
+      <workItem from="1531468046192" duration="16026000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="427056000" />
+    <option name="totallyTimeSpent" value="443082000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22314675" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22239032" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.32954547" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -558,291 +536,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Admin/ElearningAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-63">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-131" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-569" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/src/Resources/views/Core/user_block.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="102" selection-start-line="7" selection-start-column="102" selection-end-line="7" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="131" column="38" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Resources/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="51" column="107" selection-start-line="51" selection-start-column="83" selection-end-line="51" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Admin/PublicationAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="103" column="63" selection-start-line="103" selection-start-column="55" selection-end-line="103" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Elearning.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="102" column="5" selection-start-line="83" selection-start-column="4" selection-end-line="102" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Admin/EventAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/blocks/apropos.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actors/actors.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3540">
-          <caret line="177" column="182" selection-start-line="177" selection-start-column="46" selection-end-line="177" selection-end-column="182" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actors/singleActor.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/blocks/banniere.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="239" selection-start-line="2" selection-start-column="239" selection-end-line="2" selection-end-column="239" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="51" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/blocks/gb-popoup.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Admin/ActeurAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="112" column="74" selection-start-line="112" selection-start-column="74" selection-end-line="112" selection-end-column="74" />
-          <folding>
-            <element signature="e#40#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Admin/SecteurProjetAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Admin/ProjetAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="124" column="60" selection-start-line="124" selection-start-column="60" selection-end-line="124" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Acteur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6400">
-          <caret line="326" column="22" selection-start-line="326" selection-start-column="11" selection-end-line="326" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3340">
-          <caret line="167" column="44" selection-start-line="167" selection-start-column="44" selection-end-line="167" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Repository/ActeurRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="83" column="78" selection-start-line="83" selection-start-column="78" selection-end-line="83" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="893" column="110" selection-start-line="893" selection-start-column="110" selection-end-line="893" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ActorsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ProjectsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Projects/projects.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="268" column="49" selection-start-line="268" selection-start-column="49" selection-end-line="268" selection-end-column="49" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/contact.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/eventIndex.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="156" selection-start-line="156" selection-end-line="156" />
-          <folding>
-            <element signature="e#12#36#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Controller/EventController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="52" column="26" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="26" column="78" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Elearning/e-learning.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
-          <folding>
-            <element signature="e#12#36#0#Twig" expanded="true" />
-            <element signature="e#10749#10811#0#HTML" expanded="true" />
-            <element signature="e#10867#10903#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ElearningController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Repository/ElearningRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/singleEvent.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="83" column="114" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="114" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Publications/publications.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="105" column="31" selection-start-line="98" selection-start-column="20" selection-end-line="105" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ActualityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="31" column="96" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="96" />
-          <folding>
-            <element signature="e#839#865#1#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Controller/PublicationsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="44" column="32" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="32" />
-          <folding>
-            <element signature="e#1306#1333#1#PHP" expanded="true" />
-            <element signature="e#1285#1346#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -850,60 +543,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Publications/single-publication.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-303">
-          <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/singleActuality.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="60" column="35" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/actuality.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="105" column="48" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Repository/SecteurProjetRepository.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Actualites.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="53" column="78" selection-start-line="53" selection-start-column="78" selection-end-line="53" selection-end-column="78" />
-          <folding>
-            <element signature="e#41#73#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Admin/ActualitesAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding>
-            <element signature="e#39#84#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/EtatPub.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="89" column="7" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -918,9 +561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="77" selection-end-column="36" />
-          <folding>
-            <element signature="e#2095#2116#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -928,29 +568,345 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
           <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="77" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="140" column="42" selection-start-line="140" selection-start-column="26" selection-end-line="140" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="541" column="91" selection-start-line="541" selection-start-column="91" selection-end-line="541" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Repository/ActeurRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurProjetTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurProjet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurActeurTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Acteur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/ActeurTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Actualites.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
           <folding>
-            <element signature="e#2145#2172#0#PHP" expanded="true" />
+            <element signature="e#41#73#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/ActualitesTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Apropos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/AproposTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatLearning.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatLearningTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatPublication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/CatPublicationTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Concentration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/ConcentrationTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Elearning.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/ElearningTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/EtatPub.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="e#40#110#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/EtatPubTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/EventTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Gouvernorat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/GouvernoratTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Keyword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/KeywordTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Projet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/ProjetTranslation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Publication.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="154" column="4" selection-start-line="154" selection-start-column="4" selection-end-line="158" selection-end-column="21" />
+        <state relative-caret-position="20">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
           <folding>
             <element signature="e#40#88#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/PublicationTranslation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4649">
-          <caret line="450" column="131" selection-start-line="450" selection-start-column="131" selection-end-line="450" selection-end-column="131" />
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/SecteurActeur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.fr.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="57" selection-start-line="57" selection-end-line="58" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/translations/messages.ar_TN.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="61" column="2" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/MainBundle/Entity/Event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="47" column="74" selection-start-line="47" selection-start-column="74" selection-end-line="47" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/singleEvent.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="208" column="20" selection-start-line="208" selection-start-column="20" selection-end-line="208" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Event/eventIndex.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
           <folding>
-            <element signature="e#18531#18555#0#HTML" expanded="true" />
-            <element signature="e#20303#20327#0#HTML" expanded="true" />
+            <element signature="e#12#36#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/actuality.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Actuality/singleActuality.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="62" column="59" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Publications/single-publication.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Projects/single-projects.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#12#36#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Controller/ProjectsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="285" column="35" selection-start-line="285" selection-start-column="35" selection-end-line="285" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GCF/FrontBundle/Resources/views/Default/Projects/projects.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="302" column="33" selection-start-line="302" selection-start-column="33" selection-end-line="302" selection-end-column="33" />
+          <folding>
+            <element signature="e#12#36#0#Twig" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

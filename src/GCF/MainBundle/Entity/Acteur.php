@@ -12,7 +12,7 @@ use JsonSerializable;
 /**
  * Acteur
  *
- * @ORM\Table(name="acteur")
+ * @ORM\Table(name="gcf_acteur")
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\ActeurRepository")
  * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\ActeurTranslation")
  */

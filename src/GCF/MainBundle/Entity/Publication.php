@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Publication
  *
- * @ORM\Table(name="publication")
+ * @ORM\Table(name="gcf_publication")
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\PublicationRepository")
  * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\PublicationTranslation")
  */
@@ -154,7 +154,7 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
 
     /**
      * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\EtatPub", inversedBy="publication")
-     * @ORM\JoinColumn(name="etat", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="etat", referencedColumnName="id", nullable=true)
      */
     private $etatPub;
 

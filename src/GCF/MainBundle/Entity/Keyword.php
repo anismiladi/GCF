@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Keyword
  *
- * @ORM\Table(name="keyword")
+ * @ORM\Table(name="gcf_keyword")
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\KeywordRepository")
  * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\KeywordTranslation")
  */
@@ -36,7 +36,7 @@ class Keyword extends AbstractPersonalTranslatable implements TranslatableInterf
     /**
      * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="keyword", cascade={"persist", "remove"})
      * @ORM\JoinTable(
-     *     name="keywordprojet",
+     *     name="gcf_keywordprojet",
      *     joinColumns={@ORM\JoinColumn(name="keyword", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="projet", referencedColumnName="id", nullable=false)}
      * )
@@ -46,7 +46,7 @@ class Keyword extends AbstractPersonalTranslatable implements TranslatableInterf
     /**
      * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Publication", inversedBy="keyword", cascade={"persist", "remove"})
      * @ORM\JoinTable(
-     *     name="keywordpublication",
+     *     name="gcf_keywordpublication",
      *     joinColumns={@ORM\JoinColumn(name="keyword", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="publication", referencedColumnName="id", nullable=false)}
      * )
@@ -56,7 +56,7 @@ class Keyword extends AbstractPersonalTranslatable implements TranslatableInterf
     /**
      * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Elearning", inversedBy="keyword", cascade={"persist", "remove"})
      * @ORM\JoinTable(
-     *     name="keywordelearning",
+     *     name="gcf_keywordelearning",
      *     joinColumns={@ORM\JoinColumn(name="keyword", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="elearning", referencedColumnName="id", nullable=false)}
      * )

@@ -539,7 +539,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
                                         <a  href="{% if gbpublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }} {% endif %}">
-                                            <img class="img-fluid" src="{% if autrespublication.featuredImage!= '' %}{{ gbpublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
+                                            <img class="img-fluid" src="{% if gbpublication.featuredImage!= '' %}{{ gbpublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
                                         </a>
                                     </div>
                                     <div class="col-md-8 col-lg-8 col-xs-8">

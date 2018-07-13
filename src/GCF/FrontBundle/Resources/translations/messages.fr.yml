@@ -27,9 +27,6 @@ search:
   Governorate: Gouvernorat
   Theme: Thème
   Seemore: Voir plus de résultats
-      
-core:
-  Hello: Bonjour !
 
 mailchampNewsletter:
   SubscribeToOurNewsletter: Inscrivez vous à notre newsletter
@@ -57,3 +54,7 @@ elearningPage:
 
 actuality:
   Read more: Lire la suite
+
+events:
+  See more events: Voir plus d'évenement
+

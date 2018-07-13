@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * SecteurProjet
  *
- * @ORM\Table(name="secteur_projet")
+ * @ORM\Table(name="gcf_secteur_projet")
  * @ORM\Entity(repositoryClass="GCF\MainBundle\Repository\SecteurProjetRepository")
  * @Gedmo\TranslationEntity(class="GCF\MainBundle\Entity\SecteurProjetTranslation")
  */
