@@ -177,7 +177,7 @@
                 {% endif %}
                 {% for learning in elearning %}
                     {% if learning.fichier != '' and learning.catLearning.nom == elearningCategorie.nom %}
-                        {% if learning.nom and learning.etatPub == 'Public' %}
+                        {% if learning.nom and learning.etatPub == 'Publique' %}
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="listing">
                                     <h4><a target="_blank" href="{{ learning.Fichier }}">{{ learning.Nom }}</a></h4>
@@ -208,7 +208,7 @@
                         {% endif %}
                     {% elseif learning.youtube != '' and learning.catLearning.nom == elearningCategorie.nom %}
 
-                        {% if learning.Nom and learning.etatPub == 'Public' %}
+                        {% if learning.Nom and learning.etatPub == 'Publique' %}
 
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="listing">

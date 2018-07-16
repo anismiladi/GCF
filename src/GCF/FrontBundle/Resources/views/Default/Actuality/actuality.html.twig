@@ -82,7 +82,7 @@
 {% block body %}
 <div class="actualities__container">
     {% for actuality in actualities %}
-        {% if actuality.titre != '' %}
+        {% if actuality.titre != '' and actuality.etatPub == 'Publique' %}
             {#<div class="col-md-12" style="padding-left: 0">#}
                 {#<img class="article__image" src="{{ actuality.image|replace({'/app_dev.php': ''}) }}" alt="{{ actuality.titre }}">#}
                 {#<h3 class="article__title">{{ actuality.titre }}</h3>#}

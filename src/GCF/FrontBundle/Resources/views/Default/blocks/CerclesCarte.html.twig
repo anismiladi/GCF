@@ -34,6 +34,11 @@
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 </style>
+{#map title#}
+<div class="row">
+    <h4 align="center" style="color: white; background: #4e9100; margin:5px 0; padding: 5px 0;"> {{ 'map_titie'|trans }} </h4>
+</div>
+
 
 <svg viewBox=" 0 0 230 487.5"   version="1.1"  class = "button" expanded = "true" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
     <g class="map" transform="scale(1.5)">
@@ -62,24 +67,26 @@
             </a>
             -->
             {% if Gouv.nbProjets < interNbProjets %}
-                <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="12" fill="green" fill-opacity="0.40"  />
+                <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="10" fill="green" fill-opacity="0.40"  />
 
             {% else %}
-                <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ ((((Gouv.nbProjets)/interNbProjets)|round(0, 'floor'))+1)*12 }}" fill="green" fill-opacity="0.40"  />
+                <circle cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ ((((Gouv.nbProjets)/interNbProjets)|round(0, 'floor'))+1)*10 }}" fill="green" fill-opacity="0.40"  />
             {% endif %}
         {% endif %}
     {% endfor %}
 </svg>
 
-<svg>
-    <circle cx="50" cy="15" r="{{ (1)*12 }}" fill="green" fill-opacity="0.40"  />
-    <text x="70" y="20" fill="black">0 -> {{(interNbProjets*1)}} : {{ 'menu.Projects'|trans }}</text>
-    <circle cx="50" cy="52" r="{{ (2)*12 }}" fill="green" fill-opacity="0.40"  />
-    <text x="80" y="57" fill="black">{{(interNbProjets*1)+1}} -> {{(interNbProjets*2)}} : {{ 'menu.Projects'|trans }}</text>
-    <circle cx="50" cy="113" r="{{ (3)*12 }}" fill="green" fill-opacity="0.40"  />
-    <text x="95" y="118" fill="black">{{(interNbProjets*2)+1}} -> {{(interNbProjets*3)}} : {{ 'menu.Projects'|trans }}</text>
-</svg>
-    
+{#<svg style="max-width: 100%;">#}
+    {#<circle cx="50" cy="15" r="{{ (1)*10 }}" fill="green" fill-opacity="0.40"  />#}
+    {#<text x="70" y="20" fill="black">0 -> {{(interNbProjets*1)}} : {{ 'menu.Projects'|trans }}</text>#}
+
+    {#<circle cx="50" cy="52" r="{{ (2)*10 }}" fill="green" fill-opacity="0.40"  />#}
+    {#<text x="80" y="57" fill="black">{{(interNbProjets*1)+1}} -> {{(interNbProjets*2)}} : {{ 'menu.Projects'|trans }}</text>#}
+
+    {#<circle cx="50" cy="113" r="{{ (3)*10 }}" fill="green" fill-opacity="0.40"  />#}
+    {#<text x="95" y="118" fill="black">{{(interNbProjets*2)+1}} -> {{(interNbProjets*3)}} : {{ 'menu.Projects'|trans }}</text>#}
+{#</svg>#}
+
 <div class="map-tooltip">
 
 </div>

@@ -48,7 +48,30 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
      * @ORM\Column(name="fichier", type="text", length=255, nullable=true)
      */
     private $fichier;
-    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="text", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
     /**
      * @var ArrayCollection
      *

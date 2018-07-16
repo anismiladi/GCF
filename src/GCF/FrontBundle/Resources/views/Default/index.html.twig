@@ -335,7 +335,7 @@
                        <h1 class="section_title"> <i class="fa fa-newspaper-o" aria-hidden="true" style="font-size: 25px;"></i> {{ 'menu.News'|trans }}</h1>
                     </div>
                     {% for actuality in actualities %}
-                        {% if actuality.titre != '' and actuality.etatPub.nom == 'Public' %}
+                        {% if actuality.titre != '' and actuality.etatPub.nom == 'Publique' %}
                     <div class="col-sm-12 item single_element">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
@@ -344,7 +344,7 @@
                                 </a>
                             </div>
                             <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
-                                <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}"><h3 class="name">{{ actuality.titre }}</h3></a>
+                                <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}"><h3 class="name">{% if  actuality.titre|length > 35 %}{{ actuality.titre|slice(0, 35) }}...{% else %}{{ actuality.titre }}{% endif %}</h3></a>
                                 <p class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ actuality.createdAt|date('d-m-Y') }}</p>
                                 <div class="description">{{ actuality.contenu|slice(0,80)|raw }}...</div>
                             </div>
@@ -367,7 +367,7 @@
                         <h1 class="section_title"><i class="fa fa-calendar" aria-hidden="true" style="font-size: 25px;"></i> {{ 'menu.Events'|trans }}</h1>
                     </div>
                     {% for event in events %}
-                        {% if event.nom != '' and  event.etatPub == 'Public' %}
+                        {% if event.nom != '' and  event.etatPub == 'Publique' %}
                         <div class="col-sm-12 item single_element">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
@@ -376,7 +376,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
-                                    <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}"><h3 class="name">{{ event.Nom }}</h3></a>
+                                    <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}"><h3 class="name">{% if  event.nom|length > 75 %}{{ event.nom|slice(0, 35) }}...{% else %}{{ event.nom }}{% endif %}</h3></a>
                                     <p class="theme"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ event.debut|date('d-m-Y') }}</p>
                                 </div>
                             </div>
@@ -411,7 +411,7 @@
                         <div id="technique_tab_container" style="padding: 10px;">
 
                             {% for Technique in Techniques %}
-                                {% if Technique.etatPub == 'Public' %}
+                                {% if Technique.etatPub == 'Publique' %}
                                 <div class="col-md-6 col-xs-12"
                                      style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
                                     <div >
@@ -421,9 +421,9 @@
                                             </a>
                                         </div>
                                         <div class="col-md-7 col-sm-7 col-xs-7 single_element_content_container">
-                                            <a class="play__youtube__video" data-url-youtube="{{ Technique.Youtube }}?rel=0"><h4 class="name">{{ Technique.Nom }}</h4></a>
-                                             <i class="fa fa-clock-o" aria-hidden="true" style="margin-right:5px"></i>{{ Technique.createdAt|date('d-m-Y') }}
-                                            <p class="description" style="font-size: 13px;">{{ Technique.Description|raw|slice(0, 62) }}</p>
+                                            <a class="play__youtube__video" data-url-youtube="{{ Technique.Youtube }}?rel=0"><h4 class="name">{% if  Technique.nom|length > 35 %}{{ Technique.nom|slice(0, 32) }}...{% else %}{{ Technique.nom }}{% endif %}</h4></a>
+                                             <p style="margin-bottom:0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:5px"></i>{{ Technique.createdAt|date('d-m-Y') }}</p>
+                                            <p class="description" style="font-size: 13px;">{% if Technique.description|length > 59 %}{{ Technique.description|slice(0, 62)|raw }}... {% else %}{{ Technique.description }}{% endif %}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -446,11 +446,11 @@
                                         </div>
                                         <div class="col-md-7 col-sm-7 col-xs-7">
                                             <a target="_blank" href="{{ Legislative.Fichier }}">
-                                                <h4>{{ Legislative.Nom }}</h4>
+                                                <h4>{% if  Legislative.Nom|length > 35 %}{{ Legislative.Nom|slice(0, 32) }}...{% else %}{{ Legislative.Nom }}{% endif %}</h4>
                                             </a>
-                                            <i class="fa fa-clock-o" aria-hidden="true" style="margin-right:5px"></i>{{ Legislative.createdAt|date('d-m-Y') }}
+                                            <p style="margin-bottom:0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:5px"></i>{{ Legislative.createdAt|date('d-m-Y') }}</p>
                                             <div class="details">
-                                                <p>{{ Legislative.Description|raw|slice(0, 62) }}</p>
+                                                <p>{% if  Legislative.Description|length > 62 %}{{ Legislative.Description|slice(0, 59)|raw }}... {% else %}{{ Legislative.Description|raw }}{% endif %}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -490,11 +490,11 @@
                     </ul>
                     <br/>
                     {% for nospublication in nospublications %}
-                        {% if nospublication.titre != "" and  nospublication.etatPub == 'Public' %}
+                        {% if nospublication.titre != "" and  nospublication.etatPub == 'Publique' %}
                         <div class="col-sm-6 item filter_display ours" style="background: white;border: solid 2px #f7f7f7;">
                             <div class="row">
                                 <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
-                                    <a href="{% if nospublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }} {% endif %}">
+                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }}">
                                         {% if nospublication.featuredImage != '' %}
                                             <img class="img-fluid" src="{{ nospublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
                                         {% else %}
@@ -503,7 +503,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-8 col-lg-8 col-xs-8">
-                                    <h3 class="name"><a href="{% if nospublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }} {% endif %}">{{ nospublication.titre }}</a></h3>
+                                    <h3 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }}">{% if nospublication.titre|length > 35 %}{{ nospublication.titre|slice(0, 32) }}{% else %}{{ nospublication.titre|slice(0, 32) }}{% endif %}</a></h3>
                                     <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:5px "></i>{{ nospublication.createdAt|date('d-m-Y') }} </p>
                                     <p class="description" style="    font-size: 13px;">{{ nospublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                 </div>
@@ -514,17 +514,17 @@
 
 
                     {% for autrespublication in autrespublications %}
-                        {% if autrespublication.titre != "" and  autrespublication.etatPub == 'Public' %}
+                        {% if autrespublication.titre != "" and  autrespublication.etatPub == 'Publique' %}
 
                         <div class="col-sm-6 item filter_display others" style="background: white;border: solid 2px #f7f7f7;">
                             <div class="row">
                                 <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
-                                    <a href="{% if autrespublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }} {% endif %}">
+                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}">
                                         <img class="img-fluid" src="{% if autrespublication.featuredImage!= '' %}{{ autrespublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
                                     </a>
                                 </div>
                                 <div class="col-md-8 col-lg-8 col-xs-8">
-                                    <h3 class="name"><a href="{% if autrespublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }} {% endif %}">{{ autrespublication.titre }}</a></h3>
+                                    <h3 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}">{% if autrespublication.titre|length > 35 %}{{ autrespublication.titre|slice(0, 32) }}{% else %}{{ autrespublication.titre|slice(0, 32) }}{% endif %}</a></h3>
                                     <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ autrespublication.createdAt|date('d-m-Y') }} </p>
                                     <p class="description" style="font-size: 13px;">{{ autrespublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                 </div>
@@ -534,16 +534,16 @@
                     {% endfor %}
 
                     {% for gbpublication in gbpublications %}
-                        {% if gbpublication.titre != "" and  gbpublication.etatPub == 'Public' %}
+                        {% if gbpublication.titre != "" and  gbpublication.etatPub == 'Publique' %}
                             <div class="col-sm-6 item filter_display gb" style="background: white;border: solid 2px #f7f7f7;">
                                 <div class="row">
                                     <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
-                                        <a  href="{% if gbpublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }} {% endif %}">
+                                        <a  href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}">
                                             <img class="img-fluid" src="{% if gbpublication.featuredImage!= '' %}{{ gbpublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
                                         </a>
                                     </div>
                                     <div class="col-md-8 col-lg-8 col-xs-8">
-                                        <h3 class="name"><a href="{% if gbpublication.titre!= '' %} {{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }} {% endif %}">{{ gbpublication.titre }}</a></h3>
+                                        <h3 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}">{% if gbpublication.titre|length > 35 %}{{ gbpublication.titre|slice(0, 32) }}{% else %}{{ gbpublication.titre|slice(0, 32) }}{% endif %}</a></h3>
                                         <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ gbpublication.createdAt|date('d-m-Y') }} </p>
                                         <p class="description" style="font-size: 13px;">{{ gbpublication.contenu|slice(0, 117)|striptags  }} ...</p>
                                     </div>

@@ -318,7 +318,11 @@
                     if(result.description !== '') {
                         toAppend += '<tr>';
                         toAppend += '<td class="line_name">Description</td>';
-                        toAppend += '<td>' + result.description.substr(0, 100) + '</td>';
+                        if (result.description.length > 100) {
+                            toAppend += '<td>' + result.description.substr(0, 100) + '</td>';
+                        }else{
+                            toAppend += '<td>' + result.description + '</td>';
+                        }
                         toAppend += '</tr>';
                     }
                     if(result.secteurProjet !== ''){
