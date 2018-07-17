@@ -247,6 +247,15 @@
                         .search( $(this).val() )
                         .draw();
                 });
+            var gouvernorats = document.getElementById('byGouvernorate'), gouvernorat, i;
+
+            for(i = 0; i < gouvernorats.length; i++) {
+                gouvernorat = gouvernorats[i];
+                if (gouvernorat.getAttribute('value') === '{{ secteurName }}') {
+                    gouvernorat.setAttribute("selected", "selected");
+                    select = $('#byGouvernorate').trigger("change");
+                }
+            }
         //=============================================
             select = $('#byOrganisme')
                 .on('change', function () {

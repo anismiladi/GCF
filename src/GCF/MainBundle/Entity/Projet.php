@@ -102,7 +102,7 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
 
     /**
      * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\EtatPub", inversedBy="projet")
-     * @ORM\JoinColumn(name="etat", referencedColumnName="id")
+     * @ORM\JoinColumn(name="etat", referencedColumnName="id", nullable=false)
      */
     private $etatPub;
 

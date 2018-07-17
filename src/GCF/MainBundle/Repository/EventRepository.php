@@ -16,7 +16,7 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
             ->createQueryBuilder()
             ->select('e')
             ->from('GCFMainBundle:Event', 'e')
-            //->where('p.categorie = 1')
+            ->where('e.etatPub = 2')
             ->setMaxResults($nb)
             ->orderBy('e.id', 'DESC')
             ->getQuery()

@@ -11,13 +11,13 @@
 {% block meta %}
     <meta name="Author" content="GCF">
     <meta name="Language" content="{{ app.request.locale }}">
-    <meta name="Description" content="{{ project.description|striptags }}">
+    <meta name="Description" content="{{ project.description|raw }}">
     <meta name="Keywords" content=" ">{#mots cles#}
 
     <meta property="og:url" content="{{ app.request.uri }}"/>
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="GCF - {{ project.nom }}"/>
-    <meta property="og:description" content="{{ project.description|striptags }}"/>
+    <meta property="og:description" content="{{ project.description|raw }}"/>
     {#<meta property="og:image"              content="{{ app.request.getSchemeAndHttpHost() }}{{ evenement.photoCouverture|replace({'app_dev.php': ''}) }}" />#}
 {% endblock %}
 
@@ -61,7 +61,7 @@
         <div style="margin-right: 10px;">
             <div class="col-md-12 col-sm-12 col-xs-12 header__project" style="padding-left: 0 ">
                 <div class="col-md-4 col-sm-4 col-xs-4" style="padding:0;">
-                    <img src="{% if project.image != '' %}{{ project.image|replace('/app_dev.php', '') }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}"
+                    <img src="{% if project.image %}{{ project.image|replace('/app_dev.php', '') }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}"
                          alt="{{ project.nom }}">
                 </div>
                 <div class="col-md-8 col-sm-8 col-xs-8">

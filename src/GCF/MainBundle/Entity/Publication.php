@@ -154,13 +154,13 @@ class Publication extends AbstractPersonalTranslatable implements TranslatableIn
 
     /**
      * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\EtatPub", inversedBy="publication")
-     * @ORM\JoinColumn(name="etat", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="etat", referencedColumnName="id", nullable=false)
      */
     private $etatPub;
 
     /**
      * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\CatPublication" )
-     * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id", nullable=false)
      */
     private $categorie;
 

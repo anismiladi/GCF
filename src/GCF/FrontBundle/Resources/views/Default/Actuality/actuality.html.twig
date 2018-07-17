@@ -40,7 +40,6 @@
         .actualities__container .card-title {
             margin-top:0px;
             font-weight: 700;
-            font-size: 1.65em;
         }
         .actualities__container .card-title a {
             color: #000;
@@ -98,7 +97,7 @@
                     </a>
                     <div class="card-content">
                         <h4 class="card-title">
-                            <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}">{{ actuality.titre }}
+                            <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}">{% if actuality.titre|length > 48 %} {{ actuality.titre|slice(0, 46) }}...{% else %}{{ actuality.titre }}{% endif %}
                             </a>
                         </h4>
                         <p style="margin: 0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right: 5px"></i> {{ actuality.createdAt|date("d-m-Y") }}</p>

@@ -13,8 +13,6 @@ use Sonata\AdminBundle\Form\Type\CollectionType;
 use Sonata\AdminBundle\Form\Type\AdminType;
 use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
 
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
-
 use FM\ElfinderBundle\Form\Type\ElFinderType;
 
 class ElearningAdmin extends AbstractAdmin

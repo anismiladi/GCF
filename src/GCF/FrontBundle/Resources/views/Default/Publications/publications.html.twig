@@ -105,7 +105,7 @@
                         </style>
                     {% endif %}
                     <div class="col-md-6 col-sm-6 col-xs-12"
-                         style="background: whitesmoke;border: solid white; padding-top: 10px; padding-bottom:10px; min-height: 160px; max-height: 200px; ">
+                         style="background: whitesmoke;border: solid white; padding-top: 10px; padding-bottom:10px; min-height: 180px; max-height: 200px; ">
                         <div class="row">
                             <div class="col-md-5 col-xs-5" style="padding-right: 0">
                                 <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" title="{{ publication.titre }}">
@@ -113,8 +113,8 @@
                                 </a>
                             </div>
                             <div class="col-md-7 col-xs-7">
-                                <h4><a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" class="post_title" title="{{ publication.titre }}">{{ publication.titre }}</a></h4>
-                                <p class="description" style="font-size: 13px;">{{ publication.contenu|striptags|slice(0, 62) }}...</p>
+                                <h4><a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" class="post_title" title="{{ publication.titre }}">{% if publication.titre|length > 44  %}{{ publication.titre|slice(0, 41) }}...{% else %}{{ publication.titre }}{% endif %}</a></h4>
+                                <p class="description" style="font-size: 13px;">{{ publication.contenu|striptags|slice(0, 62)|raw }}...</p>
                                 <h6><i class="fa fa-clock-o" aria-hidden="true"></i> {{ 'now'|date('d-m-Y') }}</h6>
                                 <p style="width: 100%; text-align: right; margin: 0;">
                                     <a href="{{ path('gcf_front_single_publications_page',{'slug': publication.titre|lower|replace({' ': '-'}), 'id': publication.id }) }}" title="{{ publication.titre }}" class="button_see_more">Lire la suite. </a>

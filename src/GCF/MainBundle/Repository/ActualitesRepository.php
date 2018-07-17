@@ -16,6 +16,7 @@ class ActualitesRepository extends \Doctrine\ORM\EntityRepository
             ->createQueryBuilder()
             ->select('p')
             ->from('GCFMainBundle:Actualites', 'p')
+            ->where('p.etatPub = 2')
             ->setMaxResults(3)
             ->orderBy('p.createdAt', 'DESC')
             ->getQuery()
@@ -30,7 +31,7 @@ class ActualitesRepository extends \Doctrine\ORM\EntityRepository
             ->createQueryBuilder()
             ->select('p')
             ->from('GCFMainBundle:Actualites', 'p')
-            ->where('p.etatPub = 2') //etat pub Public '2' -> son id dans la bdd
+            ->where('p.etatPub = 2') //etat pub Public '2' -> id de publique dans la bdd
             ->setMaxResults(3)
             ->orderBy('p.createdAt', 'DESC')
             ->getQuery()

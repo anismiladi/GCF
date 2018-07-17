@@ -31,7 +31,6 @@ class GouvernoratAdmin extends AbstractAdmin
     /**/protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('idmap')
             ->add('nom', TranslationFieldList::class)
             // You may also specify the actions you want to be displayed in the list
             ->add('_action', 'actions', array(
