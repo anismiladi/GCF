@@ -36,7 +36,7 @@
 </style>
 {#map title#}
 <div class="row">
-    <h4 align="center" style="color: white; background: #4e9100; margin:2px 0 10px; padding: 5px 0;"> {{ 'map_titie'|trans }} </h4>
+    <h4 align="center" style="border-radius: 2px;color: white; background: #4e9100; margin:0 0 10px; padding: 5px 0;"> {{ 'map_titie'|trans }} </h4>
 </div>
 
 
@@ -70,7 +70,7 @@
                 <circle class="HC-map" cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="10" fill="green" fill-opacity="0.40"  />
 
             {% else %}
-                <circle class="HC-map" cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ ((((Gouv.nbProjets)/interNbProjets)|round(0, 'floor'))+1)*10 }}" fill="green" fill-opacity="0.40"  />
+                <circle class="HC-map" cx="{{ Gouvernorats[Gouv.idmap]["x"] }}" cy="{{ Gouvernorats[Gouv.idmap]["y"] }}" r="{{ ((((Gouv.nbProjets)/interNbProjets)|round(0, 'floor'))+ 0.5 )*10 }}" fill="green" fill-opacity="0.40"  />
             {% endif %}
         {% endif %}
     {% endfor %}
@@ -78,13 +78,13 @@
 
 <svg style="max-width: 100%; border:solid 1px #e7e7e7; display: flex ;max-height: 90px ">
     <circle cx="30" cy="35" r="{{ (1)*10 }}" fill="green" fill-opacity="0.40"  />
-    <text x="15" y="80" fill="black" style="font-size: 13px;">0 &#8594; {{(interNbProjets*1)}}</text>
+    <text x="10" y="70" fill="black" style="font-size: 13px;">{{ 'from'|trans }} 0 {{ 'to'|trans }} {{(interNbProjets*1)}}</text>
 
-    <circle cx="90" cy="35" r="{{ (2)*10 }}" fill="green" fill-opacity="0.40"  />
-    <text x="75" y="80" fill="black" style="font-size: 13px;">{{(interNbProjets*1)+1}} &#8594; {{(interNbProjets*2)}}</text>
+    <circle cx="90" cy="35" r="{{ (1.5)*10 }}" fill="green" fill-opacity="0.40"  />
+    <text x="68" y="70" fill="black" style="font-size: 13px;">{{ 'from'|trans }} {{(interNbProjets*1)+1}} {{ 'to'|trans }} {{(interNbProjets*2)}}</text>
 
-    <circle cx="170" cy="35" r="{{ (3)*10 }}" fill="green" fill-opacity="0.40"  />
-    <text x="150" y="80" fill="black" style="font-size: 13px;">{{(interNbProjets*2)+1}} &#8594; {{(interNbProjets*3)}}</text>
+    <circle cx="170" cy="35" r="{{ (2)*10 }}" fill="green" fill-opacity="0.40"  />
+    <text x="147" y="70" fill="black" style="font-size: 13px;">{{ 'from'|trans }} {{(interNbProjets*2)+1}} {{ 'to'|trans }} {{(interNbProjets*3)}}</text>
 </svg>
 
 <div class="map-tooltip">
@@ -104,7 +104,7 @@
 
             var path = '{{ path('gcf_front_projectspage', {'secteurName': 'key' }) }}';
             path = path.replace('key', sel.getAttribute("id"));
-            window.open(path)
+            window.open(path, "_self")
         });
 
         // attach mouseenter event

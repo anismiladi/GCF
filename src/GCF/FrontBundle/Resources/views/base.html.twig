@@ -76,9 +76,9 @@
             </div>
 
             <div class="col-md-6 col-sm-6 col-xs-12 menu_top_bar_container" >
-                <a href="{{ path('gcf_front_event_page') }}">{{ 'menu.Events'|trans }}</a>
+                <a href="{{ path('gcf_front_event_page') }}"><i class="fa fa-star" aria-hidden="true"></i> {{ 'menu.Events'|trans }}</a>
                 {#<a href="#">{{ 'menu.Library'|trans }}</a>#}
-                <a href="{{ path('gcf_front_contactpage') }}">{{ 'menu.Contact-us'|trans }}</a>
+                <a href="{{ path('gcf_front_contactpage') }}"><i class="fa fa-envelope" aria-hidden="true"></i> {{ 'menu.Contact-us'|trans }}</a>
             </div>
 
         </div>
@@ -287,7 +287,7 @@
     <!-- Begin MailChimp Signup Form -->
     <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
     <style type="text/css">
-        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+        #mc_embed_signup{padding-bottom:20px;background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
         /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
            We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
     </style>
@@ -338,9 +338,9 @@
             <div class="row">
                 <div class="col-md-4 col-sm-4 footer_logo_description item" >
                     <div class="footer_social_media_header">
-                        <a class="footer_logo_GCF"><img  src="{{ asset('assets/images/GCF-logo-fix.png') }}" alt="GCF"></a>
+                        <a class="footer_logo_GCF col-md-6 col-sm-6 col-xs-6" style="padding: 0;" ><img  src="{{ asset('assets/images/GCF-Logo-V1.png') }}" alt="GCF"></a>
                         <div class="footer_social_media_separate_logos"></div>
-                        <a class="footer_logo_RAJ" href="https://www.raj-tunisie.org/"><img  src="{{ asset('assets/images/RAJ-red-logo.png') }}" alt="RAJ"></a>
+                        <a class="footer_logo_RAJ col-md-6 col-sm-6 col-xs-6" style="padding: 0;" href="https://www.raj-tunisie.org/"><img  src="{{ asset('assets/images/RAJ-red-logo.png') }}" alt="RAJ"></a>
                     </div>
                     <div class="footer_description_GCF">
                         GCF a pour objectif de fournir aux utilisateurs une base de données en ligne
@@ -389,12 +389,9 @@
                         <h3>{{ 'menu.Partners'|trans }}</h3>
                     </div>
                     <div class="row">
-                        <div class="single__partner col-md-6 col-sm-6 col-xs-6">
-                            <img src="{{ asset('assets/images/partenaire-1.jpg') }}" alt="">
-                        </div>
-                        <div class="single__partner col-md-6 col-sm-6 col-xs-6">
+                        <a href="https://tn.boell.org/fr" target="_blank" class="single__partner col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                             <img src="{{ asset('assets/images/partenaire-2.jpg') }}" alt="">
-                        </div>
+                        </a>
                     </div>
                     {#<nav>#}
                         {#<ul class="">#}

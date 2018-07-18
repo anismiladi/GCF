@@ -273,10 +273,11 @@ class ProjectsController extends Controller
         $response['secteurProjet'] = '';
         $response['secteurProjet'] = $project->getSecteurProjet()->getNom();
 
-        $response['acteur'] = '';
+        $response['acteur'] = array();
+        foreach($project->getActeur()  as $acteur)
         if ( !empty($project->getActeur())  ){
 
-            $response['acteur'] = $project->getActeur()->getNom();
+            $response['acteur'][] = $acteur->getNom();
 
         }
 
@@ -294,10 +295,6 @@ class ProjectsController extends Controller
 
         }
 
-        //fichier
-        $response['fichierUrl'] ='' ;
-        if ($project->getFichier())
-            $response['fichierUrl'] = $project->getFichier();
 
         $response['motsCles'] = array();
         foreach ($project->getKeyword() as $keyword){

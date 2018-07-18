@@ -4,12 +4,17 @@
 
 {% block stylesheets %}
     <style>
-        .intro .icone__behind__title{
-            margin: 0 10px ;
+        .intro .icone__behind__title {
+            margin: 0 10px;
             max-height: 30px;
         }
-        .project_number_by_sectors .project_container{padding: 15px 8px; margin: auto;}
-        .project_number_by_sectors .project_icon{
+
+        .project_number_by_sectors .project_container {
+            padding: 15px 8px;
+            margin: auto;
+        }
+
+        .project_number_by_sectors .project_icon {
             max-width: 80px;
             width: 80px;
             margin-bottom: 5px;
@@ -20,131 +25,220 @@
             padding: 5px;
             cursor: pointer;
         }
-        .project_number_by_sectors .project_icon:hover{ border: solid 2px #aaaaaa; }
-        .project_number_by_sectors .project_name{ text-decoration: none; font-size: 13px; font-weight: 600;}
-        .project_number_by_sectors .project_number{}
 
-        .slick-prev:before, .slick-next:before{color:gray !important;}
-        .slick-prev:before, .slick-next:before{color:gray !important;}
+        .project_number_by_sectors .project_icon:hover {
+            border: solid 2px #aaaaaa;
+        }
 
-        .slick-next{right: 0 !important; height: 100% !important;}
-        .slick-prev{left:0 !important; height: 100% !important;}
+        .project_number_by_sectors .project_name {
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+        }
 
+        .project_number_by_sectors .project_number {
+        }
+
+        .slick-prev:before, .slick-next:before {
+            color: gray !important;
+        }
+
+        .slick-prev:before, .slick-next:before {
+            color: gray !important;
+        }
+
+        .slick-next {
+            right: 0 !important;
+            height: 100% !important;
+        }
+
+        .slick-prev {
+            left: 0 !important;
+            height: 100% !important;
+        }
 
         .section_title {
+            border-radius: 2px;
             padding-left: 10px;
-            margin: 0 0 10px;
             background: #4E9100;
             color: white;
             font-size: 30px;
+            margin:0;
         }
 
-        .name{
+        .name {
             font-size: 16px;
             margin-top: 10px;
             margin-bottom: 10px;
 
-            font-weight:600;
+            font-weight: 600;
         }
 
-        .projects_news .theme { font-size: 13px; margin: 0 }
+        .projects_news .theme {
+            font-size: 13px;
+            margin: 0
+        }
 
-        .projects_news .description { font-size: 13px; margin: 0 }
-        .projects_news .description p{ margin: 0 }
-        .projects_news .date{margin: 0;font-size: 13px }
-        .projects_news .date i{margin: 0 5px 0 0 }
+        .projects_news .description {
+            font-size: 13px;
+            margin: 0
+        }
 
-        .read_more_container { text-align: right;  margin-top: 10px; }
+        .projects_news .description p {
+            margin: 0
+        }
 
-        .read_more_container button{ padding: 6px 50px; }
+        .projects_news .date {
+            margin: 0;
+            font-size: 13px
+        }
 
+        .projects_news .date i {
+            margin: 0 5px 0 0
+        }
 
-        .projects_news .single_element {  margin-bottom: 10px; background: #fefefe; }
+        .read_more_container {
+            text-align: right;
+            margin-top: 10px;
+        }
 
-        .single_element_image_container{ height: 100px; max-height: 100px; padding: 0 !important; display: flex;}
+        .read_more_container button {
+            padding: 6px 50px;
+        }
 
-        .single_element_image_container a{margin: auto;width: 100%; height: 100%;}
+        .projects_news .single_element {
+            margin-bottom: 10px;
+            background: #fefefe;
+        }
 
-        .single_element_image_container a img{ margin: auto; max-width: 100%; max-height: 100%; height:100%; width: 100%;object-fit: cover;}
+        .single_element_image_container {
+            height: 100px;
+            max-height: 100px;
+            padding: 0 !important;
+            display: flex;
+        }
 
-        .single_element_desc_container{ height: 100px; max-height: 100%; }
+        .single_element_image_container a {
+            margin: auto;
+            width: 100%;
+            height: 100%;
+        }
 
-        .item a{
+        .single_element_image_container a img {
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .single_element_desc_container {
+            height: 100px;
+            max-height: 100%;
+        }
+
+        .item a {
             text-decoration: none;
             color: inherit;
         }
-        .item a:hover{
+
+        .item a:hover {
             text-decoration: none;
-            color: #6EFF00 ;
+            color: #6EFF00;
         }
-        .read_more_container a{
+
+        .read_more_container a {
             text-decoration: none;
-            color: inherit ;
+            color: inherit;
         }
-        .read_more_container a:hover{
+
+        .read_more_container a:hover {
             text-decoration: none;
-            color: inherit ;
+            color: inherit;
         }
-        .section_art_pub_title{
+
+        .section_art_pub_title {
             background: #22aa86 !important;
             color: white;
             padding: 0 0 0 20px;
         }
 
-        @media screen and (max-width: 440px){
-            .single_element_desc_container h2{ font-size: 17px; font-weight: 600; margin: 5px 0;}
-            .projects_news .theme{font-size: 12px;}
-            .projects_news .description{font-size: 12px;}
+        @media screen and (max-width: 440px) {
+            .single_element_desc_container h2 {
+                font-size: 17px;
+                font-weight: 600;
+                margin: 5px 0;
+            }
+
+            .projects_news .theme {
+                font-size: 12px;
+            }
+
+            .projects_news .description {
+                font-size: 12px;
+            }
 
         }
 
-        @media screen and ( min-width: 989px ) and ( max-width: 1200px ){
-            .single_element_desc_container h2{ margin: 5px 0 }
+        @media screen and ( min-width: 989px ) and ( max-width: 1200px ) {
+            .single_element_desc_container h2 {
+                margin: 5px 0
+            }
         }
+
         /*
         ==========
         elearning Block
         ==========
         */
-        #technique_tab, #legislatives_tab{
-            padding:0;
-            cursor:pointer;
+        #technique_tab, #legislatives_tab {
+            padding: 0;
+            cursor: pointer;
         }
-        #legislatives_tab_container{
+
+        #legislatives_tab_container {
             display: none;
         }
-        .navigation_elearning a{
+
+        .navigation_elearning a {
             color: #4E9100;
         }
-        .single_element_content_container a{
-             color: #333;
+
+        .single_element_content_container a {
+            color: #333;
         }
-        .single_element_content_container a:hover{
+
+        .single_element_content_container a:hover {
             text-decoration: none;
             color: #6EFF00;
         }
-        .legislatives_single_element_container a{
+
+        .legislatives_single_element_container a {
             color: #333;
         }
-        .legislatives_single_element_container img{
+
+        .legislatives_single_element_container img {
             max-width: 100%;
             object-fit: cover;
         }
-        .legislatives_single_element_container a:hover{
+
+        .legislatives_single_element_container a:hover {
             text-decoration: none;
             color: #22aa86;
         }
 
-        .close__video__popup{
+        .close__video__popup {
             position: absolute;
             right: 20px;
             top: 0;
             font-size: 35px;
             color: gray;
             text-decoration: none;
-            cursor:pointer;
+            cursor: pointer;
         }
-        .close__video__popup:hover{
+
+        .close__video__popup:hover {
             text-decoration: none;
             color: gray;
         }
@@ -154,15 +248,38 @@
         publications block
         =======================
         */
-        .navs__publications__block li{
+        .navs__publications__block li {
             cursor: pointer;
         }
-        .navs__publications__block li a{
+
+        .navs__publications__block li a {
             color: #4E9100;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-tabs{
+            border: 0;
+        }
+        .nav-tabs>li>a{
+            border: 0;
+        }
+        .nav-tabs>li>a:hover{
+            background: inherit;
+            border-bottom: 2px solid #4E9100;
+            font-weight:600;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+        .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+            border: 0;
+            color: #4E9100;
+            font-weight: 600;
+            background: inherit ;
+            cursor: pointer;
+            border-bottom: 2px solid #4E9100;
         }
 
-
-        .index__overlay{
+        .index__overlay {
             display: none;
             position: fixed;
             z-index: 9991;
@@ -170,9 +287,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0, 0, 0, 0.7);
         }
-        .video__home__popup{
+
+        .video__home__popup {
             display: none;
             position: fixed;
             z-index: 9992;
@@ -186,329 +304,129 @@
             max-width: 100%;
             background: white;
         }
-        .video__container{
+
+        .video__container {
             padding: 70px 0;
             height: 100%;
             width: 80%;
             margin: auto;
         }
 
-        .item.filter_display p{
+        .item.filter_display p {
             font-size: 13px;
         }
+
         /*
         =========================
 
         =========================
          */
-        .navigation_actors a{
+        .navigation_actors a {
             color: #4E9100;
         }
-        ._tab_container{
+
+        ._tab_container {
             display: none;
         }
-        .header__tabs{
+
+        .header__tabs {
             cursor: pointer;
         }
     </style>
 {% endblock %}
 
 {% block headjs %}
-    
+
     <!-- Using jQuery with a CDN -->
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    
+
     <!-- JS file -->
-    <script src="{{ asset('js/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js') }}"></script> 
+    <script src="{{ asset('js/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js') }}"></script>
 
     <!-- CSS file -->
-    <link rel="stylesheet" href="{{ asset('js/EasyAutocomplete-1.3.5/easy-autocomplete.min.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('js/EasyAutocomplete-1.3.5/easy-autocomplete.min.css') }}">
 
     <!-- Additional CSS Themes file - not required-->
-    <link rel="stylesheet" href="{{ asset('js/EasyAutocomplete-1.3.5/easy-autocomplete.themes.min.css') }}"> 
-    
+    <link rel="stylesheet" href="{{ asset('js/EasyAutocomplete-1.3.5/easy-autocomplete.themes.min.css') }}">
+
 {% endblock %}
 
 
 {% block PBS %}
     {#{{ dump(ProjectsBySector) }}#}
-     <div class="project_number_by_sectors" style="margin-bottom: 40px;">
-         <div class="container">
-             <div class="col-md-12 slider slider_projects" >
+    <div class="project_number_by_sectors" style="margin-bottom: 40px;">
+        <div class="container">
+            <div class="col-md-12 slider slider_projects">
 
-                 {% for key, ProjectBySector in ProjectsBySector %}
-                     {% set key1 =  '' %}
+                {% for key, ProjectBySector in ProjectsBySector %}
+                    {% set key1 =  '' %}
 
-                 <div class="col-md-2 col-sm-2 col-sm-offset-1 col-md-offset-1 project_container">
-                     <center>
-                         <a href="{{ path('gcf_front_projectspage', {'secteurName': key }) }}">
-                            <img class="project_icon" src="{{ ProjectBySector["url"]|replace({'app_dev.php': ''}) }}" alt="{{ key }}">
-                         </a>
-                         <a class="project_name" href="#" title="{{ key }}">
-                             {% if key|length > 20 %} {{ key|slice(0, 17) ~ '...' }} {% else %} {{ key }} {% endif %}
-                         </a>
-                         <span class="badge project_number">{{ ProjectBySector["nbr"] }}</span>
-                     </center>
-                 </div>
-                 {% endfor %}
-             </div>
-         </div>
-     </div>
- {% endblock %}
-
-{% block body %}
-<div class="col-md-12 col-sm-12" style="margin-bottom: 2px; padding: 0;">
-    <div class="projects_news">
-        <div class="row" style="max-width: 100%;">
-            <div class="col-md-12 col-sm-12 col-xs-12" style="background: #f7f7f7; border: solid 2px white; padding: 10px;">
-
-                <div class="intro" >
-                    <h1 class="section_title"><i class="fa fa-user" aria-hidden="true" style="font-size: 25px;"></i> {{ 'menu.Actors'|trans }} </h1>
-                </div>
-
-                <div class="col-md-12 col-sm-12 col-xs-12" style="    margin-bottom: 20px;">
-                    <ul class="nav nav-tabs navigation_actors">
-                        {% for key, secteur in secteurs %}
-                            {% if key == 0 %}
-                                <li class="active header__tabs" id="{{ secteur.nom|replace({' ': '_'}) }}_tab"><a >{{ secteur.nom }}</a></li>
-                            {% else %}
-                                <li class="header__tabs" id="{{ secteur.nom|replace({' ': '_'}) }}_tab"><a >{{ secteur.nom }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% for key, secteur in secteurs %}
-                    {% if key == 0 %}
-                        <style>
-                            #{{ secteur.nom|replace({' ': '_'}) }}_tab_container{
-                                display:block;
-                            }
-                        </style>
-                    {% endif %}
-                    <div id="{{ secteur.nom|replace({' ': '_'}) }}_tab_container" class="_tab_container">
-                        {% set actorsNum = 0 %}
-                        {% for actor in actors %}
-                            {% if actor.secteurActeur == secteur.nom %}
-                                {% if actor.nom != '' %}
-                                    {% if actorsNum < 4 %}
-                                    {% set actorsNum = actorsNum+1 %}
-                                    <div class="col-md-3 col-sm-3 col-xs-3 item filter_display ours" style="background: white;border: solid 2px #f7f7f7;">
-                                        <div class="row">
-                                            <div class="col-md-12 col-lg-12 col-xs-12 " style="padding: 0;">
-                                                <a href="{{ path('gcf_front_single_actor_page',{'slug': actor.nom|lower|replace({' ': '-'}), 'id': actor.id }) }} ">
-                                                    {% if actor.logo != '' %}
-                                                        <img class="img-fluid" src="{{ actor.logo|replace({'/app_dev.php': ''}) }}" title="{{ actor.nom }}" style=" width: 100%; height: 150px; object-fit: cover;"/>
-                                                    {% else %}
-                                                        <img class="img-fluid" src="{{ asset('assets/images/empty-image.png') }}" title="{{ actor.nom }}" style="width: 100%; height: 150px; object-fit: cover;"/>
-                                                    {% endif %}
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endif %}
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
+                    <div class="col-md-2 col-sm-2 col-sm-offset-1 col-md-offset-1 project_container">
+                        <center>
+                            <a href="{{ path('gcf_front_projectspage', {'secteurName': key }) }}">
+                                <img class="project_icon"
+                                     src="{{ ProjectBySector["url"]|replace({'app_dev.php': ''}) }}" alt="{{ key }}">
+                            </a>
+                            <a class="project_name" href="#" title="{{ key }}">
+                                {% if key|length > 20 %} {{ key|slice(0, 17) ~ '...' }} {% else %} {{ key }} {% endif %}
+                            </a>
+                            <span class="badge project_number">{{ ProjectBySector["nbr"] }}</span>
+                        </center>
                     </div>
                 {% endfor %}
-                <div class="read_more_container col-md-12 col-sm12 col-xs-12" style="margin: 0px 10px">
-                    <a href="{{ path('gcf_front_actorspage') }}">
-                        <button class="button_see_more_lg" style="margin-top: 10px">
-                            Voir Plus
-                        </button>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
-</div>
+{% endblock %}
 
-
-    <div class="col-md-12 col-sm-12" style="margin-bottom: 2px;    padding: 0;">
-        <div class="projects_news">
-            <div class="row" style="max-width: 100%;">
-            {#Block Actualités#}
-
-                <div class="col-md-6 col-sm-6 single_item "
-                    style="background: #f7f7f7;border: solid 2px white; padding: 10px">
-                    <div class="intro">
-                       <h1 class="section_title"> <i class="fa fa-newspaper-o" aria-hidden="true" style="font-size: 25px;"></i> {{ 'menu.News'|trans }}</h1>
-                    </div>
-                    {% for actuality in actualities %}
-                        {% if actuality.titre != '' and actuality.etatPub.nom == 'Publique' %}
-                    <div class="col-sm-12 item single_element">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
-                                <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}">
-                                    <img class="img-fluid" src="{% if actuality.image != '' %}{{ actuality.image|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" />
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
-                                <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}"><h3 class="name">{% if  actuality.titre|length > 29 %}{{ actuality.titre|slice(0, 27) }}...{% else %}{{ actuality.titre }}{% endif %}</h3></a>
-                                <p class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ actuality.createdAt|date('d-m-Y') }}</p>
-                                <div class="description">{{ actuality.contenu|slice(0,80)|raw }}...</div>
-                            </div>
-                        </div>
-                    </div>
-                        {% endif %}
-                    {% endfor %}
-                    <div class="col-md-12 item" style=" text-align: right;">
-                        <a href="{{ path('gcf_front_actualitypage') }}">
-                            <button class="button_see_more_lg">Voir Plus</button>
-                        </a>
-                    </div>
-                </div>
-
-                {#block Events#}
-                <div class="col-md-6 col-sm-6 single_item "
-                     style="background: #f7f7f7;border: solid 2px white; padding: 10px">
-                    <div class="intro">
-
-                        <h1 class="section_title"><i class="fa fa-calendar" aria-hidden="true" style="font-size: 25px;"></i> {{ 'menu.Events'|trans }}</h1>
-                    </div>
-                    {% for event in events %}
-                        {% if event.nom != '' and  event.etatPub == 'Publique' %}
-                        <div class="col-sm-12 item single_element">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container" >
-                                    <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}">
-                                        <img class="img-fluid" src="{% if event.photoCouverture != "" %}{{ event.photoCouverture }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" />
-                                    </a>
-                                </div>
-                                <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
-                                    <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}"><h3 class="name">{% if  event.nom|length > 75 %}{{ event.nom|slice(0, 70) }}...{% else %}{{ event.nom }}{% endif %}</h3></a>
-                                    <p class="theme"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ event.debut|date('d-m-Y') }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-                    {% endfor %}
-
-                    <div class="col-md-12 item" style="text-align: right;">
-                        <a href="{{ path('gcf_front_event_page') }}">
-                            <button class=" button_see_more_lg">Voir Plus</button>
-                        </a>
-                    </div>
-
-                </div>
-                </div>
-
-
-                {# block elearning#}
-                <div class="row " style="width: 100%;padding-bottom: 10px; background: #f7f7f7;">
-                <div class="">
-                    <div class="projects-horizontal">
-                        <div class="intro" >
-                            <h1 class="section_title"><i class="fa fa-graduation-cap" aria-hidden="true" style="font-size: 25px;"></i> {{ 'menu.E-learning'|trans }} </h1>
-                        </div>
-                        <div class="col-md-12" style="    margin-bottom: 20px;">
-                            <ul class="nav nav-tabs navigation_elearning">
-                                <li class="active" id="technique_tab"><a >Technique</a></li>
-                                <li class="" id="legislatives_tab"><a >Législatives</a></li>
-                            </ul>
-                        </div>
-
-                        <div id="technique_tab_container" class="col-md-12" style="padding: 10px;">
-
-                            {% for Technique in Techniques %}
-                                {% if Technique.etatPub == 'Publique' %}
-                                <div class="col-md-6 col-xs-12"
-                                     style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
-                                    <div >
-                                        <div class="col-md-5 col-sm-5 col-xs-5 single_element_image_container" style="padding:0;">
-                                            <a  class="play__youtube__video " data-url-youtube="{{ Technique.Youtube }}?rel=0">
-                                                <img class="img-fluid" src="{{ Technique.Image }}" style="cursor:pointer" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-7 col-sm-7 col-xs-7 single_element_content_container">
-                                            <a class="play__youtube__video" data-url-youtube="{{ Technique.Youtube }}?rel=0"><h4 class="name">{% if  Technique.nom|length > 29 %}{{ Technique.nom|slice(0, 27) }}...{% else %}{{ Technique.nom }}{% endif %}</h4></a>
-                                             <p style="margin-bottom:0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:5px"></i>{{ Technique.createdAt|date('d-m-Y') }}</p>
-                                            <p class="description" style="font-size: 13px;">{% if Technique.description|length > 59 %}{{ Technique.description|slice(0, 62)|raw }}... {% else %}{{ Technique.description }}{% endif %}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            {% endfor %}
-
-                        </div>
-
-                        <div id="legislatives_tab_container" class="col-md-12" style="padding: 10px;">
-
-                            {% for Legislative in Legislatives %}
-                                {% if Legislative.etatPub == 'Publique' %}
-                                <div class="col-md-6 col-sm-6 col-xs-12" style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
-                                    <div class="listing legislatives_single_element_container">
-
-                                        <div class="type col-md-5 col-sm-5 col-xs-5" style="padding:0;">
-                                            <a target="_blank" href="{{ Legislative.Fichier }}">
-                                                <img src="{{ Legislative.Image|replace({'/app_dev.php': ''}) }}" title="Lire le document">
-                                            </a>
-                                        </div>
-                                        <div class="col-md-7 col-sm-7 col-xs-7">
-                                            <a target="_blank" href="{{ Legislative.Fichier }}">
-                                                <h4>{% if  Legislative.Nom|length > 29 %}{{ Legislative.Nom|slice(0, 32) }}...{% else %}{{ Legislative.Nom }}{% endif %}</h4>
-                                            </a>
-                                            <p style="margin-bottom:0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:5px"></i>{{ Legislative.createdAt|date('d-m-Y') }}</p>
-                                            <div class="details">
-                                                <p>{% if  Legislative.Description|length > 29 %}{{ Legislative.Description|slice(0, 27)|raw }}... {% else %}{{ Legislative.Description|raw }}{% endif %}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            {% endfor %}
-
-                        </div>
-
-                        <div class="read_more_container col-md-12"  >
-                            <a href="{{ path('gcf_front_elearningpage') }}" style="margin-right: 10px;">
-                                <button class="button_see_more_lg">
-                                    Voir Plus
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div><br>
-
-    <div class="col-md-12 col-sm-12" style="margin-bottom: 50px; padding: 0; min-height: 313px;">
+{% block body %}
+    <div class="col-md-12 col-sm-12" style=" padding: 0; min-height: 313px;">
         <div class="projects-horizontal">
-            <div class="row" style="width: 100%;background:  #f7f7f7;padding-bottom: 10px;">
+            <div class="row" style="border-bottom:solid 2px white;border-radius: 2px;width: 100%;background:  #f7f7f7;padding: 10px;">
                 <div class="intro">
-                    <h1 class="section_title"><i class="fa fa-share-alt" aria-hidden="true" style="font-size: 25px;"></i> {{ 'menu.Publications'|trans }}</h1>
+                    <h1 class="section_title"><i class="fa fa-share-alt" aria-hidden="true"
+                                                 style="font-size: 25px;"></i> {{ 'menu.Publications'|trans }}</h1>
                 </div>
-                <div class="projects" style="padding: 10px;">
+                <div class="projects" style="padding-top: 10px;">
                     <ul class="nav nav-tabs navs__publications__block">
                         <li class="active filter-button" data-filter="all"><a> Toutes </a></li>
-                        <li class="filter-button" data-filter="ours" ><a> Nos Publications </a></li>
+                        <li class="filter-button" data-filter="ours"><a> Nos Publications </a></li>
                         <li class="filter-button" data-filter="gb"><a> Green Blogger Publications </a></li>
                         <li class="filter-button" data-filter="others"><a> Autres </a></li>
                     </ul>
                     <br/>
                     {% for nospublication in nospublications %}
                         {% if nospublication.titre != "" and  nospublication.etatPub == 'Publique' %}
-                        <div class="col-sm-6 item filter_display ours" style="background: white;border: solid 2px #f7f7f7; min-height: 125px;">
-                            <div class="row">
-                                <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
-                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }}">
-                                        {% if nospublication.featuredImage != '' %}
-                                            <img class="img-fluid" src="{{ nospublication.featuredImage|replace({'/app_dev.php': ''}) }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
-                                        {% else %}
-                                            <img class="img-fluid" src="{{ asset('assets/images/empty-image.png') }}" title="{{ nospublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
-                                        {% endif %}
-                                    </a>
-                                </div>
-                                <div class="col-md-8 col-lg-8 col-xs-8">
-                                    <h3 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }}">{% if nospublication.titre|length > 29 %}{{ nospublication.titre|slice(0, 27) }}{% else %}{{ nospublication.titre|slice(0, 32) }}{% endif %}</a></h3>
-                                    <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:5px "></i>{{ nospublication.createdAt|date('d-m-Y') }} </p>
-                                    <div class="description" style="    font-size: 13px;">{% if nospublication.contenu|length > 123 %}{{ nospublication.contenu|slice(0, 120)|raw  }}...{% else %}{{ nospublication.contenu|raw  }}{% endif %}</div>
+                            <div class="col-sm-6 item filter_display ours"
+                                 style="background: white;border: solid 2px #f7f7f7; min-height: 125px;">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
+                                        <a href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }}">
+                                            {% if nospublication.featuredImage != '' %}
+                                                <img class="img-fluid"
+                                                     src="{{ nospublication.featuredImage|replace({'/app_dev.php': ''}) }}"
+                                                     title="{{ nospublication.titre }}"
+                                                     style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
+                                            {% else %}
+                                                <img class="img-fluid"
+                                                     src="{{ asset('assets/images/empty-image.png') }}"
+                                                     title="{{ nospublication.titre }}"
+                                                     style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8 col-lg-8 col-xs-8">
+                                        <h3 class="name"><a
+                                                    href="{{ path('gcf_front_single_publications_page',{'slug': nospublication.titre|lower|replace({' ': '-'}), 'id': nospublication.id }) }}">{% if nospublication.titre|length > 29 %}{{ nospublication.titre|slice(0, 27) }}{% else %}{{ nospublication.titre|slice(0, 32) }}{% endif %}</a>
+                                        </h3>
+                                        <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"
+                                                               style="margin-right:5px "></i>{{ nospublication.createdAt|date('d-m-Y') }}
+                                        </p>
+                                        <div class="description"
+                                             style="    font-size: 13px;">{% if nospublication.contenu|length > 123 %}{{ nospublication.contenu|slice(0, 120)|raw }}...{% else %}{{ nospublication.contenu|raw }}{% endif %}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         {% endif %}
                     {% endfor %}
 
@@ -516,36 +434,54 @@
                     {% for autrespublication in autrespublications %}
                         {% if autrespublication.titre != "" and  autrespublication.etatPub == 'Publique' %}
 
-                        <div class="col-sm-6 item filter_display others" style="background: white;border: solid 2px #f7f7f7;min-height: 125px;">
-                            <div class="row">
-                                <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
-                                    <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}">
-                                        <img class="img-fluid" src="{% if autrespublication.featuredImage!= '' %}{{ autrespublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" title="{{ autrespublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
-                                    </a>
-                                </div>
-                                <div class="col-md-8 col-lg-8 col-xs-8">
-                                    <h3 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}">{% if autrespublication.titre|length > 29 %}{{ autrespublication.titre|slice(0, 27) }}{% else %}{{ autrespublication.titre}}{% endif %}</a></h3>
-                                    <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ autrespublication.createdAt|date('d-m-Y') }} </p>
-                                    <div class="description" style="font-size: 13px;">{% if autrespublication.contenu|length > 123 %}{{ autrespublication.contenu|slice(0, 120)|raw  }}...{% else %}{{ autrespublication.contenu|raw  }}{% endif %}</div>
+                            <div class="col-sm-6 item filter_display others"
+                                 style="background: white;border: solid 2px #f7f7f7;min-height: 125px;">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
+                                        <a href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}">
+                                            <img class="img-fluid"
+                                                 src="{% if autrespublication.featuredImage!= '' %}{{ autrespublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}"
+                                                 title="{{ autrespublication.titre }}"
+                                                 style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8 col-lg-8 col-xs-8">
+                                        <h3 class="name"><a
+                                                    href="{{ path('gcf_front_single_publications_page',{'slug': autrespublication.titre|lower|replace({' ': '-'}), 'id': autrespublication.id }) }}">{% if autrespublication.titre|length > 29 %}{{ autrespublication.titre|slice(0, 27) }}{% else %}{{ autrespublication.titre }}{% endif %}</a>
+                                        </h3>
+                                        <p style="margin:0"><i class="fa fa-clock-o"
+                                                               aria-hidden="true"></i>{{ autrespublication.createdAt|date('d-m-Y') }}
+                                        </p>
+                                        <div class="description"
+                                             style="font-size: 13px;">{% if autrespublication.contenu|length > 123 %}{{ autrespublication.contenu|slice(0, 120)|raw }}...{% else %}{{ autrespublication.contenu|raw }}{% endif %}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         {% endif %}
                     {% endfor %}
 
                     {% for gbpublication in gbpublications %}
                         {% if gbpublication.titre != "" and  gbpublication.etatPub == 'Publique' %}
-                            <div class="col-sm-6 item filter_display gb" style="background: white;border: solid 2px #f7f7f7;min-height: 125px;">
+                            <div class="col-sm-6 item filter_display gb"
+                                 style="background: white;border: solid 2px #f7f7f7;min-height: 125px;">
                                 <div class="row">
                                     <div class="col-md-4 col-lg-4 col-xs-4" style="padding: 0;">
-                                        <a  href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}">
-                                            <img class="img-fluid" src="{% if gbpublication.featuredImage!= '' %}{{ gbpublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" title="{{ gbpublication.titre }}" style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
+                                        <a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}">
+                                            <img class="img-fluid"
+                                                 src="{% if gbpublication.featuredImage!= '' %}{{ gbpublication.featuredImage|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}"
+                                                 title="{{ gbpublication.titre }}"
+                                                 style="max-width: 100%;max-height: 100%; min-height: 121px; object-fit: cover;"/>
                                         </a>
                                     </div>
                                     <div class="col-md-8 col-lg-8 col-xs-8">
-                                        <h3 class="name"><a href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}">{% if gbpublication.titre|length > 29 %}{{ gbpublication.titre|slice(0, 27) }}{% else %}{{ gbpublication.titre|slice(0, 32) }}{% endif %}</a></h3>
-                                        <p style="margin:0"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ gbpublication.createdAt|date('d-m-Y') }} </p>
-                                        <div class="description" style="font-size: 13px;">{% if gbpublication.contenu|length > 123 %}{{ gbpublication.contenu|slice(0, 120)|raw  }}...{% else %}{{ gbpublication.contenu|raw  }}{% endif %}</div>
+                                        <h3 class="name"><a
+                                                    href="{{ path('gcf_front_single_publications_page',{'slug': gbpublication.titre|lower|replace({' ': '-'}), 'id': gbpublication.id }) }}">{% if gbpublication.titre|length > 29 %}{{ gbpublication.titre|slice(0, 27) }}{% else %}{{ gbpublication.titre|slice(0, 32) }}{% endif %}</a>
+                                        </h3>
+                                        <p style="margin:0"><i class="fa fa-clock-o"
+                                                               aria-hidden="true"></i>{{ gbpublication.createdAt|date('d-m-Y') }}
+                                        </p>
+                                        <div class="description"
+                                             style="font-size: 13px;">{% if gbpublication.contenu|length > 123 %}{{ gbpublication.contenu|slice(0, 120)|raw }}...{% else %}{{ gbpublication.contenu|raw }}{% endif %}</div>
                                     </div>
                                 </div>
                             </div>
@@ -563,26 +499,285 @@
         </div>
     </div>
 
-<div class="index__overlay" onclick="closeVideoPopup()"></div>
-<div class="video__home__popup">
-    <div class="video__container">
-        <a class="close__video__popup" style="position: absolute; right: 20px ; top: 0; font-size: 35px; color:gray" onclick="closeVideoPopup()">&times;</a>
-        <iframe width="100%" height="100%" src=" " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    <div class="col-md-12 col-sm-12" style="margin-bottom: 2px;    padding: 0;">
+        <div class="projects_news">
+            <div class="row" style="max-width: 100%;">
+                {#Block Actualités#}
+
+                <div class="col-md-6 col-sm-6 single_item "
+                     style="border-bottom:solid 2px white;border-radius: 2px;background: #f7f7f7;border-right: solid 2px white; padding: 10px">
+                    <div class="intro">
+                        <h1 class="section_title" style="margin-bottom:10px"><i class="fa fa-newspaper-o" aria-hidden="true"
+                                                     style="font-size: 25px;"></i> {{ 'menu.News'|trans }}</h1>
+                    </div>
+                    {% for actuality in actualities %}
+                        {% if actuality.titre != '' and actuality.etatPub.nom == 'Publique' %}
+                            <div class="col-sm-12 item single_element">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
+                                        <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}">
+                                            <img class="img-fluid"
+                                                 src="{% if actuality.image != '' %}{{ actuality.image|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
+                                        <a href="{{ path('gcf_front_actuality_single_page',{'id': actuality.id, 'slug': actuality.titre}) }}">
+                                            <h3 class="name">{% if  actuality.titre|length > 29 %}{{ actuality.titre|slice(0, 27) }}...{% else %}{{ actuality.titre }}{% endif %}</h3>
+                                        </a>
+                                        <p class="date"><i class="fa fa-clock-o"
+                                                           aria-hidden="true"></i>{{ actuality.createdAt|date('d-m-Y') }}
+                                        </p>
+                                        <div class="description">{{ actuality.contenu|slice(0,80)|raw }}...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="col-md-12 item" style=" text-align: right;">
+                        <a href="{{ path('gcf_front_actualitypage') }}">
+                            <button class="button_see_more_lg">Voir Plus</button>
+                        </a>
+                    </div>
+                </div>
+
+                {#block Events#}
+                <div class="col-md-6 col-sm-6 single_item "
+                     style="border-bottom:solid 2px white;border-radius: 2px;background: #f7f7f7;border-left: solid 2px white; padding: 10px">
+                    <div class="intro">
+
+                        <h1 class="section_title" style="margin-bottom:10px"><i class="fa fa-calendar" aria-hidden="true"
+                                                     style="font-size: 25px;"></i> {{ 'menu.Events'|trans }}</h1>
+                    </div>
+                    {% for event in events %}
+                        {% if event.nom != '' and  event.etatPub == 'Publique' %}
+                            <div class="col-sm-12 item single_element">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 single_element_image_container">
+                                        <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}">
+                                            <img class="img-fluid"
+                                                 src="{% if event.photoCouverture != "" %}{{ event.photoCouverture }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8 col-sm-8 col-xs-8 single_element_desc_container">
+                                        <a href="{% if event.nom != '' %} {{ path('gcf_front_single_event_page', {'slug': event.nom|lower|replace({' ': '-'}), 'id': event.id }) }} {% endif %}">
+                                            <h3 class="name">{% if  event.nom|length > 75 %}{{ event.nom|slice(0, 70) }}...{% else %}{{ event.nom }}{% endif %}</h3>
+                                        </a>
+                                        <p class="theme"><i class="fa fa-clock-o"
+                                                            aria-hidden="true"></i> {{ event.debut|date('d-m-Y') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="col-md-12 item" style="text-align: right;">
+                        <a href="{{ path('gcf_front_event_page') }}">
+                            <button class=" button_see_more_lg">Voir Plus</button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+            {# block elearning#}
+            <div class="row " style="border-bottom: solid 2px white;border-radius: 2px;width: 100%;padding: 10px; background: #f7f7f7;">
+                <div class="">
+                    <div class="projects-horizontal">
+                        <div class="intro">
+                            <h1 class="section_title"><i class="fa fa-graduation-cap" aria-hidden="true"
+                                                         style="font-size: 25px;"></i> {{ 'menu.E-learning'|trans }}
+                            </h1>
+                        </div>
+                        <div class="col-md-12" style="margin-top: 20px;margin-bottom: 20px; padding: 0;">
+                            <ul class="nav nav-tabs navigation_elearning">
+                                <li class="active" id="technique_tab"><a>Technique</a></li>
+                                <li class="" id="legislatives_tab"><a>Législatives</a></li>
+                            </ul>
+                        </div>
+
+                        <div id="technique_tab_container" class="col-md-12" style="padding: 0;">
+
+                            {% for Technique in Techniques %}
+                                {% if Technique.etatPub == 'Publique' %}
+                                    <div class="col-md-6 col-xs-12"
+                                         style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
+                                        <div>
+                                            <div class="col-md-5 col-sm-5 col-xs-5 single_element_image_container"
+                                                 style="padding:0;">
+                                                <a class="play__youtube__video "
+                                                   data-url-youtube="{{ Technique.Youtube }}?rel=0">
+                                                    <img class="img-fluid" src="{{ Technique.Image }}"
+                                                         style="cursor:pointer"/>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-7 col-sm-7 col-xs-7 single_element_content_container">
+                                                <a class="play__youtube__video"
+                                                   data-url-youtube="{{ Technique.Youtube }}?rel=0"><h4
+                                                            class="name">{% if  Technique.nom|length > 29 %}{{ Technique.nom|slice(0, 27) }}...{% else %}{{ Technique.nom }}{% endif %}</h4>
+                                                </a>
+                                                <p style="margin-bottom:0"><i class="fa fa-clock-o" aria-hidden="true"
+                                                                              style="margin-right:5px"></i>{{ Technique.createdAt|date('d-m-Y') }}
+                                                </p>
+                                                <p class="description"
+                                                   style="font-size: 13px;">{% if Technique.description|length > 59 %}{{ Technique.description|slice(0, 62)|raw }}... {% else %}{{ Technique.description }}{% endif %}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                        </div>
+
+                        <div id="legislatives_tab_container" class="col-md-12" style="padding: 0px;">
+
+                            {% for Legislative in Legislatives %}
+                                {% if Legislative.etatPub == 'Publique' %}
+                                    <div class="col-md-6 col-sm-6 col-xs-12"
+                                         style="background: white;border: solid #f7f7f7; padding-top: 10px; padding-bottom:10px ">
+                                        <div class="listing legislatives_single_element_container">
+
+                                            <div class="type col-md-5 col-sm-5 col-xs-5" style="padding:0;">
+                                                <a target="_blank" href="{{ Legislative.Fichier }}">
+                                                    <img src="{{ Legislative.Image|replace({'/app_dev.php': ''}) }}"
+                                                         title="Lire le document">
+                                                </a>
+                                            </div>
+                                            <div class="col-md-7 col-sm-7 col-xs-7">
+                                                <a target="_blank" href="{{ Legislative.Fichier }}">
+                                                    <h4>{% if  Legislative.Nom|length > 29 %}{{ Legislative.Nom|slice(0, 32) }}...{% else %}{{ Legislative.Nom }}{% endif %}</h4>
+                                                </a>
+                                                <p style="margin-bottom:0"><i class="fa fa-clock-o" aria-hidden="true"
+                                                                              style="margin-right:5px"></i>{{ Legislative.createdAt|date('d-m-Y') }}
+                                                </p>
+                                                <div class="details">
+                                                    <p>{% if  Legislative.Description|length > 29 %}{{ Legislative.Description|slice(0, 27)|raw }}... {% else %}{{ Legislative.Description|raw }}{% endif %}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                        </div>
+
+                        <div class="read_more_container col-md-12">
+                            <a href="{{ path('gcf_front_elearningpage') }}" style="margin-right: 10px;">
+                                <button class="button_see_more_lg">
+                                    Voir Plus
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><br>
+
+
+    <div class="col-md-12 col-sm-12" style="margin-bottom: 2px; padding: 0;">
+        <div class="projects_news">
+            <div class="row" style="max-width: 100%;">
+                <div class="col-md-12 col-sm-12 col-xs-12"
+                     style="border-bottom: solid 2px white;border-radius: 2px;background: #f7f7f7; padding: 10px;">
+
+                    <div class="intro">
+                        <h1 class="section_title"><i class="fa fa-user" aria-hidden="true"
+                                                     style="font-size: 25px;"></i> {{ 'menu.Actors'|trans }} </h1>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 20px;margin-bottom: 20px; padding:0">
+                        <ul class="nav nav-tabs navigation_actors">
+                            {% for key, secteur in secteurs %}
+                                {% if key == 0 %}
+                                    <li class="active header__tabs" id="{{ secteur.nom|replace({' ': '_'}) }}_tab">
+                                        <a>{{ secteur.nom }}</a></li>
+                                {% else %}
+                                    <li class="header__tabs" id="{{ secteur.nom|replace({' ': '_'}) }}_tab">
+                                        <a>{{ secteur.nom }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% for key, secteur in secteurs %}
+                        {% if key == 0 %}
+                            <style>
+                                #{{ secteur.nom|replace({' ': '_'}) }}_tab_container {
+                                    display: block;
+                                }
+                            </style>
+                        {% endif %}
+                        <div id="{{ secteur.nom|replace({' ': '_'}) }}_tab_container" class="_tab_container">
+                            {% set actorsNum = 0 %}
+                            {% for actor in actors %}
+                                {% if actor.secteurActeur == secteur.nom %}
+                                    {% if actor.nom != '' %}
+                                        {% if actorsNum < 4 %}
+                                            {% set actorsNum = actorsNum+1 %}
+                                            <div class="col-md-3 col-sm-3 col-xs-3 item filter_display ours"
+                                                 style="background: white;border: solid 2px #f7f7f7;">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-lg-12 col-xs-12 " style="padding: 0;">
+                                                        <a href="{{ path('gcf_front_single_actor_page',{'slug': actor.nom|lower|replace({' ': '-'}), 'id': actor.id }) }} ">
+                                                            {% if actor.logo != '' %}
+                                                                <img class="img-fluid"
+                                                                     src="{{ actor.logo|replace({'/app_dev.php': ''}) }}"
+                                                                     title="{{ actor.nom }}"
+                                                                     style=" width: 100%; height: 150px; object-fit: cover;"/>
+                                                            {% else %}
+                                                                <img class="img-fluid"
+                                                                     src="{{ asset('assets/images/empty-image.png') }}"
+                                                                     title="{{ actor.nom }}"
+                                                                     style="width: 100%; height: 150px; object-fit: cover;"/>
+                                                            {% endif %}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <div class="read_more_container col-md-12 col-sm12 col-xs-12" style="margin: 0px 10px">
+                        <a href="{{ path('gcf_front_actorspage') }}">
+                            <button class="button_see_more_lg" style="margin-top: 10px">
+                                Voir Plus
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+    <div class="index__overlay" onclick="closeVideoPopup()"></div>
+    <div class="video__home__popup">
+        <div class="video__container">
+            <a class="close__video__popup" style="position: absolute; right: 20px ; top: 0; font-size: 35px; color:gray"
+               onclick="closeVideoPopup()">&times;</a>
+            <iframe width="100%" height="100%" src=" " frameborder="0" allow="autoplay; encrypted-media"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
     <script>
-        $('.play__youtube__video').click( function () {
+        $('.play__youtube__video').click(function () {
             var videoUrl = $(this).attr('data-url-youtube');
             videoUrl = videoUrl.replace(/(.*)v=([^&]*)&?(.*)/, "https://www.youtube.com/embed/$2");
 
             $('.video__container iframe').attr('src', videoUrl);
 
             $('.index__overlay').fadeIn("slow");
-            $('.video__home__popup').fadeIn( );
-        } );
+            $('.video__home__popup').fadeIn();
+        });
+
         function closeVideoPopup() {
             $('.index__overlay').fadeOut("slow");
             $('.video__home__popup').fadeOut();
@@ -594,12 +789,12 @@
         $('.slider_projects').slick({
             dots: false,
             infinite: false,
+            speed: 2000,
             slidesToShow: 5,
-            slidesToScroll: 1,
+            slidesToScroll: 5,
 
             touchMove: false,
-            autoplay: true,
-            autoplaySpeed: 5000,
+            autoplay: false,
             responsive: [
                 {
                     breakpoint: 1023,
@@ -607,11 +802,11 @@
                         speed: 10,
                         infinite: false,
                         slidesToShow: 3,
-                        slidesToScroll: 1,
+                        slidesToScroll: 3,
                         arrows: false,
                         touchMove: true,
-                        autoplay:true,
-                        autoplaySpeed:5000
+                        autoplay: false,
+                        autoplaySpeed: 5000
 
                     }
                 },
@@ -619,24 +814,22 @@
         });
     </script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
 
-            $(".filter-button").click(function(){
+            $(".filter-button").click(function () {
                 $(".filter-button").removeClass("active");
                 $(this).addClass("active");
                 var value = $(this).attr('data-filter');
 
-                if(value == "all")
-                {
+                if (value == "all") {
                     //$('.filter').removeClass('hidden');
                     $('.filter_display').show('3000');
                 }
-                else
-                {
+                else {
 //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
 //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-                    $(".filter_display").not('.'+value).hide('3000');
-                    $('.filter_display').filter('.'+value).show('3000');
+                    $(".filter_display").not('.' + value).hide('3000');
+                    $('.filter_display').filter('.' + value).show('3000');
 
                 }
             });

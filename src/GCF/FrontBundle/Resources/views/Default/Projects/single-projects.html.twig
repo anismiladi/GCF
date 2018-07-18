@@ -25,35 +25,33 @@
     <style>
         .header__project {
             background: whitesmoke;
-            margin-bottom: 40px
         }
 
         .header__project img {
             width: 100%;
-            height: 200px;
+            height: 235px;
             object-fit: cover;
         }
         .header__project__actor i, .header__project__gouv i
         {
             margin-right: 5px
         }
-
-        .body__project {
-            background: whitesmoke;
-            margin-bottom: 40px;
-        }
-
         .boody__project__file i {
             margin-right: 5px;
-        }
-
-        .footer__project {
-            background: whitesmoke;
         }
 
         .footer__project p i {
             margin-right: 5px;
         }
+        .footer__project p a {
+            text-decoration: none;
+            color: #7ac943;
+        }
+        .footer__project p a:hover {
+            text-decoration: none;
+            color: #7ac943;
+        }
+
     </style>
 {% endblock %}
 {% block body %}
@@ -66,20 +64,26 @@
                 </div>
                 <div class="col-md-8 col-sm-8 col-xs-8">
                     <h3>{{ project.nom }}</h3>
-                    {% if project.acteur.nom!= '' %}
-                        <p class="header__project__actor"><i class="fa fa-user" aria-hidden="true"></i>
-                            {{ project.acteur.nom }}
-                        </p>
-                    {% endif %}
+
+
+                    <p class="header__project__actor"><i class="fa fa-user" aria-hidden="true"></i>
+                        {% for acteur in project.acteur %}
+                            {{ acteur }},&nbsp;
+                        {% endfor %}
+                    </p>
                     <p>
                         {# organisme #}
-                        {% if project.acteur != null %}
-                            {% if (project.acteur.secteurActeur.secteurActeurParent == null) %}
-                                {{ project.acteur.secteurActeur.nom }}<br/>
-                            {% else %}
-                                {{ project.acteur.secteurActeur.secteurActeurParent.nom }}<br/>
+                        {% for key, acteur in project.acteur %}
+                            {% if key == 0 %}
+                                {% if acteur.secteurActeur != null %}
+                                    {% if (acteur.secteurActeur.secteurActeurParent == null) %}
+                                        {{ acteur.secteurActeur.nom }}
+                                    {% else %}
+                                        {{ acteur.secteurActeur.secteurActeurParent.nom }}
+                                    {% endif %}
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
+                        {% endfor %}
                     </p>
                     {% if project.secteurProjet.nom != '' %}
                         <p>
@@ -91,7 +95,7 @@
                         <p>
                             {# focus #}
                             {% for focus in project.concentration %}
-                                {{ focus.nom }}&nbsp;
+                                {{ focus.nom }},&nbsp;
                             {% endfor %}
                         </p>
                     {% endif %}
@@ -105,18 +109,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-md-12 col-sm-12 col-xs-12 body__project " style="padding: 15px 10px 0; ">
-                {# description #}
-                <p>{{ project.description }}</p>
-                {# fichier #}
-                <p class="boody__project__file"><a href="{{ project.fichier|replace({'/app_dev.php': ''}) }}"
-                                                   target="_blank">
-                        <i class="fa fa-file" aria-hidden="true"></i> piece jointe
-                    </a>
-                </p>
-            </div>
-
-            <div class="col-md-12 col-sm-12 col-xs-12 footer__project" style="padding: 15px 10px 0; ">
+            <div class="col-md-12 col-sm-12 col-xs-12 footer__project" style="padding: 15px 0; ">
                 <p><i class="fa fa-tags" aria-hidden="true"></i>
                     {# keyword #}
                     {% for key, keyword in project.keyword %}
@@ -124,6 +117,24 @@
                     {% endfor %}
                 </p>
             </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 body__project " style="padding: 15px 0; ">
+                {# description #}
+                {{ project.description|raw }}
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 footer__project" style="padding: 15px 0; ">
+                {% if project.source %}
+                    <p><i class="fa fa-info-circle" aria-hidden="true"></i>
+                        {# DAI #}
+                        {% if project.lien %}
+                            <a href="{{ project.lien }}">{{ project.source }}  </a>
+                        {% else %}
+                            <a>{{ project.source }}  </a>
+                        {% endif %}
+                    </p>
+                {% endif %}
+            </div>
+
+
         </div>
         {% else %}
         <div class="col-md-4 col-md-offset-4" style="background: whitesmoke;padding:10px">
@@ -131,7 +142,6 @@
                 <i class="fa fa-frown-o fa-2x" aria-hidden="true"></i><br>
                 {{ 'not available'|trans }}
             </p>
-
         </div>
 
     {% endif %}

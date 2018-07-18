@@ -159,7 +159,12 @@ class Acteur extends AbstractPersonalTranslatable implements TranslatableInterfa
     private $acteurFils;
 
     /**
-     * @ORM\OneToMany(targetEntity="GCF\MainBundle\Entity\Projet", mappedBy="acteur")
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Projet", inversedBy="acteur", cascade={"persist", "remove"})
+     * @ORM\JoinTable(
+     *     name="gcf_acteur_projet",
+     *     joinColumns={@ORM\JoinColumn(name="acteur", referencedColumnName="id", nullable=false)},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="projet", referencedColumnName="id", nullable=false)}
+     * )
      */
     private $projet;
 

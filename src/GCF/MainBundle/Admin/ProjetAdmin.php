@@ -24,7 +24,7 @@ class ProjetAdmin extends AbstractAdmin
         $formMapper
             ->with('Détails du Projet ',  ['class' => 'col-md-8'])
                 ->add('nom')
-                ->add('description')
+                ->add('description',CKEditorType::class, ['required' => false])
                 ->add('concentration', ModelAutocompleteType::class,    //  )        //_autocomplete
                     array(
                         'label' => "Focus",
@@ -51,9 +51,8 @@ class ProjetAdmin extends AbstractAdmin
                     },
                     )
                 )
-                ->add('fichier', ElFinderType::class, ['instance' => 'form_pdf', 'enable' => true, 'required' => false,])
-                ->add('image', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true, 'required' => false])
             ->end()
+
             ->with(' ', ['class' => 'col-md-4'])
                 ->add('secteurProjet')
                 ->add('acteur') /*, ModelType::class,        //_autocomplete*/
@@ -70,6 +69,15 @@ class ProjetAdmin extends AbstractAdmin
                     )
                 )
 
+            ->end()
+
+            ->with('DAI', ['class'=> 'col-md-4'])
+                ->add('source')
+                ->add('lien')
+            ->end()
+
+            ->with('  ', ['class'=> 'col-md-4'])
+                ->add('image', ElFinderType::class, ['instance' => 'form_photo', 'enable' => true, 'required' => false])
             ->end();
     }
 

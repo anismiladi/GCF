@@ -92,13 +92,13 @@ h2{
     }
 }
 
-.button_see_more { padding: 5px 10px; background: #7ac943; color: white; border: 0; cursor: pointer;}
-.button_see_more_lg { padding: 5px 20px; background: #7ac943; color: white; border: 0; cursor: pointer;}
+.button_see_more {border-radius:2px; padding: 5px 10px; background: #7ac943; color: white; border: 0; cursor: pointer;}
+.button_see_more_lg {border-radius:2px; padding: 5px 20px; background: #7ac943; color: white; border: 0; cursor: pointer;}
 .button_see_more_lg:hover, .button_see_more_lg:focus { background: #6EFF00; color:white; text-decoration: none; }
 .button_see_more:hover, .button_see_more:focus { background: #6EFF00; color:white; text-decoration: none; }
 
-.button_see_more_dg { padding: 5px 10px; background: #22AA86; color: white; border: 0; cursor: pointer;}
-.button_see_more_lg_dg {  padding: 5px 20px; background: #22AA86; color: white; border: 0; cursor: pointer; }
+.button_see_more_dg {border-radius:2px; padding: 5px 10px; background: #22AA86; color: white; border: 0; cursor: pointer;}
+.button_see_more_lg_dg {border-radius:2px;  padding: 5px 20px; background: #22AA86; color: white; border: 0; cursor: pointer; }
 .button_see_more_lg_dg:hover, .button_see_more_lg_dg:focus { background: #2bd9ac; color:white; text-decoration: none; }
 .button_see_more_dg:hover, .button_see_more_dg:focus { background: #2bbd90; color:white;  text-decoration: none; }
 
@@ -342,7 +342,7 @@ header and top bar
 
 
 
-.green_Blogger_btn{ cursor:pointer; padding: 5px 10px !important; border-radius: 0; margin: 0px auto;background: #7ac943;}
+.green_Blogger_btn{ cursor:pointer; padding: 5px 10px !important; border-radius: 50px; margin: 0px auto;background: #7ac943;}
 .affix .green_Blogger_btn{ padding-bottom: 5px !important;  padding-top: 5px !important; margin: 5px 0; }
 
 .green_Blogger_btn:hover{ background: #6EFF00 !important; }
@@ -393,7 +393,7 @@ header and top bar
     margin: 0 !important; }
 
 .home_banner_search .easy-autocomplete input, .home_banner_search select, .home_banner_search button{
-    border-radius: 0;
+    border-radius: 2px;
     height: unset;
     padding: 10px 10px !important;
     font-weight: 700;
@@ -418,7 +418,7 @@ header and top bar
     white-space: nowrap;
 }
 .home_banner_search .easy-autocomplete input, .home_banner_search select, .home_banner_search button {
-    border-radius: 0;
+    border-radius: 2px;
     height: unset;
     padding: 10px 10px !important;
     font-weight: 700;
@@ -565,14 +565,13 @@ Newsletter and goTop buttons
     background: white;
     border-radius: 50%;
 }
-#mc_embed_signup_scroll input{
-    border-radius:0 !important;
-}
+
 #mc_embed_signup_scroll .button{
     background:#7ac943 !important;
 }
 #mc_embed_signup_scroll .button:hover{
     background:#6EFF00 !important;
+    border-radius:2px;
 }
 
 .my_newsletter_modal{
@@ -613,7 +612,7 @@ Newsletter and goTop buttons
     text-align: center;
     vertical-align: middle;
     background-color: #7ac943;
-    /* border-radius: 52px; */
+    border-radius: 50%;
     font-size: 24px;
     color: #fff;
     position: fixed;
@@ -630,14 +629,14 @@ Newsletter and goTop buttons
     text-align: center;
     vertical-align: middle;
     background-color: #7ac943;
-    /* border-radius: 52px; */
+    border-radius: 50%;
     font-size: 24px;
     color: #fff;
     position: fixed;
     cursor: pointer;
     z-index: 999;
     bottom: 55px;
-    right: 0;
+    right: 20px;
 }
 /*
 ======================
@@ -701,12 +700,10 @@ Block footer copyright
 .footer_logo_GCF{
     margin: auto;
     max-height: 70px;
-    width: 135px;
 }
 .footer_logo_GCF img{
     margin: auto;
     max-height: 70px;
-    width: 129px;
     max-width: 100%;
 }
 .footer_logo_RAJ{

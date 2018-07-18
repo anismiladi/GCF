@@ -139,7 +139,7 @@
 
                         <th>Gouvernorat</th>
 
-                        <th>Organisme</th>
+                        <th>Acteur</th>
 
                         <th>Secteur</th>
 
@@ -157,22 +157,31 @@
                             </td>
 
                             <td>
+                                <ul>
                                 {% for gouvernorat in project.gouvernorat %}
-                                    {{ gouvernorat.nom }}
+                                    <li>{{ gouvernorat.nom }}</li>
                                 {% endfor %}
+                                </ul>
                             </td>
 
                             {#organisme---->#}
                             <td>
-                                {% if project.acteur != null %}
-                                    {% if project.acteur.secteurActeur != null %}
-                                        {% if (project.acteur.secteurActeur.secteurActeurParent == null) %}
-                                            {{ project.acteur.secteurActeur.nom }}
-                                        {% else %}
-                                            {{ project.acteur.secteurActeur.secteurActeurParent.nom }}
+                                <ul>
+
+                                {% for key, acteur in project.acteur %}
+                                    {% if key == 0 %}
+                                        {% if acteur.secteurActeur != null %}
+                                            {% if (acteur.secteurActeur.secteurActeurParent == null) %}
+                                                <li>{{ acteur.nom }}</li>
+                                                <p hidden>{{ acteur.secteurActeur.nom }}</p>
+                                            {% else %}
+                                                <li>{{ acteur.nom }}</li>
+                                                <p hidden>{{ acteur.secteurActeur.secteurActeurParent.nom }}</p>
+                                            {% endif %}
                                         {% endif %}
                                     {% endif %}
-                                {% endif %}
+                                {% endfor %}
+                                </ul>
                             </td>
 
                             <td>{{ project.secteurProjet.nom }}</td>
@@ -377,12 +386,6 @@
                             toAppend += '</td>';
                         }
                         toAppend += '</tr>';
-                    }
-                    if(result.fichierUrl !== ''){
-                        toAppend +=  '<tr>';
-                        toAppend +=  '<td class="line_name">Fichier</td>';
-                        toAppend +=  '<td><a href="'+  result.fichierUrl.replace('/app_dev.php','')+'" target="_blank">fichier</a></td>';
-                        toAppend +=  '</tr>';
                     }
                     if(result.motsCles.length > 0) {
                         toAppend += '<tr>';

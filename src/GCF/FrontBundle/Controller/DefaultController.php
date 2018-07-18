@@ -21,8 +21,6 @@ class DefaultController extends Controller
 
     public function indexAction(){
 
-        $pageTitle = 'Accueil';
-
         $em = $this->getDoctrine()->getManager();
 
         $projects = $em->getRepository('GCFMainBundle:Projet')->findAll();
@@ -42,7 +40,7 @@ class DefaultController extends Controller
                 }
             }
 
-            if( $i>0 )
+
             $nbrProj[$sector->getNom()] = array('nbr' => $i, 'url' => $sector->getLogo() );
 
         }
@@ -86,7 +84,6 @@ class DefaultController extends Controller
 
         return $this->render('@GCFFront/Default/index.html.twig',array(
             'actualities' => $actualities,
-            'pageTitle' => $pageTitle,
             'ProjectsBySector' => $nbrProj,
 
             'events' => $events,

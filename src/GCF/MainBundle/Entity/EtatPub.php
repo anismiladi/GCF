@@ -357,4 +357,30 @@ class EtatPub extends AbstractPersonalTranslatable implements TranslatableInterf
     {
         return $this->translations->removeElement($translation);
     }
+
+    /**
+     * Add actuality.
+     *
+     * @param \GCF\MainBundle\Entity\Actualites $actuality
+     *
+     * @return EtatPub
+     */
+    public function addActuality(\GCF\MainBundle\Entity\Actualites $actuality)
+    {
+        $this->actualities[] = $actuality;
+
+        return $this;
+    }
+
+    /**
+     * Remove actuality.
+     *
+     * @param \GCF\MainBundle\Entity\Actualites $actuality
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeActuality(\GCF\MainBundle\Entity\Actualites $actuality)
+    {
+        return $this->actualities->removeElement($actuality);
+    }
 }

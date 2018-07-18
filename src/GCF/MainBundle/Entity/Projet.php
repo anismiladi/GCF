@@ -36,6 +36,52 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     /**
      * @var string
      *
+     * @ORM\Column(name="source", type="string", length=255, nullable=true)
+     */
+    private $source;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lien", type="string", length=255, nullable=true)
+     */
+    private $lien;
+
+    /**
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param string $source
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLien()
+    {
+        return $this->lien;
+    }
+
+    /**
+     * @param string $lien
+     */
+    public function setLien($lien)
+    {
+        $this->lien = $lien;
+    }
+
+    /**
+     * @var string
+     *
      * @Gedmo\Translatable
      * @ORM\Column(name="description", type="text")
      */
@@ -89,8 +135,7 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     private $publication;
 
     /**
-     * @ORM\ManyToOne(targetEntity="GCF\MainBundle\Entity\Acteur", inversedBy="projet")
-     * @ORM\JoinColumn(name="acteur", referencedColumnName="id", nullable=true)
+     * @ORM\ManyToMany(targetEntity="GCF\MainBundle\Entity\Acteur", inversedBy="projet")
      */
     private $acteur;
 
@@ -446,5 +491,31 @@ class Projet extends AbstractPersonalTranslatable implements TranslatableInterfa
     public function getConcentration()
     {
         return $this->concentration;
+    }
+
+    /**
+     * Add acteur.
+     *
+     * @param \GCF\MainBundle\Entity\Acteur $acteur
+     *
+     * @return Projet
+     */
+    public function addActeur(\GCF\MainBundle\Entity\Acteur $acteur)
+    {
+        $this->acteur[] = $acteur;
+
+        return $this;
+    }
+
+    /**
+     * Remove acteur.
+     *
+     * @param \GCF\MainBundle\Entity\Acteur $acteur
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeActeur(\GCF\MainBundle\Entity\Acteur $acteur)
+    {
+        return $this->acteur->removeElement($acteur);
     }
 }
