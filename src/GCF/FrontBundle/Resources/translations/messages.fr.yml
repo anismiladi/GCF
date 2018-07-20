@@ -18,6 +18,10 @@ menu:
   Library: Bibliotèque
   Partners: Nos Partenaires
 
+index:
+  Legislative: Législative
+  Technical: Technique
+
 search:
   Actors: Acteurs
   Projects: Projets
@@ -63,3 +67,16 @@ actuality:
 events:
   See more events: Voir plus d'évenement
 
+project:
+  All Governorates: Tous les Gouvernorats
+  All Organizations: Tous les Organismes
+  All Sectors: Tous les Secteurs
+  All Focus: Tous les Focus
+
+gbpopup:
+  title: Green Blogger
+  your email: Votre email
+  your last name: Votre nom
+  your first name: Votre prénom
+  title of the article: Titre de l'article
+  send: Envoyer

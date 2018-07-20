@@ -50,7 +50,8 @@ class AppKernel extends Kernel
             //new MediaMonks\SonataMediaBundle\MediaMonksSonataMediaBundle(),
             
             new FOS\UserBundle\FOSUserBundle(),
-            
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
             new GCF\MainBundle\GCFMainBundle(),
             new GCF\FrontBundle\GCFFrontBundle(),
         ];

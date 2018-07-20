@@ -10,10 +10,11 @@ namespace GCF\FrontBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ElearningController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $TypeTechnique = $em->getRepository('GCFMainBundle:CatLearning')->findOneById(1);
@@ -34,7 +35,13 @@ class ElearningController extends Controller
 
 
         $elearningCategories = $em->getRepository('GCFMainBundle:CatLearning')->findAll();
-        $elearning = $em->getRepository('GCFMainBundle:Elearning')->findAll();
+        $elearninglist = $em->getRepository('GCFMainBundle:Elearning')->findAll();
+
+        $elearning  = $this->get('knp_paginator')->paginate(
+            $elearninglist,
+            $request->query->get('page', 1)/*le numéro de la page à afficher*/,
+            10/*nbre d'éléments par page*/
+        );
 
         return $this->render('@GCFFront/Default/Elearning/e-learning.html.twig',array(
             'Techniques' => $Techniques,

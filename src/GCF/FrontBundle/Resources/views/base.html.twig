@@ -41,11 +41,54 @@
     {% block headjs %}{% endblock %}
     <style>
         {% if app.request.locale == 'ar_TN' %}
+        .close__video__popup{
+            right: unset !important;
+            left: 20px !important;
+        }
+        .language_container{
+            float: right;
+            direction: rtl;
+            padding: inherit!important;
+        }
+        .menu_top_bar_container{
+            text-align: left;
+        }
+        .menu_top_bar_container a{
+            padding: 0 20px 0 0;
+        }
+        .menu_top_bar_container a i.fa{
+            margin: 0 10px 0 0;
+        }
+        .navbar.navbar-default{
+
+        }
+            .navbar-header{
+                float: right;
+            }
+            .collapse.navbar-collapse{
+                float: left;
+            }
             body{
                 direction: rtl;
             }
             .navbar-nav>li>a{
                 font-family: MyriadPro-Regular !important;
+            }
+            .row{
+                margin:0 !important;
+            }
+            i.fa {
+                margin: 0 10px 0;
+            }
+
+            .breadcrump__title{
+                float: right;
+            }
+            .breadcrump__title h1{
+                text-align: right;
+            }
+            .breadcrump__schema{
+                text-align: left !important;
             }
         {% endif %}
     </style>
@@ -76,10 +119,15 @@
             </div>
 
             <div class="col-md-6 col-sm-6 col-xs-12 menu_top_bar_container" >
-                <a href="{{ path('gcf_front_event_page') }}"><i class="fa fa-star" aria-hidden="true"></i> {{ 'menu.Events'|trans }}</a>
-                {#<a href="#">{{ 'menu.Library'|trans }}</a>#}
-                <a href="{{ path('gcf_front_contactpage') }}"><i class="fa fa-envelope" aria-hidden="true"></i> {{ 'menu.Contact-us'|trans }}</a>
-            </div>
+                {% if app.request.locale == 'ar_TN' %}
+                    <a href="{{ path('gcf_front_event_page') }}">{{ 'menu.Events'|trans }}<i class="fa fa-star" aria-hidden="true"></i></a>
+                    <a href="{{ path('gcf_front_contactpage') }}">{{ 'menu.Contact-us'|trans }}<i class="fa fa-envelope" aria-hidden="true"></i></a>
+
+                {% else %}
+                    <a href="{{ path('gcf_front_event_page') }}"><i class="fa fa-star" aria-hidden="true"></i> {{ 'menu.Events'|trans }}</a>
+                    <a href="{{ path('gcf_front_contactpage') }}"><i class="fa fa-envelope" aria-hidden="true"></i> {{ 'menu.Contact-us'|trans }}</a>
+                {% endif %}
+                </div>
 
         </div>
     </div>
@@ -104,27 +152,52 @@
 
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a onclick="openAbout()" style="cursor: pointer;">{{ 'menu.About'|trans }}</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('gcf_front_actorspage') }}">{{ 'menu.Actors'|trans }}</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('gcf_front_projectspage') }}">{{ 'menu.Projects'|trans }}</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('gcf_front_publicationspage') }}">{{ 'menu.Publications'|trans }}</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('gcf_front_elearningpage') }}">{{ 'menu.E-learning'|trans }}</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('gcf_front_actualitypage') }}">{{ 'menu.News'|trans }}</a>
-                            </li>
-                            <li>
-                                <a class="green_Blogger_btn" onclick="showGBpopup()" style="color: white !important;">{{ 'menu.GreenBlogger'|trans }}</a>
-                            </li>
+                            {% if app.request.locale == 'ar_TN' %}
+                                <li>
+                                    <a class="green_Blogger_btn" onclick="showGBpopup()" style="color: white !important;">{{ 'menu.GreenBlogger'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gcf_front_actualitypage') }}">{{ 'menu.News'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gcf_front_elearningpage') }}">{{ 'menu.E-learning'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gcf_front_publicationspage') }}">{{ 'menu.Publications'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gcf_front_projectspage') }}">{{ 'menu.Projects'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gcf_front_actorspage') }}">{{ 'menu.Actors'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a onclick="openAbout()" style="cursor: pointer;">{{ 'menu.About'|trans }}</a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a onclick="openAbout()" style="cursor: pointer;">{{ 'menu.About'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gcf_front_actorspage') }}">{{ 'menu.Actors'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gcf_front_projectspage') }}">{{ 'menu.Projects'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gcf_front_publicationspage') }}">{{ 'menu.Publications'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gcf_front_elearningpage') }}">{{ 'menu.E-learning'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gcf_front_actualitypage') }}">{{ 'menu.News'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a class="green_Blogger_btn" onclick="showGBpopup()" style="color: white !important;">{{ 'menu.GreenBlogger'|trans }}</a>
+                                </li>
+                            {% endif %}
+
                         </ul>
                     </div>
                 </div>
@@ -166,12 +239,12 @@
 
         <div class="under_header_navigation" style=" background-image: url('{{ asset('assets/images/BACKGROUND.jpg') }}') ">
             <div class="container custom_breadcrumb">
-                <div class="col-md-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div>
-                        <div class=" col-md-6" >
+                        <div class=" col-md-6 col-sm-6 col-xs-6 breadcrump__title" >
                             <h1>{% block pageTitle %} {% endblock %}</h1>
                         </div>
-                        <div class=" col-md-6 breadcrump__schema">
+                        <div class=" col-md-6 col-sm-6 col-xs-6 breadcrump__schema">
 
                            {% block breadcrump %} {% endblock %}
 
@@ -232,7 +305,7 @@
                             font-weight: 600;
                         }
                         .fc-head-container table thead {
-                            background: #22aa86;
+                            background: #7ac943;
                         }
                         .fc-head-container table thead th{
                             color: white;
@@ -249,11 +322,12 @@
                             height: auto !important;
                         }
                         .fc-event, .fc-event-dot{
-                            background: #7ac943;
-                            border-color: #7ac943;
+                            background: #C4FFBA;
+                            border-color: #C4FFBA;
+                            color: gray;
                         }
                         .fc-unthemed td.fc-today{
-                            background: #baef96;
+                            background: #C4FFBA;
                         }
                     </style>
                 {% else %}
@@ -339,7 +413,6 @@
                 <div class="col-md-4 col-sm-4 footer_logo_description item" >
                     <div class="footer_social_media_header">
                         <a class="footer_logo_GCF col-md-6 col-sm-6 col-xs-6" style="padding: 0;" ><img  src="{{ asset('assets/images/GCF-Logo-V1.png') }}" alt="GCF"></a>
-                        <div class="footer_social_media_separate_logos"></div>
                         <a class="footer_logo_RAJ col-md-6 col-sm-6 col-xs-6" style="padding: 0;" href="https://www.raj-tunisie.org/"><img  src="{{ asset('assets/images/RAJ-red-logo.png') }}" alt="RAJ"></a>
                     </div>
                     <div class="footer_description_GCF">
@@ -354,7 +427,7 @@
                 <div class="col-md-4 col-sm-4 footer_social_media">
 
                     <div class="footer_social_media_header">
-                        <h3>Contact</h3>
+                        <h3>{{ 'menu.Contact-us'|trans }}</h3>
                     </div>
                     <div class="item footer_social_body">
                         <div class="item_contact_footer" >
@@ -492,7 +565,7 @@
     //====================================
     CKEDITOR.replace( 'gb_article_content',{
         extraPlugins: 'language',
-        language_list: [ 'fr:French',  'en:Fnglish', 'ar:Arabic:rtl' ],
+        language_list: [ 'fr:French',  'en:Fnglish', 'ar_TN:Arabic:rtl' ],
         toolbarGroups: [
             {"name":"basicstyles","groups":["basicstyles"]},
             {"name":"paragraph","groups":["align"]},

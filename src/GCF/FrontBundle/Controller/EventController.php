@@ -21,9 +21,15 @@ class EventController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $evenements = $em->getRepository('GCFMainBundle:Event')->findBy(
+        $evenementsList = $em->getRepository('GCFMainBundle:Event')->findBy(
             array(),
             array('debut'=> 'desc')
+        );
+
+        $evenements  = $this->get('knp_paginator')->paginate(
+            $evenementsList,
+            $request->query->get('page', 1)/*le numéro de la page à afficher*/,
+            10/*nbre d'éléments par page*/
         );
 
         $eventByDate = $em->getRepository('GCFMainBundle:Event')->findEvent();

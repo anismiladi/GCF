@@ -14,7 +14,7 @@
             font-weight: 600;cursor: pointer;
         }
         .navigation_elearning a{
-            color: #22AA86;
+            color: #7ac943;
         }
         #legislatives_tab_container{
             display: none;
@@ -213,7 +213,7 @@
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="listing">
                                     <h4><a class="play__youtube__video" data-url-youtube="{{ learning.Youtube }}?rel=0" data-description-youtube="{{ learning.Description|raw }}" data-tags-youtube="{% for keyword in learning.keyword %} {{ keyword.label }}, {% endfor %}" style="cursor: pointer">{{ learning.Nom }}</a></h4>
-                                    <div class="type">
+                                    <div class="type" style="direction: ltr">
                                         <a class="play__youtube__video" data-url-youtube="{{ learning.Youtube }}?rel=0" data-description-youtube="{{ learning.Description|raw }}" data-tags-youtube="{% for keyword in learning.keyword %} {{ keyword.label }}, {% endfor %}" style="cursor: pointer" title="{{ 'elearningPage.Read this video'|trans }}">
                                             <img class="img-fluid" src="{{ learning.Image }}" style="cursor:pointer" />
                                             <span style="position: absolute; top: 10px; left: 12px; color: red; right: 10px; font-size: 12px; font-weight: 600;"><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
@@ -242,6 +242,8 @@
             </div>
 
         {% endfor %}
+
+        <div class="text-center col-md-12 col-sm-12 col-xs-12">{{ knp_pagination_render(elearning) }}</div>
     </div>
 
     <div class="index__overlay" onclick="closeVideoPopup()"></div>

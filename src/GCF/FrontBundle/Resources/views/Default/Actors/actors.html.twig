@@ -45,7 +45,7 @@
             /*border-radius: 3px;*/
         /*}*/
 
-        #accordion .panel-default .panel-heading{cursor: pointer}
+        #accordion .panel-default .panel-heading{cursor: pointer; color: white; background: #7ac943;}
 
         .hierarchie_result_lvl ul{ padding-left: 15px }
 
@@ -132,15 +132,15 @@
 {% block body %}
 
 
-    <div class="col-md-12">
+    <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="row">
-            <div class="col-md-4" style="padding-left:0">
+            <div class="col-md-4 col-sm-4 " style="padding-left:0">
                 <div class="panel-group" id="accordion">
                     {% for key, sector in sectors %}
 
                         <div class="panel panel-default">
                             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ key }}" >
-                                <h2 class="panel-title">
+                                <h2 class="panel-title" style="font-weight: 600;    font-size: 14px;">
                                     <a href="{{ path('gcf_front_actorssectorpage', { 'id': sector.id}) }}" style="text-decoration: none;">{{ sector.nom }}</a>
                                      <i class="fa fa-caret-down" aria-hidden="true" style="float:right"></i>
                                 </h2>
@@ -153,7 +153,7 @@
                                 <ul class="list-group">
                                     {% for actor in actors %}
                                         {% if ( actor.secteurActeur ==  sector.nom ) %}
-                                            <li class="list-group-item"><a href="{{ path('gcf_front_actorssectorpage', { 'id': sector.id}) }}"> {{ actor.nom }}</a> </li>
+                                            <li class="list-group-item"><a href="{{ path('gcf_front_actorssectorpage', { 'id': sector.id}) }}" style="color: #7ac943; text-decoration: none !important;"> {{ actor.nom }}</a> </li>
                                         {% endif %}
                                     {% endfor %}
                                 </ul>
@@ -164,7 +164,7 @@
                 </div>
             </div>
 
-            <div class="col-md-8">
+            <div class="col-md-8 col-sm-8 ">
                 <div class="hierarchie_result_lvl">
 
                 {% block actorsSector %}
@@ -172,11 +172,13 @@
                     {% for sector in sectors %}
                         {% set i = i + 1 %}
                         <h1>{{ sector.nom }}</h1>
-                        <div class="col-md-12">  
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             {% for actor in mainactors[sector.id].actors %}
-                                <div class="col-md-4" style="margin-bottom: 20px;">
-                                    <img src="{% if actor.logo != '' %}{{ actor.logo|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" alt="{{ actor.nom }}" onclick="seeDetails( {{ actor.id }} )" style="cursor:pointer;width: 100%; max-width: 100%; object-fit: cover; height:100px;">
+                                {% if actor.nom %}
+                                <div class="col-md-4 col-sm-4 col-xs-4" style="margin-bottom: 20px;">
+                                    <img src="{% if actor.logo != '' %}{{ actor.logo|replace({'/app_dev.php': ''}) }}{% else %}{{ asset('assets/images/empty-image.png') }}{% endif %}" alt="{{ actor.nom }}" title="{{ actor.nom }}" onclick="seeDetails( {{ actor.id }} )" style="    border-radius: 5px;cursor:pointer;width: 100%; max-width: 100%; object-fit: cover; height:140px;">
                                 </div>
+                                {% endif %}
                             {% endfor %}
                         </div>
                     {% endfor %}
@@ -191,7 +193,7 @@
     <div class="page_overlay" onclick="closePop()">
     </div>
     <div class="popup_details_container">
-        <div class="popup_details_container_inner col-md-12"></div>
+        <div class="popup_details_container_inner col-md-12 col-sm-12 col-xs-12"></div>
     </div>
 
 {% endblock %}
@@ -217,9 +219,9 @@
                     urlSingle = urlSingle.replace('slug', result.nom);
                     var toAppend = '';
                     toAppend =  ' <a class="close__actor__popup"  onclick="closePop()">×</a>'
-                    toAppend += '<div class="popup__card col-md-12 col-xs-12">';
+                    toAppend += '<div class="popup__card col-md-12 col-sm-12 col-xs-12">';
                     toAppend += ' <div class="card__actor__header">';
-                    toAppend += '<div class="col-md-4 col-xs-4">';
+                    toAppend += '<div class="col-md-4 col-sm-4 col-xs-4">';
                     toAppend += '<div style="border: solid 1px; height:115px">';
                     if ( result.logo !== ''){
                         toAppend += '<img src="'+result.logo.replace('/app_dev.php', '')+'" alt="'+result.nom+'" class="card__actor__img">';
@@ -230,7 +232,7 @@
 
                     toAppend += '</div>';
                     toAppend += '</div>';
-                    toAppend += '<div class="col-md-8 col-xs-8">';
+                    toAppend += '<div class="col-md-8 col-sm-8 col-xs-8">';
                     toAppend += '<h3 style="margin-top: 0;">'+result.nom+'</h3>';
                     if(result.siteweb != null) {
                         toAppend += '<h4><i class="fa fa-globe" aria-hidden="true" style="margin-right: 10px;"></i>' + result.siteweb + '</h4>';
@@ -238,10 +240,10 @@
                     toAppend += '</div>';
                     toAppend += '</div>';
 
-                    toAppend += '<div class="card__actor__body col-md-12 col-xs-12">';
+                    toAppend += '<div class="card__actor__body col-md-12 col-sm-12 col-xs-12">';
                     toAppend += '<p>'+result.description.slice(0, 440)+'...</p>';
                     toAppend += '</div>';
-                    toAppend += '<div class="card__actor__footer col-md-12 col-xs-12">';
+                    toAppend += '<div class="card__actor__footer col-md-12 col-sm-12 col-xs-12">';
                     toAppend += '<a href="'+urlSingle+'" class="btn btn-default btn-block" >Voir les détails</a>';
                     toAppend += '</div>';
                     toAppend += '</div>';

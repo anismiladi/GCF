@@ -36,7 +36,7 @@
 </style>
 {#map title#}
 <div class="row">
-    <h4 align="center" style="border-radius: 2px;color: white; background: #4e9100; margin:0 0 10px; padding: 5px 0;"> {{ 'map_titie'|trans }} </h4>
+    <h4 align="center" style="border-radius: 5px;color: white; background: #4e9100; margin:0 0 10px; padding: 5px 0;"> {{ 'map_titie'|trans }} </h4>
 </div>
 
 
@@ -76,7 +76,7 @@
     {% endfor %}
 </svg>
 
-<svg style="max-width: 100%; border:solid 1px #e7e7e7; display: flex ;max-height: 90px ">
+<svg style="max-width: 100%; border:solid 1px #e7e7e7; display: flex ;max-height: 90px;direction: ltr; margin-top: -51px ">
     <circle cx="30" cy="35" r="{{ (1)*10 }}" fill="green" fill-opacity="0.40"  />
     <text x="10" y="70" fill="black" style="font-size: 13px;">{{ 'from'|trans }} 0 {{ 'to'|trans }} {{(interNbProjets*1)}}</text>
 

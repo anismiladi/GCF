@@ -10,15 +10,20 @@ namespace GCF\FrontBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ActualityController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $actualities = $em->getRepository('GCFMainBundle:Actualites')->findAll(array(), array('createdAt' => 'DESC'));
-
+        $actualitieslist = $em->getRepository('GCFMainBundle:Actualites')->findAll(array(), array('createdAt' => 'DESC'));
+        $actualities  = $this->get('knp_paginator')->paginate(
+            $actualitieslist,
+            $request->query->get('page', 1)/*le numéro de la page à afficher*/,
+            9/*nbre d'éléments par page*/
+        );
         return $this->render('@GCFFront/Default/Actuality/actuality.html.twig',array(
             'actualities' => $actualities
         ));

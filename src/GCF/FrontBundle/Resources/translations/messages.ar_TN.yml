@@ -18,6 +18,10 @@ menu:
   Library: المكتبة
   Partners: شركاؤنا
 
+index:
+  Legislative: تشريعي
+  Technical: تقني
+
 search:
   Actors: المتدخلون
   Projects: المشاريع
@@ -65,3 +69,17 @@ actuality:
 
 events:
   See more events: شاهد المزيد من الأحداث
+
+project:
+  All Governorates: جميع المحافظات
+  All Organizations: جميع المنظمات
+  All Sectors: جميع القطاعات
+  All Focus: كل التركيز
+
+gbpopup:
+  title: المدون الأخضر
+  your email: بريدك الالكتروني
+  your last name: الإسم
+  your first name: اللقب
+  title of the article: عنوان المقال
+  send: إرسال

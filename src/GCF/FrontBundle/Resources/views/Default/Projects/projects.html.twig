@@ -15,7 +15,7 @@
         .paginate_button.previous, .paginate_button.next{ display: none; }
 
         .filter_container{margin: 10px 0; padding: 0; border-left: solid #7ac943;}
-        .filter_select_projects{width: 100%; max-width:100%; margin: 5px 0; padding: 5px 5px !important; outline: none; font-weight: 600}
+        .filter_select_projects{border-radius:5px; width: 100%; max-width:100%; margin: 5px 0; padding: 5px 5px !important; outline: none; font-weight: 600}
         .filter_select_projects option{color:gray}
         #myTable thead tr{background: #7ac943; color: white;}
     </style>
@@ -96,7 +96,7 @@
     <div class="col-md-12 filter_container">
         <div class="col-md-3">
             <select class="filter_select_projects col-md-12" name="" id="byGouvernorate">
-                <option value="" >Tous les Gouvernorats</option>
+                <option value="" >{{ 'project.All Governorates'|trans }}</option>
                 {% for gouv in gouvernorates  %}
                     <option value="{{ gouv.nom }}">{{ gouv.nom }}</option>
                 {% endfor %}
@@ -104,7 +104,7 @@
         </div>
         <div class="col-md-3">
             <select class="filter_select_projects col-md-12" name="" id="byOrganisme" >
-                <option value="" > Tous les Organismes</option>
+                <option value="" >{{ 'project.All Organizations'|trans }}</option>
                 {% for organisme in organismes  %}
                     <option value="{{ organisme.nom }}">{{ organisme.nom}}</option>
                 {% endfor %}
@@ -112,7 +112,7 @@
         </div>
         <div class="col-md-3">
             <select class="filter_select_projects col-md-12" name="" id="bySecteur">
-                <option value="" >Tous les Secteurs</option>
+                <option value="" >{{ 'project.All Sectors'|trans }}</option>
                 {% for secteur in secteurs  %}
                         <option value="{{ secteur.nom }}">{{ secteur.nom }}</option>
                 {% endfor %}
@@ -120,7 +120,7 @@
         </div>
         <div class="col-md-3">
             <select class="filter_select_projects col-md-12" name="" id="byFocus">
-                <option value="" >Tous les Focus</option>
+                <option value="" >{{ 'project.All Focus'|trans }}</option>
                 {% for focus in focuss  %}
                     <option value="{{ focus.nom }}">{{ focus.nom }}</option>
                 {% endfor %}
@@ -131,7 +131,7 @@
 
     <div class="col-md-12">
         <div class="table-responsive">
-            <table id="myTable" class="table table-bordered table-striped display" cellspacing="0">
+            <table id="myTable" class="table table-bordered table-striped display" cellspacing="0" style="border-radius:5px;">
                 <thead>
 
                     <tr>
@@ -157,7 +157,7 @@
                             </td>
 
                             <td>
-                                <ul>
+                                <ul style="padding-left: 15px;">
                                 {% for gouvernorat in project.gouvernorat %}
                                     <li>{{ gouvernorat.nom }}</li>
                                 {% endfor %}
@@ -166,7 +166,7 @@
 
                             {#organisme---->#}
                             <td>
-                                <ul>
+                                <ul style="padding-left: 15px;">
 
                                 {% for key, acteur in project.acteur %}
                                     {% if key == 0 %}
@@ -188,7 +188,7 @@
 
                             {% spaceless %}
                             <td>
-                                <ul>
+                                <ul style="padding-left: 15px;">
                                     {% for focus in project.concentration %}
                                         <li>{{ focus.nom}}</li>
                                     {% endfor %}

@@ -13,10 +13,14 @@ menu:
   Search: Search
   News: News
   GreenBlogger: Green Blogger
-  Contact-us: Contactez-nous
+  Contact-us: Contact-us
   Events: Events
   Library: Bibliotèque
   Partners: Our partners
+
+index:
+  Legislative: Legislative
+  Technical: Technical
 
 search:
   Actors: Actors
@@ -45,7 +49,7 @@ mailchampNewsletter:
   Subscribe: Subscribe
 
 contactPage:
-  Contact-us: Contactez-nous
+  Contact-us: Contact-us
   Where to find us: Where to find us
   Leave us a message: Leave us a message
   Name: Name
@@ -65,3 +69,17 @@ actuality:
 
 events:
   See more events: See more events
+
+project:
+  All Governorates: All Governorates
+  All Organizations: All Organizations
+  All Sectors: All Sectors
+  All Focus: All Focus
+
+gbpopup:
+  title: Green Blogger
+  your email: Your email
+  your last name: Your last name
+  your first name: Your first name
+  title of the article: Title of the article
+  send: Send

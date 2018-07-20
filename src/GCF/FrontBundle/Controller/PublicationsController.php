@@ -11,19 +11,23 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PublicationsController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $publications = $em->getRepository('GCFMainBundle:Publication')->findBy(
+        $publicationslist = $em->getRepository('GCFMainBundle:Publication')->findBy(
             array( ),
             array('createdAt' => 'desc')
         );
         
-        foreach($publications as $notrepublication){
+        foreach($publicationslist as $notrepublication){
             $notrepublication->setFeaturedImage(preg_replace("/app_dev.php\//", "", $notrepublication->getFeaturedImage()));       //$notrepublication->setsetFeaturedImage
         }
-
+        $publications  = $this->get('knp_paginator')->paginate(
+            $publicationslist,
+            $request->query->get('page', 1)/*le numéro de la page à afficher*/,
+            10/*nbre d'éléments par page*/
+        );
         $catsPub = $em ->getRepository('GCFMainBundle:CatPublication')->findAll();
 
         return $this->render('@GCFFront/Default/Publications/publications.html.twig', array(
